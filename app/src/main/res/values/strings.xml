@@ -10,7 +10,31 @@
     <string name="location_prompt">Choose a location</string>
 
     <string-array name="location_arrays">
+        <item> </item>
         <item>Pharmacy</item>
+        <item>Laboratory</item>
+        <item>Isolation Ward</item>
+        <item>Registration Desk</item>
+        <item>Inpatient Ward</item>
+        <item>Outpatient Ward</item>
+        <item>Other/Field</item>
+    </string-array>
+
+    <string-array name="occupation_arrays">
+        <item> </item>
+        <item>Unknown</item>
+        <item>Unemployed</item>
+        <item>Farmer</item>
+        <item>Trader</item>
+        <item>Employee</item>
+        <item>Retired</item>
+        <item>Student</item>
+        <item>Driver</item>
+    </string-array>
+
+    <string-array name="education_arrays">
+        <item> </item>
+        <item>Secondary</item>
         <item>Laboratory</item>
         <item>Isolation Ward</item>
         <item>Registration Desk</item>
