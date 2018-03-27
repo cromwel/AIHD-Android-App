@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +21,7 @@ import org.aihdint.aihd.Login;
 import org.aihdint.aihd.Patients;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Register;
+import org.aihdint.aihd.DM_FollowUp;
 
 /**
  * Developed by Rodney on 20/03/2018.
@@ -93,6 +93,9 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         } else if (id == R.id.nav_dm_initial) {
             Intent dm_initial = new Intent(mContext.getApplicationContext(), DM_Initial.class);
             mContext.startActivity(dm_initial);
+        } else if (id == R.id.nav_dm_follow_up) {
+            Intent dm_followup = new Intent(mContext.getApplicationContext(), DM_FollowUp.class);
+            mContext.startActivity(dm_followup);
         }else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
