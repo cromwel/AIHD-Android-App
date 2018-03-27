@@ -5,6 +5,8 @@
     <color name="colorAccent">#ff0000</color>
 
     <color name="background">#f5f7fa</color>
+    <color name="background_header">#ff7100</color>
+    <color name="background_inner">#00b4ef</color>
     <color name="view_background">#e8ecfa</color>
     <color name="btn_bg">#277bec</color>
     <color name="white">#ffffff</color>

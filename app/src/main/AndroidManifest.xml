@@ -23,6 +23,7 @@
         android:fullBackupContent="true">
         <activity
             android:name=".Login"
+            android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,10 +48,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Home"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".DM_Initial"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
