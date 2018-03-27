@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.aihdint.aihd.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
 import org.aihdint.aihd.Patients;
@@ -86,20 +87,23 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         if (id == R.id.nav_home) {
             Intent home = new Intent(mContext.getApplicationContext(), Home.class);
             mContext.startActivity(home);
-        }  else if (id == R.id.nav_reports) {
+        }else if (id == R.id.nav_reports) {
             Intent reports = new Intent(mContext.getApplicationContext(), Patients.class);
             mContext.startActivity(reports);
+        } else if (id == R.id.nav_dm_initial) {
+            Intent dm_initial = new Intent(mContext.getApplicationContext(), DM_Initial.class);
+            mContext.startActivity(dm_initial);
         }else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
         }else if (id == R.id.nav_patients) {
             Intent patient = new Intent(mContext.getApplicationContext(), Patients.class);
             mContext.startActivity(patient);
-        }  else if (id == R.id.nav_share) {
+        }else if (id == R.id.nav_share) {
             Navigation launch = new Navigation(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
-        } else if (id == R.id.nav_settings) {
+        }else if (id == R.id.nav_settings) {
 
         }else if (id == R.id.nav_logout) {
             // Session manager
