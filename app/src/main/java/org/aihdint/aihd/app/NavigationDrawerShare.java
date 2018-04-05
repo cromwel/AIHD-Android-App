@@ -18,10 +18,12 @@ import android.widget.TextView;
 import org.aihdint.aihd.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
+import org.aihdint.aihd.Patient_Reports;
 import org.aihdint.aihd.Patients;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Register;
 import org.aihdint.aihd.DM_FollowUp;
+import org.aihdint.aihd.View_Reports;
 
 /**
  * Developed by Rodney on 20/03/2018.
@@ -88,7 +90,7 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             Intent home = new Intent(mContext.getApplicationContext(), Home.class);
             mContext.startActivity(home);
         }else if (id == R.id.nav_reports) {
-            Intent reports = new Intent(mContext.getApplicationContext(), Patients.class);
+            Intent reports = new Intent(mContext.getApplicationContext(), Patient_Reports.class);
             mContext.startActivity(reports);
         } else if (id == R.id.nav_dm_initial) {
             Intent dm_initial = new Intent(mContext.getApplicationContext(), DM_Initial.class);

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import org.aihdint.aihd.MainActivity;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.View_Reports;
 import org.aihdint.aihd.model.Person;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
     @Override
     public PatientAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.view_patient, parent, false);
+                .inflate(R.layout.cardview_patient, parent, false);
 
         return new PatientAdapter.MyViewHolder(itemView);
     }
@@ -51,11 +52,19 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
             final Person person = reportList.get(getPosition());
 
-            Intent graph = new Intent(view.getContext(), MainActivity.class);
-            graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            graph.putExtra("id", person.getID());
-            graph.putExtra("name", person.getName());
-            mContext.startActivity(graph);
+                if(person.getStatus().matches("0")) {
+                    Intent graph = new Intent(view.getContext(), MainActivity.class);
+                    graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    graph.putExtra("id", person.getID());
+                    graph.putExtra("name", person.getName());
+                    mContext.startActivity(graph);
+                }else{
+                    Intent graph = new Intent(view.getContext(), View_Reports.class);
+                    graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    graph.putExtra("id", person.getID());
+                    graph.putExtra("name", person.getName());
+                    mContext.startActivity(graph);
+                }
 
             }
     }
