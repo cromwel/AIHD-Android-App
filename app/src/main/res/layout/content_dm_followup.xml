@@ -120,7 +120,7 @@
                                 android:hint="(dd/mm/yyyy)" />
 
                             <Spinner
-                                android:id="@+id/spinnerLocation"
+                                android:id="@+id/spinnerProvider"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2795,7 +2795,7 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation1"
+                                android:id="@+id/spinnerDrug1"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2818,7 +2818,7 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation2"
+                                android:id="@+id/spinnerDrug2"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2841,7 +2841,7 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation3"
+                                android:id="@+id/spinnerDrug3"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2864,7 +2864,7 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation4"
+                                android:id="@+id/spinnerDrug4"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2886,30 +2886,7 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation5"
-                                android:layout_width="0dp"
-                                android:layout_weight=".5"
-                                android:layout_height="wrap_content"
-                                android:entries="@array/location_arrays"
-                                android:prompt="@string/location_prompt" />
-
-                            <EditText
-                                android:layout_width="0dp"
-                                android:layout_weight=".5"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:inputType="textPersonName"
-                                android:text="" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:weightSum="1"
-                            android:orientation="horizontal">
-
-                            <Spinner
-                                android:id="@+id/spinnerLocation6"
+                                android:id="@+id/spinnerDrug5"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"
@@ -2932,7 +2909,30 @@
                             android:orientation="horizontal">
 
                             <Spinner
-                                android:id="@+id/spinnerLocation7"
+                                android:id="@+id/spinnerDrug6"
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:entries="@array/location_arrays"
+                                android:prompt="@string/location_prompt" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:text="" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/spinnerDrug7"
                                 android:layout_width="0dp"
                                 android:layout_weight=".5"
                                 android:layout_height="wrap_content"

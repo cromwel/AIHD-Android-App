@@ -25,14 +25,14 @@ import java.util.List;
 
 public class DM_FollowUp extends AppCompatActivity {
 
-    private Spinner spinnerLocation;
-    private Spinner spinnerLocation1;
-    private Spinner spinnerLocation2;
-    private Spinner spinnerLocation3;
-    private Spinner spinnerLocation4;
-    private Spinner spinnerLocation5;
-    private Spinner spinnerLocation6;
-    private Spinner spinnerLocation7;
+    private Spinner spinnerProvider;
+    private Spinner spinnerDrug1;
+    private Spinner spinnerDrug2;
+    private Spinner spinnerDrug3;
+    private Spinner spinnerDrug4;
+    private Spinner spinnerDrug5;
+    private Spinner spinnerDrug6;
+    private Spinner spinnerDrug7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +44,13 @@ public class DM_FollowUp extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        setLocationData();
+        setProviderData();
     }
 
 //Choose a provider
-    private void setLocationData() {
+    private void setProviderData() {
 
-        spinnerLocation = findViewById(R.id.spinnerLocation);
+        spinnerProvider = findViewById(R.id.spinnerProvider);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -62,10 +62,10 @@ public class DM_FollowUp extends AppCompatActivity {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation.setAdapter(adapter);
+        spinnerProvider.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -83,7 +83,7 @@ public class DM_FollowUp extends AppCompatActivity {
     //Drug 1
 private void setLocation1Data() {
 
-    spinnerLocation1 = findViewById(R.id.spinnerLocation1);
+    spinnerDrug1 = findViewById(R.id.spinnerDrug1);
 
     ArrayList<KeyValue> keyvalue = new ArrayList<>();
     //Add countries
@@ -95,10 +95,10 @@ private void setLocation1Data() {
 
     //fill data in spinner
     ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-    spinnerLocation1.setAdapter(adapter);
+    spinnerDrug1.setAdapter(adapter);
     //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-    spinnerLocation1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    spinnerDrug1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -114,7 +114,7 @@ private void setLocation1Data() {
     //Drug 2
     private void setLocation2Data() {
 
-        spinnerLocation2 = findViewById(R.id.spinnerLocation2);
+        spinnerDrug2 = findViewById(R.id.spinnerDrug2);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -126,10 +126,10 @@ private void setLocation1Data() {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation2.setAdapter(adapter);
+        spinnerDrug2.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDrug2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -146,7 +146,7 @@ private void setLocation1Data() {
         //Drug 3
         private void setLocation3Data() {
 
-            spinnerLocation3 = findViewById(R.id.spinnerLocation3);
+            spinnerDrug3 = findViewById(R.id.spinnerDrug3);
 
             ArrayList<KeyValue> keyvalue = new ArrayList<>();
             //Add countries
@@ -158,10 +158,10 @@ private void setLocation1Data() {
 
             //fill data in spinner
             ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-            spinnerLocation3.setAdapter(adapter);
+            spinnerDrug3.setAdapter(adapter);
             //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-            spinnerLocation3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            spinnerDrug3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -178,7 +178,7 @@ private void setLocation1Data() {
     //Drug 4
     private void setLocation4Data() {
 
-        spinnerLocation4 = findViewById(R.id.spinnerLocation4);
+        spinnerDrug4 = findViewById(R.id.spinnerDrug4);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -190,10 +190,10 @@ private void setLocation1Data() {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation4.setAdapter(adapter);
+        spinnerDrug4.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDrug4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -210,7 +210,7 @@ private void setLocation1Data() {
     //Drug 5
     private void setLocation5Data() {
 
-        spinnerLocation5 = findViewById(R.id.spinnerLocation5);
+        spinnerDrug5 = findViewById(R.id.spinnerDrug5);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -222,10 +222,10 @@ private void setLocation1Data() {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation5.setAdapter(adapter);
+        spinnerDrug5.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDrug5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -242,7 +242,7 @@ private void setLocation1Data() {
     //Drug 6
     private void setLocation6Data() {
 
-        spinnerLocation6 = findViewById(R.id.spinnerLocation6);
+        spinnerDrug6 = findViewById(R.id.spinnerDrug6);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -254,10 +254,10 @@ private void setLocation1Data() {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation6.setAdapter(adapter);
+        spinnerDrug6.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDrug6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -274,7 +274,7 @@ private void setLocation1Data() {
     //Drug 7
     private void setLocation7Data() {
 
-        spinnerLocation7 = findViewById(R.id.spinnerLocation7);
+        spinnerDrug7 = findViewById(R.id.spinnerDrug7);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -286,10 +286,10 @@ private void setLocation1Data() {
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation7.setAdapter(adapter);
+        spinnerDrug7.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
 
-        spinnerLocation7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDrug7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
