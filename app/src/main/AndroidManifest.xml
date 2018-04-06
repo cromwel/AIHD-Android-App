@@ -66,6 +66,18 @@
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".Patient_Reports"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".View_Reports"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

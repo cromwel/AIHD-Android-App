@@ -6,8 +6,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import org.aihdint.aihd.model.Person;
+import org.aihdint.aihd.model.Report;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +31,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Contacts table name
     private static final String TABLE_PERSONS = "persons";
+    private static final String TABLE_REPORTS = "reports";
 
-    // Contacts Table Columns names
-    private static final String KEY_ID = "id";
+    // Contacts Table
+    private static final String KEY_ID = "_id";
     private static final String KEY_USERID = "uuid";
     private static final String KEY_NAME = "name";
     private static final String KEY_STATUS = "status";
+
+    // Reports Table
+    private static final String KEY_REPORT_ID = "_id";
+    private static final String KEY_USER_ID = "uuid";
+    private static final String KEY_IMAGE = "image_url";
+    private static final String KEY_DATE = "date";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,8 +56,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_USERID + " TEXT,"
                 + KEY_NAME + " TEXT,"
-                + KEY_STATUS + " INTEGER DEFAULT 0" + ")";
+                + KEY_STATUS + " INTEGER DEFAULT 0 )";
+
+        String CREATE_REPORTS_TABLE = "CREATE TABLE " + TABLE_REPORTS + "("
+                + KEY_REPORT_ID + " INTEGER PRIMARY KEY,"
+                + KEY_USER_ID + " TEXT,"
+                + KEY_NAME + " TEXT,"
+                + KEY_IMAGE + " BLOB,"
+                + KEY_STATUS + " INTEGER DEFAULT 0 ,"
+                + KEY_DATE + " TEXT )";
+
         db.execSQL(CREATE_CONTACTS_TABLE);
+        db.execSQL(CREATE_REPORTS_TABLE);
     }
 
     // Upgrading database
@@ -54,6 +75,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REPORTS);
 
         // Create tables again
         onCreate(db);
@@ -74,6 +96,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Inserting Row
         db.insert(TABLE_PERSONS, null, values);
+        db.close(); // Closing database connection
+    }
+
+    // Adding new report
+    public void addReport(Report report) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USER_ID, report.getID()); // User ID
+        values.put(KEY_IMAGE, report.getImage()); // Report Image
+        values.put(KEY_NAME, report.getName()); // Report Name
+        values.put(KEY_DATE, report.getDate()); // Report Date
+
+        // Inserting Row
+        Log.d("Add Report :", String.valueOf(values));
+        db.insert(TABLE_REPORTS, null, values);
         db.close(); // Closing database connection
     }
 
@@ -114,8 +152,61 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
+        cursor.close();
         // return contact list
         return personList;
+    }
+
+
+    public List<Person> getPersons() {
+        List<Person> personList = new ArrayList<Person>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_PERSONS +" LIMIT 10";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Person contact = new Person();
+                contact.setID(cursor.getString(1));
+                contact.setName(cursor.getString(2));
+                contact.setStatus(cursor.getString(3));
+                // Adding contact to list
+                personList.add(contact);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        // return contact list
+        return personList;
+    }
+
+    public List<Report> getReports(){
+        List<Report> reportList = new ArrayList<Report>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_REPORTS;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Report report =  new Report();
+                report.setID(cursor.getString(1));
+                report.setName(cursor.getString(2));
+                byte[] imgByte = cursor.getBlob(3);
+                report.setImage(imgByte);
+                report.setDate(cursor.getString(5));
+
+                reportList.add(report);
+            } while (cursor.moveToNext());
+        }
+
+        Log.d("Report Count", String.valueOf(reportList.size()));
+        cursor.close();
+        return reportList ;
     }
 
     // Updating single person

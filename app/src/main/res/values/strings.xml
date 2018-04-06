@@ -5,7 +5,7 @@
     <string name="btnUploadToServer">Upload to Server</string>
     <string name="title_activity_home">Home</string>
     <string name="logo">Company Logo</string>
-    <string name="search">Search for Patient...</string>
+    <string name="search">Search …</string>
 
     <string name="location_prompt">Choose a location</string>
 

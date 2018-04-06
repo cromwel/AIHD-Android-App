@@ -3,21 +3,29 @@ package org.aihdint.aihd;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.NavigationDrawerShare;
 
 /**
  * Created : dennis on 3/23/18.
  */
 
 public class DM_FollowUp extends AppCompatActivity {
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_dm_followup);
+        setContentView(R.layout.activity_dm_follow_up);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        NavigationDrawerShare navigate = new NavigationDrawerShare(this);
+        navigate.CreateDrawer(toolbar);
     }
 
     public void onRadioButtonClicked(View view) {

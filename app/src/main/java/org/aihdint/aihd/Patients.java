@@ -2,6 +2,7 @@ package org.aihdint.aihd;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -40,6 +41,7 @@ public class Patients extends AppCompatActivity {
 
     private EditText inputSearch;
     private List <Person> contactList;
+    private List <Person> personList;
     private PatientAdapter adapter;
 
     @SuppressLint("SetTextI18n")
@@ -53,15 +55,11 @@ public class Patients extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        HttpHandler sh = new HttpHandler();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            new AddPatient().execute();
-        }
-
         inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
 
         contactList = new ArrayList<>();
+        personList = new ArrayList<>();
 
         adapter = new PatientAdapter(this, contactList);
 
@@ -92,9 +90,9 @@ public class Patients extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         if(isConnected) {
-            //new GetPersons().execute();
+            new GetPersons().execute();
         }else{
-            //getPatients();
+            getPatients();
             //Toast.makeText(this,"No Internet Connection",Toast.LENGTH_SHORT).show();
         }
 
@@ -209,63 +207,38 @@ public class Patients extends AppCompatActivity {
     }
 
 
-    @SuppressLint("StaticFieldLeak")
-    private class AddPatient extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            // Making a request to url and getting response
-            String jsonStr = sh.patient();
-
-            Log.e(TAG, "Response POST Patient: " + jsonStr);
-            if (jsonStr == null)  {
-                Log.e(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-        }
-    }
-
-
-
     public void getPatients(){
         // Reading all contacts
         Log.d("Reading: ", "Reading all persons..");
-        List<Person> persons = database.getAllPersons();
+        List<Person> persons = database.getPersons();
+        List<Person> allpersons = database.getAllPersons();
 
         for (Person cn : persons) {
             // adding each child node to HashMap key => value
             Person person = new Person();
             person.setID(cn.getID());
             person.setName(cn.getName());
+            person.setStatus("0");
             // adding contact to contact list
             contactList.add(person);
             adapter.notifyDataSetChanged();
+        }
+
+
+        for (Person pn : allpersons) {
+            // adding each child node to HashMap key => value
+            Person person = new Person();
+            person.setID(pn.getID());
+            person.setName(pn.getName());
+            person.setStatus("0");
+            // adding contact to contact list
+            personList.add(person);
         }
     }
 
     void filter(String text){
         List<Person> temp = new ArrayList();
+        contactList = personList;
         for(Person d: contactList){
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
