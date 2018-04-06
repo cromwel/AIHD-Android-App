@@ -40,53 +40,16 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
+        setLocationData();
 
-        addListenerOnSpinnerItemSelection();
-
-       // inputUsername = findViewById(R.id.username);
+        // inputUsername = findViewById(R.id.username);
         //inputPassword = findViewById(R.id.password);
     }
 
-    public void addListenerOnSpinnerItemSelection() {
-        spinnerLocation = findViewById(R.id.spinnerLocation);
-
-
-        List<String> Location_Name = new ArrayList<>();
-        Location_Name.add("Pharmacy");
-        Location_Name.add("Laboratory");
-        Location_Name.add("Isolation Ward");
-        Location_Name.add("Registration Desk");
-        Location_Name.add("Inpatient Ward");
-        Location_Name.add("Outpatient");
-        Location_Name.add("Other/Field");
-
-        List<String> Location_ID = new ArrayList<>();
-        Location_Name.add("1");
-        Location_Name.add("2");
-        Location_Name.add("3");
-        Location_Name.add("4");
-        Location_Name.add("5");
-        Location_Name.add("6");
-        Location_Name.add("7");
-
-        setLocationData();
-
-        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                KeyValue country = (KeyValue) parent.getSelectedItem();
-                Toast.makeText(getApplicationContext(), "Country ID: "+country.getId()+",  Country Name : "+country.getName(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-    }
 
     private void setLocationData() {
+
+        spinnerLocation = findViewById(R.id.spinnerLocation);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add countries
@@ -100,6 +63,19 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
         spinnerLocation.setAdapter(adapter);
         //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
+
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                KeyValue country = (KeyValue) parent.getSelectedItem();
+                Toast.makeText(getApplicationContext(), "Country ID: "+country.getId()+",  Country Name : "+country.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void dob (View view){
