@@ -50,25 +50,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     public void addListenerOnSpinnerItemSelection() {
         spinnerLocation = findViewById(R.id.spinnerLocation);
 
-
-        List<String> Location_Name = new ArrayList<>();
-        Location_Name.add("Pharmacy");
-        Location_Name.add("Laboratory");
-        Location_Name.add("Isolation Ward");
-        Location_Name.add("Registration Desk");
-        Location_Name.add("Inpatient Ward");
-        Location_Name.add("Outpatient");
-        Location_Name.add("Other/Field");
-
-        List<String> Location_ID = new ArrayList<>();
-        Location_Name.add("1");
-        Location_Name.add("2");
-        Location_Name.add("3");
-        Location_Name.add("4");
-        Location_Name.add("5");
-        Location_Name.add("6");
-        Location_Name.add("7");
-
         setLocationData();
 
         spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
