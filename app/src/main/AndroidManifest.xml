@@ -21,9 +21,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="true">
+
+        <meta-data android:name="DATABASE" android:value="aihd.db" />
+        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="org.aihdint.aihd" />
+
         <activity
             android:name=".Login"
-            android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Register"
             android:screenOrientation="portrait"
@@ -78,6 +84,10 @@
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <service
+            android:name=".services.LocationService"
+            android:exported="false"/>
     </application>
 
 </manifest>

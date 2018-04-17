@@ -59,6 +59,28 @@
             android:textColor="@color/input_login"
             android:textColorHint="@color/colorhint" />
 
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Location"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_border">
+
+            <Spinner
+                android:id="@+id/spinnerLocationLogin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:entries="@array/location_arrays"
+                android:prompt="@string/location_prompt" />
+
+        </LinearLayout>
+
         <!-- Login Button -->
 
         <Button

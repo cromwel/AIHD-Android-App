@@ -1,31 +1,56 @@
 package org.aihdint.aihd.model;
 
+import com.orm.SugarRecord;
+
 /**
  * Developed by Rodney on 15/02/2018.
  */
 
-public class Person {
+public class Person extends SugarRecord {
     //private variables
     private String _id;
-    private String _name;
+    private String family_name,given_name;
+    private String gender;
+    private String birthdate;
+    private String birthdate_estimated;
+    private String telephone;
+    private String identifier_type;
+    private String location_id;
+    private String address1,address2,address3,county_district,city_village;
     private String _status;
 
     // Empty constructor
     public Person(){
 
     }
-    // constructor
-    public Person(String id, String name, String status){
-        this._id = id;
-        this._name = name;
-        this._status = status;
-    }
 
     // constructor
     public Person(String id, String name){
         this._id = id;
-        this._name = name;
+        this.family_name = name;
     }
+    // constructor
+    public Person(String family_name, String given_name, String gender, String birthdate, String birthdate_estimated,
+                  String telephone, String identifier_type, String location_id,
+                  String address1, String address2, String address3, String county_district, String city_village, String status){
+        //this._id = id;
+        this.family_name = family_name;
+        this.given_name = given_name;
+        this.gender = gender;
+        this.birthdate = birthdate;
+        this.birthdate_estimated = birthdate_estimated;
+        this.telephone = telephone;
+        this.identifier_type = identifier_type;
+        this.location_id = location_id;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.address3 = address3;
+        this.county_district = county_district;
+        this.city_village = city_village;
+        this._status = status;
+    }
+
+
 
     // getting ID
     public String  getID(){
@@ -39,7 +64,7 @@ public class Person {
 
     // getting name
     public String getName(){
-        return this._name;
+        return this.family_name;
     }
 
     // getting status
@@ -49,7 +74,7 @@ public class Person {
 
     // setting name
     public void setName(String name){
-        this._name = name;
+        this.family_name = name;
     }
 
     // setting status

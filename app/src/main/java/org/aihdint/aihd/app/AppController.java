@@ -4,14 +4,13 @@ package org.aihdint.aihd.app;
  * Developed by Rodney on 02/03/2018.
  */
 
-import android.app.Application;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-public class AppController extends Application {
+public class AppController extends com.orm.SugarApp {
 
     public static final String TAG = AppController.class.getSimpleName();
 
@@ -47,6 +46,7 @@ public class AppController extends Application {
         getRequestQueue().add(req);
     }
 
+    @SuppressWarnings("unused")
     public void cancelPendingRequests(Object tag) {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);

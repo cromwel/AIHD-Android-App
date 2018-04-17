@@ -2,7 +2,6 @@ package org.aihdint.aihd;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -21,10 +20,11 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.orm.query.Select;
+
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.HttpHandler;
 import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.database.DatabaseHandler;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.model.adapter.PatientAdapter;
 import org.json.JSONArray;
@@ -37,9 +37,7 @@ import java.util.List;
 public class Patients extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
-    private DatabaseHandler database;
 
-    private EditText inputSearch;
     private List <Person> contactList;
     private List <Person> personList;
     private PatientAdapter adapter;
@@ -55,7 +53,7 @@ public class Patients extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        inputSearch = findViewById(R.id.input_search);
+        EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
 
         contactList = new ArrayList<>();
@@ -79,7 +77,6 @@ public class Patients extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         */
 
-        database = new DatabaseHandler(this);
 
         ConnectivityManager cm =
                 (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -136,6 +133,11 @@ public class Patients extends AppCompatActivity {
             HttpHandler sh = new HttpHandler();
             // Making a request to url and getting response
             //https://api.androidhive.info/contacts/
+
+            //List<Note> notes = Note.findWithQuery(Note.class, "Select * from Note where name = ?", "mynote");
+            //Select.from(Note.class).where(Condition.prop("title").eq("mynote"),Condition.prop("description").eq("notedesc")).list();
+            //find(Class<T> type, String whereClause, String[]whereArgs, String groupBy, String orderBy, String limit)
+
             String url = "http://45.79.145.240:8080/ems/ws/rest/v1/person?q=";
             String jsonStr = sh.makeServiceCall(url);
 
@@ -147,18 +149,23 @@ public class Patients extends AppCompatActivity {
                     // Getting JSON Array node
                     JSONArray persons = jsonObj.getJSONArray("results");
 
+                    List<Person> person_count = Select.from(Person.class).list();
+
                     // looping through All Users
-                    Log.d("Server Persons :", String.valueOf(persons.length()));
-                    Log.d("Database Persons :", String.valueOf(database.getPersonsCount()));
+                    Log.d("Server Persons ", String.valueOf(persons.length()));
+                    Log.d("Database Persons ", String.valueOf(person_count.size()));
 
                     for (int i = 0; i < persons.length(); i++) {
                         JSONObject c = persons.getJSONObject(i);
                         String id = c.getString("uuid");
                         String name = c.getString("display");
 
-                        if(persons.length()>database.getPersonsCount()) {
-                            Log.d("Insert: ", "Inserting " + name);
-                            database.addPerson(new Person(id, name));
+
+                        if(persons.length()>person_count.size()) {
+                            Log.d("Insert ", "Inserting " + name);
+                            //database.addPerson(new Person(id, name));
+                            Person person = new Person(id, name);
+                            person.save();
                         }
 
                         /*
@@ -210,9 +217,9 @@ public class Patients extends AppCompatActivity {
     public void getPatients(){
         // Reading all contacts
         Log.d("Reading: ", "Reading all persons..");
-        List<Person> persons = database.getPersons();
-        List<Person> allpersons = database.getAllPersons();
 
+        List<Person> allpersons = Person.listAll(Person.class);
+        List<Person> persons = Select.from(Person.class).limit("10").list();
         for (Person cn : persons) {
             // adding each child node to HashMap key => value
             Person person = new Person();
@@ -237,7 +244,7 @@ public class Patients extends AppCompatActivity {
     }
 
     void filter(String text){
-        List<Person> temp = new ArrayList();
+        @SuppressWarnings("unchecked") List<Person> temp = new ArrayList();
         contactList = personList;
         for(Person d: contactList){
             //or use .equal(text) with you want equal match

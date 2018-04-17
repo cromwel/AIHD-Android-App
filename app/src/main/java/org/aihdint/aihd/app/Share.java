@@ -27,10 +27,10 @@ import java.util.List;
  * Developed by Rodney on 09/02/2018.
  */
 
-public class Navigation {
+public class Share {
     Context mContext;
 
-    public Navigation(Context mContext) {
+    public Share(Context mContext) {
         this.mContext = mContext;
     }
     public ImageView facebook,twitter,whatsapp;
@@ -63,7 +63,7 @@ public class Navigation {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         assert inflater != null;
         View dialogView = inflater.inflate(R.layout.dialog, null);
-        alertDialogBuilder.setMessage("Navigation ?");
+        alertDialogBuilder.setMessage("Share ?");
 
         facebook =  dialogView.findViewById(R.id.imageViewFacebook);
         twitter =  dialogView.findViewById(R.id.imageViewTwitter);
@@ -155,7 +155,7 @@ public class Navigation {
                     //in catch block will be called
                     intent.setPackage("com.whatsapp");
                     intent.putExtra(Intent.EXTRA_TEXT, text);
-                    //startActivity(Intent.createChooser(intent, "Navigation with"));
+                    //startActivity(Intent.createChooser(intent, "Share with"));
                     mContext.startActivity(intent);
                 } catch (PackageManager.NameNotFoundException e) {
                     Toast.makeText(mContext.getApplicationContext(), "WhatsApp not Installed", Toast.LENGTH_SHORT)

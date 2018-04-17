@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import org.aihdint.aihd.app.LocationsAll;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 
 public class Home extends AppCompatActivity{

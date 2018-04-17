@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/round_border"
             app:cardCornerRadius="5dp"
             card_view:cardElevation="9dp">
@@ -4159,10 +4160,16 @@
                     android:text="Member of Support Group"
                     android:textAllCaps="false" />
 
-                <Spinner
-                    android:id="@+id/spinnerSupportGroup"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_border">
+
+                    <Spinner
+                        android:id="@+id/spinnerSupportGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -4182,8 +4189,7 @@
                 <customfonts.EditText_Roboto_Regular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    android:inputType="date"
+                    android:hint="Provider Name"
                     android:padding="15dp"
                     android:textSize="13sp" />
 
@@ -4203,10 +4209,16 @@
                     android:text="Designation"
                     android:textAllCaps="false" />
 
-                <Spinner
-                    android:id="@+id/spinnerDesignation"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_border">
+
+                    <Spinner
+                        android:id="@+id/spinnerDesignation"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -4228,37 +4240,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="30dp"
-                android:weightSum="2">
+                android:orientation="vertical">
+
 
                 <customfonts.TextView_Roboto_Medium
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="#ffffff" />
 
-                <customfonts.TextView_Roboto_Regular
-                    android:id="@+id/login"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/rounded_button2"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="Back"
-                    android:textAllCaps="false" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

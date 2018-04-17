@@ -40,14 +40,7 @@ public class DM_Initial extends AppCompatActivity {
                 if (checked)
                     //gender = "Female";
                 break;
-            case R.id.radio_yes:
-                if (checked)
-                    //isEstimated = "1";
-                break;
-            case R.id.radio_no:
-                if (checked)
-                    //isEstimated = "0";
-                break;
+
         }
     }
     public void onCheckboxClicked(View view) {

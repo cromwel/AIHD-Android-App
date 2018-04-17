@@ -61,20 +61,24 @@
                     android:weightSum="1">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/family_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="#00000000"
-                        android:hint="Family Name"
+                        android:hint="Family Name *"
+                        android:inputType="text"
                         android:padding="15dp"
                         android:textSize="13sp" />
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/given_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="#00000000"
-                        android:hint="First Name"
+                        android:hint="First Name *"
+                        android:inputType="text"
                         android:padding="15dp"
                         android:textSize="13sp" />
 
@@ -91,7 +95,7 @@
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Gender" />
+                        android:text="Gender *" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -132,7 +136,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/date_button"
+                        android:id="@+id/birthdate_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -140,8 +144,16 @@
                         android:gravity="center"
                         android:onClick="dob"
                         android:padding="15dp"
-                        android:text="Date of Birth"
+                        android:text="Date of Birth *"
                         android:textColor="@android:color/white" />
+
+                    <customfonts.TextView_RobotoLight
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/birthdate_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -165,14 +177,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radio_yes"
+                            android:id="@+id/birthdate_estimated_yes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onRadioButtonClicked"
                             android:text="Yes" />
 
                         <RadioButton
-                            android:id="@+id/radio_no"
+                            android:id="@+id/birthdate_estimated_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onRadioButtonClicked"
@@ -215,13 +227,15 @@
                     android:weightSum="1">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/telephone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="#00000000"
-                        android:hint="Contact Number"
+                        android:hint="Contact Number *"
+                        android:inputType="phone"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -236,13 +250,15 @@
                     android:weightSum="1">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/identifier_type"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:background="#00000000"
-                        android:hint="Patient Number"
+                        android:hint="Patient Number *"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:inputType="text"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -295,10 +311,12 @@
                     android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/address1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:hint="Physical Address"
+                        android:inputType="text"
                         android:padding="15dp"
                         android:textSize="13sp" />
 
@@ -313,12 +331,14 @@
                     android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/address2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:hint="Nearest landmark"
+                        android:inputType="text"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -331,12 +351,14 @@
                     android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/county_district"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:hint="County"
+                        android:inputType="text"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -348,12 +370,14 @@
                     android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/address3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:hint="Sub County"
+                        android:inputType="text"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -366,12 +390,14 @@
                     android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/city_village"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:hint="Ward"
+                        android:inputType="text"
                         android:padding="15dp"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -385,24 +411,12 @@
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
                     android:padding="15dp"
-                    android:text="Next Step"
+                    android:layout_marginBottom="20dp"
+                    android:onClick="Submit"
+                    android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="#ffffff" />
 
-                <customfonts.TextView_Roboto_Regular
-                    android:id="@+id/login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_button2"
-                    android:gravity="center"
-                    android:padding="15dp"
-                    android:text="Back"
-                    android:textAllCaps="false" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

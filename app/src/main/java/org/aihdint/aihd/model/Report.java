@@ -1,10 +1,12 @@
 package org.aihdint.aihd.model;
 
+import com.orm.SugarRecord;
+
 /**
  * Developed by Rodney on 27/03/2018.
  */
 
-public class Report {
+public class Report extends SugarRecord {
 
     //private variables
     private String _id;
@@ -12,7 +14,8 @@ public class Report {
     private String _date;
     private byte[] _image;
 
-    public Report(){}
+    public Report(){
+    }
 
     // constructor
     public Report(String id, String name,String date, byte[] image){
@@ -60,4 +63,5 @@ public class Report {
     public void setImage(byte[] image){
         this._image = image;
     }
+
 }

@@ -125,10 +125,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Person person = new Person(cursor.getString(1),
-                cursor.getString(2), cursor.getString(3));
+        //Person person = new Person(cursor.getString(1),cursor.getString(2), cursor.getString(3));
         // return contact
-        return person;
+        //return person;
+        return null;
     }
 
     // Getting All Contacts
