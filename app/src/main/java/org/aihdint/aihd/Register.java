@@ -2,7 +2,6 @@ package org.aihdint.aihd;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -83,7 +82,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
 
         locations = new LocationsAll(this);
-        locations.setLocationData(spinnerLocation);
+        locations.setDeliveryPoint(spinnerLocation);
 
     }
 
@@ -129,6 +128,14 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             case R.id.birthdate_estimated_no:
                 if (checked)
                     isEstimated = "0";
+                break;
+            case R.id.radio_new_patient:
+                if (checked)
+                    gender = "new";
+                break;
+            case R.id.radio_patient_in_transit:
+                if (checked)
+                    gender = "patient_in_transit";
                 break;
         }
     }

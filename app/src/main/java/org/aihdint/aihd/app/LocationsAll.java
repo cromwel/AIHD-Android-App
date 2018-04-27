@@ -54,4 +54,39 @@ public class LocationsAll {
             }
         });
     }
+
+
+    public void setDeliveryPoint(Spinner spinnerLocation) {
+
+        ArrayList<KeyValue> keyvalue = new ArrayList<>();
+        //Add locations
+
+        // adding each child node to HashMap key => value
+        keyvalue.add(new KeyValue("1", "OutPatient Clinic"));
+        keyvalue.add(new KeyValue("2", "Maternity"));
+        keyvalue.add(new KeyValue("3", "C.C.C"));
+        keyvalue.add(new KeyValue("4", "Inpatient"));
+        keyvalue.add(new KeyValue("5", "Family Planning"));
+        keyvalue.add(new KeyValue("6", "Casuality"));
+
+        //fill data in spinner
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_spinner_dropdown_item, keyvalue);
+        spinnerLocation.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
+
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                KeyValue country = (KeyValue) parent.getSelectedItem();
+                location_id = country.getId();
+                //Toast.makeText(mContext, "ID: "+country.getId()+", Name : "+country.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
 }

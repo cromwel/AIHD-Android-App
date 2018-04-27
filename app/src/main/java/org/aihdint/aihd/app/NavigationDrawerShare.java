@@ -95,17 +95,21 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
          else if (id == R.id.nav_dm_initial) {
             Intent dm_initial = new Intent(mContext.getApplicationContext(), DM_Initial.class);
             mContext.startActivity(dm_initial);
+            ((Activity)mContext).finish();
         } else if (id == R.id.nav_dm_follow_up) {
             Intent dm_followup = new Intent(mContext.getApplicationContext(), DM_FollowUp.class);
             mContext.startActivity(dm_followup);
+            ((Activity)mContext).finish();
         }else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
+            ((Activity)mContext).finish();
         }else if (id == R.id.nav_patients) {
             Intent patient = new Intent(mContext.getApplicationContext(), Patients.class);
             mContext.startActivity(patient);
+            ((Activity)mContext).finish();
         }else if (id == R.id.nav_share) {
-            Share launch = new Share(mContext);
+            Alerts launch = new Alerts(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
         }else if (id == R.id.nav_settings) {

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:ignore="HardcodedText"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -98,34 +100,28 @@
                         android:text="Gender *" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RadioGroup
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_marginTop="18dp"
-                    android:weightSum="1">
+                    android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:layout_width="fill_parent"
+                    <RadioButton
+                        android:id="@+id/radio_male"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Male" />
 
-                        <RadioButton
-                            android:id="@+id/radio_male"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
-                            android:text="Male" />
-
-                        <RadioButton
-                            android:id="@+id/radio_female"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
-                            android:text="Female" />
-                    </RadioGroup>
-                </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radio_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Female" />
+                </RadioGroup>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,14 +219,12 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/round_border"
-                    android:weightSum="1">
+                    android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
                         android:id="@+id/telephone"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:background="#00000000"
                         android:hint="Contact Number *"
                         android:inputType="phone"
@@ -246,14 +240,12 @@
                     android:layout_marginRight="18dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginBottom="18dp"
-                    android:background="@drawable/round_border"
-                    android:weightSum="1">
+                    android:background="@drawable/round_border">
 
                     <customfonts.EditText_Roboto_Regular
                         android:id="@+id/identifier_type"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:background="#00000000"
                         android:hint="Patient Number *"
                         android:padding="15dp"
@@ -288,10 +280,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <customfonts.TextView_Roboto_Regular
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="18dp"
+                        android:text="Service Delivery Point"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_marginTop="18dp"
-                    android:background="@drawable/round_border">
+                    android:background="@drawable/round_border"
+                    android:orientation="vertical">
 
                     <Spinner
                         android:id="@+id/spinnerLocation"
@@ -300,6 +307,30 @@
                         android:entries="@array/location_arrays"
                         android:prompt="@string/location_prompt" />
 
+                </LinearLayout>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="18dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_new_patient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="New Patient" />
+
+                        <RadioButton
+                            android:id="@+id/radio_patient_in_transit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="Patient In Transit" />
+                    </RadioGroup>
                 </LinearLayout>
 
                 <LinearLayout
@@ -401,6 +432,93 @@
 
                 </LinearLayout>
 
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/round_border"
+            app:cardCornerRadius="5dp"
+            card_view:cardElevation="9dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Treatment Support Details"
+                    android:textAllCaps="false" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_border">
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/supporter_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:hint="Treatment Supporter Name"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="@drawable/round_border">
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/support_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:hint="Physical Address"
+                        android:padding="15dp"
+                        android:inputType="text"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="@drawable/round_border">
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/support_telephone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:hint="Treatment Supporter Telephone"
+                        android:padding="15dp"
+                        android:inputType="phone"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
                 <customfonts.TextView_Roboto_Medium
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -416,7 +534,6 @@
                     android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="#ffffff" />
-
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

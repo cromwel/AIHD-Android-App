@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:ignore="HardcodedText">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_border"
+        app:cardCornerRadius="5dp"
+        card_view:cardElevation="9dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:text="Dates of Assessments"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_inner"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:text="Symptoms"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"/>
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_inner"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:text="Date"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_frequent_urinations"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Frequent Urination"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/frequent_urinations_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox android:id="@+id/checkbox_excessive_thirst"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Excessive Thirst"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_extreme_hunger"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Extreme Hunger"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_unexplained_weight_loss"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Unexplained weight loss"
+                            android:paddingBottom="8dp"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_increased_fatigue"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Increased Fatigue"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_blurred_vision"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Blurred Vision"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_impotence"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Impotence"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_numbness"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Numbness or tingling sensation"
+                            android:paddingBottom="8dp"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Daily Symptoms:"
+                        android:gravity="center"/>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_inner"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:text="TB Intensified case finding in adults"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_cough_duration"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Cough of any duration"
+                            android:paddingBottom="8dp"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_fever"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Fever"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_noticable_weight_loss"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Noticable Weight Loss"
+                            android:paddingBottom="8dp"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <CheckBox android:id="@+id/checkbox_night_sweats"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:text="Night Sweats"
+                            android:onClick="onCheckboxClicked"/>
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:textSize="13sp"
+                            android:hint="(dd/mm/yyyy)" />
+                    </LinearLayout>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:text="Examine the patient and do sputum examination if coughing(sputum smear or gene Xpert)"/>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:text="Initiate workup for Isoniazed Preventive Therapy and repeat screening on subsequent visits."/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:text="Indicate the action taken"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_inner"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:text="Action taken"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"/>
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_inner"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:text="Date"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Sputum Smear:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_sputum_positive"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Positive" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_sputum_negative"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Negative" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Gene Xpert:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_gene_positive"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Positive" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_gene_negative"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Negative" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Chest x-ray:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_chest_normal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Normal N" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_chest_suggestive"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Suggestive S" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Start anti-TB:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_antiTB_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_antiTB_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Invitation of Contacts:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_invite_contacts_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_ivite_contacts_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:text="Evaluated for IPT:"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_weight=".5"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_eval_IPT_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_eval_IPT_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+                            </RadioGroup>
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="date"
+                                android:textSize="13sp"
+                                android:hint="(dd/mm/yyyy)" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</ScrollView>

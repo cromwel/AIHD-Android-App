@@ -1,6 +1,5 @@
 package org.aihdint.aihd.app;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,13 +26,12 @@ import java.util.List;
  * Developed by Rodney on 09/02/2018.
  */
 
-public class Share {
-    Context mContext;
+public class Alerts {
+    private Context mContext;
 
-    public Share(Context mContext) {
+    public Alerts(Context mContext) {
         this.mContext = mContext;
     }
-    public ImageView facebook,twitter,whatsapp;
 
     public static void alert_msg(Context context, String title, String message) {
             AlertDialog alertDialog = new AlertDialog.Builder(context).create();
@@ -63,11 +61,11 @@ public class Share {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         assert inflater != null;
         View dialogView = inflater.inflate(R.layout.dialog, null);
-        alertDialogBuilder.setMessage("Share ?");
+        alertDialogBuilder.setMessage("Alerts ?");
 
-        facebook =  dialogView.findViewById(R.id.imageViewFacebook);
-        twitter =  dialogView.findViewById(R.id.imageViewTwitter);
-        whatsapp = dialogView.findViewById(R.id.imageViewWhatsapp);
+        ImageView facebook = dialogView.findViewById(R.id.imageViewFacebook);
+        ImageView twitter = dialogView.findViewById(R.id.imageViewTwitter);
+        ImageView whatsapp = dialogView.findViewById(R.id.imageViewWhatsapp);
 
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +153,7 @@ public class Share {
                     //in catch block will be called
                     intent.setPackage("com.whatsapp");
                     intent.putExtra(Intent.EXTRA_TEXT, text);
-                    //startActivity(Intent.createChooser(intent, "Share with"));
+                    //startActivity(Intent.createChooser(intent, "Alerts with"));
                     mContext.startActivity(intent);
                 } catch (PackageManager.NameNotFoundException e) {
                     Toast.makeText(mContext.getApplicationContext(), "WhatsApp not Installed", Toast.LENGTH_SHORT)
