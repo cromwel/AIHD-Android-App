@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@color/background_header"
+                        android:text="Complications"
+                        android:textAllCaps="false" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/background_inner"
+                        android:weightSum="3">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="No."
+                            android:textAllCaps="false" />
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Complications"
+                            android:textAllCaps="false" />
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Status"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="1"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_stroke"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Stroke"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_stroke_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_stroke_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_stroke_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="2"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_heart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Heart Failure"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_heart_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_heart_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_heart_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="3"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_kidney"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kidney Failure"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_kidney_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_kidney_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_kidney_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="4"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_neuropathy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Peripheral Neuropathy"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_neuropathy_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_neuropathy_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_neuropathy_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="5"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_visual"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Visual Impairment"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_visual_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_visual_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_visual_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="6"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_foot_ulcer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Foot Ulcers/Deformities"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_foot_ulcer_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_foot_ulcer_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_foot_ulcer_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="7"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_erectile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Erectile Dysfunction"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_erectile_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Add" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_erectile_ongoing"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Ongoing" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_erectile_remove"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Remove" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="20dp"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text=""
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_complication_other"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Other"
+                                android:onClick="onCheckboxClicked"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@color/background_header"
+                        android:text="Nutrition and Counselling education provision"
+                        android:textAllCaps="false" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:orientation="vertical">
+                        <CheckBox android:id="@+id/checkbox_diabetes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Diabetes"
+                            android:onClick="onCheckboxClicked"/>
+                        <CheckBox android:id="@+id/checkbox_nutrition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nutrition"
+                            android:onClick="onCheckboxClicked"/>
+                        <CheckBox android:id="@+id/checkbox_counselling"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Counselling"
+                            android:onClick="onCheckboxClicked"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

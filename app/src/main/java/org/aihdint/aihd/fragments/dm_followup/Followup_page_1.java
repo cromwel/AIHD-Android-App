@@ -14,7 +14,7 @@ import org.aihdint.aihd.R;
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Followup_page_1 extends Fragment implements ActivityModel.FragStateChangeListener {
+public class Followup_page_1 extends Fragment implements FollowUpActivityModel.FragStateChangeListener {
 
     EditText dmDiagnosisDateEditText;
     EditText dmClinicDateEditText;
@@ -25,7 +25,7 @@ public class Followup_page_1 extends Fragment implements ActivityModel.FragState
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_followup_fragment_1, container, false);
 
-        ActivityModel.getInstance().setListener(this);
+        FollowUpActivityModel.getInstance().setListener(this);
 
         EditText mopc_numberEditText = view.findViewById(R.id.mopc_number);
         EditText supporter_nameEditText = view.findViewById(R.id.supporter_name);
@@ -41,7 +41,7 @@ public class Followup_page_1 extends Fragment implements ActivityModel.FragState
         String supporter_name = supporter_nameEditText.getText().toString().trim();
         String supporter_phone = supporter_phoneEditText.getText().toString().trim();
 
-        FragmentModel.getInstance().followUpOne(mopc_dopc_number,supporter_name,supporter_phone);
+        FragmentModelFollowUp.getInstance().followUpOne(mopc_dopc_number,supporter_name,supporter_phone);
 
         return view;
     }

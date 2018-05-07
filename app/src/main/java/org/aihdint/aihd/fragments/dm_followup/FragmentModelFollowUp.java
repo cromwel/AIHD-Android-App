@@ -3,7 +3,7 @@ package org.aihdint.aihd.fragments.dm_followup;
 /**
  * Developed by Rodney on 26/04/2018.
  */
-public class FragmentModel {
+public class FragmentModelFollowUp {
     public interface FragStateChangeListener {
 
         void followUpOne(String mopc_number,String supporter_name, String supporter_phone);
@@ -14,24 +14,16 @@ public class FragmentModel {
 
         void followUpFour(String tag);
 
-        void initialOne(String tag);
-
-        void initialTwo(String tag);
-
-        void initialThree(String tag);
-
-        void initialFour(String tag);
-
     }
 
-    private static FragmentModel mInstance;
+    private static FragmentModelFollowUp mInstance;
     private FragStateChangeListener mListener;
 
-    private FragmentModel() {
+    private FragmentModelFollowUp() {
     }
 
-    public static FragmentModel getInstance() {
-        if (mInstance == null) mInstance = new FragmentModel();
+    public static FragmentModelFollowUp getInstance() {
+        if (mInstance == null) mInstance = new FragmentModelFollowUp();
         return mInstance;
     }
 
@@ -60,31 +52,6 @@ public class FragmentModel {
     public void followUpFour(String mopc_number) {
         if (mListener != null) {
             mListener.followUpFour(mopc_number);
-        }
-    }
-
-
-    public void initialOne(String mopc_number) {
-        if (mListener != null) {
-            mListener.initialOne(mopc_number);
-        }
-    }
-
-    public void initialTwo(String mopc_number) {
-        if (mListener != null) {
-            mListener.initialTwo(mopc_number);
-        }
-    }
-
-    public void initialThree(String mopc_number) {
-        if (mListener != null) {
-            mListener.initialThree(mopc_number);
-        }
-    }
-
-    public void initialFour(String mopc_number) {
-        if (mListener != null) {
-            mListener.initialFour(mopc_number);
         }
     }
 

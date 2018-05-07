@@ -13,15 +13,11 @@ import org.aihdint.aihd.R;
  * Developed by Rodney on 24/04/2018.
  */
 
-public class initial_page_3 extends Fragment {
-
-    String urination;
+public class Initial_page_3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dm_followup_fragment_2, container, false);
-
-        EditText frequentUrinationDateEditText = view.findViewById(R.id.frequent_urinations_date);
+        View view = inflater.inflate(R.layout.dm_initial_fragment_3, container, false);
 
         return view;
     }

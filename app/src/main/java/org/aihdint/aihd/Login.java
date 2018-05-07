@@ -33,7 +33,7 @@ import com.orm.query.Select;
 
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
-import org.aihdint.aihd.app.LocationsAll;
+import org.aihdint.aihd.app.SpinnerAll;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.Location;
 import org.json.JSONArray;
@@ -55,7 +55,7 @@ public class Login extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private CoordinatorLayout coordinatorLayout;
-    private LocationsAll locations;
+    private SpinnerAll locations;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class Login extends Activity {
 
         Spinner spinnerLocation = findViewById(R.id.spinnerLocationLogin);
 
-        locations = new LocationsAll(this);
+        locations = new SpinnerAll(this);
         locations.setLocationData(spinnerLocation);
 
     }

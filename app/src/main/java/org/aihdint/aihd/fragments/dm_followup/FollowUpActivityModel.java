@@ -3,7 +3,7 @@ package org.aihdint.aihd.fragments.dm_followup;
 /**
  * Developed by Rodney on 26/04/2018.
  */
-public class ActivityModel {
+public class FollowUpActivityModel {
 
     public interface FragStateChangeListener {
 
@@ -11,14 +11,14 @@ public class ActivityModel {
         void htnDiagnosis(String status);
     }
 
-    private static ActivityModel mInstance;
+    private static FollowUpActivityModel mInstance;
     private FragStateChangeListener mListener;
 
-    private ActivityModel() {
+    private FollowUpActivityModel() {
     }
 
-    public static ActivityModel getInstance() {
-        if (mInstance == null) mInstance = new ActivityModel();
+    public static FollowUpActivityModel getInstance() {
+        if (mInstance == null) mInstance = new FollowUpActivityModel();
         return mInstance;
     }
 

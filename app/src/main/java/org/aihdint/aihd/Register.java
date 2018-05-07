@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -21,12 +23,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.LocationsAll;
+import org.aihdint.aihd.app.SpinnerAll;
 import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Person;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,13 +45,13 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
     private static final String TAG = Register.class.getSimpleName();
 
-    private String gender,birthdate,isEstimated,jsonResponse ;
+    private String gender,birthdate,isEstimated,location_id,jsonResponse ;
     private TextView textViewDOB;
     private EditText textViewFamilyName,textViewGivenName,textViewTelephone,textViewIdentifier;
     private EditText textViewAddress1,textViewAddress2,textViewAddress3,textViewCounty,textViewVillage;
 
     private ProgressDialog pDialog;
-    private LocationsAll locations;
+    private SpinnerAll locations;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,9 +85,36 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
 
-        locations = new LocationsAll(this);
-        locations.setDeliveryPoint(spinnerLocation);
+        ArrayList<KeyValue> keyvalue = new ArrayList<>();
+        //Add locations
+        // adding each child node to HashMap key => value
+        keyvalue.add(new KeyValue("", "Select Location"));
+        keyvalue.add(new KeyValue("1", "OutPatient Clinic"));
+        keyvalue.add(new KeyValue("2", "Maternity"));
+        keyvalue.add(new KeyValue("3", "C.C.C"));
+        keyvalue.add(new KeyValue("4", "Inpatient"));
+        keyvalue.add(new KeyValue("5", "Family Planning"));
+        keyvalue.add(new KeyValue("6", "Casuality"));
 
+        //fill data in spinner
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
+        spinnerLocation.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
+
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                KeyValue value = (KeyValue) parent.getSelectedItem();
+                location_id = value.getId();
+                //Toast.makeText(mContext, "ID: "+value.getId()+", Name : "+value.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void dob (View view){
@@ -170,7 +201,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             showDialog();
 
             // Inserting row in users table
-            new Person(family_name, given_name, gender, birthdate, isEstimated, telephone, identifier_type, locations.location_id, address1, address2, address3, county_district, city_village, "0");
+            new Person(family_name, given_name, gender, birthdate, isEstimated, telephone, identifier_type, location_id, address1, address2, address3, county_district, city_village, "0");
 
             registerPatient(family_name, given_name, telephone, identifier_type, address1, address2, address3, county_district, city_village);
         } else {
@@ -255,7 +286,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("address3", address3);
                 params.put("county_district", county_district);
                 params.put("city_village", city_village);
-                params.put("location_id",locations.location_id);
+                params.put("location_id",location_id);
                 params.put("uuid",AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
                 Log.d("Params", params.toString());

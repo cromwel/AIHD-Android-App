@@ -13,15 +13,15 @@ import android.widget.Toast;
 import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adpater;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.fragments.dm_followup.ActivityModel;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModel;
+import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel;
+import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 
 
 /**
  * Created by Rodney 4/24/18
  */
 
-public class DM_FollowUp extends AppCompatActivity implements FragmentModel.FragStateChangeListener {
+public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
     private String mopc_number,supporter_name,supporter_phone,dm_diagnosis,hypertension,nhif,diabetes_type,hiv_status;
     private String urination,thirst,hunger,weight_loss,fatigue,vision,impotence,numbness,cough,fever,noticable_weight_loss,night_sweats;
@@ -38,7 +38,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModel.Frag
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        FragmentModel.getInstance().setListener(this);
+        FragmentModelFollowUp.getInstance().setListener(this);
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
@@ -80,22 +80,22 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModel.Frag
             case R.id.radio_diagnosis_new:
                 if (checked)
                     dm_diagnosis = "165087";
-                    ActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
+                    FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
                     break;
             case R.id.radio_diagnosis_known:
                 if (checked)
                     dm_diagnosis = "165088";
-                    ActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
+                    FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
                     break;
             case R.id.radio_hypertension_new:
                 if (checked)
                     hypertension = "165092";
-                    ActivityModel.getInstance().htnDiagnosis(hypertension);
+                    FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
                 break;
             case R.id.radio_hypertension_known:
                 if (checked)
                     hypertension = "165093";
-                    ActivityModel.getInstance().htnDiagnosis(hypertension);
+                    FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
                 break;
             case R.id.radio_NHIF_yes:
                 if (checked)
@@ -194,23 +194,4 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModel.Frag
 
     }
 
-    @Override
-    public void initialOne(String tag) {
-
-    }
-
-    @Override
-    public void initialTwo(String tag) {
-
-    }
-
-    @Override
-    public void initialThree(String tag) {
-
-    }
-
-    @Override
-    public void initialFour(String tag) {
-
-    }
 }
