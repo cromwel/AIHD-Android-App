@@ -1,290 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:ignore="HardcodedText">
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" tools:ignore="HardcodedText">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background"
-            android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/round_border"
-                app:cardCornerRadius="5dp"
-                card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_header"
-                        android:padding="10dp"
-                        android:text="Past/ Current Medicaion"
-                        android:textAllCaps="false" />
+                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_header" android:padding="10dp" android:text="Past/ Current Medication" android:textAllCaps="false"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_none"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="None" />
+                            <CheckBox android:id="@+id/checkbox_medication_none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="None"/>
 
-                            <LinearLayout
-                                android:id="@+id/past_current_medication"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            <LinearLayout android:id="@+id/past_current_medication" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_metformin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Metformin" />
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_glibenclamide"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Glibenclamide" />
+                                <CheckBox android:id="@+id/checkbox_medication_metformin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Metformin"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_insulin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Insulin 70/30" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/medication_metformin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                            </LinearLayout>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_nph"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="NPH" />
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_soluble_insulin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Soluble Insulin" />
+                            <CheckBox android:id="@+id/checkbox_medication_glibenclamide" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Glibenclamide"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_enalapril"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Enalapril" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/medication_glibenclamide" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                            </LinearLayout>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_hctz"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="HCTZ" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_losartan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Losartan" />
+                            <CheckBox android:id="@+id/checkbox_medication_insulin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Insulin 70/30"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_nifedipine"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Nifedipine" />
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_insulin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_atenolol"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Atenolol" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_nph" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="NPH"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_nph" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_soluble_insulin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Soluble Insulin"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_soluble_insulin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_enalapril" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Enalapril"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_enalapril" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_hctz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="HCTZ"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_hctz" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_losartan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Losartan"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_losartan" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_nifedipine" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Nifedipine"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_nifedipine" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                            <CheckBox android:id="@+id/checkbox_medication_atenolol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Atenolol"/>
+
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/medication_atenolol" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dosage" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
 
                             </LinearLayout>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_other"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxMedicineOther"
-                                android:text="Other" />
+                            <CheckBox android:id="@+id/checkbox_medication_other" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxMedicineOther" android:text="Other"/>
 
-                            <LinearLayout
-                                android:id="@+id/other_past_current_medication"
-                                android:visibility="gone"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            <LinearLayout android:id="@+id/other_past_current_medication" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Other medication **" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Other medication **"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/medication_other"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Other medication **"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/medication_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Other medication **" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Adhering to current medications?" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Adhering to current medications?"/>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_yes"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Yes" />
+                                    <RadioButton android:id="@+id/radio_adhere_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_no"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="No" />
+                                    <RadioButton android:id="@+id/radio_adhere_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_na"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="N/A" />
+                                    <RadioButton android:id="@+id/radio_adhere_na" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="N/A"/>
                                 </RadioGroup>
 
 
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Specify reason" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Specify reason"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/adhere_specify"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Specify reason"
-                                    android:inputType="text"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/adhere_specify" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Specify reason" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Any known allergies to the drugs" />
+                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Any known allergies to the drugs"/>
 
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                <RadioButton
-                                    android:id="@+id/radio_allergies_yes"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Yes" />
+                                <RadioButton android:id="@+id/radio_allergies_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
 
-                                <RadioButton
-                                    android:id="@+id/radio_allergies_no"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="No" />
+                                <RadioButton android:id="@+id/radio_allergies_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
 
                             </RadioGroup>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Specify" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Specify"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/allergy_specify"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Specify reason"
-                                    android:inputType="text"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/allergy_specify" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Specify reason" android:inputType="text" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -292,1647 +150,283 @@
             </android.support.v7.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/round_border"
-                app:cardCornerRadius="5dp"
-                card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_header"
-                        android:padding="10dp"
-                        android:text="Physical Examination"
-                        android:textAllCaps="false" />
+                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_header" android:padding="10dp" android:text="Physical Examination" android:textAllCaps="false"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Temp(C)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Temp(C)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/temp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="numberDecimal"
-                                    android:hint="Temp(C)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/temp" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" android:hint="Temp(C)" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="PR(/min)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="PR(/min)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/pulse_rate"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="PR(/min)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="numberDecimal"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/pulse_rate" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="PR(/min)" android:padding="15dp" android:textSize="13sp" android:inputType="numberDecimal"/>
                             </LinearLayout>
                         </LinearLayout>
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@color/background"
-                                    android:padding="10dp"
-                                    android:text="BP (1st reading)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="BP (1st reading)"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Systolic (mmHg)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Systolic (mmHg)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_systolic_one"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Systolic (mmHg)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="number"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/bp_systolic_one" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Systolic (mmHg)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:padding="10dp"
-                                    android:text="Diastolic (mmHg)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:padding="10dp" android:text="Diastolic (mmHg)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_diastolic_one"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Diastolic (mmHg)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="number"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/bp_diastolic_one" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Diastolic (mmHg)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@color/background"
-                                    android:padding="10dp"
-                                    android:text="BP (2nd reading)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="BP (2nd reading)"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Systolic (mmHg)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Systolic (mmHg)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_systolic_two"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Systolic (mmHg)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="number"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/bp_systolic_two" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Systolic (mmHg)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:padding="10dp"
-                                    android:text="Diastolic (mmHg)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:padding="10dp" android:text="Diastolic (mmHg)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_diastolic_two"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Diastolic (mmHg)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="number"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/bp_diastolic_two" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Diastolic (mmHg)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <customfonts.TextView_Roboto_Bold
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:text="Other Exam" />
+                        <customfonts.TextView_Roboto_Bold android:background="@color/background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:padding="10dp" android:text="Other Exam"/>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:baselineAligned="false"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Waist circ (cm)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Waist circ (cm)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Waist circ (cm)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="numberDecimal"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/waist_circ" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Waist circ (cm)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Height (cm)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Hip circ (cm)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Height (cm)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp"
-                                    android:inputType="numberDecimal"/>
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/hip_circ" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Hip circ (cm)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Weight (KG)" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Height (cm)"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Weight (KG)"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/height" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Height (cm)" android:padding="15dp" android:textSize="13sp" android:inputType="number"/>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="BMI" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Weight (KG)"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:id="@+id/bmi"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/weight" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Weight (KG)" android:padding="15dp" android:textSize="13sp" android:inputType="numberDecimal"/>
                             </LinearLayout>
+
+
                         </LinearLayout>
 
-                        <customfonts.TextView_Roboto_Bold
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:text="General Exam" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="BMI"/>
+
+                            <customfonts.TextView_Roboto_Bold android:id="@+id/bmi" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp" android:textSize="16sp"/>
+
+                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Waist Hip Ratio"/>
+
+                            <customfonts.TextView_Roboto_Bold android:id="@+id/waist_hip_ratio" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp" android:textSize="16sp"/>
+                        </LinearLayout>
+
+                        <customfonts.TextView_Roboto_Bold android:background="@color/background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:padding="10dp" android:text="General Exam"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
 
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                <RadioButton
-                                    android:id="@+id/radio_exam_fair"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Fair General" />
+                                <RadioButton android:id="@+id/radio_exam_fair" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Fair General"/>
 
-                                <RadioButton
-                                    android:id="@+id/radio_exam_good"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Good General" />
-                                <RadioButton
-                                    android:id="@+id/radio_exam_sick"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Sick Looking" />
+                                <RadioButton android:id="@+id/radio_exam_good" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Good General"/>
+                                <RadioButton android:id="@+id/radio_exam_sick" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Sick Looking"/>
                             </RadioGroup>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_pallor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Pallor" />
+                            <CheckBox android:id="@+id/checkbox_exam_pallor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Pallor"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_jaundice"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Jaundice" />
+                            <CheckBox android:id="@+id/checkbox_exam_jaundice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Jaundice"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_cyanosis"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Cyanosis" />
+                            <CheckBox android:id="@+id/checkbox_exam_cyanosis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Cyanosis"/>
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_other"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Other" />
+                            <CheckBox android:id="@+id/checkbox_exam_lymphangitis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Lymphangitis"/>
+
+                            <CheckBox android:id="@+id/checkbox_exam_oedema" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Oedema"/>
+
+                            <CheckBox android:id="@+id/checkbox_exam_dehydration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Dehydration"/>
+
+                            <CheckBox android:id="@+id/checkbox_exam_other" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Other"/>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Other "/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="CVS" />
+                            <customfonts.EditText_Roboto_Regular android:id="@+id/other_general_exam" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Other" android:padding="15dp" android:textSize="13sp"/>
+                        </LinearLayout>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                        <customfonts.TextView_Roboto_Bold android:background="@color/background" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:padding="10dp" android:text="General Exam"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cvs_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Normal" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cvs_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Abnormal" />
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="CVS"/>
+
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+                                    <RadioButton android:id="@+id/radio_cvs_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Normal"/>
+
+                                    <RadioButton android:id="@+id/radio_cvs_abnormal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Abnormal"/>
                                 </RadioGroup>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="** Describe" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="** Describe"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="** Describe"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/describe_cvs" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="** Describe" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="RS" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="RS"/>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_rs_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Normal" />
+                                    <RadioButton android:id="@+id/radio_rs_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Normal"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_rs_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Abnormal" />
+                                    <RadioButton android:id="@+id/radio_rs_abnormal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Abnormal"/>
                                 </RadioGroup>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="** Describe" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="** Describe"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="** Describe"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/describe_rs" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="** Describe" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="P/A" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="P/A"/>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_pa_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Normal" />
+                                    <RadioButton android:id="@+id/radio_pa_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Normal"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_pa_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Abnormal" />
+                                    <RadioButton android:id="@+id/radio_pa_abnormal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Abnormal"/>
                                 </RadioGroup>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="** Describe" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="** Describe"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="** Describe"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/describe_pa" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="** Describe" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="CNS" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="CNS"/>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cns_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Normal" />
+                                    <RadioButton android:id="@+id/radio_cns_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Normal"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cns_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Abnormal" />
+                                    <RadioButton android:id="@+id/radio_cns_abnormal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Abnormal"/>
                                 </RadioGroup>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="** Describe" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="** Describe"/>
 
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="** Describe"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/describe_cns" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="** Describe" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
                         </LinearLayout>
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Extremities" />
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Extremities"/>
 
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                    <RadioButton
-                                        android:id="@+id/radio_extremities_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Normal" />
+                                    <RadioButton android:id="@+id/radio_extremities_normal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Normal"/>
 
-                                    <RadioButton
-                                        android:id="@+id/radio_extremities_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Abnormal" />
+                                    <RadioButton android:id="@+id/radio_extremities_abnormal" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Abnormal"/>
                                 </RadioGroup>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                            <LinearLayout android:id="@+id/extremities" android:layout_marginTop="10dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
 
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_ulcers"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Ulcers" />
+                                <CheckBox android:id="@+id/checkbox_extremities_ulcers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Ulcers"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_callouses"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Callouses" />
+                                <CheckBox android:id="@+id/checkbox_extremities_callouses" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Callouses"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_nails"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Hardened Nails" />
+                                <CheckBox android:id="@+id/checkbox_extremities_nails" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Hardened Nails"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_fungus"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Fungus" />
+                                <CheckBox android:id="@+id/checkbox_extremities_fungus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Fungus"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_cellulitis"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Cellutis" />
+                                <CheckBox android:id="@+id/checkbox_extremities_cellulitis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Cellutis"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_edema"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Edema" />
+                                <CheckBox android:id="@+id/checkbox_extremities_edema" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Edema"/>
 
-                                <CheckBox
-                                    android:id="@+id/checkbox_extremities_dry"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Dry" />
+                                <CheckBox android:id="@+id/checkbox_extremities_dry" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Dry"/>
                             </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="vertical">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Monofilament test"/>
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Monofilament test" />
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="RF(/5)"/>
+
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/monofilament_rf" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
+
+                                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="LF(/5)"/>
+
+                                <customfonts.EditText_Roboto_Regular android:id="@+id/monofilament_lf" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
                             </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="RF(/5)" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="number"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="LF(/5)" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="number"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/round_border"
-                app:cardCornerRadius="5dp"
-                card_view:cardElevation="9dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_header"
-                        android:padding="10dp"
-                        android:text="Investigations"
-                        android:textAllCaps="false" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_inner"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:text="Test"
-                            android:textAllCaps="false" />
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:text="Results"
-                            android:textAllCaps="false" />
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:text="Date"
-                            android:textAllCaps="false" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="RBS (mmols/L)"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="FBS (mmols/L)"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="PDT"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="ECG"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_ecg_normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Normal" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_ecg_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Abnormal" />
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Hb A1C (%)"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Urinalysis"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_urinalysis_normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Normal" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_urinalysis_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Abnormal" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_urinalysis_unknown"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Unknown" />
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Pus cells"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Glucose"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_glucose_yes"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Yes" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_glucose_no"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="No" />
-
-                            </RadioGroup>
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_glucose_plus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_glucose_plus2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="++" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_glucose_plus3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+++" />
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="CXR"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Normal" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Abnormal" />
-
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Protein"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_protein_yes"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Yes" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_protein_no"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="No" />
-
-                            </RadioGroup>
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_protein_plus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_protein_plus2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="++" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_protein_plus3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+++" />
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Ketone"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_ketone_yes"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Yes" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_ketone_no"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="No" />
-
-                            </RadioGroup>
-
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_ketone_plus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_ketone_plus2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="++" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_ketone_plus3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="+++" />
-                            </RadioGroup>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="UECs"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Lipid Profile"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
 

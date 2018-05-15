@@ -8,8 +8,11 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +23,8 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -35,6 +40,7 @@ import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SpinnerAll;
 import org.aihdint.aihd.app.SessionManager;
+import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,7 +61,7 @@ public class Login extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private CoordinatorLayout coordinatorLayout;
-    private SpinnerAll locations;
+    private String location_id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,8 +79,6 @@ public class Login extends Activity {
 
         checkPermissions();
 
-        new RetrieveLocations().execute();
-
         // Session manager
         session = new SessionManager(getApplicationContext());
 
@@ -86,11 +90,53 @@ public class Login extends Activity {
             finish();
         }
 
+        ConnectivityManager cm =
+                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        assert cm != null;
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        if(isConnected) {
+            RetrieveLocations();
+        }else{
+            Toast.makeText(this,"No Internet Connection,Unable to load locations",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public void setLocationData() {
         Spinner spinnerLocation = findViewById(R.id.spinnerLocationLogin);
+        ArrayList<KeyValue> keyvalue = new ArrayList<>();
+        //Add locations
 
-        locations = new SpinnerAll(this);
-        locations.setLocationData(spinnerLocation);
+        List<Location> locations = Location.listAll(Location.class);
+        for (Location ln : locations) {
+            // adding each child node to HashMap key => value
+            keyvalue.add(new KeyValue(ln.getID(), ln.getName()));
+        }
 
+        //fill data in spinner
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
+        spinnerLocation.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
+
+        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                KeyValue value = (KeyValue) parent.getSelectedItem();
+                location_id = value.getId();
+                //Toast.makeText(mContext, "ID: "+country.getId()+", Name : "+country.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
 
@@ -100,7 +146,7 @@ public class Login extends Activity {
         String password = inputPassword.getText().toString().trim();
 
         // Check for empty data in the form
-        if (!username.isEmpty() && !password.isEmpty()) {
+        if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
             // login user
             loginServer(username,password);
         } else {
@@ -148,7 +194,7 @@ public class Login extends Activity {
 
                         // Create login session
                         session.setLogin(true);
-                        session.createLogin( user_id, name, password,locations.location_id);
+                        session.createLogin( user_id, name, password,location_id);
 
                         // Launch main activity
                         Intent intent = new Intent(Login.this,
@@ -252,16 +298,7 @@ public class Login extends Activity {
         }
     }
 
-    public class RetrieveLocations extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // showing refresh animation before making http call
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
+    public void RetrieveLocations()  {
 
             StringRequest req = new StringRequest(Request.Method.GET, LOCATIONS_URL, new Response.Listener<String>() {
                         @Override
@@ -276,15 +313,11 @@ public class Login extends Activity {
                         JSONArray locations = data.getJSONArray("data");
 
                         if(error){
-
                             Toast.makeText(getApplicationContext(),"Error loading location data",Toast.LENGTH_SHORT).show();
                         }else {
                             if (locations.length() > 0) {
 
-                                List<Location> location_count = Select.from(Location.class).list();
-
-                                if (locations.length() > location_count.size()) {
-
+                                    Location.deleteAll(Location.class);
                                     // looping through json and adding to list
                                     for (int i = 0; i < locations.length(); i++) {
 
@@ -299,10 +332,8 @@ public class Login extends Activity {
 
                                     }
 
-                                    Intent i = new Intent(getApplicationContext(), Login.class);
-                                    startActivity(i);
-                                    finish();
-                                }
+                                    setLocationData();
+
                             }
                         }
 
@@ -322,11 +353,7 @@ public class Login extends Activity {
             // Adding request to request queue
             AppController.getInstance().addToRequestQueue(req);
 
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void args) {
 
-        }
+
     }
 }

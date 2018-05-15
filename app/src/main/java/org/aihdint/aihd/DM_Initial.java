@@ -50,7 +50,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     private String dm_initial_date,diagnosis_diabetes_date,diagnosis_hypertension_date,hiv_other_status,tb_treatment_start,
             tb_comment,nhif_other,referral_other,referral_other_details,complaint_other_details,complaint_lmp,drug_abuse_other,occupation,education,drinking,smoking;
 
-    private String intra_referral,inter_referral;
+    private String intra_referral,inter_referral,extremities;
 
     //Page 2
     private String medication_none,medication_metformin,medication_glibenclamide,medication_insulin,medication_nph,medication_soluble_insulin,medication_enalapril,medication_hctz,medication_losartan,medication_nifedipine,medication_atenolol,medication_other;
@@ -86,6 +86,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         tabLayout.addTab(tabLayout.newTab().setText("Page 2"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 3"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 4"));
+        tabLayout.addTab(tabLayout.newTab().setText("Page 5"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
@@ -242,6 +243,16 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             case R.id.radio_referral_other:
                 if (checked)
                     inter_referral = "5622";
+                break;
+            case R.id.radio_extremities_normal:
+                if (checked)
+                    extremities = "1115";
+                    InitialActivityModel_Two.getInstance().extremitiesStatus(extremities);
+                break;
+            case R.id.radio_extremities_abnormal:
+                if (checked)
+                    extremities = "1116";
+                    InitialActivityModel_Two.getInstance().extremitiesStatus(extremities);
                 break;
 
         }

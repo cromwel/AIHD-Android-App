@@ -9,6 +9,7 @@ public class InitialActivityModel_Two {
 
         void medicationNone(String status);
         void medicationOther(String check);
+        void extremitiesStatus(String status);
     }
 
     private static InitialActivityModel_Two mInstance;
@@ -36,6 +37,12 @@ public class InitialActivityModel_Two {
     public void medicationOther(String check) {
         if (mListener != null) {
             mListener.medicationOther(check);
+        }
+    }
+
+    public void extremitiesStatus(String status) {
+        if (mListener != null) {
+            mListener.extremitiesStatus(status);
         }
     }
 

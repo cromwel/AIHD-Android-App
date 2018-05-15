@@ -2,7 +2,6 @@ package org.aihdint.aihd.services;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.android.volley.Response;
@@ -37,23 +36,14 @@ public class LocationService extends IntentService {
         final Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                new RetrieveLocations().execute();
+                RetrieveLocations();
             }
         });
         thread.start();
 
     }
 
-    public class RetrieveLocations extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // showing refresh animation before making http call
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
+    public void RetrieveLocations() {
 
             JsonArrayRequest req = new JsonArrayRequest(LOCATIONS_URL,
                     new Response.Listener<JSONArray>() {
@@ -98,11 +88,6 @@ public class LocationService extends IntentService {
             // Adding request to request queue
             AppController.getInstance().addToRequestQueue(req);
 
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void args) {
 
-        }
     }
 }

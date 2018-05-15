@@ -4,14 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import org.aihdint.aihd.fragments.dm_followup.Followup_page_1;
-import org.aihdint.aihd.fragments.dm_followup.Followup_page_2;
-import org.aihdint.aihd.fragments.dm_followup.Followup_page_3;
-import org.aihdint.aihd.fragments.dm_followup.Followup_page_4;
 import org.aihdint.aihd.fragments.dm_initial.Initial_page_1;
 import org.aihdint.aihd.fragments.dm_initial.Initial_page_2;
 import org.aihdint.aihd.fragments.dm_initial.Initial_page_3;
 import org.aihdint.aihd.fragments.dm_initial.Initial_page_4;
+import org.aihdint.aihd.fragments.dm_initial.Initial_page_5;
 
 /**
  * Created : dennis on 3/23/18.
@@ -38,6 +35,8 @@ public class DM_Initial_Adpater extends FragmentStatePagerAdapter {
                 return new Initial_page_3();
             case 3:
                 return new Initial_page_4();
+            case 4:
+                return new Initial_page_5();
             default:
                 return null;
         }

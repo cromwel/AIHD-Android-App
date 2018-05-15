@@ -51,7 +51,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     private EditText textViewAddress1,textViewAddress2,textViewAddress3,textViewCounty,textViewVillage;
 
     private ProgressDialog pDialog;
-    private SpinnerAll locations;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
