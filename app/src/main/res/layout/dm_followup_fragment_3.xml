@@ -1,638 +1,1186 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp"
     tools:ignore="HardcodedText">
 
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/round_border"
-        app:cardCornerRadius="5dp"
-        card_view:cardElevation="9dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/background"
             android:orientation="vertical">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <customfonts.TextView_Roboto_Bold
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background_header"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:text="Physical Examination"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:gravity="center"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:orientation="vertical">
 
                     <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content" />
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:background="@color/background_header"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="Physical Examination"
                         android:textColor="@color/black"
-                        android:text="Current"
-                        android:gravity="center"/>
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Recent"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Height(cm)"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/blue"
-                        android:text="177.0"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Weight(KG)"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/blue"
-                        android:text="85.0"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:padding="10dp">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="BMI"/>
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/blue"
-                        android:text="27.13"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Blood Pressure (mmHG)" />
+                        android:textSize="16sp" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Current"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Recent"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Height(cm)"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:textSize="13sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="177.0"
+                                android:textColor="@color/blue"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Weight(KG)"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:textSize="13sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="85.0"
+                                android:textColor="@color/blue"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            android:weightSum="3">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="BMI"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="27.13"
+                                android:textColor="@color/blue"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Blood Pressure (mmHG)"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Systolic"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="13sp" />
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Diastolic"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="165.0/70.0"
+                                android:textColor="@color/blue"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
+                            android:background="@color/background_header"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Assessments:"
                             android:textColor="@color/black"
-                            android:text="Systolic"/>
+                            android:textSize="16sp" />
 
-                        <customfonts.EditText_Roboto_Regular
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="numberDecimal"
-                            android:textSize="13sp" />
+                            android:background="@color/background_inner"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:gravity="center"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Assessment"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:gravity="center"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Date"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_cardiovascular_disease"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Cardiovascular Disease" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_high_BP"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="High Blood Pressure" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_high_cholestrol"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="High Cholestrol" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_peripheral_vascular_disease"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Peripheral vascular disease" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_peripheral_neuropathy"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Peripheral neuropathy" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_autonomic_neuropathy"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Autonomic neuropathy" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_retinopathy"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Retinopathy" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_kidney_disease"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Kidney disease" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_asthma_COPD"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Asthma/COPD" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_arthritis"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Arthritis" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <RadioGroup
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_other"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Other" />
+                                </RadioGroup>
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="Complications: Foot Amputations (please indicate)"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
+                            android:text="Foot Amputations:"
                             android:textColor="@color/black"
-                            android:text="Diastolic"/>
-
-                        <customfonts.EditText_Roboto_Regular
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="numberDecimal"
                             android:textSize="13sp" />
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radio_foot_amputations_yes"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_foot_amputations_no"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+                            </RadioGroup>
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textColor="@color/blue"
-                        android:text="165.0/70.0"
-                        android:gravity="center"/>
-
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <customfonts.TextView_Roboto_Bold
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background_header"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:text="Exams:"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:gravity="center"/>
+                android:layout_margin="10dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+                    android:background="@color/background"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_inner"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:text="Exam"
-                        android:gravity="center"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"/>
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:background="@color/background_inner"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:text="Date"
-                        android:gravity="center"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <CheckBox android:id="@+id/checkbox_foot_exam"
-                        android:layout_width="0dp"
-                        android:layout_weight=".70"
-                        android:layout_height="wrap_content"
-                        android:text="Foot Check/Annual Foot Exam"
-                        android:onClick="onCheckboxClicked"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".3"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <CheckBox android:id="@+id/checkbox_eye_exam"
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:text="Eye Exam"
-                        android:onClick="onCheckboxClicked"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <CheckBox android:id="@+id/checkbox_dental_exam"
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:text="Dental Exam"
-                        android:onClick="onCheckboxClicked"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <CheckBox android:id="@+id/checkbox_eye_check_up"
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:text="Eye Check Up"
-                        android:onClick="onCheckboxClicked"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <CheckBox android:id="@+id/checkbox_nutrition_review"
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:text="Nutritional Review"
-                        android:onClick="onCheckboxClicked"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <customfonts.TextView_Roboto_Bold
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background_header"
-                    android:textSize="13sp"
-                    android:textColor="@color/black"
-                    android:text="Laboratory Investigations:"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:gravity="center"/>
-
-                    <customfonts.TextView_Roboto_Bold
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:background="@color/background_inner"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Date"
-                        android:gravity="end"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"/>
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_header"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Exams:"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:background="@color/background_inner"
+                                android:gravity="center"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Exam"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:background="@color/background_inner"
+                                android:gravity="center"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Date"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_foot_exam"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".70"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Foot Check/Annual Foot Exam" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".3"
+                                android:ems="10"
+                                android:hint="(dd/mm/yyyy)"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_eye_exam"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Eye Exam" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:hint="(dd/mm/yyyy)"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_dental_exam"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Dental Exam" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:hint="(dd/mm/yyyy)"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_eye_check_up"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Eye Check Up" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:hint="(dd/mm/yyyy)"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_nutrition_review"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Nutritional Review" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:hint="(dd/mm/yyyy)"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
+                    android:background="@color/background"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Fasting Blood Sugar (FBS)" />
+                        android:orientation="vertical">
 
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal"
-                        android:textSize="13sp" />
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_header"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="Laboratory Investigations:"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_inner"
+                            android:gravity="end"
+                            android:padding="5dp"
+                            android:paddingEnd="75dp"
+                            android:paddingRight="75dp"
+                            android:text="Date"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="Fasting Blood Sugar (FBS)"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="Random Blood Sugar (RBS)"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="HbA1c"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="HDL"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="LDL"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="Triglycerides"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:text="UECs/ Creatinine"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:textSize="13sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:hint="(dd/mm/yyyy)"
+                                    android:inputType="date"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Random Blood Sugar (RBS)"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="HbA1c"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="HDL"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="LDL"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="Triglycerides"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="0dp"
-                        android:layout_weight="1.5"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:text="UECs/ Creatinine"/>
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_weight=".5"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textSize="13sp" />
-
-                    <customfonts.EditText_Roboto_Regular
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:textSize="13sp"
-                        android:hint="(dd/mm/yyyy)" />
-                </LinearLayout>
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-</ScrollView>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

@@ -27,39 +27,7 @@ public class Followup_page_4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_followup_fragment_4, container, false);
 
-        spinnerDrug1 = view.findViewById(R.id.spinnerDrug1);
-
         return view;
     }
 
-    //Choose a drug
-    //Drug 1
-    private void setLocation1Data(Spinner spinnerDrug) {
-
-        ArrayList<KeyValue> keyvalue = new ArrayList<>();
-        //Add countries
-
-        keyvalue.add(new KeyValue("1", "India"));
-        keyvalue.add(new KeyValue("2", "USA"));
-        keyvalue.add(new KeyValue("3", "China"));
-        keyvalue.add(new KeyValue("4", "UK"));
-
-        //fill data in spinner
-        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerDrug.setAdapter(adapter);
-        //spinnerLocation.setSelection(adapter.getPosition();//Optional to set the selected item.
-
-        spinnerDrug.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                KeyValue country = (KeyValue) parent.getSelectedItem();
-                Toast.makeText(getContext(), "Country ID: "+country.getId()+",  Country Name : "+country.getName(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-    }
 }

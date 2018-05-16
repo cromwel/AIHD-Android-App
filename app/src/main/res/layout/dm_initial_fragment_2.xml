@@ -818,11 +818,11 @@
                                 android:text="Cyanosis" />
 
                             <CheckBox
-                                android:id="@+id/checkbox_exam_lymphangitis"
+                                android:id="@+id/checkbox_exam_lymphadenopathy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:text="Lymphangitis" />
+                                android:text="Lymphadenopathy" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_oedema"
@@ -1288,5 +1288,4 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
 </android.support.design.widget.CoordinatorLayout>
