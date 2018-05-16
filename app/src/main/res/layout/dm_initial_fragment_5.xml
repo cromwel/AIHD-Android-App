@@ -1,364 +1,1215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" xmlns:card_view="http://schemas.android.com/apk/res-auto" android:orientation="vertical" tools:ignore="HardcodedText">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:orientation="vertical">
 
 
-            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_header" android:text="Treatment" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Treatment"
+                        android:textAllCaps="false" />
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                    <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Drug" android:textAllCaps="false"/>
-                    <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Plan" android:textAllCaps="false"/>
-                    <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Dose" android:textAllCaps="false"/>
-                    <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Frequency" android:textAllCaps="false"/>
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:orientation="vertical">
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:background="@color/background_inner"
+                            android:padding="10dp"
+                            android:text="Drug"
+                            android:textAllCaps="false" />
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="Glucose Lowering drugs " android:textAllCaps="false"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:background="@color/background_inner"
+                            android:padding="10dp"
+                            android:text="Plan"
+                            android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_metformin" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Diabetes" android:onClick="onCheckboxClicked"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:background="@color/background_inner"
+                            android:padding="10dp"
+                            android:text="Dose(mg)"
+                            android:textAllCaps="false" />
 
-                        <Spinner android:id="@+id/spinnerDrugMetformin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanMetformin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.25"
+                            android:background="@color/background_inner"
+                            android:padding="10dp"
+                            android:text="Frequency"
+                            android:textAllCaps="false" />
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_glibenclamide" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Glibenclamide" android:onClick="onCheckboxClicked"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
 
-                        <Spinner android:id="@+id/spinnerDrugGlibenclamide" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            android:padding="10dp"
+                            android:text="Glucose Lowering drugs "
+                            android:textAllCaps="false" />
 
-                        <Spinner android:id="@+id/spinnerPlanGlibenclamide" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
 
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
+                            <CheckBox
+                                android:id="@+id/treatment_metformin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Metaformin" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugMetformin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanMetformin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_glibenclamide"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Glibenclamide" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugGlibenclamide"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanGlibenclamide"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_insulin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Insulin 70/30" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugInsulin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.75"
+                                android:hint="IU"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_nph"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="NPH" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugNPH"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.75"
+                                android:hint="IU"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_soluble_insulin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Soluble Insulin" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugSolubleInsulin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.75"
+                                android:hint="IU"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:hint="Other glucose lowering drugs"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugGlucoseOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.75"
+                                android:hint="IU"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            android:padding="10dp"
+                            android:text="Anti hypertensive agents"
+                            android:textAllCaps="false" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_enalapril"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Enalapril" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugEnalapril"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanEnalapril"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_hctz"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="HCTZ" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugHCTZ"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanHCTZ"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_losartan"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Losartan" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugLosartan"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanLosartan"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_nifedipine"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Nifedipine" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugNifedipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanNifedipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_atenolol"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Atenolol" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugAtenolol"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanAtenolol"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_jasa"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="**JASA" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugJASA"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanJASA"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_atorvastatin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="**Atorvastatin" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugAtorvastatin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanAtorvastatin"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_lisinopril"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="**Lisinopril/HCTZ" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugLisinopril"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanLisinopril"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_amlodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="**Amlodipine" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugAmlodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanAmlodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_felodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="**Felodipine" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugFelodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanFelodipine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:hint="Other anti hypertensive agents"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugAntiHypertensiveOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Light
+                                android:id="@+id/planAntiHypertensiveOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75"
+                                android:inputType="numberDecimal"/>
+
+                        </LinearLayout>
+
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            android:padding="10dp"
+                            android:text="Peripheral neuropathy drugs "
+                            android:textAllCaps="false" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_amitriptylline"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Amitriptylline" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugAmitriptylline"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanAmitriptylline"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <CheckBox
+                                android:id="@+id/treatment_carbamazepine"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Carbamazepine" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugCarbamazepine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <Spinner
+                                android:id="@+id/spinnerPlanCarbamazepine"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:hint="frequency"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:hint="Other drugs"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugNeuropathyOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75" />
+
+                            <customfonts.EditText_Roboto_Light
+                                android:id="@+id/planNeuropathyOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="0.75"
+                                android:inputType="numberDecimal"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/background"
+                                android:padding="10dp"
+                                android:text="Comments"
+                                android:textAllCaps="false" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Comments"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/background"
+                                android:padding="10dp"
+                                android:text="Tests Ordered for next visit"
+                                android:textAllCaps="false" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_urinalysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Urinalysis" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_hba"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="HBA1c" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_microalbumin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Microalbumin" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_creatinine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Creatinine" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_potassium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Potassium" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_ecg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="ECG" />
+
+                            <CheckBox
+                                android:id="@+id/treatment_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Other" />
+
+                        </LinearLayout>
                     </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_insulin" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Insulin 70/30" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugInsulin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:hint="IU" android:padding="15dp" android:textSize="13sp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_nph" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="NPH" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugNPH" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:hint="IU" android:padding="15dp" android:textSize="13sp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_soluble_insulin" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Soluble Insulin" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugSolubleInsulin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:hint="IU" android:padding="15dp" android:textSize="13sp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:hint="Other glucose lowering drugs" android:padding="15dp" android:textSize="13sp"/>
-
-                        <Spinner android:id="@+id/spinnerDrugGlucoseOther" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="wrap_content" android:hint="IU" android:padding="15dp" android:textSize="13sp"/>
-
-                    </LinearLayout>
-
-
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="Anti hypertensive agents" android:textAllCaps="false"/>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_enalapril" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Enalapril" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugEnalapril" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanEnalapril" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_hctz" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="HCTZ" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugHCTZ" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanHCTZ" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_losartan" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Losartan" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugLosartan" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanLosartan" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_nifedipine" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Nifedipine" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugNifedipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanNifedipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_atenolol" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Atenolol" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugAtenolol" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanAtenolol" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_jasa" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="**JASA" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugJASA" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanJASA" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_atorvastatin" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="**Atorvastatin" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugAtorvastatin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanAtorvastatin" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_lisinopril" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="**Lisinopril/HCTZ" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugLisinopril" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanLisinopril" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_amlodipine" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="**Amlodipine" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugAmlodipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanAmlodipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_felodipine" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="**Felodipine" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugFelodipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanFelodipine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:hint="Other anti hypertensive agents" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-
-                        <Spinner android:id="@+id/spinnerDrugHypertensive" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanHypertensive" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                    </LinearLayout>
-
-
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="Peripheral neuropathy drugs " android:textAllCaps="false"/>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_amitriptylline" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Amitriptylline" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugAmitriptylline" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanAmitriptylline" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <CheckBox android:id="@+id/treatment_carbamazepine" android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:text="Carbamazepine" android:onClick="onCheckboxClicked"/>
-
-                        <Spinner android:id="@+id/spinnerDrugCarbamazepine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanCarbamazepine" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="wrap_content" android:hint="frequency" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="4">
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1.5" android:layout_height="wrap_content" android:hint="Other drugs" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-
-                        <Spinner android:id="@+id/spinnerDrugNeuropathy" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                        <Spinner android:id="@+id/spinnerPlanNeuropathy" android:layout_width="0dp" android:layout_weight="0.75" android:layout_height="50dp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="Comments" android:textAllCaps="false"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Comments" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:padding="10dp" android:text="Tests Ordered for next visit" android:textAllCaps="false"/>
-
-                        <CheckBox android:id="@+id/treatment_urinalysis" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Urinalysis" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_hba" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HBA1c" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_microalbumin" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Microalbumin" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_creatinine" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Creatinine" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_potassium" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Potassium" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_ecg" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ECG" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/treatment_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Other" android:onClick="onCheckboxClicked"/>
-
-                    </LinearLayout>
-                </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_header" android:text="Follow Up Plan" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Follow Up Plan"
+                        android:textAllCaps="false" />
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Refferal Reasons" android:textAllCaps="false" android:layout_marginBottom="5dp"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/background_inner"
+                        android:padding="10dp"
+                        android:text="Refferal Reasons"
+                        android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Option" android:textAllCaps="false"/>
-                        <customfonts.TextView_Roboto_Bold android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:padding="10dp" android:background="@color/background_inner" android:text="Date(dd/mm/yyyy)" android:textAllCaps="false"/>
-                    </LinearLayout>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/background_inner"
+                                android:padding="10dp"
+                                android:text="Option"
+                                android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
-
-                        <CheckBox android:id="@+id/followup_continue" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Continue Care in clinic" android:onClick="onCheckboxClicked"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Return date" android:inputType="date" android:padding="15dp" android:textSize="13sp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
-
-                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
-
-                            <CheckBox android:id="@+id/followup_transfer" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Transfer care to Health center, specify" android:onClick="onCheckboxClicked"/>
-
-                            <customfonts.EditText_Roboto_Regular android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Health Center" android:padding="15dp" android:textSize="13sp"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/background_inner"
+                                android:padding="10dp"
+                                android:text="Date(dd/mm/yyyy)"
+                                android:textAllCaps="false" />
                         </LinearLayout>
 
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Date transferred out" android:inputType="date" android:padding="15dp" android:textSize="13sp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                    </LinearLayout>
+                            <CheckBox
+                                android:id="@+id/followup_continue"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Continue Care in clinic" />
 
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Return date"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2">
-
-                        <CheckBox android:id="@+id/followup_refer" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Refer to referral facility" android:onClick="onCheckboxClicked"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Date reffered" android:inputType="date" android:padding="15dp" android:textSize="13sp"/>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="30dp">
-
-                        <CheckBox android:id="@+id/followup_further_management_dm" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Further management of DM" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_further_management_htn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Further management of HTN" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_eye_review" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Eye review" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_surgical_review" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Surgical review" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_renal_review" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Renal review" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_cvd_review" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="CVD review" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_nutrition" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nutrition" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_physiotherapy" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Physiotherapy" android:onClick="onCheckboxClicked"/>
-
-                        <CheckBox android:id="@+id/followup_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Other" android:onClick="onCheckboxClicked"/>
-
-                        <customfonts.EditText_Roboto_Regular android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Other Referral Reasons" android:inputType="date" android:padding="15dp" android:textSize="13sp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Member of Support Group" android:textAllCaps="false"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/round_border">
-
-                            <Spinner android:id="@+id/spinnerSupportGroup" android:layout_width="match_parent" android:layout_height="50dp"/>
                         </LinearLayout>
 
-                    </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                                <CheckBox
+                                    android:id="@+id/followup_transfer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Transfer care to Health center, specify" />
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Provider Name" android:textAllCaps="false"/>
+                                <customfonts.EditText_Roboto_Regular
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Health Center"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
 
-                        <customfonts.EditText_Roboto_Regular android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Provider Name" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Date transferred out"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="55dp">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Designation" android:textAllCaps="false"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/round_border">
-
-                            <Spinner android:id="@+id/spinnerDesignation" android:layout_width="match_parent" android:background="@drawable/round_border" android:layout_height="50dp"/>
                         </LinearLayout>
 
-                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <CheckBox
+                                android:id="@+id/followup_refer"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Refer to referral facility" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Date reffered"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/followup_further_management_dm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Further management of DM" />
+
+                            <CheckBox
+                                android:id="@+id/followup_further_management_htn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Further management of HTN" />
+
+                            <CheckBox
+                                android:id="@+id/followup_eye_review"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Eye review" />
+
+                            <CheckBox
+                                android:id="@+id/followup_surgical_review"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Surgical review" />
+
+                            <CheckBox
+                                android:id="@+id/followup_renal_review"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Renal review" />
+
+                            <CheckBox
+                                android:id="@+id/followup_cvd_review"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="CVD review" />
+
+                            <CheckBox
+                                android:id="@+id/followup_nutrition"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Nutrition" />
+
+                            <CheckBox
+                                android:id="@+id/followup_physiotherapy"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Physiotherapy" />
+
+                            <CheckBox
+                                android:id="@+id/followup_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Other" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Other Referral Reasons"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Member of Support Group"
+                                android:textAllCaps="false" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/round_border">
+
+                                <Spinner
+                                    android:id="@+id/spinnerSupportGroup"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Provider Name"
+                                android:textAllCaps="false" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Provider Name"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="55dp"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Designation"
+                                android:textAllCaps="false" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/round_border">
+
+                                <Spinner
+                                    android:id="@+id/spinnerDesignation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/round_border" />
+                            </LinearLayout>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>

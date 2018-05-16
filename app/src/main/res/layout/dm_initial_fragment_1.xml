@@ -1,350 +1,1020 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" tools:ignore="HardcodedText">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background" android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_inner" android:padding="10dp" android:text="DM HTN Initial Encounter Form" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_inner"
+                        android:padding="10dp"
+                        android:text="DM HTN Initial Encounter Form"
+                        android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
 
-                        <customfonts.EditText_Roboto_Regular android:id="@+id/dm_initial_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Date" android:padding="15dp" android:textSize="13sp"/>
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/dm_initial_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Date"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Level of Eduation*"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Level of Eduation*" />
 
-                        <Spinner android:id="@+id/spinnerEducation" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/round_border"/>
+                        <Spinner
+                            android:id="@+id/spinnerEducation"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_border" />
 
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Occupation*"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Occupation*" />
 
-                        <Spinner android:id="@+id/spinnerOccupation" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/round_border"/>
+                        <Spinner
+                            android:id="@+id/spinnerOccupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_border" />
 
-                        <customfonts.EditText_Roboto_Regular android:id="@+id/occupation_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Occupation Other" android:padding="15dp" android:textSize="13sp"/>
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/occupation_other"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Occupation Other"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_header" android:padding="10dp" android:text="Status of Patient" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Status of Patient"
+                        android:textAllCaps="false" />
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="20dp" android:text="Diabetes *"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Diabetes *" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                        <RadioGroup android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <RadioButton android:id="@+id/radio_new_dm_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="New DM Patient"/>
+                            <RadioButton
+                                android:id="@+id/radio_new_dm_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="New DM Patient" />
 
-                            <RadioButton android:id="@+id/radio_known_dm_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Known DM Patient"/>
+                            <RadioButton
+                                android:id="@+id/radio_known_dm_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Known DM Patient" />
 
-                            <RadioButton android:id="@+id/radio_na_dm_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="N/A*"/>
+                            <RadioButton
+                                android:id="@+id/radio_na_dm_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="N/A*" />
                         </RadioGroup>
                     </LinearLayout>
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" android:text="Diabetes runs in the family?"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Diabetes runs in the family?"
+                                android:textSize="13sp" />
 
-                        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                            <RadioButton android:id="@+id/radio_dm_patient_family_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
+                                <RadioButton
+                                    android:id="@+id/radio_dm_patient_family_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
 
-                            <RadioButton android:id="@+id/radio_dm_patient_family_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
+                                <RadioButton
+                                    android:id="@+id/radio_dm_patient_family_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
 
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Year of Diagnosis" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/diagnosis_diabetes_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Year of Diagnosis"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Hypertension *" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radio_new_htn_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="New HTN Patient" />
+
+                            <RadioButton
+                                android:id="@+id/radio_known_htn_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Known HTN Patient" />
+
+                            <RadioButton
+                                android:id="@+id/radio_na_htn_patient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="N/A" />
                         </RadioGroup>
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Year of Diagnosis"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <customfonts.EditText_Roboto_Regular android:id="@+id/diagnosis_diabetes_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Year of Diagnosis" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Hypertension runs in the family?"
+                                android:textSize="13sp" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_htn_patient_family_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_htn_patient_family_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Year of Diagnosis" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/diagnosis_hypertension_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Year of Diagnosis"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
 
 
                     </LinearLayout>
-                </LinearLayout>
 
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="20dp" android:text="Hypertension *"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        <RadioGroup android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="HIV Status *" />
 
-                            <RadioButton android:id="@+id/radio_new_htn_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="New HTN Patient"/>
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                            <RadioButton android:id="@+id/radio_known_htn_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Known HTN Patient"/>
+                                <RadioButton
+                                    android:id="@+id/radio_hiv_plus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="HIV -ve" />
 
-                            <RadioButton android:id="@+id/radio_na_htn_patient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="N/A"/>
+                                <RadioButton
+                                    android:id="@+id/radio_hiv_negative"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="HIV +ve" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_hiv_unknown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Uknown" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/hiv_enrolled"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Enrolled to Care" />
+
+                            <RadioButton
+                                android:id="@+id/radio_enrolled_yes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/radio_enrolled_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="No" />
                         </RadioGroup>
+
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="2">
+                    <LinearLayout
+                        android:id="@+id/hiv_status_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="** Other patient status" />
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" android:text="Hypertension runs in the family?"/>
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/hiv_other_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="** Other patient status"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
+                    </LinearLayout>
 
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-                                <RadioButton android:id="@+id/radio_htn_patient_family_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
+                    <LinearLayout
+                        android:id="@+id/tb_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
-                                <RadioButton android:id="@+id/radio_htn_patient_family_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="TB Status" />
+
+                            <CheckBox
+                                android:id="@+id/checkbox_tb_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onCheckboxClicked"
+                                android:text="On treatment" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Treatment Start Date" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/tb_treatment_start"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="dd/mm/yyyy"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Comments (details)" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/tb_comment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="comments"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Patient covered by NHIF" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_nhif_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_nhif_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_nhif_other"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Other" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/nhif_other_details"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Other" />
+
+                            <customfonts.EditText_Roboto_Light
+                                android:id="@+id/nhif_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Is patient a referral" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:baselineAligned="false"
+                                android:text="Inter-Referral" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_chw"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="CHW" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_dispensary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Dispensary" />
+                            </RadioGroup>
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Intra-Referral" />
+
+                            <RadioGroup
+                                android:id="@+id/interreferral_details"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_maternity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Maternity" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_inpatient"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="In Patient" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_opd"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="OPD" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_casualty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Casualty" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_ccc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="CCC" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_referral_other"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Other" />
 
                             </RadioGroup>
                         </LinearLayout>
 
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Year of Diagnosis"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Comments (Specify)" />
 
-                            <customfonts.EditText_Roboto_Regular android:id="@+id/diagnosis_hypertension_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Year of Diagnosis" android:inputType="number" android:padding="15dp" android:textSize="13sp"/>
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:orientation="horizontal" android:weightSum="2">
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HIV Status *"/>
-
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                                <RadioButton android:id="@+id/radio_hiv_plus" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="HIV -ve"/>
-
-                                <RadioButton android:id="@+id/radio_hiv_negative" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="HIV +ve"/>
-
-                                <RadioButton android:id="@+id/radio_hiv_unknown" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Uknown"/>
-                            </RadioGroup>
-                        </LinearLayout>
-
-                        <RadioGroup android:id="@+id/hiv_enrolled" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enrolled to Care"/>
-
-                            <RadioButton android:id="@+id/radio_enrolled_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
-
-                            <RadioButton android:id="@+id/radio_enrolled_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
-                        </RadioGroup>
-
-                    </LinearLayout>
-
-                    <LinearLayout android:id="@+id/hiv_status_details" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="** Other patient status"/>
-
-                        <customfonts.EditText_Roboto_Regular android:id="@+id/hiv_other_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="** Other patient status" android:padding="15dp" android:textSize="13sp"/>
-                    </LinearLayout>
-
-
-                    <LinearLayout android:id="@+id/tb_details" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="3">
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="TB Status"/>
-
-                            <CheckBox android:id="@+id/checkbox_tb_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="On treatment"/>
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Treatment Start Date"/>
-
-                            <customfonts.EditText_Roboto_Regular android:id="@+id/tb_treatment_start" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="dd/mm/yyyy" android:inputType="date" android:padding="15dp" android:textSize="13sp"/>
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Comments (details)"/>
-
-                            <customfonts.EditText_Roboto_Regular android:id="@+id/tb_comment" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="comments" android:padding="15dp" android:textSize="13sp"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="3">
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Patient covered by NHIF"/>
-
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                                <RadioButton android:id="@+id/radio_nhif_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
-
-                                <RadioButton android:id="@+id/radio_nhif_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
-
-                                <RadioButton android:id="@+id/radio_nhif_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Other"/>
-                            </RadioGroup>
-                        </LinearLayout>
-
-                        <LinearLayout android:id="@+id/nhif_other_details" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Other"/>
-
-                            <customfonts.EditText_Roboto_Light android:id="@+id/nhif_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp"/>
-
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/referral_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Comment"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginRight="18dp" android:layout_marginTop="10dp" android:baselineAligned="false" android:orientation="horizontal" android:weightSum="3">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Other referral details" />
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Is patient a referral"/>
-
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                                <RadioButton android:id="@+id/radio_referral_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
-
-                                <RadioButton android:id="@+id/radio_referral_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
-                            </RadioGroup>
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:text="Inter-Referral"/>
-
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                                <RadioButton android:id="@+id/radio_referral_chw" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="CHW"/>
-
-                                <RadioButton android:id="@+id/radio_referral_dispensary" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Dispensary"/>
-                            </RadioGroup>
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Intra-Referral"/>
-
-                            <RadioGroup android:id="@+id/interreferral_details" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                                <RadioButton android:id="@+id/radio_referral_maternity" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Maternity"/>
-
-                                <RadioButton android:id="@+id/radio_referral_inpatient" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="In Patient"/>
-
-                                <RadioButton android:id="@+id/radio_referral_opd" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="OPD"/>
-
-                                <RadioButton android:id="@+id/radio_referral_casualty" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Casualty"/>
-
-                                <RadioButton android:id="@+id/radio_referral_ccc" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="CCC"/>
-
-                                <RadioButton android:id="@+id/radio_referral_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Other"/>
-
-                            </RadioGroup>
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Comments (Specify)"/>
-
-                            <customfonts.EditText_Roboto_Regular android:id="@+id/referral_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Comment" android:padding="15dp" android:textSize="13sp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp" android:text="Other referral details"/>
-
-                        <customfonts.EditText_Roboto_Regular android:id="@+id/referral_other_details" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Other referral details" android:padding="15dp" android:textSize="13sp"/>
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/referral_other_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Other referral details"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_header" android:padding="10dp" android:text="Chief Complaints" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Chief Complaints"
+                        android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:orientation="vertical">
 
-                        <CheckBox android:id="@+id/checkbox_complaint_breath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Shortness of breath on activity"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_breath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Shortness of breath on activity" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_palpitations" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Palpitations (heart racing)"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_palpitations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Palpitations (heart racing)" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_dizziness" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Recurrent Dizziness"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_dizziness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Recurrent Dizziness" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_fainting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Fainting"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_fainting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Fainting" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_leg_swell" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Leg Swelling"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_leg_swell"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Leg Swelling" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_urination_fatigue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Frequent urination and fatigue"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_urination_fatigue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Frequent urination and fatigue" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_lose_consciousness" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Loss of Consciousness"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_lose_consciousness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Loss of Consciousness" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_blurr_vision" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Blurring of Vision"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_blurr_vision"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Blurring of Vision" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_focal_weakness" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Focal Weakness"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_focal_weakness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Focal Weakness" />
 
-                        <CheckBox android:id="@+id/checkbox_foot_complaint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Foot Complaints"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_foot_complaint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Foot Complaints" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_headache_migraines" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Headaches / Migraines"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_headache_migraines"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Headaches / Migraines" />
 
-                        <CheckBox android:id="@+id/checkbox_complaint_other" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onCheckboxClicked" android:text="Other"/>
+                        <CheckBox
+                            android:id="@+id/checkbox_complaint_other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Other" />
 
-                        <customfonts.EditText_Roboto_Light android:id="@+id/complaint_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Specify other" android:textSize="13sp" android:visibility="gone"/>
+                        <customfonts.EditText_Roboto_Light
+                            android:id="@+id/complaint_other"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Specify other"
+                            android:textSize="13sp"
+                            android:visibility="gone" />
 
-                        <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="LMP if female"/>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="LMP if female" />
 
-                        <customfonts.EditText_Roboto_Light android:id="@+id/complaint_lmp" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="dd/mm/yyyy" android:inputType="date" android:textSize="13sp"/>
+                        <customfonts.EditText_Roboto_Light
+                            android:id="@+id/complaint_lmp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="dd/mm/yyyy"
+                            android:inputType="date"
+                            android:textSize="13sp" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:background="@drawable/round_border" app:cardCornerRadius="5dp" card_view:cardElevation="9dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/background_header" android:padding="10dp" android:text="Substance use/Abuse" android:textAllCaps="false"/>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Substance use/Abuse"
+                        android:textAllCaps="false" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:orientation="vertical">
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Do you smoke cigarettes*"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Do you smoke cigarettes*" />
 
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                                <RadioButton android:id="@+id/radio_smoke_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
+                                <RadioButton
+                                    android:id="@+id/radio_smoke_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
 
-                                <RadioButton android:id="@+id/radio_smoke_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
+                                <RadioButton
+                                    android:id="@+id/radio_smoke_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
 
-                                <RadioButton android:id="@+id/radio_smoke_stopped" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Stopped"/>
+                                <RadioButton
+                                    android:id="@+id/radio_smoke_stopped"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Do you sometimes drink alcohol*"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Do you sometimes drink alcohol*" />
 
-                            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                                <RadioButton android:id="@+id/radio_drink_yes" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Yes"/>
+                                <RadioButton
+                                    android:id="@+id/radio_drink_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes" />
 
-                                <RadioButton android:id="@+id/radio_drink_no" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="No"/>
+                                <RadioButton
+                                    android:id="@+id/radio_drink_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No" />
 
-                                <RadioButton android:id="@+id/radio_drink_stopped" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onRadioButtonClicked" android:text="Stopped"/>
+                                <RadioButton
+                                    android:id="@+id/radio_drink_stopped"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Others"/>
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Others" />
 
-                            <customfonts.EditText_Roboto_Light android:id="@+id/abuse_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="25dp" android:textSize="13sp"/>
+                            <customfonts.EditText_Roboto_Light
+                                android:id="@+id/abuse_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="25dp"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 
