@@ -68,17 +68,6 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
-
-        inputUsername = findViewById(R.id.username);
-        inputPassword = findViewById(R.id.password);
-
-        // Progress dialog
-        pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(false);
-
-        checkPermissions();
-
         // Session manager
         session = new SessionManager(getApplicationContext());
 
@@ -89,6 +78,17 @@ public class Login extends Activity {
             startActivity(intent);
             finish();
         }
+
+        coordinatorLayout = findViewById(R.id.coordinatorLayout);
+
+        inputUsername = findViewById(R.id.username);
+        inputPassword = findViewById(R.id.password);
+
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
+        checkPermissions();
 
         ConnectivityManager cm =
                 (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -111,7 +111,7 @@ public class Login extends Activity {
         Spinner spinnerLocation = findViewById(R.id.spinnerLocationLogin);
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
         //Add locations
-
+        keyvalue.add(new KeyValue("", "Select Location"));
         List<Location> locations = Location.listAll(Location.class);
         for (Location ln : locations) {
             // adding each child node to HashMap key => value
@@ -146,7 +146,8 @@ public class Login extends Activity {
         String password = inputPassword.getText().toString().trim();
 
         // Check for empty data in the form
-        if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
+        //&& !location_id.isEmpty()
+        if (!username.isEmpty() && !password.isEmpty()) {
             // login user
             loginServer(username,password);
         } else {
@@ -303,7 +304,8 @@ public class Login extends Activity {
             StringRequest req = new StringRequest(Request.Method.GET, LOCATIONS_URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Log.d("Response", response);
+                            Log.d("URL", LOCATIONS_URL);
+                            Log.d("Response Locations", response);
 
                     try {
 

@@ -1,4 +1,4 @@
-package org.aihdint.aihd;
+package org.aihdint.aihd.Patient;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.orm.query.Select;
 
+import org.aihdint.aihd.MainActivity;
+import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.HttpHandler;
 import org.aihdint.aihd.app.NavigationDrawerShare;

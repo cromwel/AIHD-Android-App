@@ -27,7 +27,6 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
 
         FollowUpActivityModel.getInstance().setListener(this);
 
-        EditText mopc_numberEditText = view.findViewById(R.id.mopc_number);
         EditText supporter_nameEditText = view.findViewById(R.id.supporter_name);
         EditText supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
 
@@ -37,11 +36,10 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
         htnDiagnosisDateEditText = view.findViewById(R.id.htn_diagnosis_date);
         htnClinicDateEditText = view.findViewById(R.id.htn_clinic_date);
 
-        String mopc_dopc_number = mopc_numberEditText.getText().toString().trim();
         String supporter_name = supporter_nameEditText.getText().toString().trim();
         String supporter_phone = supporter_phoneEditText.getText().toString().trim();
 
-        FragmentModelFollowUp.getInstance().followUpOne(mopc_dopc_number,supporter_name,supporter_phone);
+        FragmentModelFollowUp.getInstance().followUpOne(supporter_name, supporter_phone);
 
         return view;
     }

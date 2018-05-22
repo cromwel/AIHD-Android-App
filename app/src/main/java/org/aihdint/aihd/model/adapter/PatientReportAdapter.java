@@ -1,7 +1,6 @@
 package org.aihdint.aihd.model.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.aihdint.aihd.Patient_Reports;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.Report;
 

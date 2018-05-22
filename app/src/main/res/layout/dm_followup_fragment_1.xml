@@ -21,7 +21,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">
@@ -45,7 +45,7 @@
                             android:gravity="center"
                             android:paddingBottom="5dp"
                             android:paddingTop="5dp"
-                            android:text="Diabetes Clinical Follow Up Form"
+                            android:text="DM HTN Clinical Follow Up Form"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -63,11 +63,36 @@
                             android:gravity="center"
                             android:paddingBottom="5dp"
                             android:paddingTop="5dp"
+                            android:text="Encounter Details"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/dm_followup_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Date"
+                            android:padding="15dp"
+                            android:textSize="13sp"
+                            android:inputType="date" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_header"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
                             android:text="Treatment Supporter's Details"
                             android:textColor="@color/black"
-                            android:textSize="16sp">
-
-                        </customfonts.TextView_Roboto_Bold>
+                            android:textSize="16sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -77,28 +102,13 @@
                             android:orientation="vertical"
                             android:weightSum="3">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="DOPC/MOPC No: *"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/mopc_number"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="1"
-                                android:inputType="text"
-                                android:text="88556"
-                                android:textSize="13sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Treatment supporter's name:"
                                 android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
+                                android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/supporter_name"
@@ -113,10 +123,23 @@
                                 android:layout_height="wrap_content"
                                 android:text="Treatment Supporter's Cell phone Number:"
                                 android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
+                                android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/supporter_telephone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Treatment Supporter's alternative cell phone Number:"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/supporter_telephone_other"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="phone" />
@@ -131,7 +154,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">
@@ -476,6 +499,7 @@
                                 <RadioGroup
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
                                     android:orientation="vertical">
 
                                     <RadioButton

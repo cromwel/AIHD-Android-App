@@ -6,7 +6,7 @@ package org.aihdint.aihd.fragments.dm_followup;
 public class FragmentModelFollowUp {
     public interface FragStateChangeListener {
 
-        void followUpOne(String mopc_number,String supporter_name, String supporter_phone);
+        void followUpOne(String supporter_name, String supporter_phone);
 
         void followUpTwo(String tag);
 
@@ -31,9 +31,9 @@ public class FragmentModelFollowUp {
         mListener = listener;
     }
 
-    public void followUpOne(String mopc_number,String supporter_name, String supporter_phone) {
+    public void followUpOne(String supporter_name, String supporter_phone) {
         if (mListener != null) {
-            mListener.followUpOne(mopc_number,supporter_name,supporter_phone);
+            mListener.followUpOne(supporter_name, supporter_phone);
         }
     }
 

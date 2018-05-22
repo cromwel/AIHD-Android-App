@@ -1,4 +1,4 @@
-package org.aihdint.aihd;
+package org.aihdint.aihd.Forms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 import org.aihdint.aihd.PageAdapters.DM_Initial_Adpater;
+import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -69,7 +70,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         occupation_other = diabetes_status = htn_status = hiv_status = enrolled_to_hiv_care = nhif_status = referral_status = tb_status = breathing = palpitations = dizziness = fainting = leg_swell = urination_fatigue = lose_consciousness =
         blurr_vision = focal_weakness = foot_complaint = headache_migraines = complaint_other = drinking = dm_initial_date  = diagnosis_diabetes_date = diagnosis_hypertension_date = hiv_other_status = tb_treatment_start =
-                tb_comment = nhif_other = referral_other = referral_other_details = complaint_other_details = complaint_lmp = drug_abuse_other = occupation = education = drinking = smoking = "";
+                tb_comment = nhif_other = intra_referral = inter_referral = referral_other = referral_other_details = complaint_other_details = complaint_lmp = drug_abuse_other = occupation = education = drinking = smoking = "";
 
 
         medication_none =medication_metformin=medication_glibenclamide=medication_insulin=medication_nph=medication_soluble_insulin=medication_enalapril=medication_hctz=medication_losartan=medication_nifedipine=medication_atenolol=medication_other;
@@ -214,11 +215,11 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 break;
             case R.id.radio_referral_chw:
                 if (checked)
-                    referral_status = "1759";
+                    intra_referral = "1759";
                 break;
             case R.id.radio_referral_dispensary:
                 if (checked)
-                    referral_status = "165107";
+                    intra_referral = "165107";
                 break;
             case R.id.radio_referral_maternity:
                 if (checked)
@@ -501,7 +502,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             @Override
             public void onResponse(String response) {
                 jsonResponse = response;
-                //Log.d(TAG, "Upload Response: " + response);
+                Log.d(TAG, "Upload Response: " + response);
 
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -514,6 +515,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
                     hideDialog();
                 } catch (JSONException e) {
+                    hideDialog();
                     e.printStackTrace();
                 }
 
@@ -574,8 +576,18 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 params.put("complaint_lmp", complaint_lmp);
                 params.put("uuid",AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
+                JSONObject jsonParams = new JSONObject(params);
+                JSONObject jsonAdd = new JSONObject();
 
-                Log.d("Params", params.toString());
+                try {
+                    jsonAdd.put("Encounter", "85562bbn-jjk96");
+                    jsonAdd.put("obs", jsonParams);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Log.d("Params", jsonAdd.toString());
+
 
                 return params;
             }

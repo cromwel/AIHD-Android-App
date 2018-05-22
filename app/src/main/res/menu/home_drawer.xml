@@ -14,7 +14,7 @@
             android:title="DM Initial Encounter" />
         <item
             android:id="@+id/nav_dm_follow_up"
-            android:icon="@drawable/ic_note_add"
+            android:icon="@drawable/ic_description"
             android:title="DM Follow Up" />
         <!--<item
             android:id="@+id/nav_reports"

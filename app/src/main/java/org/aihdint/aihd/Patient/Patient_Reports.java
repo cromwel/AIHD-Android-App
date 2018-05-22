@@ -1,4 +1,4 @@
-package org.aihdint.aihd;
+package org.aihdint.aihd.Patient;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
+import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.database.DatabaseHandler;

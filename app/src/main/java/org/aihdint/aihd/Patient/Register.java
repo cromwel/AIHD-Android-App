@@ -1,4 +1,4 @@
-package org.aihdint.aihd;
+package org.aihdint.aihd.Patient;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,8 +23,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.SpinnerAll;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Person;
@@ -45,10 +46,12 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
     private static final String TAG = Register.class.getSimpleName();
 
-    private String gender,birthdate,isEstimated,location_id,jsonResponse ;
+    private String gender, birthdate, isEstimated, location_id, patient_type, jsonResponse;
     private TextView textViewDOB;
-    private EditText textViewFamilyName,textViewGivenName,textViewTelephone,textViewIdentifier;
-    private EditText textViewAddress1,textViewAddress2,textViewAddress3,textViewCounty,textViewVillage;
+    private EditText editTextAge, editTextFamilyName, editTextGivenName, editTextTelephone, editTextTelephoneOther, editTextPatientNumber;
+    private EditText editTextAddress1, editTextAddress2, editTextAddress3, editTextCounty, editTextVillage;
+    private EditText editTextSupporter, editTextSupporterNumber, editTextSupporterNumberOther, editTextSupporterAddress;
+    private LinearLayout linearLayoutDOB, linearLayoutAge;
 
     private ProgressDialog pDialog;
 
@@ -68,18 +71,28 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        textViewFamilyName = findViewById(R.id.family_name);
-        textViewGivenName = findViewById(R.id.given_name);
-        textViewTelephone = findViewById(R.id.telephone);
-        textViewIdentifier = findViewById(R.id.identifier_type);
+        editTextFamilyName = findViewById(R.id.family_name);
+        editTextGivenName = findViewById(R.id.given_name);
+        editTextTelephone = findViewById(R.id.telephone);
+        editTextTelephoneOther = findViewById(R.id.telephone_other);
+        editTextPatientNumber = findViewById(R.id.patient_number);
 
-        textViewAddress1 = findViewById(R.id.address1);
-        textViewAddress2 = findViewById(R.id.address2);
-        textViewAddress3 = findViewById(R.id.address3);
-        textViewCounty = findViewById(R.id.county_district);
-        textViewVillage = findViewById(R.id.city_village);
+        editTextAddress1 = findViewById(R.id.address1);
+        editTextAddress2 = findViewById(R.id.address2);
+        editTextAddress3 = findViewById(R.id.address3);
+        editTextCounty = findViewById(R.id.county_district);
+        editTextVillage = findViewById(R.id.city_village);
 
         textViewDOB = findViewById(R.id.birthdate_textview);
+        editTextAge = findViewById(R.id.age);
+
+        editTextSupporter = findViewById(R.id.supporter_name);
+        editTextSupporterAddress = findViewById(R.id.supporter_address);
+        editTextSupporterNumber = findViewById(R.id.supporter_telephone);
+        editTextSupporterNumberOther = findViewById(R.id.supporter_telephone_other);
+
+        linearLayoutAge = findViewById(R.id.layout_age);
+        linearLayoutDOB = findViewById(R.id.layout_dob);
         isEstimated = "0";
 
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
@@ -154,18 +167,23 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             case R.id.birthdate_estimated_yes:
                 if (checked)
                     isEstimated = "1";
+                birthdate = editTextAge.getText().toString().trim();
+                linearLayoutAge.setVisibility(View.VISIBLE);
+                linearLayoutDOB.setVisibility(View.GONE);
                 break;
             case R.id.birthdate_estimated_no:
                 if (checked)
                     isEstimated = "0";
+                linearLayoutDOB.setVisibility(View.VISIBLE);
+                linearLayoutAge.setVisibility(View.GONE);
                 break;
             case R.id.radio_new_patient:
                 if (checked)
-                    gender = "new";
+                    patient_type = "new";
                 break;
             case R.id.radio_patient_in_transit:
                 if (checked)
-                    gender = "patient_in_transit";
+                    patient_type = "patient_in_transit";
                 break;
         }
     }
@@ -176,23 +194,25 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
     public void validation(){
-        String family_name = textViewFamilyName.getText().toString().trim();
-        String given_name = textViewGivenName.getText().toString().trim();
-        String telephone = textViewTelephone.getText().toString().trim();
-        String identifier_type = textViewIdentifier.getText().toString().trim();
-        String address1 = textViewAddress1.getText().toString().trim();
-        String address2 = textViewAddress2.getText().toString().trim();
-        String address3 = textViewAddress3.getText().toString().trim();
-        String county_district = textViewCounty.getText().toString().trim();
-        String city_village = textViewVillage.getText().toString().trim();
-
+        String family_name = editTextFamilyName.getText().toString().trim();
+        String given_name = editTextGivenName.getText().toString().trim();
+        String telephone = editTextTelephone.getText().toString().trim();
+        String patient_number = editTextPatientNumber.getText().toString().trim();
+        String address1 = editTextAddress1.getText().toString().trim();
+        String address2 = editTextAddress2.getText().toString().trim();
+        String address3 = editTextAddress3.getText().toString().trim();
+        String county_district = editTextCounty.getText().toString().trim();
+        String city_village = editTextVillage.getText().toString().trim();
+        String supporter = editTextSupporter.getText().toString().trim();
+        String supporter_address = editTextSupporterAddress.getText().toString().trim();
+        String supporter_number = editTextSupporterNumber.getText().toString().trim();
 
         // Check for empty data in the form
         if (!family_name.isEmpty()
                 && !given_name.isEmpty()
                 && !gender.isEmpty()
                 && !telephone.isEmpty()
-                && !identifier_type.isEmpty()
+                && !patient_number.isEmpty()
                 && !birthdate.isEmpty()
                 ) {
 
@@ -200,9 +220,9 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             showDialog();
 
             // Inserting row in users table
-            new Person(family_name, given_name, gender, birthdate, isEstimated, telephone, identifier_type, location_id, address1, address2, address3, county_district, city_village, "0");
+            new Person(family_name, given_name, gender, birthdate, isEstimated, telephone, patient_number, location_id, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, "0");
 
-            registerPatient(family_name, given_name, telephone, identifier_type, address1, address2, address3, county_district, city_village);
+            registerPatient(family_name, given_name, telephone, patient_number, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number);
         } else {
             // Prompt user to enter credentials
             Toast.makeText(getApplicationContext(),
@@ -215,8 +235,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
      * Method to make json array request where response starts with [
      * */
 
-    private void registerPatient(final String family_name, final String given_name, final String telephone,final String identifier_type,
-                                 final String address1,final String address2,final String address3,final String county_district,final String city_village) {
+    private void registerPatient(final String family_name, final String given_name, final String telephone, final String patient_number,
+                                 final String address1, final String address2, final String address3, final String county_district, final String city_village, final String supporter, final String supporter_address, final String supporter_number) {
 
         // Tag used to cancel the request
         String tag_string_req = "req_register";
@@ -276,7 +296,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("family_name", family_name);
                 params.put("given_name", given_name);
                 params.put("telephone", telephone);
-                params.put("identifier_type", identifier_type);
+                params.put("patient_number", patient_number);
+                params.put("patient_type", patient_type);
                 params.put("gender", gender);
                 params.put("birthdate", birthdate);
                 params.put("birthdate_estimated", isEstimated);
@@ -285,10 +306,16 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("address3", address3);
                 params.put("county_district", county_district);
                 params.put("city_village", city_village);
+                params.put("supporter", supporter);
+                params.put("supporter_address", supporter_address);
+                params.put("supporter_number", supporter_number);
                 params.put("location_id",location_id);
                 params.put("uuid",AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
-                Log.d("Params", params.toString());
+                JSONObject JSONparams = new JSONObject(params);
+                Log.d("Params", JSONparams.toString());
+
+
 
                 return params;
             }

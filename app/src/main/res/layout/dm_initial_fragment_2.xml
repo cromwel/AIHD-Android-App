@@ -720,7 +720,6 @@
                                     android:textSize="13sp" />
                             </LinearLayout>
 
-
                         </LinearLayout>
 
                         <LinearLayout
@@ -732,27 +731,64 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="BMI" />
+                                android:text="Respiratory rate (B/m)" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/bmi"
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/respiratory_rate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:hint="Respiratory rate (B/m)"
+                                android:inputType="numberDecimal"
                                 android:padding="15dp"
-                                android:textSize="16sp" />
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="BMI" />
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:id="@+id/bmi"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:padding="15dp"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
                                 android:text="Waist Hip Ratio" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:id="@+id/waist_hip_ratio"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
                                 android:textSize="16sp" />
+                            </LinearLayout>
                         </LinearLayout>
 
                         <customfonts.TextView_Roboto_Bold
@@ -866,13 +902,70 @@
                                 android:textSize="13sp" />
                         </LinearLayout>
 
-                        <customfonts.TextView_Roboto_Bold
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:background="@color/background"
-                            android:padding="10dp"
-                            android:text="General Exam" />
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:layout_marginRight="18dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="Visual Impairment" />
+
+                                <RadioGroup
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visual_impairment_yes"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="Yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visual_impairment_no"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:onClick="onRadioButtonClicked"
+                                        android:text="No" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="Specify" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/describe_visual_impairment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Specify"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"

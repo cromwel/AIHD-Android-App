@@ -81,7 +81,7 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
         keyvalueOccupation.add(new KeyValue("5622", "Other"));
 
         // adding each child node to HashMap key => value
-        keyvalueEducation.add(new KeyValue("", "Selcet Education Level"));
+        keyvalueEducation.add(new KeyValue("", "Select Education Level"));
         keyvalueEducation.add(new KeyValue("1714", "Secondary"));
         keyvalueEducation.add(new KeyValue("1713", "Primary"));
         keyvalueEducation.add(new KeyValue("1107", "None"));

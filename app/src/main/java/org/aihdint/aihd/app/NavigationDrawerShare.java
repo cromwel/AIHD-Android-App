@@ -15,13 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import org.aihdint.aihd.DM_Initial;
+import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
-import org.aihdint.aihd.Patients;
+import org.aihdint.aihd.Patient.Patients;
+import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.Register;
-import org.aihdint.aihd.DM_FollowUp;
+import org.aihdint.aihd.Patient.Register;
+import org.aihdint.aihd.Forms.DM_FollowUp;
 
 /**
  * Developed by Rodney on 20/03/2018.
@@ -113,7 +114,9 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
         }else if (id == R.id.nav_settings) {
-
+            Intent profile = new Intent(mContext.getApplicationContext(), Profile.class);
+            mContext.startActivity(profile);
+            ((Activity) mContext).finish();
         }else if (id == R.id.nav_logout) {
             // Session manager
             SessionManager session = new SessionManager(mContext.getApplicationContext());

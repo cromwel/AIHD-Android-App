@@ -4,8 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -38,7 +42,7 @@
         </activity>
 
         <activity
-            android:name=".Register"
+            android:name=".Patient.Register"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -48,7 +52,7 @@
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Patients"
+            android:name=".Patient.Patients"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -63,18 +67,24 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".DM_Initial"
+            android:name=".Forms.DM_Initial"
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".DM_FollowUp"
+            android:name=".Forms.DM_FollowUp"
             android:windowSoftInputMode="stateHidden"
             android:label="DM Follow Up "
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".Patient_Reports"
+            android:name=".Patient.Patient_Reports"
+            android:windowSoftInputMode="stateHidden"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Patient.Profile"
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -82,7 +92,7 @@
         <activity
             android:name=".View_Reports"
             android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_home"
+            android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <service

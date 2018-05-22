@@ -73,7 +73,7 @@
                                 android:gravity="center"
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:text="Date"
+                                android:text="Details"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -98,8 +98,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -121,8 +120,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -145,8 +143,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -170,8 +167,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -194,8 +190,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -218,8 +213,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -242,8 +236,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -251,6 +244,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:layout_marginBottom="10dp"
                             android:weightSum="1">
 
                             <CheckBox
@@ -267,8 +261,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -337,8 +330,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -361,8 +353,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -386,8 +377,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -410,8 +400,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -429,13 +418,54 @@
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
-                            <customfonts.TextView_Roboto_Bold
+                            <customfonts.TextView_RobotoLight
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Initiate workup for Isoniazed Preventive Therapy and repeat screening on subsequent visits."
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="10dp">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Indicator History of Contact"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <RadioButton
+                                    android:id="@+id/radio_history_contact_yes"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Yes"
+                                    android:textSize="13sp" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_history_contact_no"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="No"
+                                    android:textSize="13sp" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -780,6 +810,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
+                                android:layout_marginBottom="10dp"
                                 android:weightSum="1">
 
                                 <RadioGroup

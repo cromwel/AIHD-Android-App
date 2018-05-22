@@ -1,4 +1,4 @@
-package org.aihdint.aihd;
+package org.aihdint.aihd.Forms;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adpater;
+import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel;
@@ -23,7 +24,7 @@ import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
-    private String mopc_number,supporter_name,supporter_phone,dm_diagnosis,hypertension,nhif,diabetes_type,hiv_status;
+    private String supporter_name, supporter_phone, dm_diagnosis, hypertension, nhif, diabetes_type, hiv_status;
     private String urination,thirst,hunger,weight_loss,fatigue,vision,impotence,numbness,cough,fever,noticable_weight_loss,night_sweats;
     private String sputum_smear,gene_xpert,chest_xray,anti_tb,invitation_contacts,evaluated_ipt;
 
@@ -162,10 +163,9 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
     public void validate(View view) {
 
         if (
-                mopc_number!=null&&!mopc_number.isEmpty()
-                &&urination!=null&&!urination.isEmpty()
+                urination != null && !urination.isEmpty()
                 ) {
-            Toast.makeText(getApplicationContext(), mopc_number+" "+hiv_status, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), hiv_status, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Sorry no data available", Toast.LENGTH_SHORT).show();
         }
@@ -173,8 +173,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
     }
 
     @Override
-    public void followUpOne(String mopc_dopc_number,String supporterName, String supportePhone) {
-        mopc_number = mopc_dopc_number;
+    public void followUpOne(String supporterName, String supportePhone) {
         supporter_name = supporterName;
         supporter_phone = supportePhone;
     }

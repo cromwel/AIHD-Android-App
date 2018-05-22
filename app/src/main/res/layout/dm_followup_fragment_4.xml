@@ -124,6 +124,29 @@
 
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <CheckBox
+                                android:id="@+id/treatment_ogla_other"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.25"
+                                android:onClick="onCheckboxClicked"
+                                android:text="OGLAs Other" />
+
+                            <Spinner
+                                android:id="@+id/spinnerDrugOGLAsOther"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1.75" />
+
+                        </LinearLayout>
+
+
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -148,6 +171,7 @@
 
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/dosage_insulin"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.75"
@@ -837,7 +861,8 @@
                             android:background="@color/green"
                             android:padding="10dp"
                             android:text="Thiazide diuretic"
-                            android:textAllCaps="false" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -887,7 +912,8 @@
                             android:background="@color/green"
                             android:padding="10dp"
                             android:text="Thiazide-like diuretic"
-                            android:textAllCaps="false" />
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -908,6 +934,111 @@
                                 android:layout_width="0dp"
                                 android:layout_height="50dp"
                                 android:layout_weight="1.75" />
+                        </LinearLayout>
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/green"
+                            android:padding="10dp"
+                            android:text="Other"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_diet"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Diet" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_physical_exercise"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Physical exercise" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_herbal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Herbal" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_other"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight=".5"
+                                android:onClick="onCheckboxClicked"
+                                android:text="Other" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
                         <LinearLayout
