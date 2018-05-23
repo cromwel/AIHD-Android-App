@@ -1060,6 +1060,8 @@
                             </RadioGroup>
 
                             <RadioGroup
+                                android:visibility="gone"
+                                android:id="@+id/radiogroup_glucose"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
@@ -1154,6 +1156,8 @@
                             </RadioGroup>
 
                             <RadioGroup
+                                android:visibility="gone"
+                                android:id="@+id/radiogroup_protein"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
@@ -1247,6 +1251,8 @@
                             </RadioGroup>
 
                             <RadioGroup
+                                android:visibility="gone"
+                                android:id="@+id/radiogroup_ketone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">

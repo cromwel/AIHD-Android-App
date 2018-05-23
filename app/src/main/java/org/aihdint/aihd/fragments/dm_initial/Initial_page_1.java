@@ -82,13 +82,11 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
 
         // adding each child node to HashMap key => value
         keyvalueEducation.add(new KeyValue("", "Select Education Level"));
-        keyvalueEducation.add(new KeyValue("1714", "Secondary"));
-        keyvalueEducation.add(new KeyValue("1713", "Primary"));
         keyvalueEducation.add(new KeyValue("1107", "None"));
-        keyvalueEducation.add(new KeyValue("160289", "Pre-School"));
-        keyvalueEducation.add(new KeyValue("160293", "Special education"));
+        keyvalueEducation.add(new KeyValue("160290", "Incomplete Primary"));
+        keyvalueEducation.add(new KeyValue("1713", "Primary"));
+        keyvalueEducation.add(new KeyValue("1714", "Secondary"));
         keyvalueEducation.add(new KeyValue("160292", "Tertiary education"));
-        keyvalueEducation.add(new KeyValue("159785", "College/university/polytechnic"));
 
         //fill data in spinner
         ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalueOccupation);

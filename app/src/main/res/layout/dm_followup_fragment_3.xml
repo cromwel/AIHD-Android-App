@@ -288,18 +288,28 @@
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="Nutrition Comment"
+                                    android:text=""
                                     android:textSize="14sp" />
 
-                                <customfonts.EditText_Roboto_Light
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="text"
-                                    android:textSize="13sp" />
                             </LinearLayout>
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nutrition Comment"
+                                android:textSize="14sp" />
+
+                            <customfonts.EditText_Roboto_Light
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 

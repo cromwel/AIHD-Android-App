@@ -24,6 +24,7 @@ import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
 import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_One;
+import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Three;
 import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Two;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +57,8 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     //Page 2
     private String medication_none,medication_metformin,medication_glibenclamide,medication_insulin,medication_nph,medication_soluble_insulin,medication_enalapril,medication_hctz,medication_losartan,medication_nifedipine,medication_atenolol,medication_other;
 
+    //Page 3
+    private String glucose, protein, ketone, ecg, cxr;
     private ProgressDialog pDialog;
 
     @Override
@@ -70,7 +73,8 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         occupation_other = diabetes_status = htn_status = hiv_status = enrolled_to_hiv_care = nhif_status = referral_status = tb_status = breathing = palpitations = dizziness = fainting = leg_swell = urination_fatigue = lose_consciousness =
         blurr_vision = focal_weakness = foot_complaint = headache_migraines = complaint_other = drinking = dm_initial_date  = diagnosis_diabetes_date = diagnosis_hypertension_date = hiv_other_status = tb_treatment_start =
-                tb_comment = nhif_other = intra_referral = inter_referral = referral_other = referral_other_details = complaint_other_details = complaint_lmp = drug_abuse_other = occupation = education = drinking = smoking = "";
+                tb_comment = nhif_other = intra_referral = inter_referral = referral_other = referral_other_details = complaint_other_details = complaint_lmp = drug_abuse_other = occupation = education = drinking = smoking =
+                        glucose = protein = ketone = ecg = cxr = "";
 
 
         medication_none =medication_metformin=medication_glibenclamide=medication_insulin=medication_nph=medication_soluble_insulin=medication_enalapril=medication_hctz=medication_losartan=medication_nifedipine=medication_atenolol=medication_other;
@@ -254,6 +258,37 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 if (checked)
                     extremities = "1116";
                     InitialActivityModel_Two.getInstance().extremitiesStatus(extremities);
+                break;
+
+            case R.id.radio_glucose_yes:
+                if (checked)
+                    glucose = "1065";
+                InitialActivityModel_Three.getInstance().urinalysisGlucose(glucose);
+                break;
+            case R.id.radio_glucose_no:
+                if (checked)
+                    glucose = "1066";
+                InitialActivityModel_Three.getInstance().urinalysisGlucose(glucose);
+                break;
+            case R.id.radio_protein_yes:
+                if (checked)
+                    protein = "1065";
+                InitialActivityModel_Three.getInstance().urinalysisProtein(protein);
+                break;
+            case R.id.radio_protein_no:
+                if (checked)
+                    protein = "1066";
+                InitialActivityModel_Three.getInstance().urinalysisProtein(protein);
+                break;
+            case R.id.radio_ketone_yes:
+                if (checked)
+                    ketone = "1065";
+                InitialActivityModel_Three.getInstance().urinalysisKetone(ketone);
+                break;
+            case R.id.radio_ketone_no:
+                if (checked)
+                    ketone = "1066";
+                InitialActivityModel_Three.getInstance().urinalysisKetone(ketone);
                 break;
 
         }

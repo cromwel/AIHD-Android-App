@@ -361,7 +361,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Patient covered by NHIF:"
+                                android:text="Active NHIF:"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.aihdint.aihd.MainActivity;
+import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.View_Reports;
 import org.aihdint.aihd.model.Person;
@@ -53,7 +54,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
             final Person person = reportList.get(getPosition());
 
                 if(person.getStatus().matches("0")) {
-                    Intent graph = new Intent(view.getContext(), MainActivity.class);
+                    Intent graph = new Intent(view.getContext(), Profile.class);
                     graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     graph.putExtra("id", person.getID());
                     graph.putExtra("name", person.getName());

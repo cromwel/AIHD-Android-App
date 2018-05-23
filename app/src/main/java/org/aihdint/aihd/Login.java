@@ -147,7 +147,7 @@ public class Login extends Activity {
 
         // Check for empty data in the form
         //&& !location_id.isEmpty()
-        if (!username.isEmpty() && !password.isEmpty()) {
+        if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
             // login user
             loginServer(username,password);
         } else {

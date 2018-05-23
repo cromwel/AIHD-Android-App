@@ -124,7 +124,7 @@
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Gender *" />
+                            android:text="Sex *" />
                     </LinearLayout>
 
                     <RadioGroup
@@ -218,8 +218,7 @@
                         android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
+                        android:layout_margin="18dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/round_border">
 
@@ -272,7 +271,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
-                            android:hint="Contact Number *"
+                            android:hint="Number* eg +254720000111"
                             android:inputType="phone"
                             android:padding="15dp"
                             android:textSize="13sp" />
@@ -313,7 +312,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
-                            android:hint="Patient Number *"
+                            android:hint="Patient Number* eg12345-01"
                             android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />
@@ -490,7 +489,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
-                            android:hint="Ward"
+                            android:hint="Village/Estate"
                             android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />

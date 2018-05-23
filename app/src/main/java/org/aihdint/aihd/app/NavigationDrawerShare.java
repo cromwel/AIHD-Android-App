@@ -113,10 +113,6 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             Alerts launch = new Alerts(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
-        }else if (id == R.id.nav_settings) {
-            Intent profile = new Intent(mContext.getApplicationContext(), Profile.class);
-            mContext.startActivity(profile);
-            ((Activity) mContext).finish();
         }else if (id == R.id.nav_logout) {
             // Session manager
             SessionManager session = new SessionManager(mContext.getApplicationContext());

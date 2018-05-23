@@ -89,7 +89,8 @@ public class Patients extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         if(isConnected) {
-            new GetPersons().execute();
+            //new GetPersons().execute();
+            getPatients();
         }else{
             getPatients();
             //Toast.makeText(this,"No Internet Connection",Toast.LENGTH_SHORT).show();
