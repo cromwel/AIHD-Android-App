@@ -45,336 +45,309 @@
                         android:layout_margin="20dp"
                         android:orientation="vertical">
 
+
+                        <CheckBox
+                            android:id="@+id/checkbox_medication_none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="None" />
+
                         <LinearLayout
+                            android:id="@+id/past_current_medication"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_none"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
-                                android:text="None" />
-
                             <LinearLayout
-                                android:id="@+id/past_current_medication"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:layout_height="wrap_content">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_metformin"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_metformin"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Metformin" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_metformin"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_glibenclamide"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Glibenclamide" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_glibenclamide"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_insulin"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Insulin 70/30" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_insulin"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_nph"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="NPH" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_nph"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_soluble_insulin"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Soluble Insulin" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_soluble_insulin"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_enalapril"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Enalapril" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_enalapril"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_hctz"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="HCTZ" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_hctz"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_losartan"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Losartan" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_losartan"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_nifedipine"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Nifedipine" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_nifedipine"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-
-                                    <CheckBox
-                                        android:id="@+id/checkbox_medication_atenolol"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onCheckboxClicked"
-                                        android:text="Atenolol" />
-
-                                    <customfonts.EditText_Roboto_Regular
-                                        android:id="@+id/medication_atenolol"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:hint="Dosage"
-                                        android:inputType="text"
-                                        android:padding="15dp"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <CheckBox
-                                android:id="@+id/checkbox_medication_other"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onCheckboxMedicineOther"
-                                android:text="Other" />
-
-                            <LinearLayout
-                                android:id="@+id/other_past_current_medication"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:visibility="gone">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Other medication **" />
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Metformin" />
 
                                 <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/medication_other"
+                                    android:id="@+id/medication_metformin"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Other medication **"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Adhering to current medications?" />
-
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_yes"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Yes" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_no"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="No" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_adhere_na"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="N/A" />
-                                </RadioGroup>
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Specify reason" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/adhere_specify"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Specify reason"
+                                    android:hint="Dosage"
                                     android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_glibenclamide"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Glibenclamide" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_glibenclamide"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_insulin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Insulin 70/30" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_insulin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_nph"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="NPH" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_nph"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_soluble_insulin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Soluble Insulin" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_soluble_insulin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_enalapril"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Enalapril" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_enalapril"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_hctz"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="HCTZ" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_hctz"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_losartan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Losartan" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_losartan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_nifedipine"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Nifedipine" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_nifedipine"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkbox_medication_atenolol"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onCheckboxClicked"
+                                    android:text="Atenolol" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/medication_atenolol"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Dosage"
+                                    android:inputType="text"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
+
+                        <CheckBox
+                            android:id="@+id/checkbox_medication_other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxMedicineOther"
+                            android:text="Other" />
+
+                        <LinearLayout
+                            android:id="@+id/other_past_current_medication"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Other medication **" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/medication_other"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Other medication **"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Adhering to current medications?" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radio_adhere_yes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/radio_adhere_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="No" />
+
+                            <RadioButton
+                                android:id="@+id/radio_adhere_na"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="N/A" />
+                        </RadioGroup>
+
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Specify reason" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/adhere_specify"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Specify reason"
+                            android:inputType="text"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -465,7 +438,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -513,24 +487,25 @@
                         </LinearLayout>
 
 
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            android:padding="10dp"
+                            android:text="BP (1st reading)" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@color/background"
-                                    android:padding="10dp"
-                                    android:text="BP (1st reading)" />
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
@@ -547,21 +522,6 @@
                                     android:padding="15dp"
                                     android:textSize="13sp" />
 
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:padding="10dp"
-                                    android:text="Diastolic (mmHg)" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_diastolic_one"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Diastolic (mmHg)"
-                                    android:inputType="number"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -573,41 +533,65 @@
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/background"
-                                    android:padding="10dp"
-                                    android:text="BP (2nd reading)" />
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:text="Systolic (mmHg)" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_systolic_two"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Systolic (mmHg)"
-                                    android:inputType="number"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
                                     android:padding="10dp"
                                     android:text="Diastolic (mmHg)" />
 
                                 <customfonts.EditText_Roboto_Regular
-                                    android:id="@+id/bp_diastolic_two"
+                                    android:id="@+id/bp_diastolic_one"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Diastolic (mmHg)"
                                     android:inputType="number"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
+
                             </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/background"
+                                android:padding="10dp"
+                                android:text="BP (2nd reading)" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Systolic (mmHg)" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/bp_systolic_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Systolic (mmHg)"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:padding="10dp"
+                                android:text="Diastolic (mmHg)" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/bp_diastolic_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Diastolic (mmHg)"
+                                android:inputType="number"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
                         <customfonts.TextView_Roboto_Bold
@@ -674,7 +658,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -755,16 +740,16 @@
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="0dp"
-                                    android:layout_weight="1"
                                     android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:padding="10dp"
                                     android:text="BMI" />
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:id="@+id/bmi"
                                     android:layout_width="0dp"
-                                    android:layout_weight="1"
                                     android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:padding="15dp"
                                     android:textSize="16sp" />
                             </LinearLayout>
@@ -774,20 +759,20 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Waist Hip Ratio" />
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:padding="10dp"
+                                    android:text="Waist Hip Ratio" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/waist_hip_ratio"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:padding="15dp"
-                                android:textSize="16sp" />
+                                <customfonts.TextView_Roboto_Bold
+                                    android:id="@+id/waist_hip_ratio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:padding="15dp"
+                                    android:textSize="16sp" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -909,7 +894,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"

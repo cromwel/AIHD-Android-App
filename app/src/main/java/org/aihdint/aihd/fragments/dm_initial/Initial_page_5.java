@@ -2,6 +2,7 @@ package org.aihdint.aihd.fragments.dm_initial;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class Initial_page_5 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_5, container, false);
 
-        //Spinner
+        //SpinnerDosae
         Spinner spinnerDrugCaptopril = view.findViewById(R.id.spinnerDrugCaptopril);
         Spinner spinnerDrugEnalapril = view.findViewById(R.id.spinnerDrugEnalapril);
         Spinner spinnerDrugLisinopril = view.findViewById(R.id.spinnerDrugLisinopril);
@@ -64,41 +65,80 @@ public class Initial_page_5 extends Fragment {
         Spinner spinnerSupportGroup = view.findViewById(R.id.spinnerSupportGroup);
         Spinner spinnerDesignation = view.findViewById(R.id.spinnerDesignation);
 
-        String[] arraySpinnerCaptopril = new String[]{"25mg BD", "50mg BD", "50mg TDS"};
-        String[] arraySpinnerEnalapril = new String[]{"10mg BD", "20mg BD"};
-        String[] arraySpinnerLisinopril = new String[]{"10mg OD", "40mg OD"};
-        String[] arraySpinnerPerindopril = new String[]{"5mg OD", "10mg OD"};
-        String[] arraySpinnerRamipril = new String[]{"2.5mg OD", "10mg OD"};
 
-        String[] arraySpinnerCandesartan = new String[]{"8mg OD", "32mg OD"};
-        String[] arraySpinnerIrbesartan = new String[]{"150mg OD", "300mg OD"};
-        String[] arraySpinnerLosartan = new String[]{"50mg OD", "100mg OD"};
-        String[] arraySpinnerTelmisartan = new String[]{"40mg OD", "80mg OD"};
-        String[] arraySpinnerValsartan = new String[]{"80mg OD", "160mg OD"};
-        String[] arraySpinnerOlmesartan = new String[]{"20mg OD", "40mg OD"};
+        //Spinners Frequency
+        Spinner spinnerDrugCaptoprilFrq = view.findViewById(R.id.spinnerDrugCaptoprilFrq);
+        Spinner spinnerDrugEnalaprilFrq = view.findViewById(R.id.spinnerDrugEnalaprilFrq);
+        Spinner spinnerDrugLisinoprilFrq = view.findViewById(R.id.spinnerDrugLisinoprilFrq);
+        Spinner spinnerDrugPerindoprilFrq = view.findViewById(R.id.spinnerDrugPerindoprilFrq);
+        Spinner spinnerDrugRamiprilFrq = view.findViewById(R.id.spinnerDrugRamiprilFrq);
 
-        String[] arraySpinnerAtenolol = new String[]{"25mg OD", "100mg OD"};
-        String[] arraySpinnerLabetolol = new String[]{"200mg OD", "10mg OD"};
-        String[] arraySpinnerPropranolol = new String[]{"2.5mg OD", "10mg OD"};
-        String[] arraySpinnerCarvedilol = new String[]{"6.25mg OD", "25mg OD"};
-        String[] arraySpinnerNebivolol = new String[]{"2.5mg OD", "5mg OD"};
-        String[] arraySpinnerMetoprolol = new String[]{"25mg OD", "100mg OD"};
-        String[] arraySpinnerBisoprolol = new String[]{"2.5mg OD", "10mg OD"};
+        Spinner spinnerDrugCandesartanFrq = view.findViewById(R.id.spinnerDrugCandesartanFrq);
+        Spinner spinnerDrugIrbesartanFrq = view.findViewById(R.id.spinnerDrugIrbesartanFrq);
+        Spinner spinnerDrugLosartanFrq = view.findViewById(R.id.spinnerDrugLosartanFrq);
+        Spinner spinnerDrugTelmisartanFrq = view.findViewById(R.id.spinnerDrugTelmisartanFrq);
+        Spinner spinnerDrugValsartanFrq = view.findViewById(R.id.spinnerDrugValsartanFrq);
+        Spinner spinnerDrugOlmesartanFrq = view.findViewById(R.id.spinnerDrugOlmesartanFrq);
 
-        String[] arraySpinnerAmlodipine = new String[]{"5mg OD", "10mg OD"};
-        String[] arraySpinnerFelodipine = new String[]{"5mg OD", "10mg OD"};
-        String[] arraySpinnerNifedipine = new String[]{"Retard tab:20mg BD", "LA tabs:30mg OD", "LA tabs:60mg OD"};
+        Spinner spinnerDrugAtenololFrq = view.findViewById(R.id.spinnerDrugAtenololFrq);
+        Spinner spinnerDrugLabetololFrq = view.findViewById(R.id.spinnerDrugLabetololFrq);
+        Spinner spinnerDrugPropranololFrq = view.findViewById(R.id.spinnerDrugPropranololFrq);
+        Spinner spinnerDrugCarvedilolFrq = view.findViewById(R.id.spinnerDrugCarvedilolFrq);
+        Spinner spinnerDrugNebivololFrq = view.findViewById(R.id.spinnerDrugNebivololFrq);
+        Spinner spinnerDrugMetoprololFrq = view.findViewById(R.id.spinnerDrugMetoprololFrq);
+        Spinner spinnerDrugBisoprololFrq = view.findViewById(R.id.spinnerDrugBisoprololFrq);
 
-        String[] arraySpinnerChlorthalidone = new String[]{"25mg OD", "50mg OD"};
-        String[] arraySpinnerHydrochlorothia = new String[]{"12.5mg OD", "25mg OD"};
-        String[] arraySpinnerIndapamide = new String[]{"1.5mg OD", "2.5mg OD", "5mg OD"};
+        Spinner spinnerDrugAmlodipineFrq = view.findViewById(R.id.spinnerDrugAmlodipineFrq);
+        Spinner spinnerDrugFelodipineFrq = view.findViewById(R.id.spinnerDrugFelodipineFrq);
+        Spinner spinnerDrugNifedipineFrq = view.findViewById(R.id.spinnerDrugNifedipineFrq);
 
-        String[] arraySpinnerMethyldopa = new String[]{"250mg TDS", "1000mg TDS"};
-        String[] arraySpinnerHydralazine = new String[]{"25mg OD", "10mg OD"};
-        String[] arraySpinnerPrazocin = new String[]{"0.5mg OD", "10mg OD", "0.5mg BD", "10mg BD"};
+        Spinner spinnerDrugChlorthalidoneFrq = view.findViewById(R.id.spinnerDrugChlorthalidoneFrq);
+        Spinner spinnerDrugHydrochlorothiaFrq = view.findViewById(R.id.spinnerDrugHydrochlorothiaFrq);
+        Spinner spinnerDrugIndapamideFrq = view.findViewById(R.id.spinnerDrugIndapamideFrq);
 
-        String[] arraySpinnerMetformin = new String[]{"500mg TDS", "1000mg TDS", "500mg BD", "1000mg BD"};
-        String[] arraySpinnerGlibenclamide = new String[]{"2.5mg OD", "10mg OD", "2.5mg BD", "10mg BD"};
+        Spinner spinnerDrugMethyldopaFrq = view.findViewById(R.id.spinnerDrugMethyldopaFrq);
+        Spinner spinnerDrugHydralazineFrq = view.findViewById(R.id.spinnerDrugHydralazineFrq);
+        Spinner spinnerDrugPrazocinFrq = view.findViewById(R.id.spinnerDrugPrazocinFrq);
+
+        Spinner spinnerDrugMetforminFrq = view.findViewById(R.id.spinnerDrugMetforminFrq);
+        Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
+
+        //SpinnerDose
+        String[] arraySpinnerCaptopril = new String[]{"Select","25mg","50mg"};
+        String[] arraySpinnerEnalapril = new String[]{"Select","10mg", "20mg "};
+        String[] arraySpinnerLisinopril = new String[]{"Select","20mg ", "40mg "};
+        String[] arraySpinnerPerindopril = new String[]{"Select","2mg ", "4mg", "5mg", "8mg", "10mg"};
+        String[] arraySpinnerRamipril = new String[]{"Select","1.25", "2.5mg ", "10mg "};
+
+        String[] arraySpinnerCandesartan = new String[]{"Select", "4mg", "8mg ", "16mg",  "32mg "};
+        String[] arraySpinnerIrbesartan = new String[]{"Select", "75mg", "150mg ", "300mg "};
+        String[] arraySpinnerLosartan = new String[]{"Select","50mg ", "100mg "};
+        String[] arraySpinnerTelmisartan = new String[]{"Select", "20mg" ,"40mg ", "80mg "};
+        String[] arraySpinnerValsartan = new String[]{"Select", "40mg", "80mg ", "160mg ", "320mg"};
+        String[] arraySpinnerOlmesartan = new String[]{"Select", "5mg","20mg ", "40mg "};
+
+        String[] arraySpinnerAtenolol = new String[]{"Select","25mg ", "50mg", "100mg "};
+        String[] arraySpinnerLabetolol = new String[]{"Select", "100mg", "200mg ", "300mg "};
+        String[] arraySpinnerPropranolol = new String[]{"Select","40mg ", "80mg "};
+        String[] arraySpinnerCarvedilol = new String[]{"Select", "3.125mg", "6.25mg ", "12.5mg", "10mg", "20mg","25mg ", "40mg","80mg"};
+        String[] arraySpinnerNebivolol = new String[]{"Select","2.5mg ", "5mg ", "10mg", "20mg"};
+        String[] arraySpinnerMetoprolol = new String[]{"Select","25mg ", "37.5mg", "50mg", "75mg", "100mg ", "200mg"};
+        String[] arraySpinnerBisoprolol = new String[]{"Select","5mg ", "10mg "};
+
+        String[] arraySpinnerAmlodipine = new String[]{"Select","2.5mg", "5mg ", "10mg "};
+        String[] arraySpinnerFelodipine = new String[]{"Select", "2.5mg","5mg ", "10mg "};
+        String[] arraySpinnerNifedipine = new String[]{"Select","10mg ", "20mg "};
+
+        String[] arraySpinnerChlorthalidone = new String[]{"Select","25mg ", "50mg "};
+        String[] arraySpinnerHydrochlorothia = new String[]{"Select","12.5mg ", "25mg"};
+        String[] arraySpinnerIndapamide = new String[]{"Select","1.5mg ", "2.5mg ", "5mg "};
+
+        String[] arraySpinnerMethyldopa = new String[]{"Select","250mg", "500mg"};
+        String[] arraySpinnerHydralazine = new String[]{"Select","25mg ", };
+        String[] arraySpinnerPrazocin = new String[]{"Select","0.5mg ", "1mg "};
+
+        String[] arraySpinnerMetformin = new String[]{"Select","500mg", "850",  "1000mg"};
+        String[] arraySpinnerGlibenclamide = new String[]{"Select","5mg",};
 
         spinnerDoseData(spinnerDrugCaptopril, arraySpinnerCaptopril, "Captopril");
         spinnerDoseData(spinnerDrugEnalapril, arraySpinnerEnalapril, "Enalapril");
@@ -135,22 +175,58 @@ public class Initial_page_5 extends Fragment {
         spinnerDoseData(spinnerDrugMetformin, arraySpinnerMetformin, "Metformin");
         spinnerDoseData(spinnerDrugGlibenclamide, arraySpinnerGlibenclamide, "Glibenclamide");
 
-        spinnerData(spinnerSupportGroup,"support_group");
-        spinnerData(spinnerDesignation,"designation");
+        //SpinnerFrequency
+        spinnerDataFrequency(spinnerDrugCaptoprilFrq, "Captopril");
+        spinnerDataFrequency(spinnerDrugEnalaprilFrq, "Enalapril");
+        spinnerDataFrequency(spinnerDrugLisinoprilFrq, "Lisinopril");
+        spinnerDataFrequency(spinnerDrugPerindoprilFrq, "Perindopril");
+        spinnerDataFrequency(spinnerDrugRamiprilFrq, "Ramipril");
+
+        spinnerDataFrequency(spinnerDrugCandesartanFrq, "Candesartan");
+        spinnerDataFrequency(spinnerDrugIrbesartanFrq, "Irbesartan");
+        spinnerDataFrequency(spinnerDrugLosartanFrq, "Losartan");
+        spinnerDataFrequency(spinnerDrugTelmisartanFrq, "Telmisartan");
+        spinnerDataFrequency(spinnerDrugValsartanFrq, "Valsartan");
+        spinnerDataFrequency(spinnerDrugOlmesartanFrq, "Olmesartan");
+
+        spinnerDataFrequency(spinnerDrugAtenololFrq, "Atenolol");
+        spinnerDataFrequency(spinnerDrugLabetololFrq, "Labetolol");
+        spinnerDataFrequency(spinnerDrugPropranololFrq, "Propranolol");
+        spinnerDataFrequency(spinnerDrugCarvedilolFrq, "Carvedilol");
+        spinnerDataFrequency(spinnerDrugNebivololFrq, "Nebivolol");
+        spinnerDataFrequency(spinnerDrugMetoprololFrq, "Metoprolol");
+        spinnerDataFrequency(spinnerDrugBisoprololFrq, "Bisoprolol");
+
+        spinnerDataFrequency(spinnerDrugAmlodipineFrq, "Amlodipine");
+        spinnerDataFrequency(spinnerDrugFelodipineFrq, "Felodipine");
+        spinnerDataFrequency(spinnerDrugNifedipineFrq, "Nifedipine");
+
+        spinnerDataFrequency(spinnerDrugChlorthalidoneFrq, "Chlorthalidone");
+        spinnerDataFrequency(spinnerDrugHydrochlorothiaFrq, "Hydrochlorothia");
+        spinnerDataFrequency(spinnerDrugIndapamideFrq, "Indapamide");
+
+        spinnerDataFrequency(spinnerDrugMethyldopaFrq, "Methyldopa");
+        spinnerDataFrequency(spinnerDrugHydralazineFrq, "Hydralazine");
+        spinnerDataFrequency(spinnerDrugPrazocinFrq, "Prazocin");
+        spinnerDataFrequency(spinnerDrugMetforminFrq, "Metformin");
+        spinnerDataFrequency(spinnerDrugGlibenclamideFrq, "Glibenclamide");
+
+        spinnerData(spinnerSupportGroup, "support_group");
+        spinnerData(spinnerDesignation, "designation");
 
         return view;
     }
 
-    public  void spinnerData(Spinner spinner, final String data ){
+    public void spinnerData(Spinner spinner, final String data) {
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
-     
-        if(data.matches("support_group")) {
+
+        if (data.matches("support_group")) {
             // adding each child node to HashMap key => value
             keyvalue.add(new KeyValue("", "Select Support Group"));
             keyvalue.add(new KeyValue("1065", "Yes"));
             keyvalue.add(new KeyValue("1066", "No"));
             keyvalue.add(new KeyValue("5622", "Unknown"));
-        }else if(data.matches("designation")) {
+        } else if (data.matches("designation")) {
             keyvalue.add(new KeyValue("", "Select Designation"));
             keyvalue.add(new KeyValue("", "Consultant"));
             keyvalue.add(new KeyValue("", "Medical officer"));
@@ -169,9 +245,9 @@ public class Initial_page_5 extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 KeyValue value = (KeyValue) parent.getSelectedItem();
-                if(data.matches("support_group")) {
+                if (data.matches("support_group")) {
                     //occupation = value.getId();
-                }else if(data.matches("designation")) {
+                } else if (data.matches("designation")) {
                     //occupation = value.getId();
                 }
                 //updateValues();
@@ -184,10 +260,18 @@ public class Initial_page_5 extends Fragment {
     }
 
 
-    public  void spinnerDoseData(Spinner spinner, String[] arraySpinner ,final String plan){
+    public void spinnerDataFrequency(Spinner spinner, final String drug) {
+        ArrayList<KeyValue> keyvalue = new ArrayList<>();
+
+        // adding each child node to HashMap key => value
+        keyvalue.add(new KeyValue("", "Select"));
+        keyvalue.add(new KeyValue("", "OD"));
+        keyvalue.add(new KeyValue("", "BD"));
+        keyvalue.add(new KeyValue("", "TDS"));
+
 
         //fill data in spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalue);
         spinner.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         //occupationSpinner.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
@@ -196,12 +280,42 @@ public class Initial_page_5 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                KeyValue value = (KeyValue) parent.getSelectedItem();
+                if (drug.matches("Captopril")) {
+                    //occupation = value.getId();
+                } else if (drug.matches("Enalapril")) {
+                    //occupation = value.getId();
+                }
+                //updateValues();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+
+    public void spinnerDoseData(Spinner spinner, String[] arraySpinner, final String plan) {
+
+        //fill data in spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        spinner.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 //KeyValue value = (KeyValue) parent.getSelectedItem();
-                if(plan.matches("support_group")) {
+                String dose = parent.getSelectedItem().toString().replace("mg", "");
+                dose = dose.replaceAll("\\s+", " ");
+                Log.d("Dose",dose+" ");
+                if (plan.matches("support_group")) {
                     //occupation = value.getId();
-                }else if(plan.matches("designation")) {
+                } else if (plan.matches("designation")) {
                     //occupation = value.getId();
-                }else if(plan.matches("plan")) {
+                } else if (plan.matches("plan")) {
                     //occupation = value.getId();
                 }
                 //occupation = value.getId();
