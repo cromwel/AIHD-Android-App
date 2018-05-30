@@ -30,7 +30,7 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
     private EditText referral_other_detailsEditText,complaint_otherEditText,complaint_lmpEditText,abuse_otherEditText;
     private RadioGroup hiv_enrolled,referral_patient;
     private String occupation,education_level;
-    private LinearLayout tb_details,hiv_status_details,nhif_other_details;
+    private LinearLayout hiv_status_details, nhif_other_details;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,7 +62,6 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
         referral_patient = view.findViewById(R.id.interreferral_details);
 
         //LinearLayout
-        tb_details = view.findViewById(R.id.tb_details);
         nhif_other_details = view.findViewById(R.id.nhif_other_details);
         hiv_status_details = view.findViewById(R.id.hiv_status_details);
 
@@ -155,12 +154,8 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
     public void hivStatus(String status) {
         if (status.matches("138571")) {
             hiv_enrolled.setVisibility(View.VISIBLE);
-            tb_details.setVisibility(View.VISIBLE);
-            hiv_status_details.setVisibility(View.VISIBLE);
         }else {
             hiv_enrolled.setVisibility(View.GONE);
-            tb_details.setVisibility(View.GONE);
-            hiv_status_details.setVisibility(View.GONE);
         }
     }
 

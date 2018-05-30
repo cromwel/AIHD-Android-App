@@ -44,14 +44,6 @@
                         android:text="Follow Up Plan"
                         android:textAllCaps="false" />
 
-                    <customfonts.TextView_Roboto_Bold
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/background_inner"
-                        android:padding="10dp"
-                        android:text="Refferal Reasons"
-                        android:textAllCaps="false" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

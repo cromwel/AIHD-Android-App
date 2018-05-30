@@ -2,6 +2,8 @@ package org.aihdint.aihd.fragments.dm_initial;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,10 @@ import android.widget.RadioGroup;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 /**
@@ -48,58 +54,22 @@ public class Initial_page_3 extends Fragment implements InitialActivityModel_Thr
         editTextDirectBilirubin= view.findViewById(R.id.blood_work_direct_bilirubin);
         editTextGamma= view.findViewById(R.id.blood_work_gamma);
 
-        try {
-            if (parseInt(editTextRBS.getText().toString()) > 11.1) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal RBS");
-            }
-            if (parseInt(editTextFBC.getText().toString()) < 7.8) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal FBC");
-            }
-            if (parseInt(editTextHBA.getText().toString()) > 6.5) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HBA 1c(%)");
-            }
-            if (parseInt(editTextUrea.getText().toString()) < 2.7 && parseInt(editTextUrea.getText().toString()) > 8) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Urea");
-            }
-            if (parseInt(editTextSodium.getText().toString()) < 135 && parseInt(editTextSodium.getText().toString()) > 155) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Sodium");
-            }
-            if (parseInt(editTextChloride.getText().toString()) < 98 && parseInt(editTextChloride.getText().toString()) < 108) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Chloride");
-            }
-            if (parseInt(editTextPotassium.getText().toString()) < 3.5 && parseInt(editTextPotassium.getText().toString()) < 5.5) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Potassium");
-            }
-            if (parseInt(editTextHDL.getText().toString()) < 0.7 && parseInt(editTextHDL.getText().toString()) > 1.9) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HDL");
-            }
-            if (parseInt(editTextLDL.getText().toString()) > 3.4) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal LDL");
-            }
-            if (parseInt(editTextCholesterol.getText().toString()) < 0 && parseInt(editTextCholesterol.getText().toString()) > 5.7) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Cholesterol");
-            }
-            if (parseInt(editTextTriglcerides.getText().toString()) < 0 && parseInt(editTextTriglcerides.getText().toString()) > 5.7) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Triglcerides");
-            }
-            if (parseInt(editTextAST.getText().toString()) < 0 && parseInt(editTextAST.getText().toString()) > 42) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal AST");
-            }
-            if (parseInt(editTextALT.getText().toString()) < 0 && parseInt(editTextALT.getText().toString()) > 37) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal ALT");
-            }
-            if (parseInt(editTextTotalBilirubin.getText().toString()) < 1.17 && parseInt(editTextTotalBilirubin.getText().toString()) > 20.5) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Total Bilirubin");
-            }
-            if (parseInt(editTextDirectBilirubin.getText().toString()) > 5.1) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Direct Bilirubin");
-            }
-            if (parseInt(editTextGamma.getText().toString()) < 9 && parseInt(editTextGamma.getText().toString()) > 48) {
-                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Gamma");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        textWatcher(editTextRBS, "rbs");
+        textWatcher(editTextFBC, "fbc");
+        textWatcher(editTextHBA, "hba");
+        textWatcher(editTextUrea, "urea");
+        textWatcher(editTextSodium, "sodium");
+        textWatcher(editTextChloride, "chloride");
+        textWatcher(editTextPotassium, "potassium");
+        textWatcher(editTextHDL, "hdl");
+        textWatcher(editTextLDL, "ldl");
+        textWatcher(editTextCholesterol, "cholesterol");
+        textWatcher(editTextTriglcerides, "triglcerides");
+        textWatcher(editTextAST, "ast");
+        textWatcher(editTextALT, "alt");
+        textWatcher(editTextTotalBilirubin, "tbilirubin");
+        textWatcher(editTextDirectBilirubin, "dbilirubin");
+        textWatcher(editTextGamma, "gamma");
 
         radioGroupGlucose = view.findViewById(R.id.radiogroup_glucose);
         radioGroupProtein = view.findViewById(R.id.radiogroup_protein);
@@ -108,6 +78,96 @@ public class Initial_page_3 extends Fragment implements InitialActivityModel_Thr
         return view;
     }
 
+    public void textWatcher(EditText editText, final String field) {
+
+        editText.addTextChangedListener(new TextWatcher() {
+
+            private Timer timer = new Timer();
+            private final long DELAY = 1500; // milliseconds
+
+            @Override
+            public void afterTextChanged(final Editable editable) {
+                timer.cancel();
+                timer = new Timer();
+
+                final Runnable checkRunnable = new Runnable() {
+                    public void run() {
+                        if (editable.length() > 0) {
+                            double value = parseDouble(editable.toString());
+                            if (value > 11.1 && field.matches("rbs")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal RBS");
+                            }
+                            if (value < 7.8 && field.matches("fbc")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal FBS");
+                            }
+                            if (value > 6.5 && field.matches("hba")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HBA 1c(%)");
+                            }
+                            if ((value < 2.7 || value > 8) && field.matches("urea")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Urea");
+                            }
+                            if ((value < 135 || value > 155) && field.matches("sodium")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Sodium");
+                            }
+                            if ((value < 98 || value < 108) && field.matches("chloride")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Chloride");
+                            }
+                            if ((value < 3.5 || value < 5.5) && field.matches("potassium")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Potassium");
+                            }
+                            if ((value < 0.7 && value > 1.9) && field.matches("ldl")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HDL");
+                            }
+                            if (value > 3.4 && field.matches("ldl")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal LDL");
+                            }
+                            if ((value < 0 || value > 5.7) && field.matches("cholesterol")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Cholesterol");
+                            }
+                            if ((value < 0 || value > 5.7) && field.matches("triglcerides")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Triglcerides");
+                            }
+                            if ((value < 0 || value > 42) && field.matches("ast")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal AST");
+                            }
+                            if ((value < 0 || value > 37) && field.matches("dbilirubin")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal ALT");
+                            }
+                            if ((value < 1.17 && value > 20.5) && field.matches("tbilirubin")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Total Bilirubin");
+                            }
+                            if (value > 5.1 && field.matches("dbilirubin")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Direct Bilirubin");
+                            }
+                            if ((value < 9 || value > 48) && field.matches("gamma")) {
+                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Gamma");
+                            }
+                        }
+                    }
+                };
+
+                TimerTask task = new TimerTask() {
+                    public void run() {
+                        getActivity().runOnUiThread(checkRunnable);
+                    }
+                };
+
+                timer.schedule(task, DELAY);
+            }
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+            }
+        });
+    }
 
     @Override
     public void urinalysisGlucose(String status) {

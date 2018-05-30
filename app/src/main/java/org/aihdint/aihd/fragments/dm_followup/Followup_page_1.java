@@ -10,6 +10,11 @@ import android.widget.EditText;
 
 import org.aihdint.aihd.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import customfonts.EditText_Roboto;
+
 /**
  * Developed by Rodney on 24/04/2018.
  */
@@ -27,8 +32,14 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
 
         FollowUpActivityModel.getInstance().setListener(this);
 
+
+        EditText dm_followup_date = view.findViewById(R.id.dm_followup_date);
         EditText supporter_nameEditText = view.findViewById(R.id.supporter_name);
         EditText supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dm_followup_date.setText(dateFormat.format(new Date())); // it will show 16/07/2013
+
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
         dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);

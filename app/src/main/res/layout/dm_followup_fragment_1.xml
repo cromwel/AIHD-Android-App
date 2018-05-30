@@ -72,9 +72,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Date"
+                            android:inputType="date"
                             android:padding="15dp"
-                            android:textSize="13sp"
-                            android:inputType="date" />
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 
@@ -162,383 +162,388 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/background"
                     android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="Status of patient:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="18dp"
                         android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/background_header"
-                            android:gravity="center"
-                            android:paddingBottom="5dp"
-                            android:paddingTop="5dp"
-                            android:text="Status of patient:"
+                            android:text="DM Diagnosis"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:textSize="13sp" />
 
-                        <LinearLayout
+                        <RadioGroup
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
+                            android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_new"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="DM Diagnosis"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Date of DM Diagnosis"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Date of starting clinic"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <RadioGroup
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_diagnosis_new"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="New DM Patient"
-                                    android:textSize="13sp" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_diagnosis_known"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Known DM Patient"
-                                    android:textSize="13sp" />
-                            </RadioGroup>
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/dm_diagnosis_date"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="New DM Patient"
                                 android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/dm_clinic_date"
-                                android:layout_width="0dp"
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_known"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Known DM Patient"
                                 android:textSize="13sp" />
-                        </LinearLayout>
+                        </RadioGroup>
 
-                        <LinearLayout
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Date of DM Diagnosis"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Date of starting clinic"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="18dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/dm_diagnosis_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="(dd/mm/yyyy)"
+                            android:inputType="date"
+                            android:textSize="13sp" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/dm_clinic_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="(dd/mm/yyyy)"
+                            android:inputType="date"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
+                            android:text="Type of Diabetes:"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radio_diabetes_type_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Type 1"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diabetes_type_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Type 2"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diabetes_GDM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="GDM"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diabetes_secondary"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Diabetes Secondary to other causes"
+                                android:textSize="13sp" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:text="Hypertension:"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="New HTN patient"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_known"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="Known HTN patient"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Date of HTN Diagnosis"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Date of starting clinic"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/htn_diagnosis_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="(dd/mm/yyyy)"
+                            android:inputType="date"
+                            android:textSize="13sp" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/htn_clinic_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="(dd/mm/yyyy)"
+                            android:inputType="date"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Types of Hypetension"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radio_hypertension_mild"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Mild Hypertension"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_hypertension_moderate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Moderate Hypertension"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_hypertension_severe"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Severe Hypertension"
+                                android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_hypertension_preeclampsia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Preeclampsia"
+                                android:textSize="13sp" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Active NHIF:"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="3">
+                            android:weightSum="2">
 
-                            <customfonts.TextView_Roboto_Bold
+                            <RadioButton
+                                android:id="@+id/radio_NHIF_yes"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Hypertension:"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Yes"
+                                android:textSize="13sp" />
 
-                            <customfonts.TextView_Roboto_Bold
+                            <RadioButton
+                                android:id="@+id/radio_NHIF_no"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Date of HTN Diagnosis"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
+                                android:onClick="onRadioButtonClicked"
+                                android:text="No"
+                                android:textSize="13sp" />
+                        </RadioGroup>
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Date of starting clinic"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"></customfonts.TextView_Roboto_Bold>
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <RadioGroup
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <RadioButton
-                                    android:id="@+id/radio_hypertension_new"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="New HTN patient"
-                                    android:textSize="13sp" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_hypertension_known"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Known HTN patient"
-                                    android:textSize="13sp" />
-                            </RadioGroup>
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/htn_diagnosis_date"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
-                                android:textSize="13sp" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/htn_clinic_date"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ems="10"
-                                android:hint="(dd/mm/yyyy)"
-                                android:inputType="date"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Active NHIF:"
+                                android:text="HIV status:"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:weightSum="2">
+                                android:orientation="vertical">
 
                                 <RadioButton
-                                    android:id="@+id/radio_NHIF_yes"
-                                    android:layout_width="0dp"
+                                    android:id="@+id/radio_HIV_negative"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:onClick="onRadioButtonClicked"
-                                    android:text="Yes"
+                                    android:text="HIV -ve"
                                     android:textSize="13sp" />
 
                                 <RadioButton
-                                    android:id="@+id/radio_NHIF_no"
-                                    android:layout_width="0dp"
+                                    android:id="@+id/radio_HIV_positive"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:onClick="onRadioButtonClicked"
-                                    android:text="No"
+                                    android:text="HIV +ve"
+                                    android:textSize="13sp" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_HIV_unknown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:text="Unknown"
                                     android:textSize="13sp" />
                             </RadioGroup>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Type of Diabetes:"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
-
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <RadioButton
-                                        android:id="@+id/radio_diabetes_type_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Type 1"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_diabetes_type_2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Type 2"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_diabetes_GDM"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="GDM"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_diabetes_secondary"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Diabetes Secondary to other causes"
-                                        android:textSize="13sp" />
-                                </RadioGroup>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="HIV status:"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
-
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <RadioButton
-                                        android:id="@+id/radio_HIV_negative"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="HIV -ve"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_HIV_positive"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="HIV +ve"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_HIV_unknown"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Unknown"
-                                        android:textSize="13sp" />
-                                </RadioGroup>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <customfonts.TextView_Roboto_Bold
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Types of Hypetension"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
-
-                                <RadioGroup
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="10dp"
-                                    android:orientation="vertical">
-
-                                    <RadioButton
-                                        android:id="@+id/radio_hypertension_mild"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Mild Hypertension"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_hypertension_moderate"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Moderate Hypertension"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_hypertension_severe"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Severe Hypertension"
-                                        android:textSize="13sp" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_hypertension_preeclampsia"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
-                                        android:text="Preeclampsia"
-                                        android:textSize="13sp" />
-                                </RadioGroup>
-                            </LinearLayout>
-
                         </LinearLayout>
-                    </LinearLayout>
 
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

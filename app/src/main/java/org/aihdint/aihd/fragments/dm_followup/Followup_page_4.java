@@ -211,8 +211,6 @@ public class Followup_page_4 extends Fragment {
         spinnerDataFrequency(spinnerDrugMetforminFrq, "Metformin");
         spinnerDataFrequency(spinnerDrugGlibenclamideFrq, "Glibenclamide");
 
-        spinnerData(spinnerSupportGroup, "support_group");
-        spinnerData(spinnerDesignation, "designation");
 
         return view;
     }

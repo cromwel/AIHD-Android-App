@@ -32,7 +32,7 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
     private EditText other_general_exam,cvs,rs,pa,cns;
     private TextView_Roboto_Bold bmi,waist_hip_ratio;
 
-    private EditText rbs;
+    private EditText monofilament_rf, monofilament_lf;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,8 +61,10 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         bmi = view.findViewById(R.id.bmi);
         waist_hip_ratio = view.findViewById(R.id.waist_hip_ratio);
 
-        rbs =view.findViewById(R.id.blood_work_rbs);
         extremities = view.findViewById(R.id.extremities);
+
+        monofilament_rf = view.findViewById(R.id.monofilament_rf);
+        monofilament_lf = view.findViewById(R.id.monofilament_lf);
 
         textWatcher (temp,"temp");
         textWatcher (pulse_rate,"pulse_rate");
@@ -74,6 +76,9 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         textWatcher (weight,"bmi");
         textWatcher(waist,"whr");
         textWatcher(hip,"whr");
+        textWatcher(monofilament_rf, "monofilament_lf");
+        textWatcher(monofilament_lf, "monofilament_rf");
+
 
         return view;
     }
@@ -115,22 +120,26 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
             private final long DELAY = 1500; // milliseconds
 
             @Override
-            public void afterTextChanged(final Editable s) {
+            public void afterTextChanged(final Editable editable) {
                 timer.cancel();
                 timer = new Timer();
 
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
                         if(check.matches("temp")) {
-                            checkTemp(s.toString());
+                            checkTemp(editable.toString());
                         }else if(check.matches("pulse_rate")) {
-                            checkPR(s.toString());
+                            checkPR(editable.toString());
                         }else if(check.matches("blood_pressure")) {
                             checkBP();
                         }else if(check.matches("bmi")) {
                             BMI();
                         }else if(check.matches("whr")) {
                             WHR();
+                        } else if (check.matches("monofilament_lf")) {
+                            monofilament(editable.toString());
+                        } else if (check.matches("monofilament_rf")) {
+                            monofilament(editable.toString());
                         }
                     }
                 };
@@ -171,9 +180,17 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
     }
 
     public void checkPR(String pr){
-        if(temp.length() != 0) {
+        if (pr.length() != 0) {
             if(Double.parseDouble(pr) <60||Double.parseDouble(pr) >100){
                 Alerts.alert_msg(getContext(), "Temperature", "Kindly confirm if the Pulse Rate entered is correct.");
+            }
+        }
+    }
+
+    public void monofilament(String value) {
+        if (value.length() != 0) {
+            if (Double.parseDouble(value) > 5) {
+                Alerts.alert_msg(getContext(), "Monofilament", "Abnormal Monofilament");
             }
         }
     }

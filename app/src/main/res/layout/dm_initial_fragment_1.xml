@@ -1106,7 +1106,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -1155,7 +1156,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Do you sometimes drink alcohol*" />
+                                android:text="Do you drink alcohol*" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
@@ -1193,7 +1194,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Others" />
+                                android:text="Comments" />
 
                             <customfonts.EditText_Roboto_Light
                                 android:id="@+id/abuse_other"
