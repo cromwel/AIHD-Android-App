@@ -1,7 +1,10 @@
 package org.aihdint.aihd.fragments.dm_followup;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +12,12 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import customfonts.EditText_Roboto;
 
 /**
  * Developed by Rodney on 24/04/2018.
@@ -21,10 +25,9 @@ import customfonts.EditText_Roboto;
 
 public class Followup_page_1 extends Fragment implements FollowUpActivityModel.FragStateChangeListener {
 
-    EditText dmDiagnosisDateEditText;
-    EditText dmClinicDateEditText;
-    EditText htnDiagnosisDateEditText;
-    EditText htnClinicDateEditText;
+    EditText dm_followup_date, supporter_nameEditText, supporter_phoneEditText, supporter_phone_otherEditText;
+    EditText dmDiagnosisDateEditText, dmClinicDateEditText;
+    EditText htnDiagnosisDateEditText, htnClinicDateEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,14 +35,13 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
 
         FollowUpActivityModel.getInstance().setListener(this);
 
-
-        EditText dm_followup_date = view.findViewById(R.id.dm_followup_date);
-        EditText supporter_nameEditText = view.findViewById(R.id.supporter_name);
-        EditText supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
+        dm_followup_date = view.findViewById(R.id.dm_followup_date);
+        supporter_nameEditText = view.findViewById(R.id.supporter_name);
+        supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
+        supporter_phone_otherEditText = view.findViewById(R.id.supporter_telephone_other);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        dm_followup_date.setText(dateFormat.format(new Date())); // it will show 16/07/2013
-
+        dm_followup_date.setText(dateFormat.format(new Date())); // current date
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
         dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);
@@ -47,13 +49,18 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
         htnDiagnosisDateEditText = view.findViewById(R.id.htn_diagnosis_date);
         htnClinicDateEditText = view.findViewById(R.id.htn_clinic_date);
 
-        String supporter_name = supporter_nameEditText.getText().toString().trim();
-        String supporter_phone = supporter_phoneEditText.getText().toString().trim();
-
-        FragmentModelFollowUp.getInstance().followUpOne(supporter_name, supporter_phone);
+        textWatcher(dm_followup_date);
+        textWatcher(supporter_nameEditText);
+        textWatcher(supporter_phoneEditText);
+        textWatcher(supporter_phone_otherEditText);
+        textWatcher(dmDiagnosisDateEditText);
+        textWatcher(dmClinicDateEditText);
+        textWatcher(htnDiagnosisDateEditText);
+        textWatcher(htnClinicDateEditText);
 
         return view;
     }
+
 
     @Override
     public void dmDiagnosis(String diagnosis) {
@@ -76,5 +83,54 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
             htnDiagnosisDateEditText.setVisibility(View.VISIBLE);
             htnClinicDateEditText.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void textWatcher(EditText editText) {
+
+        editText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(final Editable editable) {
+                updateValues();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+            }
+        });
+    }
+
+    public void updateValues() {
+        String encounter_date = dm_followup_date.getText().toString().trim();
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String current_date = dateFormat.format(new Date());
+
+        JSONObject jsonObs = new JSONObject();
+        try {
+            jsonObs.put("0101", JSONFormBuilder.observations("160638", supporter_nameEditText.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0102", JSONFormBuilder.observations("160642", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0103", JSONFormBuilder.observations("165209", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
+
+            jsonObs.put("0104", JSONFormBuilder.observations("165089", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0105", JSONFormBuilder.observations("165150", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0106", JSONFormBuilder.observations("165090", htnDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0107", JSONFormBuilder.observations("165151", htnClinicDateEditText.getText().toString().trim(), current_date, ""));
+
+            //jsonObservation.put("obs",jsonObs);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //Log.d("JSON FollowUp", jsonObservation.toString()+" ");
+
+        FragmentModelFollowUp.getInstance().followUpOne(encounter_date, jsonObs);
     }
 }

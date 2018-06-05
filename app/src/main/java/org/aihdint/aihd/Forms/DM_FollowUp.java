@@ -1,12 +1,14 @@
 package org.aihdint.aihd.Forms;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -16,6 +18,17 @@ import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -24,11 +37,12 @@ import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
-    private String supporter_name, supporter_phone, dm_diagnosis, hypertension, nhif, diabetes_type, hiv_status;
-    private String urination,thirst,hunger,weight_loss,fatigue,vision,impotence,numbness,cough,fever,noticable_weight_loss,night_sweats;
-    private String sputum_smear,gene_xpert,chest_xray,anti_tb,invitation_contacts,evaluated_ipt;
+    private JSONObject jsonObs1, jsonObs2, jsonObs3, jsonObs4;
+    private String file_name, current_date;
+    private String dm_diagnosis, hypertension, nhif, diabetes_type, hiv_status;
 
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +54,15 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         navigate.CreateDrawer(toolbar);
 
         FragmentModelFollowUp.getInstance().setListener(this);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        current_date = dateFormat.format(new Date());
+
+        file_name = "DM_HTN_FOLLOWUP_" + System.currentTimeMillis() + ".json";
+
+        jsonObs1 = new JSONObject();
+        jsonObs2 = new JSONObject();
+        jsonObs3 = new JSONObject();
+        jsonObs4 = new JSONObject();
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
@@ -77,36 +100,36 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.radio_diagnosis_new:
                 if (checked)
                     dm_diagnosis = "165087";
-                    FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
-                    break;
+                FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
+                break;
             case R.id.radio_diagnosis_known:
                 if (checked)
                     dm_diagnosis = "165088";
-                    FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
-                    break;
+                FollowUpActivityModel.getInstance().dmDiagnosis(dm_diagnosis);
+                break;
             case R.id.radio_hypertension_new:
                 if (checked)
                     hypertension = "165092";
-                    FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
+                FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
                 break;
             case R.id.radio_hypertension_known:
                 if (checked)
                     hypertension = "165093";
-                    FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
+                FollowUpActivityModel.getInstance().htnDiagnosis(hypertension);
                 break;
             case R.id.radio_NHIF_yes:
                 if (checked)
                     nhif = "1065";
-                    break;
+                break;
             case R.id.radio_NHIF_no:
                 if (checked)
                     nhif = "1066";
-                    Alerts.alert_msg(this, "NHIF Registration", "Encourage Client to Register for NHIF");
-                    break;
+                Alerts.alert_msg(this, "NHIF Registration", "Encourage Client to Register for NHIF");
+                break;
             case R.id.radio_diabetes_type_1:
                 if (checked)
                     diabetes_type = "142474";
@@ -135,62 +158,98 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
     }
 
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked
-        boolean checked = ((CheckBox) view).isChecked();
+    @Override
+    public void followUpOne(String encounter_date, JSONObject params) {
+        jsonObs1 = params;
+    }
 
-        //Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.checkbox_frequent_urinations:
-                if (checked) {
-                    urination = "137593";
-                } else {
-                    urination = null;
-                }
-                break;
-            case R.id.checkbox_excessive_thirst:
-                if (checked) {
+    @Override
+    public void followUpTwo(JSONObject params) {
+        jsonObs2 = params;
+    }
 
-                } else {
 
-                }
-                break;
+    @Override
+    public void followUpThree(JSONObject params) {
+        jsonObs3 = params;
+    }
 
-        }
+    @Override
+    public void followUpFour(JSONObject params) {
+        jsonObs4 = params;
     }
 
 
     public void validate(View view) {
 
         if (
-                urination != null && !urination.isEmpty()
+                dm_diagnosis != null && !dm_diagnosis.isEmpty()
                 ) {
-            Toast.makeText(getApplicationContext(), hiv_status, Toast.LENGTH_SHORT).show();
+
+            try {
+                jsonObs1.put("165086", JSONFormBuilder.observations("165086", dm_diagnosis, current_date, ""));
+                jsonObs1.put("165091", JSONFormBuilder.observations("165091", hypertension, current_date, ""));
+
+                jsonObs1.put("1917", JSONFormBuilder.observations("1917", nhif, current_date, ""));
+                jsonObs1.put("165094", JSONFormBuilder.observations("165094", diabetes_type, current_date, ""));
+                jsonObs1.put("138405", JSONFormBuilder.observations("138405", hiv_status, current_date, ""));
+
+                File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
+                if (!dir.mkdirs()) {
+                    Log.e("Directory Message", "Directory not created");
+                }
+
+                File file = new File(dir, file_name);
+
+                try {
+                    FileOutputStream f = new FileOutputStream(file);
+                    PrintWriter pw = new PrintWriter(f);
+                    pw.println(jsonObs1.toString());
+                    pw.println(jsonObs2.toString());
+                    pw.println(jsonObs3.toString());
+                    pw.println(jsonObs4.toString());
+                    pw.flush();
+                    pw.close();
+                    f.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    Log.i("Error", "******* File not found. Did you" +
+                            " add a WRITE_EXTERNAL_STORAGE permission to the   manifest?");
+                }
+
+
+                Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
+
+                //Read File
+                try {
+                    File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);
+                    FileInputStream fIn = new FileInputStream(myFile);
+                    BufferedReader myReader = new BufferedReader(
+                            new InputStreamReader(fIn));
+                    String aDataRow = "";
+                    String aBuffer = "";
+                    while ((aDataRow = myReader.readLine()) != null) {
+                        aBuffer += aDataRow + "\n";
+                    }
+                    Log.e("Reading from storage", aBuffer);
+                    myReader.close();
+                    Toast.makeText(getBaseContext(),
+                            "Done reading SD 'mysdfile.txt'",
+                            Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), e.getMessage(),
+                            Toast.LENGTH_SHORT).show();
+                }
+
+                Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             Toast.makeText(getApplicationContext(), "Sorry no data available", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    @Override
-    public void followUpOne(String supporterName, String supportePhone) {
-        supporter_name = supporterName;
-        supporter_phone = supportePhone;
-    }
-
-    @Override
-    public void followUpTwo(String urinate) {
-
-    }
-
-    @Override
-    public void followUpThree(String tag) {
-
-    }
-
-    @Override
-    public void followUpFour(String tag) {
-
-    }
 
 }

@@ -115,8 +115,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="1"
-                                android:inputType="textPersonName"
-                                android:textSize="13sp" />
+                                android:inputType="textPersonName" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -378,8 +377,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
+                        android:layout_margin="18dp"
                         android:orientation="horizontal"
                         android:weightSum="2">
 
@@ -462,8 +460,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
+                        android:layout_margin="18dp"
                         android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold

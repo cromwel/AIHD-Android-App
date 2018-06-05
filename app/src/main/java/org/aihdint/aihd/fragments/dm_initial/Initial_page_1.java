@@ -186,7 +186,7 @@ public class Initial_page_1 extends Fragment implements InitialActivityModel_One
         }
     }
 
-    public  void updateValues(){
+    public void updateValues() {
         FragmentModelInitial.getInstance().initialOne(
                 dm_initial_dateEditText.getText().toString().trim(),
                 occupation_otherEditText.getText().toString().trim(),

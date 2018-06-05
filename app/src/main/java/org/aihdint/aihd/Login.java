@@ -29,16 +29,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.orm.query.Select;
+import com.android.volley.error.AuthFailureError;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.StringRequest;
 
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
-import org.aihdint.aihd.app.SpinnerAll;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;

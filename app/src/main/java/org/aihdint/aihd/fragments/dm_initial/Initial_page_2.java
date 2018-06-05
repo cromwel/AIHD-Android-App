@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 
@@ -28,7 +29,7 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
 
     private LinearLayout past_current_medication,other_past_current_medication,extremities;
     private EditText  medication_other,adhere_specify,allergy_specify,temp,pulse_rate,systolic_one,diastolic_one,systolic_two,diastolic_two;
-    private EditText waist,hip,height,weight;
+    private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight;
     private EditText other_general_exam,cvs,rs,pa,cns;
     private TextView_Roboto_Bold bmi,waist_hip_ratio;
 
@@ -54,10 +55,10 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         systolic_two = view.findViewById(R.id.bp_systolic_two);
         diastolic_two = view.findViewById(R.id.bp_diastolic_two);
 
-        waist = view.findViewById(R.id.waist_circ);
-        hip = view.findViewById(R.id.hip_circ);
-        height = view.findViewById(R.id.height);
-        weight = view.findViewById(R.id.weight);
+        editTextWaist = view.findViewById(R.id.waist_circ);
+        editTextHip = view.findViewById(R.id.hip_circ);
+        editTextHeight = view.findViewById(R.id.height);
+        editTextWeight = view.findViewById(R.id.weight);
         bmi = view.findViewById(R.id.bmi);
         waist_hip_ratio = view.findViewById(R.id.waist_hip_ratio);
 
@@ -72,10 +73,10 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         textWatcher (systolic_two,"blood_pressure");
         textWatcher (diastolic_one,"blood_pressure");
         textWatcher (diastolic_two,"blood_pressure");
-        textWatcher (height,"bmi");
-        textWatcher (weight,"bmi");
-        textWatcher(waist,"whr");
-        textWatcher(hip,"whr");
+        textWatcher(editTextHeight, "bmi");
+        textWatcher(editTextWeight, "bmi");
+        textWatcher(editTextWaist, "whr");
+        textWatcher(editTextHip, "whr");
         textWatcher(monofilament_rf, "monofilament_lf");
         textWatcher(monofilament_lf, "monofilament_rf");
 
@@ -133,9 +134,9 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
                         }else if(check.matches("blood_pressure")) {
                             checkBP();
                         }else if(check.matches("bmi")) {
-                            BMI();
+                            Common_Functions.BMI(getContext(), editTextHeight, editTextWeight, bmi);
                         }else if(check.matches("whr")) {
-                            WHR();
+                            Common_Functions.WHR(editTextWaist, editTextHip, waist_hip_ratio);
                         } else if (check.matches("monofilament_lf")) {
                             monofilament(editable.toString());
                         } else if (check.matches("monofilament_rf")) {
@@ -196,63 +197,6 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
     }
 
 
-    public void BMI(){
-
-        double hght=0;
-        double wght=0;
-        String category="";
-
-        if(height.getText().toString().trim().length()>0) {
-            hght = Integer.parseInt(height.getText().toString().trim());
-            hght = hght/100;
-        }
-
-        if(weight.getText().toString().trim().length()>0) {
-            wght = Integer.parseInt(weight.getText().toString().trim());
-        }
-
-        if(hght>0&&wght>0){
-           double bmi_value = wght/(hght*hght);
-           if(bmi_value<18.5){
-               bmi.setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
-               category = " Underweight";
-           }else if(bmi_value>18.5 && bmi_value<25){
-               bmi.setTextColor(ContextCompat.getColor(getContext(), R.color.green));
-               category = " Normal Weight";
-           }else if(bmi_value>25 && bmi_value<30){
-               bmi.setTextColor(ContextCompat.getColor(getContext(), R.color.orange));
-               category = " Overweight";
-           }else if(bmi_value>30){
-               bmi.setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
-               category = " Obese";
-           }
-           bmi.setText(String.format("%.1f", bmi_value)+category);
-
-        }
-
-    }
-
-    public void WHR(){
-        double wst=0;
-        double hp=0;
-
-        if(waist.getText().toString().trim().length()>0) {
-            wst = Integer.parseInt(waist.getText().toString().trim());
-        }
-
-        if(hip.getText().toString().trim().length()>0) {
-            hp = Integer.parseInt(hip.getText().toString().trim());
-        }
-
-        if(wst>0&&hp>0){
-            double whr_value = wst/hp;
-
-            waist_hip_ratio.setText(String.format("%.1f", whr_value));
-
-        }
-
-    }
-
     public void checkBP(){
 
         int systolic_1=0;
@@ -277,7 +221,7 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         }
 
 
-            if(diastolic_1>0 && systolic_1>0 && systolic_2>0 && diastolic_2>0) {
+        if (diastolic_1 > 0 && systolic_1 > 0) {
                 int systolic = (systolic_1+systolic_2)/2;
                 int diastolic = (diastolic_1+diastolic_2)/2;
 
