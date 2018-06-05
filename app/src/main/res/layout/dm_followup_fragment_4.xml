@@ -48,6 +48,30 @@
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <CheckBox
+                            android:id="@+id/followup_continue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="onCheckboxClicked"
+                            android:text="Continue Care in clinic" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:hint="Return date"
+                            android:inputType="date"
+                            android:padding="15dp"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -65,17 +89,18 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:text="Referral Date:"
+                                android:text="Referral To:"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:text="Referral To:"
+                                android:text="Referral Date:"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -91,7 +116,7 @@
                                 android:ems="10"
                                 android:hint="(dd/mm/yyyy)"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:layout_width="0dp"
@@ -99,7 +124,7 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="textPersonName"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -114,7 +139,7 @@
                                 android:layout_weight=".5"
                                 android:text="Referral Note"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:layout_width="0dp"
@@ -122,7 +147,7 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="textPersonName"
-                                android:textSize="13sp" />
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                         <customfonts.TextView_Roboto_Bold
@@ -130,38 +155,15 @@
                             android:layout_height="wrap_content"
                             android:text="Clinician Name:"
                             android:textColor="@color/black"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <CheckBox
-                                android:id="@+id/followup_continue"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Continue Care in clinic" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Return date"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
                     </LinearLayout>
 
 

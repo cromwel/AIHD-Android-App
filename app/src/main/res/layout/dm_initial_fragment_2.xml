@@ -21,7 +21,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">
@@ -437,9 +437,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -497,9 +497,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -550,49 +550,67 @@
 
                         </LinearLayout>
 
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background"
+                            android:padding="10dp"
+                            android:text="BP (2nd reading)" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:baselineAligned="false"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:background="@color/background"
-                                android:padding="10dp"
-                                android:text="BP (2nd reading)" />
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Systolic (mmHg)" />
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="Systolic (mmHg)" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/bp_systolic_two"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Systolic (mmHg)"
-                                android:inputType="number"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/bp_systolic_two"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Systolic (mmHg)"
+                                    android:inputType="number"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:padding="10dp"
-                                android:text="Diastolic (mmHg)" />
+                            </LinearLayout>
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/bp_diastolic_two"
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:hint="Diastolic (mmHg)"
-                                android:inputType="number"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="Diastolic (mmHg)" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/bp_diastolic_two"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Diastolic (mmHg)"
+                                    android:inputType="number"
+                                    android:padding="15dp"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
                         </LinearLayout>
+
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -657,9 +675,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -893,9 +911,9 @@
                             android:layout_marginLeft="18dp"
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"

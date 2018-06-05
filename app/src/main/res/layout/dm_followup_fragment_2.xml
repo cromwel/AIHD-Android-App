@@ -43,7 +43,7 @@
                             android:gravity="center"
                             android:paddingBottom="5dp"
                             android:paddingTop="5dp"
-                            android:text="Dates of Assessments"
+                            android:text="Assessments"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 
@@ -89,11 +89,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Frequent Urination" />
 
                             <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/frequent_urinations_date"
+                                android:id="@+id/frequent_urinations"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -112,10 +111,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Excessive Thirst" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/excessive_thirst"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -135,10 +134,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Extreme Hunger" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/extreme_hunger"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -158,11 +157,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:paddingBottom="8dp"
                                 android:text="Unexplained weight loss" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/unexplained_weight_loss"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -182,10 +181,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Increased Fatigue" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/increased_fatigue"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -205,10 +204,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Blurred Vision" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/blurred_vision"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -228,10 +227,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Impotence" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/impotence"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -252,11 +251,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:paddingBottom="8dp"
                                 android:text="Numbness or tingling sensation" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/numbness"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -321,11 +320,12 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
+
                                 android:paddingBottom="8dp"
                                 android:text="Cough of any duration" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/cough"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -345,10 +345,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Fever" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/fever"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -368,11 +369,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:paddingBottom="8dp"
                                 android:text="Noticable Weight Loss" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/noticable_weight_loss"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -392,10 +393,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Night Sweats" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/night_sweats"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -450,7 +451,6 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:onClick="onRadioButtonClicked"
                                     android:text="Yes"
                                     android:textSize="13sp" />
 
@@ -459,7 +459,6 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:onClick="onRadioButtonClicked"
                                     android:text="No"
                                     android:textSize="13sp" />
                             </RadioGroup>
@@ -562,18 +561,17 @@
                                         android:id="@+id/radio_sputum_positive"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Positive" />
 
                                     <RadioButton
                                         android:id="@+id/radio_sputum_negative"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Negative" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_sputum"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"
@@ -614,18 +612,17 @@
                                         android:id="@+id/radio_gene_positive"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Positive" />
 
                                     <RadioButton
                                         android:id="@+id/radio_gene_negative"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Negative" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_gene"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"
@@ -666,18 +663,17 @@
                                         android:id="@+id/radio_chest_normal"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Normal N" />
 
                                     <RadioButton
                                         android:id="@+id/radio_chest_suggestive"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Suggestive S" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_chest_xray"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"
@@ -718,18 +714,17 @@
                                         android:id="@+id/radio_antiTB_yes"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Yes" />
 
                                     <RadioButton
                                         android:id="@+id/radio_antiTB_no"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="No" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_antiTB"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"
@@ -770,18 +765,17 @@
                                         android:id="@+id/radio_invite_contacts_yes"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Yes" />
 
                                     <RadioButton
-                                        android:id="@+id/radio_ivite_contacts_no"
+                                        android:id="@+id/radio_invite_contacts_no"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="No" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_invite_contacts"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"
@@ -823,18 +817,17 @@
                                         android:id="@+id/radio_eval_IPT_yes"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Yes" />
 
                                     <RadioButton
                                         android:id="@+id/radio_eval_IPT_no"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="No" />
                                 </RadioGroup>
 
                                 <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_eval_IPT"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight=".5"

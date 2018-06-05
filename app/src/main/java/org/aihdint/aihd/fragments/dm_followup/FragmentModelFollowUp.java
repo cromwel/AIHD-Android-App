@@ -1,18 +1,20 @@
 package org.aihdint.aihd.fragments.dm_followup;
 
+import org.json.JSONObject;
+
 /**
  * Developed by Rodney on 26/04/2018.
  */
 public class FragmentModelFollowUp {
     public interface FragStateChangeListener {
 
-        void followUpOne(String supporter_name, String supporter_phone);
+        void followUpOne(String supporter_name, JSONObject params);
 
-        void followUpTwo(String tag);
+        void followUpTwo(JSONObject params);
 
-        void followUpThree(String tag);
+        void followUpThree(JSONObject params);
 
-        void followUpFour(String tag);
+        void followUpFour(JSONObject params);
 
     }
 
@@ -31,27 +33,27 @@ public class FragmentModelFollowUp {
         mListener = listener;
     }
 
-    public void followUpOne(String supporter_name, String supporter_phone) {
+    public void followUpOne(String supporter_name, JSONObject params) {
         if (mListener != null) {
-            mListener.followUpOne(supporter_name, supporter_phone);
+            mListener.followUpOne(supporter_name, params);
         }
     }
 
-    public void followUpTwo(String mopc_number) {
+    public void followUpTwo(JSONObject params) {
         if (mListener != null) {
-            mListener.followUpTwo(mopc_number);
+            mListener.followUpTwo(params);
         }
     }
 
-    public void followUpThree(String mopc_number) {
+    public void followUpThree(JSONObject params) {
         if (mListener != null) {
-            mListener.followUpThree(mopc_number);
+            mListener.followUpThree(params);
         }
     }
 
-    public void followUpFour(String mopc_number) {
+    public void followUpFour(JSONObject params) {
         if (mListener != null) {
-            mListener.followUpFour(mopc_number);
+            mListener.followUpFour(params);
         }
     }
 

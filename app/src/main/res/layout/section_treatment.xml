@@ -84,7 +84,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Metaformin" />
 
                         <Spinner
@@ -112,7 +112,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Glibenclamide" />
 
                         <Spinner
@@ -172,7 +172,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Insulin 70/30" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -196,7 +196,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Soluble Insulin" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -220,7 +220,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="NPH" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -341,7 +341,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Enalapril" />
 
                         <Spinner
@@ -370,7 +370,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Captopril" />
 
                         <Spinner
@@ -398,7 +398,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Lisinopril" />
 
                         <Spinner
@@ -425,7 +425,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Perindopril " />
 
                         <Spinner
@@ -452,7 +452,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Ramipril" />
 
                         <Spinner
@@ -511,7 +511,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Candesartan" />
 
                         <Spinner
@@ -538,7 +538,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Irbesartan " />
 
                         <Spinner
@@ -565,7 +565,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Losartan" />
 
                         <Spinner
@@ -593,7 +593,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Telmisartan" />
 
                         <Spinner
@@ -622,7 +622,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Valsartan " />
 
                         <Spinner
@@ -651,7 +651,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Olmesartan" />
 
                         <Spinner
@@ -710,7 +710,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Atenolol" />
 
                         <Spinner
@@ -737,7 +737,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Labetolol " />
 
                         <Spinner
@@ -765,7 +765,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Propranolol " />
 
                         <Spinner
@@ -793,7 +793,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Carvedilol " />
 
                         <Spinner
@@ -822,7 +822,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Nebivolol " />
 
                         <Spinner
@@ -850,7 +850,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Metoprolol " />
 
                         <Spinner
@@ -878,7 +878,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Bisoprolol " />
 
                         <Spinner
@@ -937,7 +937,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Amlodipine " />
 
                         <Spinner
@@ -965,7 +965,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Felodipine " />
 
                         <Spinner
@@ -993,7 +993,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Nifedipine " />
 
                         <Spinner
@@ -1052,7 +1052,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Methyldopa " />
 
                         <Spinner
@@ -1079,7 +1079,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Hydralazine " />
 
                         <Spinner
@@ -1106,7 +1106,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Prazocin Min" />
 
                         <Spinner
@@ -1166,7 +1166,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Chlorthalidone" />
 
                         <Spinner
@@ -1193,7 +1193,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Hydrochlorothia zide" />
 
                         <Spinner
@@ -1253,7 +1253,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.25"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Indapamide" />
 
                         <Spinner
@@ -1309,12 +1309,12 @@
                         android:weightSum="1">
 
                         <CheckBox
-                            android:id="@+id/checkbox_diet"
+                            android:id="@+id/treatment_diet"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_weight=".5"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Diet" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -1333,12 +1333,12 @@
                         android:weightSum="1">
 
                         <CheckBox
-                            android:id="@+id/checkbox_physical_exercise"
+                            android:id="@+id/treatment_physical_exercise"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_weight=".5"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Physical exercise" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -1357,12 +1357,12 @@
                         android:weightSum="1">
 
                         <CheckBox
-                            android:id="@+id/checkbox_herbal"
+                            android:id="@+id/treatment_herbal"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_weight=".5"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Herbal" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -1381,12 +1381,12 @@
                         android:weightSum="1">
 
                         <CheckBox
-                            android:id="@+id/checkbox_other"
+                            android:id="@+id/treatment_other"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_weight=".5"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Other" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -1437,49 +1437,49 @@
                             android:id="@+id/treatment_urinalysis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Urinalysis" />
 
                         <CheckBox
                             android:id="@+id/treatment_hba"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="HBA1c" />
 
                         <CheckBox
                             android:id="@+id/treatment_microalbumin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Microalbumin" />
 
                         <CheckBox
                             android:id="@+id/treatment_creatinine"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Creatinine" />
 
                         <CheckBox
                             android:id="@+id/treatment_potassium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Potassium" />
 
                         <CheckBox
                             android:id="@+id/treatment_ecg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="ECG" />
 
                         <CheckBox
-                            android:id="@+id/treatment_other"
+                            android:id="@+id/treatment_followup_other"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Other" />
 
                     </LinearLayout>
