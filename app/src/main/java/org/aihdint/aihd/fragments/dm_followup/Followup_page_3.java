@@ -2,6 +2,10 @@ package org.aihdint.aihd.fragments.dm_followup;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+<<<<<<<HEAD
+        =======
+import android.support.v4.content.ContextCompat;
+>>>>>>>origin/master
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,7 +16,11 @@ import android.support.v4.app.Fragment;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+<<<<<<<HEAD
 import android.widget.RadioButton;
+=======
+import android.widget.TextView;
+>>>>>>>origin/master
 
 import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.R;
@@ -38,6 +46,7 @@ public class Followup_page_3 extends Fragment {
     private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight, editTextNutrition;
     private TextView_Roboto_Bold textViewBMI, textViewWaistHipRatio;
     private String foot_exam, eye_exam, dental_exam, eye_checkup;
+<<<<<<<HEAD
     private String cardiovascular_disease, high_blood_pressure, high_cholestrol, peripheral_vascular_disease,
             peripheral_neuropathy, autonomic_neuropathy, retinopathy, kidney_disease, asthma_COPD,
             arthritis, assesment_other, foot_amputation;
@@ -45,6 +54,11 @@ public class Followup_page_3 extends Fragment {
             editTextRetinopathy, editTextKidneyDisease, editTextAsthma, editTextArthritis, editTextOther;
     private EditText editTextFBS, editTextRBS, editTextHBA, editTextHDL, editTextLDL, editTextTriglycerides, editTextUEC, editTextUrinalysis;
     private EditText editTextDateFBS, editTextDateRBS, editTextDateHBA, editTextDateHDL, editTextDateLDL, editTextDateTriglycerides, editTextDateUEC, editTextDateUrinalysis;
+=======
+    private String cardiovascular_disease, high_cholestrol, peripheral_vascular_disease,
+            peripheral_neuropathy, autonomic_neuropathy, retinopathy, kidney_disease, asthma_COPD,
+            arthritis, assesment_other;
+>>>>>>>origin/master
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,7 +73,8 @@ public class Followup_page_3 extends Fragment {
         editTextWeight = view.findViewById(R.id.followup_weight);
         editTextNutrition = view.findViewById(R.id.followup_nutrition);
 
-        editTextCardiovascularDisease = view.findViewById(R.id.details_cardiovascular_disease);
+<<<<<<<HEAD
+                editTextCardiovascularDisease = view.findViewById(R.id.details_cardiovascular_disease);
         editTextHBP = view.findViewById(R.id.details_high_bp);
         editTextHighCholestrol = view.findViewById(R.id.details_high_cholestrol);
         editTextVascularDisease = view.findViewById(R.id.details_peripheral_vascular_disease);
@@ -92,11 +107,19 @@ public class Followup_page_3 extends Fragment {
         textWatcher(editTextSystolic, "blood_pressure");
         textWatcher(editTextDiastolic, "blood_pressure");
 
+=======
+        textViewBMI = view.findViewById(R.id.followup_bmi);
+        textViewWaistHipRatio = view.findViewById(R.id.followup_hip_waist_ratio);
+
+        textWatcher(editTextSystolic, "blood_pressure");
+        textWatcher(editTextDiastolic, "blood_pressure");
+>>>>>>>origin / master
         textWatcher(editTextHeight, "textViewBMI");
         textWatcher(editTextWeight, "textViewBMI");
         textWatcher(editTextWaist, "whr");
         textWatcher(editTextHip, "whr");
 
+<<<<<<<HEAD
         textWatcher(editTextCardiovascularDisease, "");
         textWatcher(editTextHBP, "");
         textWatcher(editTextHighCholestrol, "");
@@ -161,6 +184,8 @@ public class Followup_page_3 extends Fragment {
         radioButtonClicked(radioButtonFootAmputationYes);
         radioButtonClicked(radioButtonFootAmputationNo);
 
+=======
+>>>>>>>origin / master
         return view;
     }
 
@@ -184,8 +209,11 @@ public class Followup_page_3 extends Fragment {
                             Common_Functions.BMI(getContext(), editTextHeight, editTextWeight, textViewBMI);
                         } else if (check.matches("whr")) {
                             Common_Functions.WHR(editTextWaist, editTextHip, textViewWaistHipRatio);
+<<<<<<<HEAD
                         } else {
                             updateValues();
+=======
+>>>>>>>origin / master
                         }
                     }
                 };
@@ -250,6 +278,7 @@ public class Followup_page_3 extends Fragment {
 
     }
 
+<<<<<<<HEAD
     public void radioButtonClicked(final RadioButton radioButton) {
 
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -275,6 +304,8 @@ public class Followup_page_3 extends Fragment {
         });
     }
 
+=======
+        >>>>>>>origin/master
 
     public void checkBox(final CheckBox checkBox) {
 
@@ -317,35 +348,58 @@ public class Followup_page_3 extends Fragment {
                         break;
                     case R.id.checkbox_cardiovascular_disease:
                         if (checked) {
-                            cardiovascular_disease = "119270";
+<<<<<<<HEAD
+                                    cardiovascular_disease = "119270";
+=======
+                            cardiovascular_disease = "137593";
+>>>>>>>origin / master
                         } else {
                             cardiovascular_disease = "";
                         }
                         break;
                     case R.id.checkbox_high_BP:
                         if (checked) {
-                            high_blood_pressure = "117399";
+<<<<<<<HEAD
+                                    high_blood_pressure = "117399";
                         } else {
                             high_blood_pressure = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_high_cholestrol:
                         if (checked) {
-                            high_cholestrol = "117460";
+<<<<<<<HEAD
+                                    high_cholestrol = "117460";
                         } else {
                             high_cholestrol = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_peripheral_vascular_disease:
                         if (checked) {
-                            peripheral_vascular_disease = "114212";
+<<<<<<<HEAD
+                                    peripheral_vascular_disease = "114212";
                         } else {
                             peripheral_vascular_disease = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_peripheral_neuropathy:
                         if (checked) {
-                            peripheral_neuropathy = "118983";
+<<<<<<<HEAD
+                                    peripheral_neuropathy = "118983";
                         } else {
                             peripheral_neuropathy = "";
                         }
@@ -355,42 +409,77 @@ public class Followup_page_3 extends Fragment {
                             autonomic_neuropathy = "155215";
                         } else {
                             autonomic_neuropathy = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_retinopathy:
                         if (checked) {
-                            retinopathy = "113257";
+<<<<<<<HEAD
+                                    retinopathy = "113257";
                         } else {
                             retinopathy = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_kidney_disease:
                         if (checked) {
-                            kidney_disease = "6033";
+<<<<<<<HEAD
+                                    kidney_disease = "6033";
                         } else {
                             kidney_disease = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_asthma_COPD:
                         if (checked) {
-                            asthma_COPD = "121375";
+<<<<<<<HEAD
+                                    asthma_COPD = "121375";
                         } else {
                             asthma_COPD = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_arthritis:
                         if (checked) {
-                            arthritis = "148432";
+<<<<<<<HEAD
+                                    arthritis = "148432";
                         } else {
                             arthritis = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
                     case R.id.checkbox_assesment_other:
                         if (checked) {
-                            assesment_other = "5622";
+<<<<<<<HEAD
+                                    assesment_other = "5622";
                         } else {
                             assesment_other = "";
-                        }
+=======
+                            cardiovascular_disease = "137593";
+                        } else{
+                        cardiovascular_disease = "";
+>>>>>>>origin / master
+                    }
                         break;
 
                 }
@@ -416,6 +505,7 @@ public class Followup_page_3 extends Fragment {
             jsonObs.put("0306", JSONFormBuilder.observations("163080", editTextWaist.getText().toString().trim(), current_date, ""));
             jsonObs.put("0307", JSONFormBuilder.observations("165190", editTextNutrition.getText().toString().trim(), current_date, ""));
 
+<<<<<<<HEAD
             jsonObs.put("0308", JSONFormBuilder.observations("1391", foot_exam, current_date, ""));
             jsonObs.put("0309", JSONFormBuilder.observations("1391", eye_exam, current_date, ""));
             jsonObs.put("0310", JSONFormBuilder.observations("1391", dental_exam, current_date, ""));
@@ -443,6 +533,12 @@ public class Followup_page_3 extends Fragment {
             jsonObs.put("0329", JSONFormBuilder.observations("1009", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
             jsonObs.put("0330", JSONFormBuilder.observations("164364", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
             jsonObs.put("0331", JSONFormBuilder.observations("", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+=======
+            jsonObs.put("0308", JSONFormBuilder.observations("1391", editTextDiastolic.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0309", JSONFormBuilder.observations("1391", editTextHip.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0310", JSONFormBuilder.observations("1391", editTextWaist.getText().toString().trim(), current_date, ""));
+            jsonObs.put("0311", JSONFormBuilder.observations("1391", editTextNutrition.getText().toString().trim(), current_date, ""));
+>>>>>>>origin / master
 
             //jsonObservation.put("obs",jsonObs);
         } catch (JSONException e) {

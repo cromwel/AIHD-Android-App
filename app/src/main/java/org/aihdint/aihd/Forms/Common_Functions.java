@@ -7,6 +7,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 import org.aihdint.aihd.R;
 
 public class Common_Functions {
@@ -68,7 +69,6 @@ public class Common_Functions {
         }
 
     }
-
 
     public String checkBoxTreatment(final CheckBox checkBox) {
 
@@ -340,4 +340,5 @@ public class Common_Functions {
 
         return value[0];
     }
+
 }
