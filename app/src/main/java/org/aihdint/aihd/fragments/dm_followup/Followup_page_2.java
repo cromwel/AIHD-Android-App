@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,7 +37,9 @@ public class Followup_page_2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_followup_fragment_2, container, false);
 
-        urination = thirst = hunger = weight_loss = fatigue = vision = impotence = numbness = sputum = gene = chest_xray = antiTB = invitation_contacts = eval_IPT = "";
+        urination = thirst = hunger = weight_loss = fatigue = vision = impotence = numbness =
+                cough = fever = noticable_weight_loss = night_sweats = indicator_history =
+                        sputum = gene = chest_xray = antiTB = invitation_contacts = eval_IPT = "";
         CheckBox checkBoxUrination = view.findViewById(R.id.checkbox_frequent_urinations);
         CheckBox checkBoxThirst = view.findViewById(R.id.checkbox_excessive_thirst);
         CheckBox checkBoxHunger = view.findViewById(R.id.checkbox_extreme_hunger);
@@ -127,38 +130,34 @@ public class Followup_page_2 extends Fragment {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
-        JSONObject jsonObs = new JSONObject();
-        try {
-            jsonObs.put("0201", JSONFormBuilder.observations("1728", urination, current_date, editTextUrination.getText().toString().trim()));
-            jsonObs.put("0202", JSONFormBuilder.observations("1728", thirst, current_date, editTextThirst.getText().toString().trim()));
-            jsonObs.put("0203", JSONFormBuilder.observations("1728", hunger, current_date, editTextHunger.getText().toString().trim()));
-            jsonObs.put("0204", JSONFormBuilder.observations("1728", weight_loss, current_date, editTextWeightLoss.getText().toString().trim()));
-            jsonObs.put("0205", JSONFormBuilder.observations("1728", fatigue, current_date, editTextFatigue.getText().toString().trim()));
-            jsonObs.put("0206", JSONFormBuilder.observations("1728", vision, current_date, editTextVision.getText().toString().trim()));
-            jsonObs.put("0207", JSONFormBuilder.observations("1728", impotence, current_date, editTextImpotence.getText().toString().trim()));
-            jsonObs.put("0208", JSONFormBuilder.observations("1728", numbness, current_date, editTextNumbness.getText().toString().trim()));
+        JSONArray jsonArry = new JSONArray();
 
-            jsonObs.put("0209", JSONFormBuilder.observations("159800", cough, current_date, editTextCough.getText().toString().trim()));
-            jsonObs.put("0210", JSONFormBuilder.observations("159800", fever, current_date, editTextFever.getText().toString().trim()));
-            jsonObs.put("0211", JSONFormBuilder.observations("159800", noticable_weight_loss, current_date, editTextNoticableWeightLoss.getText().toString().trim()));
-            jsonObs.put("0212", JSONFormBuilder.observations("159800", night_sweats, current_date, editTextNightSweats.getText().toString().trim()));
-            jsonObs.put("0213", JSONFormBuilder.observations("165193", indicator_history, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1728", urination, current_date, editTextUrination.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", thirst, current_date, editTextThirst.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", hunger, current_date, editTextHunger.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", weight_loss, current_date, editTextWeightLoss.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", fatigue, current_date, editTextFatigue.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", vision, current_date, editTextVision.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", impotence, current_date, editTextImpotence.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", numbness, current_date, editTextNumbness.getText().toString().trim()));
 
-            jsonObs.put("0214", JSONFormBuilder.observations("307", sputum, current_date, editTextSputum.getText().toString().trim()));
-            jsonObs.put("0215", JSONFormBuilder.observations("162202", gene, current_date, editTextCough.getText().toString().trim()));
-            jsonObs.put("0216", JSONFormBuilder.observations("12", chest_xray, current_date, editTextXray.getText().toString().trim()));
-            jsonObs.put("0217", JSONFormBuilder.observations("12", antiTB, current_date, editTextAntiTB.getText().toString().trim()));
-            jsonObs.put("0218", JSONFormBuilder.observations("164072", invitation_contacts, current_date, editTextInviteContact.getText().toString().trim()));
-            jsonObs.put("0219", JSONFormBuilder.observations("162275", eval_IPT, current_date, editTextIPT.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", cough, current_date, editTextCough.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", fever, current_date, editTextFever.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", noticable_weight_loss, current_date, editTextNoticableWeightLoss.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", night_sweats, current_date, editTextNightSweats.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165193", indicator_history, current_date, ""));
 
-            //jsonObservation.put("obs",jsonObs);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonArry.put(JSONFormBuilder.observations("307", sputum, current_date, editTextSputum.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("162202", gene, current_date, editTextCough.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("12", chest_xray, current_date, editTextXray.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("12", antiTB, current_date, editTextAntiTB.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("164072", invitation_contacts, current_date, editTextInviteContact.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("162275", eval_IPT, current_date, editTextIPT.getText().toString().trim()));
 
-        Log.d("JSON FollowUp Page 2", jsonObs.toString() + " ");
 
-        FragmentModelFollowUp.getInstance().followUpTwo(jsonObs);
+        Log.d("JSON FollowUp Page 2", jsonArry.toString() + " ");
+
+        FragmentModelFollowUp.getInstance().followUpTwo(jsonArry);
     }
 
     public void radioButtonClicked(final RadioButton radioButton) {

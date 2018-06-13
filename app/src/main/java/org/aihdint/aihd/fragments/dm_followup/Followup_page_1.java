@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,7 +68,7 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
         if (diagnosis.matches("165087")) {
             dmDiagnosisDateEditText.setVisibility(View.GONE);
             dmClinicDateEditText.setVisibility(View.GONE);
-        }else {
+        } else {
             dmDiagnosisDateEditText.setVisibility(View.VISIBLE);
             dmClinicDateEditText.setVisibility(View.VISIBLE);
         }
@@ -75,11 +76,11 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
 
     @Override
     public void htnDiagnosis(String status) {
-        Log.d("HTN Diagnosis",status);
+        Log.d("HTN Diagnosis", status);
         if (status.matches("165092")) {
             htnDiagnosisDateEditText.setVisibility(View.GONE);
             htnClinicDateEditText.setVisibility(View.GONE);
-        }else {
+        } else {
             htnDiagnosisDateEditText.setVisibility(View.VISIBLE);
             htnClinicDateEditText.setVisibility(View.VISIBLE);
         }
@@ -113,24 +114,21 @@ public class Followup_page_1 extends Fragment implements FollowUpActivityModel.F
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
-        JSONObject jsonObs = new JSONObject();
-        try {
-            jsonObs.put("0101", JSONFormBuilder.observations("160638", supporter_nameEditText.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0102", JSONFormBuilder.observations("160642", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0103", JSONFormBuilder.observations("165209", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
+        JSONArray jsonArry = new JSONArray();
 
-            jsonObs.put("0104", JSONFormBuilder.observations("165089", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0105", JSONFormBuilder.observations("165150", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0106", JSONFormBuilder.observations("165090", htnDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0107", JSONFormBuilder.observations("165151", htnClinicDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("160638", supporter_nameEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("160642", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165209", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
 
-            //jsonObservation.put("obs",jsonObs);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonArry.put(JSONFormBuilder.observations("165089", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165150", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165090", htnDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165151", htnClinicDateEditText.getText().toString().trim(), current_date, ""));
+
+        //jsonObservation.put("obs",jsonObs);
 
         //Log.d("JSON FollowUp", jsonObservation.toString()+" ");
 
-        FragmentModelFollowUp.getInstance().followUpOne(encounter_date, jsonObs);
+        FragmentModelFollowUp.getInstance().followUpOne(encounter_date, jsonArry);
     }
 }

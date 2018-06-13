@@ -24,6 +24,7 @@ import com.orm.query.Select;
 
 import org.aihdint.aihd.MainActivity;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.HttpHandler;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -89,11 +90,11 @@ public class Patients extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         if(isConnected) {
-            //new GetPersons().execute();
+            new GetPersons().execute();
             getPatients();
         }else{
             getPatients();
-            //Toast.makeText(this,"No Internet Connection",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
 
         inputSearch.addTextChangedListener(new TextWatcher() {
@@ -141,8 +142,7 @@ public class Patients extends AppCompatActivity {
             //Select.from(Note.class).where(Condition.prop("title").eq("mynote"),Condition.prop("description").eq("notedesc")).list();
             //find(Class<T> type, String whereClause, String[]whereArgs, String groupBy, String orderBy, String limit)
 
-            String url = "http://45.79.145.240:8080/ems/ws/rest/v1/person?q=";
-            String jsonStr = sh.makeServiceCall(url);
+            String jsonStr = sh.makeServiceCall(Config.PATIENT_URL);
 
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {

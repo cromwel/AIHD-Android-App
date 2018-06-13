@@ -2,10 +2,7 @@ package org.aihdint.aihd.fragments.dm_followup;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-<<<<<<<HEAD
-        =======
-import android.support.v4.content.ContextCompat;
->>>>>>>origin/master
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,16 +13,14 @@ import android.support.v4.app.Fragment;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-<<<<<<<HEAD
 import android.widget.RadioButton;
-=======
-import android.widget.TextView;
->>>>>>>origin/master
+
 
 import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,7 +41,6 @@ public class Followup_page_3 extends Fragment {
     private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight, editTextNutrition;
     private TextView_Roboto_Bold textViewBMI, textViewWaistHipRatio;
     private String foot_exam, eye_exam, dental_exam, eye_checkup;
-<<<<<<<HEAD
     private String cardiovascular_disease, high_blood_pressure, high_cholestrol, peripheral_vascular_disease,
             peripheral_neuropathy, autonomic_neuropathy, retinopathy, kidney_disease, asthma_COPD,
             arthritis, assesment_other, foot_amputation;
@@ -54,11 +48,7 @@ public class Followup_page_3 extends Fragment {
             editTextRetinopathy, editTextKidneyDisease, editTextAsthma, editTextArthritis, editTextOther;
     private EditText editTextFBS, editTextRBS, editTextHBA, editTextHDL, editTextLDL, editTextTriglycerides, editTextUEC, editTextUrinalysis;
     private EditText editTextDateFBS, editTextDateRBS, editTextDateHBA, editTextDateHDL, editTextDateLDL, editTextDateTriglycerides, editTextDateUEC, editTextDateUrinalysis;
-=======
-    private String cardiovascular_disease, high_cholestrol, peripheral_vascular_disease,
-            peripheral_neuropathy, autonomic_neuropathy, retinopathy, kidney_disease, asthma_COPD,
-            arthritis, assesment_other;
->>>>>>>origin/master
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,8 +63,7 @@ public class Followup_page_3 extends Fragment {
         editTextWeight = view.findViewById(R.id.followup_weight);
         editTextNutrition = view.findViewById(R.id.followup_nutrition);
 
-<<<<<<<HEAD
-                editTextCardiovascularDisease = view.findViewById(R.id.details_cardiovascular_disease);
+        editTextCardiovascularDisease = view.findViewById(R.id.details_cardiovascular_disease);
         editTextHBP = view.findViewById(R.id.details_high_bp);
         editTextHighCholestrol = view.findViewById(R.id.details_high_cholestrol);
         editTextVascularDisease = view.findViewById(R.id.details_peripheral_vascular_disease);
@@ -107,19 +96,17 @@ public class Followup_page_3 extends Fragment {
         textWatcher(editTextSystolic, "blood_pressure");
         textWatcher(editTextDiastolic, "blood_pressure");
 
-=======
         textViewBMI = view.findViewById(R.id.followup_bmi);
         textViewWaistHipRatio = view.findViewById(R.id.followup_hip_waist_ratio);
 
         textWatcher(editTextSystolic, "blood_pressure");
         textWatcher(editTextDiastolic, "blood_pressure");
->>>>>>>origin / master
+
         textWatcher(editTextHeight, "textViewBMI");
         textWatcher(editTextWeight, "textViewBMI");
         textWatcher(editTextWaist, "whr");
         textWatcher(editTextHip, "whr");
 
-<<<<<<<HEAD
         textWatcher(editTextCardiovascularDisease, "");
         textWatcher(editTextHBP, "");
         textWatcher(editTextHighCholestrol, "");
@@ -184,8 +171,7 @@ public class Followup_page_3 extends Fragment {
         radioButtonClicked(radioButtonFootAmputationYes);
         radioButtonClicked(radioButtonFootAmputationNo);
 
-=======
->>>>>>>origin / master
+
         return view;
     }
 
@@ -209,11 +195,9 @@ public class Followup_page_3 extends Fragment {
                             Common_Functions.BMI(getContext(), editTextHeight, editTextWeight, textViewBMI);
                         } else if (check.matches("whr")) {
                             Common_Functions.WHR(editTextWaist, editTextHip, textViewWaistHipRatio);
-<<<<<<<HEAD
                         } else {
                             updateValues();
-=======
->>>>>>>origin / master
+
                         }
                     }
                 };
@@ -278,7 +262,6 @@ public class Followup_page_3 extends Fragment {
 
     }
 
-<<<<<<<HEAD
     public void radioButtonClicked(final RadioButton radioButton) {
 
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -304,8 +287,6 @@ public class Followup_page_3 extends Fragment {
         });
     }
 
-=======
-        >>>>>>>origin/master
 
     public void checkBox(final CheckBox checkBox) {
 
@@ -348,58 +329,35 @@ public class Followup_page_3 extends Fragment {
                         break;
                     case R.id.checkbox_cardiovascular_disease:
                         if (checked) {
-<<<<<<<HEAD
-                                    cardiovascular_disease = "119270";
-=======
                             cardiovascular_disease = "137593";
->>>>>>>origin / master
                         } else {
                             cardiovascular_disease = "";
                         }
                         break;
                     case R.id.checkbox_high_BP:
                         if (checked) {
-<<<<<<<HEAD
-                                    high_blood_pressure = "117399";
+                            high_blood_pressure = "117399";
                         } else {
                             high_blood_pressure = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_high_cholestrol:
                         if (checked) {
-<<<<<<<HEAD
-                                    high_cholestrol = "117460";
+                            high_cholestrol = "117460";
                         } else {
                             high_cholestrol = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_peripheral_vascular_disease:
                         if (checked) {
-<<<<<<<HEAD
-                                    peripheral_vascular_disease = "114212";
+                            peripheral_vascular_disease = "114212";
                         } else {
                             peripheral_vascular_disease = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_peripheral_neuropathy:
                         if (checked) {
-<<<<<<<HEAD
-                                    peripheral_neuropathy = "118983";
+                            peripheral_neuropathy = "118983";
                         } else {
                             peripheral_neuropathy = "";
                         }
@@ -409,77 +367,42 @@ public class Followup_page_3 extends Fragment {
                             autonomic_neuropathy = "155215";
                         } else {
                             autonomic_neuropathy = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_retinopathy:
                         if (checked) {
-<<<<<<<HEAD
-                                    retinopathy = "113257";
+                            retinopathy = "113257";
                         } else {
                             retinopathy = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_kidney_disease:
                         if (checked) {
-<<<<<<<HEAD
-                                    kidney_disease = "6033";
+                            kidney_disease = "6033";
                         } else {
                             kidney_disease = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_asthma_COPD:
                         if (checked) {
-<<<<<<<HEAD
-                                    asthma_COPD = "121375";
+                            asthma_COPD = "121375";
                         } else {
                             asthma_COPD = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_arthritis:
                         if (checked) {
-<<<<<<<HEAD
-                                    arthritis = "148432";
+                            arthritis = "148432";
                         } else {
                             arthritis = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
                     case R.id.checkbox_assesment_other:
                         if (checked) {
-<<<<<<<HEAD
-                                    assesment_other = "5622";
+                            assesment_other = "5622";
                         } else {
                             assesment_other = "";
-=======
-                            cardiovascular_disease = "137593";
-                        } else{
-                        cardiovascular_disease = "";
->>>>>>>origin / master
-                    }
+                        }
                         break;
 
                 }
@@ -495,59 +418,52 @@ public class Followup_page_3 extends Fragment {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
-        JSONObject jsonObs = new JSONObject();
-        try {
-            jsonObs.put("0301", JSONFormBuilder.observations("5090", editTextHeight.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0302", JSONFormBuilder.observations("5089", editTextWeight.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0303", JSONFormBuilder.observations("5085", editTextSystolic.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0304", JSONFormBuilder.observations("5086", editTextDiastolic.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0305", JSONFormBuilder.observations("163081", editTextHip.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0306", JSONFormBuilder.observations("163080", editTextWaist.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0307", JSONFormBuilder.observations("165190", editTextNutrition.getText().toString().trim(), current_date, ""));
+        JSONArray jsonArry = new JSONArray();
 
-<<<<<<<HEAD
-            jsonObs.put("0308", JSONFormBuilder.observations("1391", foot_exam, current_date, ""));
-            jsonObs.put("0309", JSONFormBuilder.observations("1391", eye_exam, current_date, ""));
-            jsonObs.put("0310", JSONFormBuilder.observations("1391", dental_exam, current_date, ""));
-            jsonObs.put("0311", JSONFormBuilder.observations("1391", eye_checkup, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5090", editTextHeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5089", editTextWeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5085", editTextSystolic.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5086", editTextDiastolic.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163081", editTextHip.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163080", editTextWaist.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165190", editTextNutrition.getText().toString().trim(), current_date, ""));
 
-            jsonObs.put("0311", JSONFormBuilder.observations("165106", cardiovascular_disease, current_date, editTextCardiovascularDisease.getText().toString().trim()));
-            jsonObs.put("0312", JSONFormBuilder.observations("165106", high_blood_pressure, current_date, editTextHBP.getText().toString().trim()));
-            jsonObs.put("0313", JSONFormBuilder.observations("165106", high_cholestrol, current_date, editTextHighCholestrol.getText().toString().trim()));
-            jsonObs.put("0315", JSONFormBuilder.observations("165106", peripheral_vascular_disease, current_date, editTextVascularDisease.getText().toString().trim()));
-            jsonObs.put("0316", JSONFormBuilder.observations("165106", peripheral_neuropathy, current_date, editTextPNeuropathy.getText().toString().trim()));
-            jsonObs.put("0317", JSONFormBuilder.observations("165106", autonomic_neuropathy, current_date, editTextANeuropathy.getText().toString().trim()));
-            jsonObs.put("0318", JSONFormBuilder.observations("165106", retinopathy, current_date, editTextRetinopathy.getText().toString().trim()));
-            jsonObs.put("0319", JSONFormBuilder.observations("165106", kidney_disease, current_date, editTextKidneyDisease.getText().toString().trim()));
-            jsonObs.put("0320", JSONFormBuilder.observations("165106", asthma_COPD, current_date, editTextAsthma.getText().toString().trim()));
-            jsonObs.put("0321", JSONFormBuilder.observations("165106", arthritis, current_date, editTextArthritis.getText().toString().trim()));
-            jsonObs.put("0322", JSONFormBuilder.observations("165106", assesment_other, current_date, editTextOther.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1391", foot_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", eye_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", dental_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", eye_checkup, current_date, ""));
 
-            jsonObs.put("0323", JSONFormBuilder.observations("165104", foot_amputation, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165106", cardiovascular_disease, current_date, editTextCardiovascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", high_blood_pressure, current_date, editTextHBP.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", high_cholestrol, current_date, editTextHighCholestrol.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", peripheral_vascular_disease, current_date, editTextVascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", peripheral_neuropathy, current_date, editTextPNeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", autonomic_neuropathy, current_date, editTextANeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", retinopathy, current_date, editTextRetinopathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", kidney_disease, current_date, editTextKidneyDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", asthma_COPD, current_date, editTextAsthma.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", arthritis, current_date, editTextArthritis.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", assesment_other, current_date, editTextOther.getText().toString().trim()));
 
-            jsonObs.put("0324", JSONFormBuilder.observations("160912", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
-            jsonObs.put("0325", JSONFormBuilder.observations("887", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
-            jsonObs.put("0326", JSONFormBuilder.observations("159644", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
-            jsonObs.put("0327", JSONFormBuilder.observations("1007", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
-            jsonObs.put("0328", JSONFormBuilder.observations("1008", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
-            jsonObs.put("0329", JSONFormBuilder.observations("1009", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
-            jsonObs.put("0330", JSONFormBuilder.observations("164364", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-            jsonObs.put("0331", JSONFormBuilder.observations("", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
-=======
-            jsonObs.put("0308", JSONFormBuilder.observations("1391", editTextDiastolic.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0309", JSONFormBuilder.observations("1391", editTextHip.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0310", JSONFormBuilder.observations("1391", editTextWaist.getText().toString().trim(), current_date, ""));
-            jsonObs.put("0311", JSONFormBuilder.observations("1391", editTextNutrition.getText().toString().trim(), current_date, ""));
->>>>>>>origin / master
+        jsonArry.put(JSONFormBuilder.observations("165104", foot_amputation, current_date, ""));
 
-            //jsonObservation.put("obs",jsonObs);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonArry.put(JSONFormBuilder.observations("160912", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("887", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1007", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
-        Log.d("JSON FollowUp Page 3", jsonObs.toString() + " ");
+        jsonArry.put(JSONFormBuilder.observations("1391", editTextDiastolic.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", editTextHip.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", editTextWaist.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", editTextNutrition.getText().toString().trim(), current_date, ""));
 
-        FragmentModelFollowUp.getInstance().followUpThree(jsonObs);
+        Log.d("JSON FollowUp Page 3", jsonArry.toString() + " ");
+
+        FragmentModelFollowUp.getInstance().followUpThree(jsonArry);
     }
 
 }

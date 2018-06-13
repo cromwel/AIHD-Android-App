@@ -1,6 +1,6 @@
 package org.aihdint.aihd.fragments.dm_followup;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 /**
  * Developed by Rodney on 26/04/2018.
@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public class FragmentModelFollowUp {
     public interface FragStateChangeListener {
 
-        void followUpOne(String supporter_name, JSONObject params);
+        void followUpOne(String supporter_name, JSONArray params);
 
-        void followUpTwo(JSONObject params);
+        void followUpTwo(JSONArray params);
 
-        void followUpThree(JSONObject params);
+        void followUpThree(JSONArray params);
 
-        void followUpFour(JSONObject params);
+        void followUpFour(JSONArray params);
 
     }
 
@@ -33,25 +33,25 @@ public class FragmentModelFollowUp {
         mListener = listener;
     }
 
-    public void followUpOne(String supporter_name, JSONObject params) {
+    public void followUpOne(String supporter_name, JSONArray params) {
         if (mListener != null) {
             mListener.followUpOne(supporter_name, params);
         }
     }
 
-    public void followUpTwo(JSONObject params) {
+    public void followUpTwo(JSONArray params) {
         if (mListener != null) {
             mListener.followUpTwo(params);
         }
     }
 
-    public void followUpThree(JSONObject params) {
+    public void followUpThree(JSONArray params) {
         if (mListener != null) {
             mListener.followUpThree(params);
         }
     }
 
-    public void followUpFour(JSONObject params) {
+    public void followUpFour(JSONArray params) {
         if (mListener != null) {
             mListener.followUpFour(params);
         }

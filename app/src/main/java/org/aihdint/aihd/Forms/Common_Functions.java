@@ -1,5 +1,6 @@
 package org.aihdint.aihd.Forms;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.widget.CheckBox;
@@ -8,10 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel_Four;
 
 public class Common_Functions {
 
-
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     public static void WHR(EditText editTextWaist, EditText editTextHip, TextView textViewWaistHipRatio) {
         double wst = 0;
         double hp = 0;
@@ -33,6 +35,7 @@ public class Common_Functions {
 
     }
 
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     public static void BMI(Context mContext, EditText editTextHeight, EditText editTextWeight, TextView textViewBMI) {
 
         double hght = 0;
@@ -69,275 +72,5 @@ public class Common_Functions {
 
     }
 
-    public String checkBoxTreatment(final CheckBox checkBox) {
-
-        final String[] value = {""};
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                boolean checked = (buttonView).isChecked();
-
-                //Check which checkbox was clicked
-                switch (checkBox.getId()) {
-                    case R.id.treatment_metformin:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_glibenclamide:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_insulin:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_soluble_insulin:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_nph:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_enalapril:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_captopril:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_lisinopril:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_perindopril:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_ramipril:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_candesartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_irbesartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_losartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_telmisartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_valsartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_olmesartan:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_atenolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_labetolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_propranolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_carvedilol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_nebivolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_metoprolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_bisoprolol:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_amlodipine:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_felodipine:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_nifedipine:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_methyldopa:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_hydralazine:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_prazocin:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_chlorthalidone:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_hydrochlorothia:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_indapamide:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_diet:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_physical_exercise:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_herbal:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                    case R.id.treatment_other:
-                        if (checked) {
-                            value[0] = "165099";
-                        } else {
-                            value[0] = "";
-                        }
-                        break;
-                }
-            }
-        });
-
-        return value[0];
-    }
 
 }

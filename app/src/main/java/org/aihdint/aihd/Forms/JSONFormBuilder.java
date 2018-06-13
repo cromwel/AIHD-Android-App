@@ -3,7 +3,9 @@ package org.aihdint.aihd.Forms;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,17 +26,42 @@ public class JSONFormBuilder {
 
         try {
             //Values
-            if (!conceptAnswer.matches("")) {
-                jsonObs.put(conceptID, conceptAnswer);
+            if (!TextUtils.isEmpty(conceptAnswer)) {
+                jsonObs.put("id", conceptID);
+                jsonObs.put("answer", conceptAnswer);
                 jsonObs.put("datetime", datetime);
                 jsonObs.put("comment", comment);
             }
+
             //Json Object for Obeservation
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return jsonObs;
     }
+
+    public void m() {
+
+        JSONArray jsonObs = new JSONArray();
+        JSONArray jsonObs1 = new JSONArray();
+        try {
+            concatArray(jsonObs, jsonObs1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private JSONArray concatArray(JSONArray... arrs)
+            throws JSONException {
+        JSONArray result = new JSONArray();
+        for (JSONArray arr : arrs) {
+            for (int i = 0; i < arr.length(); i++) {
+                result.put(arr.get(i));
+            }
+        }
+        return result;
+    }
+
 
 }

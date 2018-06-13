@@ -17,7 +17,9 @@ import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel;
+import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel_Four;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -25,6 +27,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -37,7 +40,7 @@ import java.util.Date;
 
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
-    private JSONObject jsonObs1, jsonObs2, jsonObs3, jsonObs4;
+    private JSONArray jsonObs1, jsonObs2, jsonObs3, jsonObs4;
     private String file_name, current_date;
     private String dm_diagnosis, hypertension, nhif, diabetes_type, hiv_status;
 
@@ -54,15 +57,16 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         navigate.CreateDrawer(toolbar);
 
         FragmentModelFollowUp.getInstance().setListener(this);
+
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         current_date = dateFormat.format(new Date());
 
         file_name = "DM_HTN_FOLLOWUP_" + System.currentTimeMillis() + ".json";
 
-        jsonObs1 = new JSONObject();
-        jsonObs2 = new JSONObject();
-        jsonObs3 = new JSONObject();
-        jsonObs4 = new JSONObject();
+        jsonObs1 = new JSONArray();
+        jsonObs2 = new JSONArray();
+        jsonObs3 = new JSONArray();
+        jsonObs4 = new JSONArray();
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
@@ -159,23 +163,23 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
 
     @Override
-    public void followUpOne(String encounter_date, JSONObject params) {
+    public void followUpOne(String encounter_date, JSONArray params) {
         jsonObs1 = params;
     }
 
     @Override
-    public void followUpTwo(JSONObject params) {
+    public void followUpTwo(JSONArray params) {
         jsonObs2 = params;
     }
 
 
     @Override
-    public void followUpThree(JSONObject params) {
+    public void followUpThree(JSONArray params) {
         jsonObs3 = params;
     }
 
     @Override
-    public void followUpFour(JSONObject params) {
+    public void followUpFour(JSONArray params) {
         jsonObs4 = params;
     }
 
@@ -186,13 +190,14 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 dm_diagnosis != null && !dm_diagnosis.isEmpty()
                 ) {
 
-            try {
-                jsonObs1.put("165086", JSONFormBuilder.observations("165086", dm_diagnosis, current_date, ""));
-                jsonObs1.put("165091", JSONFormBuilder.observations("165091", hypertension, current_date, ""));
+            FollowUpActivityModel_Four.getInstance().updateValues();
 
-                jsonObs1.put("1917", JSONFormBuilder.observations("1917", nhif, current_date, ""));
-                jsonObs1.put("165094", JSONFormBuilder.observations("165094", diabetes_type, current_date, ""));
-                jsonObs1.put("138405", JSONFormBuilder.observations("138405", hiv_status, current_date, ""));
+            jsonObs1.put(JSONFormBuilder.observations("165086", dm_diagnosis, current_date, ""));
+            jsonObs1.put(JSONFormBuilder.observations("165091", hypertension, current_date, ""));
+
+            jsonObs1.put(JSONFormBuilder.observations("1917", nhif, current_date, ""));
+            jsonObs1.put(JSONFormBuilder.observations("165094", diabetes_type, current_date, ""));
+            jsonObs1.put(JSONFormBuilder.observations("138405", hiv_status, current_date, ""));
 
                 File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
                 if (!dir.mkdirs()) {
@@ -215,10 +220,12 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                     e.printStackTrace();
                     Log.i("Error", "******* File not found. Did you" +
                             " add a WRITE_EXTERNAL_STORAGE permission to the   manifest?");
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
 
-                Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
 
                 //Read File
                 try {
@@ -242,11 +249,9 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 }
 
                 Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
         } else {
-            Toast.makeText(getApplicationContext(), "Sorry no data available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Sorry unable to save, check mandatory fields are filled", Toast.LENGTH_SHORT).show();
         }
 
     }

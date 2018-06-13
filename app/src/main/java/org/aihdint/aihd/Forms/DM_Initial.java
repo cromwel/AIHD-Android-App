@@ -79,7 +79,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         medication_none =medication_metformin=medication_glibenclamide=medication_insulin=medication_nph=medication_soluble_insulin=medication_enalapril=medication_hctz=medication_losartan=medication_nifedipine=medication_atenolol=medication_other;
 
-
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
