@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <include
-                layout="@layout/section_treatment"
+                layout="@layout/treatment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

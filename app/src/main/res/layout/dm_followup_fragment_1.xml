@@ -193,7 +193,7 @@
                             android:orientation="vertical">
 
                             <RadioButton
-                                android:id="@+id/radio_diagnosis_new"
+                                android:id="@+id/radio_diabetes_new"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onRadioButtonClicked"
@@ -201,12 +201,19 @@
                                 android:textSize="13sp" />
 
                             <RadioButton
-                                android:id="@+id/radio_diagnosis_known"
+                                android:id="@+id/radio_diabetes_known"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onRadioButtonClicked"
                                 android:text="Known DM Patient"
                                 android:textSize="13sp" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diabetes_na"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="N/A" />
                         </RadioGroup>
 
                     </LinearLayout>
@@ -347,6 +354,13 @@
                             android:onClick="onRadioButtonClicked"
                             android:text="Known HTN patient"
                             android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_na"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="N/A" />
                     </RadioGroup>
 
                     <LinearLayout

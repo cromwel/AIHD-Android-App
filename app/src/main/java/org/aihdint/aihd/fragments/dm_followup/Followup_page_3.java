@@ -184,31 +184,38 @@ public class Followup_page_3 extends Fragment {
 
             @Override
             public void afterTextChanged(final Editable editable) {
-                timer.cancel();
-                timer = new Timer();
 
-                final Runnable checkRunnable = new Runnable() {
+                getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        if (check.matches("blood_pressure")) {
-                            checkBP();
-                        } else if (check.matches("textViewBMI")) {
-                            Common_Functions.BMI(getContext(), editTextHeight, editTextWeight, textViewBMI);
-                        } else if (check.matches("whr")) {
-                            Common_Functions.WHR(editTextWaist, editTextHip, textViewWaistHipRatio);
-                        } else {
-                            updateValues();
+                        timer.cancel();
+                        timer = new Timer();
 
-                        }
+                        final Runnable checkRunnable = new Runnable() {
+                            public void run() {
+
+                                if (check.matches("blood_pressure")) {
+                                    Common_Functions.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
+                                } else if (check.matches("textViewBMI")) {
+                                    Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, textViewBMI);
+                                } else if (check.matches("whr")) {
+                                    Common_Functions.WHR(getActivity(), editTextWaist, editTextHip, textViewWaistHipRatio);
+                                } else {
+                                    updateValues();
+                                }
+                            }
+                        };
+
+                        TimerTask task = new TimerTask() {
+                            public void run() {
+                                getActivity().runOnUiThread(checkRunnable);
+                            }
+                        };
+
+                        timer.schedule(task, DELAY);
+
                     }
-                };
+                });
 
-                TimerTask task = new TimerTask() {
-                    public void run() {
-                        getActivity().runOnUiThread(checkRunnable);
-                    }
-                };
-
-                timer.schedule(task, DELAY);
             }
 
 
@@ -226,41 +233,7 @@ public class Followup_page_3 extends Fragment {
     }
 
 
-    public void checkBP() {
 
-        int systolic = 0;
-        int diastolic = 0;
-
-        if (editTextSystolic.getText().toString().trim().length() > 0) {
-            systolic = Integer.parseInt(editTextSystolic.getText().toString().trim());
-        }
-
-        if (editTextDiastolic.getText().toString().trim().length() > 0) {
-            diastolic = Integer.parseInt(editTextDiastolic.getText().toString().trim());
-        }
-
-        if (diastolic > 0 && systolic > 0) {
-
-            Log.d("Values BP", systolic + "/" + diastolic);
-            if ((systolic > 89 && systolic < 129)
-                    && (diastolic > 59 && diastolic < 84)) {
-                Alerts.alert_msg(getContext(), "Blood Pressure ", "Normal BP");
-            } else if ((diastolic > 84 && diastolic < 89)
-                    && (systolic > 129 && systolic < 139)) {
-                Alerts.alert_msg(getContext(), "Blood Pressure ", "High Normal BP");
-            } else if ((diastolic > 89 && diastolic < 99)
-                    && (systolic > 139 && systolic < 159)) {
-                Alerts.alert_msg(getContext(), "Blood Pressure ", "Mild Hypertention");
-            } else if ((diastolic > 99 && diastolic < 109)
-                    && (systolic > 159 && systolic < 179)) {
-                Alerts.alert_msg(getContext(), "Blood Pressure ", "Moderate Hypertention");
-            } else if ((diastolic > 109 && diastolic < 1000)
-                    && (systolic > 179 && systolic < 1000)) {
-                Alerts.alert_msg(getContext(), "Blood Pressure ", "Severe Hypertention");
-            }
-        }
-
-    }
 
     public void radioButtonClicked(final RadioButton radioButton) {
 
@@ -420,46 +393,47 @@ public class Followup_page_3 extends Fragment {
 
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("5090", editTextHeight.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5089", editTextWeight.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5085", editTextSystolic.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5086", editTextDiastolic.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("163081", editTextHip.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("163080", editTextWaist.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165190", editTextNutrition.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5090", "", "numeric", editTextHeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5089", "", "numeric", editTextWeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5085", "", "numeric", editTextSystolic.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5086", "", "numeric", editTextDiastolic.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163081", "", "numeric", editTextHip.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163080", "", "numeric", editTextWaist.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165190", "", "String", editTextNutrition.getText().toString().trim(), current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1391", foot_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", eye_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", dental_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", eye_checkup, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", foot_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", dental_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_checkup, current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165106", cardiovascular_disease, current_date, editTextCardiovascularDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", high_blood_pressure, current_date, editTextHBP.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", high_cholestrol, current_date, editTextHighCholestrol.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", peripheral_vascular_disease, current_date, editTextVascularDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", peripheral_neuropathy, current_date, editTextPNeuropathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", autonomic_neuropathy, current_date, editTextANeuropathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", retinopathy, current_date, editTextRetinopathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", kidney_disease, current_date, editTextKidneyDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", asthma_COPD, current_date, editTextAsthma.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", arthritis, current_date, editTextArthritis.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", assesment_other, current_date, editTextOther.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", cardiovascular_disease, current_date, editTextCardiovascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_blood_pressure, current_date, editTextHBP.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_cholestrol, current_date, editTextHighCholestrol.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_vascular_disease, current_date, editTextVascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_neuropathy, current_date, editTextPNeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", autonomic_neuropathy, current_date, editTextANeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", retinopathy, current_date, editTextRetinopathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", kidney_disease, current_date, editTextKidneyDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", asthma_COPD, current_date, editTextAsthma.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", arthritis, current_date, editTextArthritis.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", assesment_other, current_date, editTextOther.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("165104", foot_amputation, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165104", "", "valueCoded", foot_amputation, current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("160912", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("887", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159644", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1007", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1008", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1009", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("164364", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160912", "161487", "string", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("887", "161487", "string", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "161487", "string", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1007", "161487", "string", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", "161487", "string", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "161487", "string", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "161487", "string", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("", "161487", "string", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1391", editTextDiastolic.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", editTextHip.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", editTextWaist.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", editTextNutrition.getText().toString().trim(), current_date, ""));
+        try {
+            jsonArry = JSONFormBuilder.concatArray(jsonArry);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         Log.d("JSON FollowUp Page 3", jsonArry.toString() + " ");
 

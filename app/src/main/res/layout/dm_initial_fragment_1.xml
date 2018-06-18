@@ -149,7 +149,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:onClick="onRadioButtonClicked"
-                                android:text="N/A*" />
+                                android:text="N/A" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -466,14 +466,14 @@
                                 android:orientation="vertical">
 
                                 <RadioButton
-                                    android:id="@+id/radio_hiv_plus"
+                                    android:id="@+id/radio_hiv_negative"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:onClick="onRadioButtonClicked"
                                     android:text="HIV -ve" />
 
                                 <RadioButton
-                                    android:id="@+id/radio_hiv_negative"
+                                    android:id="@+id/radio_hiv_positive"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:onClick="onRadioButtonClicked"
@@ -864,7 +864,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">
@@ -1001,7 +1001,7 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">

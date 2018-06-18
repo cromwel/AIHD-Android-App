@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +21,7 @@ public class JSONFormBuilder {
         this.mContext = mContext;
     }
 
-    public static JSONObject observations(String conceptID, String conceptAnswer, String datetime, String comment) {
+    public static JSONObject observations(String conceptID, String groupID, String type, String conceptAnswer, String datetime, String comment) {
 
         JSONObject jsonObs = new JSONObject();
 
@@ -28,11 +29,12 @@ public class JSONFormBuilder {
             //Values
             if (!TextUtils.isEmpty(conceptAnswer)) {
                 jsonObs.put("id", conceptID);
+                jsonObs.put("group_id", groupID);
+                jsonObs.put("type", type);
                 jsonObs.put("answer", conceptAnswer);
                 jsonObs.put("datetime", datetime);
                 jsonObs.put("comment", comment);
             }
-
             //Json Object for Obeservation
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,25 +43,19 @@ public class JSONFormBuilder {
         return jsonObs;
     }
 
-    public void m() {
-
-        JSONArray jsonObs = new JSONArray();
-        JSONArray jsonObs1 = new JSONArray();
-        try {
-            concatArray(jsonObs, jsonObs1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private JSONArray concatArray(JSONArray... arrs)
+    public static JSONArray concatArray(JSONArray... arrs)
             throws JSONException {
         JSONArray result = new JSONArray();
         for (JSONArray arr : arrs) {
             for (int i = 0; i < arr.length(); i++) {
-                result.put(arr.get(i));
+                JSONObject element = (JSONObject) arr.get(i);
+                if (element.length() > 0) {
+                    result.put(arr.get(i));
+                }
+
             }
         }
+
         return result;
     }
 

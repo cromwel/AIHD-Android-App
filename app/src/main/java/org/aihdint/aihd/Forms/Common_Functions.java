@@ -1,20 +1,81 @@
 package org.aihdint.aihd.Forms;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.fragments.dm_followup.FollowUpActivityModel_Four;
+import org.aihdint.aihd.app.Alerts;
 
 public class Common_Functions {
 
+    public static void checkBP(final Context mContext, final EditText editTextSystolicOne, final EditText editTextDiastolicOne, final EditText editTextSystolicTwo, final EditText editTextDiastolicTwo) {
+
+        int systolic_1 = 0;
+        int diastolic_1 = 0;
+        int systolic_2 = 0;
+        int diastolic_2 = 0;
+
+        if (editTextSystolicOne.getText().toString().trim().length() > 0) {
+            systolic_1 = Integer.parseInt(editTextSystolicOne.getText().toString().trim());
+        }
+
+        if (editTextDiastolicOne.getText().toString().trim().length() > 0) {
+            diastolic_1 = Integer.parseInt(editTextDiastolicOne.getText().toString().trim());
+        }
+
+        try {
+
+            if (editTextSystolicOne.getText().toString().trim().length() > 0) {
+                systolic_2 = Integer.parseInt(editTextSystolicOne.getText().toString().trim());
+            }
+
+            if (editTextDiastolicOne.getText().toString().trim().length() > 0) {
+                diastolic_2 = Integer.parseInt(editTextDiastolicOne.getText().toString().trim());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (diastolic_1 > 0 && systolic_1 > 0) {
+            int systolic = systolic_1;
+            int diastolic = diastolic_1;
+
+            if (diastolic_2 > 0 && systolic_2 > 0) {
+                systolic = (systolic_1 + systolic_2) / 2;
+                diastolic = (diastolic_1 + diastolic_2) / 2;
+            }
+
+            Log.d("Values BP", systolic + "/" + diastolic);
+            if ((systolic > 89 && systolic < 129)
+                    && (diastolic > 59 && diastolic < 84)) {
+                Alerts.alert_msg(mContext, "Blood Pressure ", "Normal BP");
+            } else if ((diastolic > 84 && diastolic < 89)
+                    && (systolic > 129 && systolic < 139)) {
+                Alerts.alert_msg(mContext, "Blood Pressure ", "High Normal BP");
+            } else if ((diastolic > 89 && diastolic < 99)
+                    && (systolic > 139 && systolic < 159)) {
+                Alerts.alert_msg(mContext, "Blood Pressure ", "Mild Hypertention");
+            } else if ((diastolic > 99 && diastolic < 109)
+                    && (systolic > 159 && systolic < 179)) {
+                Alerts.alert_msg(mContext, "Blood Pressure ", "Moderate Hypertention");
+            } else if ((diastolic > 109 && diastolic < 1000)
+                    && (systolic > 179 && systolic < 1000)) {
+                Alerts.alert_msg(mContext, "Blood Pressure ", "Severe Hypertention");
+            }
+        }
+
+
+    }
+
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
-    public static void WHR(EditText editTextWaist, EditText editTextHip, TextView textViewWaistHipRatio) {
+    public static void WHR(final Activity activity, final EditText editTextWaist, final EditText editTextHip, final TextView textViewWaistHipRatio) {
+
+
         double wst = 0;
         double hp = 0;
 
@@ -33,10 +94,12 @@ public class Common_Functions {
 
         }
 
+
     }
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
-    public static void BMI(Context mContext, EditText editTextHeight, EditText editTextWeight, TextView textViewBMI) {
+    public static void BMI(final Activity activity, final Context mContext, final EditText editTextHeight, final EditText editTextWeight, final TextView textViewBMI) {
+
 
         double hght = 0;
         double wght = 0;
@@ -67,10 +130,35 @@ public class Common_Functions {
                 category = " Obese";
             }
             textViewBMI.setText(String.format("%.1f", textViewBMI_value) + category);
-
         }
 
     }
 
+    public static void checkTemp(Context mContext, String temp) {
+        if (temp.length() != 0) {
+            if (Double.parseDouble(temp) < 35 || Double.parseDouble(temp) > 40) {
+                Alerts.alert_msg(mContext, "Temperature", "Kindly confirm if the Temperature entered is correct.");
+            } else if (Double.parseDouble(temp) < 36.1) {
+                Alerts.alert_msg(mContext, "Temperature", "Patient has hypothermia.");
+            } else if (Double.parseDouble(temp) > 37.1) {
+                Alerts.alert_msg(mContext, "Temperature", "Patient has a Fever.");
+            }
+        }
+    }
 
+    public static void checkPR(Context mContext, String pr) {
+        if (pr.length() != 0) {
+            if (Double.parseDouble(pr) < 60 || Double.parseDouble(pr) > 100) {
+                Alerts.alert_msg(mContext, "Temperature", "Kindly confirm if the Pulse Rate entered is correct.");
+            }
+        }
+    }
+
+    public static void monofilament(Context mContext, String value) {
+        if (value.length() != 0) {
+            if (Double.parseDouble(value) > 5) {
+                Alerts.alert_msg(mContext, "Monofilament", "Abnormal Monofilament");
+            }
+        }
+    }
 }

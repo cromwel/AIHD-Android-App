@@ -1,5 +1,6 @@
 package org.aihdint.aihd.fragments.dm_initial;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -9,13 +10,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import org.aihdint.aihd.Forms.Common_Functions;
+import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
+import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.json.JSONArray;
+import org.json.JSONException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,25 +34,56 @@ import customfonts.TextView_Roboto_Bold;
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Initial_page_2 extends Fragment implements InitialActivityModel_Two.FragStateChangeListener  {
+public class Initial_page_2 extends Fragment {
 
-    private LinearLayout past_current_medication,other_past_current_medication,extremities;
-    private EditText  medication_other,adhere_specify,allergy_specify,temp,pulse_rate,systolic_one,diastolic_one,systolic_two,diastolic_two;
+    private LinearLayout linearLayoutPastCurrentMedication, linearLayoutOtherPastCurrentMedication, linearLayoutExtremities;
+    private EditText editTextMedicationOther, adhere_specify, allergy_specify, temp, pulse_rate, systolic_one, diastolic_one, systolic_two, diastolic_two;
     private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight;
-    private EditText other_general_exam,cvs,rs,pa,cns;
-    private TextView_Roboto_Bold bmi,waist_hip_ratio;
+    private EditText other_general_exam, cvs, rs, pa, cns;
+    private TextView_Roboto_Bold bmi, waist_hip_ratio;
 
     private EditText monofilament_rf, monofilament_lf;
+
+    private CheckBox checkBoxNone, checkBoxMetformin, checkBoxGlibenclamide, checkBoxInsulin, checkBoxNPH, checkBoxSoluble_insulin, checkBoxEnalapril,
+            checkBoxHCTZ, checkBoxLosartan, checkBoxNifedipine, checkBoxAtenolol, checkBoxMedicationOther;
+
+    private String medication_none, medication_metformin, medication_glibenclamide, medication_insulin, medication_nph, medication_soluble_insulin,
+            medication_enalapril, medication_hctz, medication_losartan, medication_nifedipine, medication_atenolol, medication_other;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_2, container, false);
 
-        InitialActivityModel_Two.getInstance().setListener(this);
 
-        past_current_medication = view.findViewById(R.id.past_current_medication);
-        other_past_current_medication = view.findViewById(R.id.other_past_current_medication);
-        medication_other = view.findViewById(R.id.medication_other);
+        linearLayoutPastCurrentMedication = view.findViewById(R.id.past_current_medication);
+        linearLayoutOtherPastCurrentMedication = view.findViewById(R.id.other_past_current_medication);
+
+        checkBoxNone = view.findViewById(R.id.checkbox_medication_none);
+        checkBoxMetformin = view.findViewById(R.id.checkbox_medication_metformin);
+        checkBoxGlibenclamide = view.findViewById(R.id.checkbox_medication_glibenclamide);
+        checkBoxInsulin = view.findViewById(R.id.checkbox_medication_insulin);
+        checkBoxNPH = view.findViewById(R.id.checkbox_medication_nph);
+        checkBoxSoluble_insulin = view.findViewById(R.id.checkbox_medication_soluble_insulin);
+        checkBoxEnalapril = view.findViewById(R.id.checkbox_medication_enalapril);
+        checkBoxHCTZ = view.findViewById(R.id.checkbox_medication_hctz);
+        checkBoxLosartan = view.findViewById(R.id.checkbox_medication_losartan);
+        checkBoxNifedipine = view.findViewById(R.id.checkbox_medication_nifedipine);
+        checkBoxAtenolol = view.findViewById(R.id.checkbox_medication_atenolol);
+        checkBoxMedicationOther = view.findViewById(R.id.checkbox_medication_other);
+
+        checkBox(checkBoxMetformin);
+        checkBox(checkBoxGlibenclamide);
+        checkBox(checkBoxInsulin);
+        checkBox(checkBoxNPH);
+        checkBox(checkBoxSoluble_insulin);
+        checkBox(checkBoxEnalapril);
+        checkBox(checkBoxHCTZ);
+        checkBox(checkBoxLosartan);
+        checkBox(checkBoxNifedipine);
+        checkBox(checkBoxAtenolol);
+        checkBox(checkBoxMedicationOther);
+
         adhere_specify = view.findViewById(R.id.adhere_specify);
         allergy_specify = view.findViewById(R.id.allergy_specify);
 
@@ -62,17 +102,17 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         bmi = view.findViewById(R.id.bmi);
         waist_hip_ratio = view.findViewById(R.id.waist_hip_ratio);
 
-        extremities = view.findViewById(R.id.extremities);
+        linearLayoutExtremities = view.findViewById(R.id.extremitiesLinearLayout);
 
         monofilament_rf = view.findViewById(R.id.monofilament_rf);
         monofilament_lf = view.findViewById(R.id.monofilament_lf);
 
-        textWatcher (temp,"temp");
-        textWatcher (pulse_rate,"pulse_rate");
-        textWatcher (systolic_one,"blood_pressure");
-        textWatcher (systolic_two,"blood_pressure");
-        textWatcher (diastolic_one,"blood_pressure");
-        textWatcher (diastolic_two,"blood_pressure");
+        textWatcher(temp, "temp");
+        textWatcher(pulse_rate, "pulse_rate");
+        textWatcher(systolic_one, "blood_pressure");
+        textWatcher(systolic_two, "blood_pressure");
+        textWatcher(diastolic_one, "blood_pressure");
+        textWatcher(diastolic_two, "blood_pressure");
         textWatcher(editTextHeight, "bmi");
         textWatcher(editTextWeight, "bmi");
         textWatcher(editTextWaist, "whr");
@@ -85,39 +125,36 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
     }
 
 
-    @Override
     public void medicationNone(String status) {
         if (status.matches("1107")) {
-            past_current_medication.setVisibility(View.GONE);
-        }else {
-            past_current_medication.setVisibility(View.VISIBLE);
+            linearLayoutPastCurrentMedication.setVisibility(View.GONE);
+        } else {
+            linearLayoutPastCurrentMedication.setVisibility(View.VISIBLE);
         }
-        Log.d("None",status+" ");
+        Log.d("None", status + " ");
     }
 
-    @Override
     public void medicationOther(String status) {
         if (status.matches("5622")) {
-            other_past_current_medication.setVisibility(View.VISIBLE);
-        }else {
-            other_past_current_medication.setVisibility(View.GONE);
+            linearLayoutOtherPastCurrentMedication.setVisibility(View.VISIBLE);
+        } else {
+            linearLayoutOtherPastCurrentMedication.setVisibility(View.GONE);
         }
     }
 
-    @Override
     public void extremitiesStatus(String status) {
         if (status.matches("1116")) {
-            extremities.setVisibility(View.VISIBLE);
-        }else {
-            extremities.setVisibility(View.GONE);
+            linearLayoutExtremities.setVisibility(View.VISIBLE);
+        } else {
+            linearLayoutExtremities.setVisibility(View.GONE);
         }
     }
 
-    public void textWatcher (EditText editText, final String check){
+    public void textWatcher(EditText editText, final String check) {
 
         editText.addTextChangedListener(new TextWatcher() {
 
-            private Timer timer=new Timer();
+            private Timer timer = new Timer();
             private final long DELAY = 1500; // milliseconds
 
             @Override
@@ -127,25 +164,25 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
 
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
-                        if(check.matches("temp")) {
-                            checkTemp(editable.toString());
-                        }else if(check.matches("pulse_rate")) {
-                            checkPR(editable.toString());
-                        }else if(check.matches("blood_pressure")) {
-                            checkBP();
-                        }else if(check.matches("bmi")) {
-                            Common_Functions.BMI(getContext(), editTextHeight, editTextWeight, bmi);
-                        }else if(check.matches("whr")) {
-                            Common_Functions.WHR(editTextWaist, editTextHip, waist_hip_ratio);
+                        if (check.matches("temp")) {
+                            Common_Functions.checkTemp(getContext(), editable.toString());
+                        } else if (check.matches("pulse_rate")) {
+                            Common_Functions.checkPR(getContext(), editable.toString());
+                        } else if (check.matches("blood_pressure")) {
+                            Common_Functions.checkBP(getContext(), systolic_one, diastolic_one, systolic_two, diastolic_two);
+                        } else if (check.matches("bmi")) {
+                            Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, bmi);
+                        } else if (check.matches("whr")) {
+                            Common_Functions.WHR(getActivity(), editTextWaist, editTextHip, waist_hip_ratio);
                         } else if (check.matches("monofilament_lf")) {
-                            monofilament(editable.toString());
+                            Common_Functions.monofilament(getContext(), editable.toString());
                         } else if (check.matches("monofilament_rf")) {
-                            monofilament(editable.toString());
+                            Common_Functions.monofilament(getContext(), editable.toString());
                         }
                     }
                 };
 
-                TimerTask task = new TimerTask(){
+                TimerTask task = new TimerTask() {
                     public void run() {
                         getActivity().runOnUiThread(checkRunnable);
                     }
@@ -168,81 +205,112 @@ public class Initial_page_2 extends Fragment implements InitialActivityModel_Two
         });
     }
 
-    public void checkTemp(String temp){
-        if(temp.length() != 0) {
-            if(Double.parseDouble(temp) <35||Double.parseDouble(temp) >40){
-                Alerts.alert_msg(getContext(), "Temperature", "Kindly confirm if the Temperature entered is correct.");
-            }else if(Double.parseDouble(temp) <36.1){
-                Alerts.alert_msg(getContext(), "Temperature", "Patient has hypothermia.");
-            }else if(Double.parseDouble(temp) > 37.1){
-                Alerts.alert_msg(getContext(), "Temperature", "Patient has a Fever.");
-            }
-        }
-    }
+    public void checkBox(final CheckBox checkBox) {
 
-    public void checkPR(String pr){
-        if (pr.length() != 0) {
-            if(Double.parseDouble(pr) <60||Double.parseDouble(pr) >100){
-                Alerts.alert_msg(getContext(), "Temperature", "Kindly confirm if the Pulse Rate entered is correct.");
-            }
-        }
-    }
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-    public void monofilament(String value) {
-        if (value.length() != 0) {
-            if (Double.parseDouble(value) > 5) {
-                Alerts.alert_msg(getContext(), "Monofilament", "Abnormal Monofilament");
-            }
-        }
-    }
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                boolean checked = (buttonView).isChecked();
 
-    public void checkBP(){
-
-        int systolic_1=0;
-        int diastolic_1=0;
-        int systolic_2=0;
-        int diastolic_2=0;
-
-        if(systolic_one.getText().toString().trim().length()>0) {
-            systolic_1 = Integer.parseInt(systolic_one.getText().toString().trim());
-        }
-
-        if(diastolic_one.getText().toString().trim().length()>0) {
-            diastolic_1 = Integer.parseInt(diastolic_one.getText().toString().trim());
-        }
-
-        if(systolic_two.getText().toString().trim().length()>0) {
-            systolic_2 = Integer.parseInt(systolic_two.getText().toString().trim());
-        }
-
-        if(diastolic_two.getText().toString().trim().length()>0) {
-            diastolic_2 = Integer.parseInt(diastolic_two.getText().toString().trim());
-        }
-
-
-        if (diastolic_1 > 0 && systolic_1 > 0) {
-                int systolic = (systolic_1+systolic_2)/2;
-                int diastolic = (diastolic_1+diastolic_2)/2;
-
-                Log.d("Values BP",systolic+"/"+diastolic);
-                if((systolic > 89 && systolic < 129 )
-                        &&( diastolic > 59 && diastolic < 84)){
-                    Alerts.alert_msg(getContext(), "Blood Pressure ", "Normal BP");
-                }else if((diastolic >84 && diastolic < 89 )
-                        &&(systolic > 129 && systolic <139 )){
-                    Alerts.alert_msg(getContext(), "Blood Pressure ", "High Normal BP");
-                }else if((diastolic > 89 && diastolic <99 )
-                        &&(systolic > 139 && systolic <159 )){
-                    Alerts.alert_msg(getContext(), "Blood Pressure ", "Mild Hypertention");
-                }else if((diastolic > 99 && diastolic <109 )
-                        &&(systolic > 159 && systolic <179 )){
-                    Alerts.alert_msg(getContext(), "Blood Pressure ", "Moderate Hypertention");
-                }else if((diastolic > 109 && diastolic <1000 )
-                        &&(systolic > 179 && systolic <1000 )){
-                    Alerts.alert_msg(getContext(), "Blood Pressure ", "Severe Hypertention");
+                //Check which checkbox was clicked
+                switch (checkBox.getId()) {
+                    case R.id.checkbox_medication_none:
+                        if (checked) {
+                            medication_none = "1107";
+                            InitialActivityModel_Two.getInstance().medicationNone(medication_none);
+                        } else {
+                            medication_none = "";
+                            InitialActivityModel_Two.getInstance().medicationNone(medication_none);
+                        }
+                    case R.id.checkbox_medication_metformin:
+                        if (checked) {
+                            medication_metformin = "79651";
+                        } else {
+                            medication_metformin = "";
+                        }
+                    case R.id.checkbox_medication_glibenclamide:
+                        if (checked) {
+                            medication_glibenclamide = "77071";
+                        } else {
+                            medication_glibenclamide = "";
+                        }
+                    case R.id.checkbox_medication_insulin:
+                        if (checked) {
+                            medication_insulin = "159459";
+                        } else {
+                            medication_insulin = "";
+                        }
+                    case R.id.checkbox_medication_nph:
+                        if (checked) {
+                            medication_nph = "78068";
+                        } else {
+                            medication_nph = "";
+                        }
+                    case R.id.checkbox_medication_soluble_insulin:
+                        if (checked) {
+                            medication_soluble_insulin = "282";
+                        } else {
+                            medication_soluble_insulin = "";
+                        }
+                    case R.id.checkbox_medication_enalapril:
+                        if (checked) {
+                            medication_enalapril = "75633";
+                        } else {
+                            medication_enalapril = "";
+                        }
+                    case R.id.checkbox_medication_hctz:
+                        if (checked) {
+                            medication_hctz = "77696";
+                        } else {
+                            medication_hctz = "";
+                        }
+                    case R.id.checkbox_medication_losartan:
+                        if (checked) {
+                            medication_losartan = "79074";
+                        } else {
+                            medication_losartan = "";
+                        }
+                    case R.id.checkbox_medication_nifedipine:
+                        if (checked) {
+                            medication_nifedipine = "80637";
+                        } else {
+                            medication_nifedipine = "";
+                        }
+                    case R.id.checkbox_medication_atenolol:
+                        if (checked) {
+                            medication_atenolol = "71652";
+                        } else {
+                            medication_atenolol = "";
+                        }
                 }
-            }
 
+                updateValues();
+            }
+        });
     }
+
+    public void updateValues() {
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String current_date = dateFormat.format(new Date());
+
+        JSONArray jsonArry = new JSONArray();
+
+        //jsonArry.put(JSONFormBuilder.observations("1712", "", "valueCoded", education_level, current_date, ""));
+        //jsonArry.put(JSONFormBuilder.observations("165165", "", "string", editTextRiskOther.getText().toString().trim(), current_date, ""));
+
+        try {
+            jsonArry = JSONFormBuilder.concatArray(jsonArry);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d("JSON FollowUp Page 2", jsonArry.toString() + " ");
+
+        FragmentModelFollowUp.getInstance().followUpTwo(jsonArry);
+    }
+
+
+
 }

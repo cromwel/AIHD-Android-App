@@ -2,6 +2,7 @@ package org.aihdint.aihd.Forms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -19,16 +20,22 @@ import com.android.volley.request.StringRequest;
 
 import org.aihdint.aihd.PageAdapters.DM_Initial_Adpater;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
-import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_One;
 import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Three;
 import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Two;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,23 +50,16 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     private static final String TAG = DM_Initial.class.getSimpleName();
 
     private String jsonResponse;
-    //Page 1
-    private String occupation_other,diabetes_status,htn_status,hiv_status,enrolled_to_hiv_care,nhif_status,referral_status;
-    //Checkboxes
-    private String tb_status,breathing,palpitations,dizziness,fainting,leg_swell,urination_fatigue,lose_consciousness,
-            blurr_vision,focal_weakness,foot_complaint,headache_migraines,complaint_other;
-
-    private String dm_initial_date,diagnosis_diabetes_date,diagnosis_hypertension_date,hiv_other_status,tb_treatment_start,
-            tb_comment,nhif_other,referral_other,referral_other_details,complaint_other_details,complaint_lmp,drug_abuse_other,occupation,education,drinking,smoking;
-
-    private String intra_referral,inter_referral,extremities;
 
     //Page 2
-    private String medication_none,medication_metformin,medication_glibenclamide,medication_insulin,medication_nph,medication_soluble_insulin,medication_enalapril,medication_hctz,medication_losartan,medication_nifedipine,medication_atenolol,medication_other;
+    private String extremities, medication_none, medication_metformin, medication_glibenclamide, medication_insulin, medication_nph, medication_soluble_insulin, medication_enalapril, medication_hctz, medication_losartan, medication_nifedipine, medication_atenolol, medication_other;
 
     //Page 3
     private String glucose, protein, ketone, ecg, cxr;
     private ProgressDialog pDialog;
+
+    private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
+    private String file_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,19 +71,21 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        occupation_other = diabetes_status = htn_status = hiv_status = enrolled_to_hiv_care = nhif_status = referral_status = tb_status = breathing = palpitations = dizziness = fainting = leg_swell = urination_fatigue = lose_consciousness =
-        blurr_vision = focal_weakness = foot_complaint = headache_migraines = complaint_other = drinking = dm_initial_date  = diagnosis_diabetes_date = diagnosis_hypertension_date = hiv_other_status = tb_treatment_start =
-                tb_comment = nhif_other = intra_referral = inter_referral = referral_other = referral_other_details = complaint_other_details = complaint_lmp = drug_abuse_other = occupation = education = drinking = smoking =
-                        glucose = protein = ketone = ecg = cxr = "";
-
-
-        medication_none =medication_metformin=medication_glibenclamide=medication_insulin=medication_nph=medication_soluble_insulin=medication_enalapril=medication_hctz=medication_losartan=medication_nifedipine=medication_atenolol=medication_other;
+        extremities = medication_metformin = medication_glibenclamide = medication_insulin = medication_nph = medication_soluble_insulin = medication_enalapril = medication_hctz = medication_losartan = medication_nifedipine = medication_atenolol = medication_other;
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
         FragmentModelInitial.getInstance().setListener(this);
+
+        file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
+
+        jsonArry1 = new JSONArray();
+        jsonArry2 = new JSONArray();
+        jsonArry3 = new JSONArray();
+        jsonArry4 = new JSONArray();
+
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
@@ -98,6 +100,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        //noinspection deprecation
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -123,131 +126,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.radio_new_dm_patient:
-                if (checked)
-                    diabetes_status = "165087";
-                    InitialActivityModel_One.getInstance().dmDiagnosis(diabetes_status);
-                break;
-            case R.id.radio_known_dm_patient:
-                if (checked)
-                    diabetes_status = "165088";
-                    InitialActivityModel_One.getInstance().dmDiagnosis(diabetes_status);
-                break;
-            case R.id.radio_new_htn_patient:
-                if (checked)
-                    htn_status = "165092";
-                    InitialActivityModel_One.getInstance().htnDiagnosis(htn_status);
-                break;
-            case R.id.radio_known_htn_patient:
-                if (checked)
-                    htn_status = "165093";
-                    InitialActivityModel_One.getInstance().htnDiagnosis(htn_status);
-                break;
-            case R.id.radio_hiv_plus:
-                if (checked)
-                    hiv_status = "664";
-                    InitialActivityModel_One.getInstance().hivStatus(hiv_status);
-                break;
-            case R.id.radio_hiv_negative:
-                if (checked)
-                    hiv_status = "138571";
-                    InitialActivityModel_One.getInstance().hivStatus(hiv_status);
-                break;
-            case R.id.radio_hiv_unknown:
-                if (checked)
-                    hiv_status = "1067";
-                    InitialActivityModel_One.getInstance().hivStatus(hiv_status);
-                break;
-            case R.id.radio_enrolled_yes:
-                if (checked)
-                    enrolled_to_hiv_care = "1065";
-                break;
-            case R.id.radio_enrolled_no:
-                if (checked)
-                    enrolled_to_hiv_care = "1066";
-                break;
-            case R.id.radio_nhif_yes:
-                if (checked)
-                    nhif_status = "1065";
-                    InitialActivityModel_One.getInstance().nhifStatus(nhif_status);
-                break;
-            case R.id.radio_nhif_no:
-                if (checked)
-                    nhif_status = "1066";
-                    InitialActivityModel_One.getInstance().nhifStatus(nhif_status);
-                Alerts.alert_msg(this, "NHIF Registration", "Encourage Client to Register for NHIF");
-                break;
-            case R.id.radio_nhif_other:
-                if (checked)
-                    nhif_status = "5622";
-                    InitialActivityModel_One.getInstance().nhifStatus(nhif_status);
-                break;
-            case R.id.radio_referral_yes:
-                if (checked)
-                    referral_status = "1065";
-                    InitialActivityModel_One.getInstance().referralStatus(referral_status);
-                break;
-            case R.id.radio_referral_no:
-                if (checked)
-                    referral_status = "1066";
-                    InitialActivityModel_One.getInstance().referralStatus(referral_status);
-                break;
-            case R.id.radio_smoke_yes:
-                if (checked)
-                    smoking = "1065";
-                break;
-            case R.id.radio_smoke_no:
-                if (checked)
-                    smoking = "1066";
-                break;
-            case R.id.radio_smoke_stopped:
-                if (checked)
-                    smoking = "158939";
-                break;
-            case R.id.radio_drink_yes:
-                if (checked)
-                    drinking = "159450";
-                break;
-            case R.id.radio_drink_no:
-                if (checked)
-                    drinking = "1090";
-                break;
-            case R.id.radio_drink_stopped:
-                if (checked)
-                    drinking = "159452";
-                break;
-            case R.id.radio_referral_chw:
-                if (checked)
-                    intra_referral = "1759";
-                break;
-            case R.id.radio_referral_dispensary:
-                if (checked)
-                    intra_referral = "165107";
-                break;
-            case R.id.radio_referral_maternity:
-                if (checked)
-                    inter_referral = "163146";
-                break;
-            case R.id.radio_referral_inpatient:
-                if (checked)
-                    inter_referral = "160551";
-                break;
-            case R.id.radio_referral_opd:
-                if (checked)
-                    inter_referral = "160542";
-                break;
-            case R.id.radio_referral_casualty:
-                if (checked)
-                    inter_referral = "160473";
-                break;
-            case R.id.radio_referral_ccc:
-                if (checked)
-                    inter_referral = "162050";
-                break;
-            case R.id.radio_referral_other:
-                if (checked)
-                    inter_referral = "5622";
-                break;
+
             case R.id.radio_extremities_normal:
                 if (checked)
                     extremities = "1115";
@@ -298,98 +177,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         // Check which checkbox was clicked
         switch(view.getId()) {
-            case R.id.checkbox_tb_status:
-                if (checked){
-                    tb_status ="1659";
-                }else{
-                    tb_status ="";
-                }
-                break;
-            case R.id.checkbox_complaint_breath:
-                if (checked){
-                    breathing ="110265";
-                }else{
-                    breathing ="";
-                }
-                break;
-            case R.id.checkbox_complaint_palpitations:
-                if (checked){
-                    palpitations="158627";
-                }else{
-                    palpitations="";
-                }
-                break;
-            case R.id.checkbox_complaint_dizziness:
-                if (checked){
-                    dizziness="156046";
-                }else{
-                    dizziness="";
-                }
-                break;
-            case R.id.checkbox_complaint_fainting:
-                if (checked){
-                    fainting="112961";
-                }else{
-                    fainting="";
-                }
-                break;
-            case R.id.checkbox_complaint_leg_swell:
-                if (checked){
-                    leg_swell="135966";
-                }else{
-                    leg_swell="";
-                }
-                break;
-            case R.id.checkbox_complaint_urination_fatigue:
-                if (checked){
-                    urination_fatigue="134185";
-                }else{
-                    urination_fatigue="";
-                }
-                break;
-            case R.id.checkbox_complaint_lose_consciousness:
-                if (checked){
-                    lose_consciousness="135592";
-                }else{
-                    lose_consciousness="";
-                }
-                break;
-            case R.id.checkbox_complaint_blurr_vision:
-                if (checked){
-                    blurr_vision="147104";
-                }else{
-                    blurr_vision="";
-                }
-                break;
-            case R.id.checkbox_complaint_focal_weakness:
-                if (checked){
-                    focal_weakness="6005";
-                }else{
-                    focal_weakness="";
-                }
-                break;
-            case R.id.checkbox_foot_complaint:
-                if (checked){
-                    foot_complaint="164529";
-                }else{
-                    foot_complaint="";
-                }
-                break;
-            case R.id.checkbox_complaint_headache_migraines:
-                if (checked){
-                    headache_migraines="115782";
-                }else{
-                    headache_migraines="";
-                }
-                break;
-            case R.id.checkbox_complaint_other:
-                if(checked){
-                    complaint_other = "5622";
-                    InitialActivityModel_One.getInstance().complaintStatus(complaint_other);
-                }else {
-                    complaint_other = "";
-                    InitialActivityModel_One.getInstance().complaintStatus(complaint_other);
-                }
             case R.id.checkbox_medication_none:
                 if(checked){
                     medication_none = "1107";
@@ -480,43 +267,96 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         }
     }
 
+
     @Override
-    public void initialOne(String dm_initial_dateEditText,String occupation_otherEditText,String diagnosis_diabetes_dateEditTextEditText,String diagnosis_hypertension_dateEditText,
-                           String hiv_other_statusEditText,String tb_treatment_startEditText,String tb_commentEditText,String nhif_otherEditText,
-                           String referral_otherEditText,String referral_other_detailsEditText,String complaint_otherEditText,
-                           String complaint_lmpEditText,String abuse_otherEditText,String occupationEditText,String educationEditText) {
-
-        dm_initial_date = dm_initial_dateEditText;
-
-        diagnosis_diabetes_date = diagnosis_diabetes_dateEditTextEditText;
-        occupation_other = occupation_otherEditText;
-        diagnosis_hypertension_date = diagnosis_hypertension_dateEditText;
-        hiv_other_status = hiv_other_statusEditText;
-        tb_treatment_start = tb_treatment_startEditText;
-        tb_comment = tb_commentEditText;
-        nhif_other = nhif_otherEditText;
-        referral_other = referral_otherEditText;
-        referral_other_details = referral_other_detailsEditText;
-        complaint_other_details = complaint_otherEditText;
-        complaint_lmp = complaint_lmpEditText;
-        drug_abuse_other = abuse_otherEditText;
-        occupation = occupationEditText;
-        education = educationEditText;
+    public void initialOne(String date, JSONArray params) {
 
     }
 
     @Override
-    public void initialTwo(String tag) {
+    public void initialTwo(JSONArray params) {
 
     }
 
     @Override
-    public void initialThree(String tag) {
+    public void initialThree(JSONArray params) {
 
     }
 
     @Override
-    public void initialFour(String tag) {
+    public void initialFour(JSONArray params) {
+
+    }
+
+    public void validate(View view) {
+
+        File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
+        if (!dir.mkdirs()) {
+            Log.e("Directory Message", "Directory not created");
+        }
+
+        File file = new File(dir, file_name);
+
+        try {
+
+            JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4);
+            JSONObject jsonForm = new JSONObject();
+
+            try {
+                jsonForm.put("formDescription", "DM HTN Initial Encounter Form");
+                jsonForm.put("formEncounterType", "bf3f3108-f87c-11e7-913d-5f679b8fdacb");
+                jsonForm.put("formUuid", "7b0abbe2-98ab-4ba3-a423-e2441859f976");
+                jsonForm.put("formVersion", "1.0");
+                jsonForm.put("formUILocation", "patientDashboard.visitActions");
+                jsonForm.put("formOrder", "1");
+                jsonForm.put("encounterDate", "");
+                jsonForm.put("encounterProvider", "");
+                jsonForm.put("patient_id", "");
+                jsonForm.put("obs", jsonArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            FileOutputStream f = new FileOutputStream(file);
+            PrintWriter pw = new PrintWriter(f);
+            pw.println(jsonForm.toString());
+            //pw.println(jsonObs2.toString());
+            pw.flush();
+            pw.close();
+            f.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.i("Error", "*** File not found. Did you add a WRITE_EXTERNAL_STORAGE permission to the manifest?");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
+
+        //Read File
+        try {
+            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);
+            FileInputStream fIn = new FileInputStream(myFile);
+            BufferedReader myReader = new BufferedReader(
+                    new InputStreamReader(fIn));
+            String aDataRow;
+            StringBuilder aBuffer = new StringBuilder();
+            while ((aDataRow = myReader.readLine()) != null) {
+                aBuffer.append(aDataRow).append("\n");
+            }
+            Log.e("Reading from storage", aBuffer.toString());
+            myReader.close();
+            Toast.makeText(getBaseContext(),
+                    "Done reading SD 'mysdfile.txt'",
+                    Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getBaseContext(), e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
+
 
     }
 
@@ -570,44 +410,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 // Posting params to register url
                 Map<String, String> params = new HashMap<>();
 
-                params.put("dm_initial_date", dm_initial_date);
-                params.put("diabetes_status", diabetes_status);
-                params.put("htn_status", htn_status);
-                params.put("hiv_status", hiv_status);
-                params.put("enrolled_to_hiv_care", enrolled_to_hiv_care);
-                params.put("nhif", nhif_status);
-                params.put("referral", referral_status);
-                params.put("complaint_other", complaint_other);
-                params.put("dm_diagnosis_year", diagnosis_diabetes_date);
-                params.put("htn_diagnosis_year", diagnosis_hypertension_date);
-                params.put("other_patient_status", hiv_other_status);
-                params.put("on_tb_treatment",tb_status);
-                params.put("tb_treatment_start", tb_treatment_start);
-                params.put("tb_comments", tb_comment);
-                params.put("other_nhif",nhif_other);
-                params.put("referral_comment", referral_other);
-                params.put("refering_other", referral_other_details);
-                params.put("inter_referral", inter_referral);
-                params.put("intra_referral", intra_referral);
-                params.put("complaint_other_details", complaint_other_details);
-                params.put("occupation", occupation);
-                params.put("occupation_other", occupation_other);
-                params.put("education_level",education);
-                params.put("drinking", drinking);
-                params.put("smoking",smoking);
-                params.put("drug_abuse_other",drug_abuse_other);
-                params.put("breathing",breathing);
-                params.put("palpitations",palpitations);
-                params.put("dizziness",dizziness);
-                params.put("fainting",fainting);
-                params.put("leg_swell",leg_swell);
-                params.put("urination_fatigue",urination_fatigue);
-                params.put("lose_consciousness",lose_consciousness);
-                params.put("blurr_vision",blurr_vision);
-                params.put("focal_weakness",focal_weakness);
-                params.put("foot_complaint",foot_complaint);
-                params.put("headache_migraines",headache_migraines);
-                params.put("complaint_lmp", complaint_lmp);
                 params.put("uuid",AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
                 JSONObject jsonParams = new JSONObject(params);
