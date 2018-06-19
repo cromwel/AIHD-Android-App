@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -24,7 +23,6 @@ import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
 import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Three;
-import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Two;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,11 +47,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     private static final String TAG = DM_Initial.class.getSimpleName();
 
-    private String jsonResponse;
-
-    //Page 2
-    private String extremities, medication_none, medication_metformin, medication_glibenclamide, medication_insulin, medication_nph, medication_soluble_insulin, medication_enalapril, medication_hctz, medication_losartan, medication_nifedipine, medication_atenolol, medication_other;
-
     //Page 3
     private String glucose, protein, ketone, ecg, cxr;
     private ProgressDialog pDialog;
@@ -70,8 +63,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
-
-        extremities = medication_metformin = medication_glibenclamide = medication_insulin = medication_nph = medication_soluble_insulin = medication_enalapril = medication_hctz = medication_losartan = medication_nifedipine = medication_atenolol = medication_other;
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -127,17 +118,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         // Check which radio button was clicked
         switch(view.getId()) {
 
-            case R.id.radio_extremities_normal:
-                if (checked)
-                    extremities = "1115";
-                    InitialActivityModel_Two.getInstance().extremitiesStatus(extremities);
-                break;
-            case R.id.radio_extremities_abnormal:
-                if (checked)
-                    extremities = "1116";
-                    InitialActivityModel_Two.getInstance().extremitiesStatus(extremities);
-                break;
-
             case R.id.radio_glucose_yes:
                 if (checked)
                     glucose = "1065";
@@ -171,121 +151,27 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         }
     }
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.checkbox_medication_none:
-                if(checked){
-                    medication_none = "1107";
-                    InitialActivityModel_Two.getInstance().medicationNone(medication_none);
-                }else {
-                    medication_none = "";
-                    InitialActivityModel_Two.getInstance().medicationNone(medication_none);
-                }
-            case R.id.checkbox_medication_metformin:
-                if(checked){
-                    medication_metformin = "79651";
-                }else {
-                    medication_metformin = "";
-                }
-            case R.id.checkbox_medication_glibenclamide:
-                if(checked){
-                    medication_glibenclamide = "77071";
-                }else {
-                    medication_glibenclamide = "";
-                }
-            case R.id.checkbox_medication_insulin:
-                if(checked){
-                    medication_insulin = "159459";
-                }else {
-                    medication_insulin = "";
-                }
-            case R.id.checkbox_medication_nph:
-                if(checked){
-                    medication_nph = "78068";
-                }else {
-                    medication_nph = "";
-                }
-            case R.id.checkbox_medication_soluble_insulin:
-                if(checked){
-                    medication_soluble_insulin = "282";
-                }else {
-                    medication_soluble_insulin = "";
-                }
-            case R.id.checkbox_medication_enalapril:
-                if(checked){
-                    medication_enalapril = "75633";
-                }else {
-                    medication_enalapril = "";
-                }
-            case R.id.checkbox_medication_hctz:
-                if(checked){
-                    medication_hctz = "77696";
-                }else {
-                    medication_hctz = "";
-                }
-            case R.id.checkbox_medication_losartan:
-                if(checked){
-                    medication_losartan = "79074";
-                }else {
-                    medication_losartan = "";
-                }
-            case R.id.checkbox_medication_nifedipine:
-                if(checked){
-                    medication_nifedipine = "80637";
-                }else {
-                    medication_nifedipine = "";
-                }
-            case R.id.checkbox_medication_atenolol:
-                if(checked){
-                    medication_atenolol = "71652";
-                }else {
-                    medication_atenolol = "";
-                }
-
-        }
-
-    }
-
-    public void onCheckboxMedicineOther(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.checkbox_medication_other:
-                if(checked){
-                    medication_other = "5622";
-                    InitialActivityModel_Two.getInstance().medicationOther(medication_other);
-                }else {
-                    medication_other = "";
-                    InitialActivityModel_Two.getInstance().medicationOther(medication_other);
-                }
-        }
-    }
 
 
     @Override
     public void initialOne(String date, JSONArray params) {
 
+        jsonArry1 = params;
     }
 
     @Override
     public void initialTwo(JSONArray params) {
-
+        jsonArry2 = params;
     }
 
     @Override
     public void initialThree(JSONArray params) {
-
+        jsonArry3 = params;
     }
 
     @Override
     public void initialFour(JSONArray params) {
-
+        jsonArry4 = params;
     }
 
     public void validate(View view) {
@@ -375,7 +261,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
             @Override
             public void onResponse(String response) {
-                jsonResponse = response;
                 Log.d(TAG, "Upload Response: " + response);
 
                 try {

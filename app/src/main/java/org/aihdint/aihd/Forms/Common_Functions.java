@@ -30,18 +30,19 @@ public class Common_Functions {
 
         try {
 
-            if (editTextSystolicOne.getText().toString().trim().length() > 0) {
-                systolic_2 = Integer.parseInt(editTextSystolicOne.getText().toString().trim());
+            if (editTextSystolicTwo.getText().toString().trim().length() > 0) {
+                systolic_2 = Integer.parseInt(editTextSystolicTwo.getText().toString().trim());
             }
 
-            if (editTextDiastolicOne.getText().toString().trim().length() > 0) {
-                diastolic_2 = Integer.parseInt(editTextDiastolicOne.getText().toString().trim());
+            if (editTextDiastolicTwo.getText().toString().trim().length() > 0) {
+                diastolic_2 = Integer.parseInt(editTextDiastolicTwo.getText().toString().trim());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (diastolic_1 > 0 && systolic_1 > 0) {
+
             int systolic = systolic_1;
             int diastolic = diastolic_1;
 

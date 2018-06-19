@@ -3,7 +3,6 @@ package org.aihdint.aihd.fragments.dm_initial;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -14,11 +13,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,31 +32,47 @@ import customfonts.TextView_Roboto_Bold;
 /**
  * Developed by Rodney on 24/04/2018.
  */
-
+@SuppressWarnings("FieldCanBeLocal")
 public class Initial_page_2 extends Fragment {
 
-    private LinearLayout linearLayoutPastCurrentMedication, linearLayoutOtherPastCurrentMedication, linearLayoutExtremities;
-    private EditText editTextMedicationOther, adhere_specify, allergy_specify, temp, pulse_rate, systolic_one, diastolic_one, systolic_two, diastolic_two;
-    private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight;
-    private EditText other_general_exam, cvs, rs, pa, cns;
-    private TextView_Roboto_Bold bmi, waist_hip_ratio;
-
-    private EditText monofilament_rf, monofilament_lf;
+    private LinearLayout linearLayoutPastCurrentMedication, linearLayoutOtherPastCurrentMedication, linearLayoutExamOther, linearLayoutExtremities;
 
     private CheckBox checkBoxNone, checkBoxMetformin, checkBoxGlibenclamide, checkBoxInsulin, checkBoxNPH, checkBoxSoluble_insulin, checkBoxEnalapril,
             checkBoxHCTZ, checkBoxLosartan, checkBoxNifedipine, checkBoxAtenolol, checkBoxMedicationOther;
 
+    private RadioButton radioButtonAdhereMedicationYes, radioButtonAdhereMedicationNo, radioButtonAdhereMedicationNA, radioButtonAllergiesYes, radioButtonAllergiesNo;
+
+    private EditText editTextMetformin, editTextGlibenclamide, editTextInsulin, editTextNPH, editTextSolubleInsulin, editTextEnalapril, editTextHCTZ,
+            editTextLosartan, editTextNifedipine, editTextAtenolol, editTextMedicationOther, editTextAdhereSpecify, editTextAllergySpecify;
+
+    private EditText editTextTemp, editTextPulseRate, editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo, editTextWaist,
+            editTextHip, editTextHeight, editTextWeight, editTextRespiratoryRate, editTextExamOther, editTextVisual, editTextCVS, editTextRS, editTextPA, editTextCNS,
+            editTextmMonofilamentRF, editTextmMonofilamentLF;
+
+    private RadioButton radioButtonExamFair, radioButtonExamGood, radioButtonExamSick, radioButtonVisualYes, radioButtonVisualNo, radioButtonCVSNormal, radioButtonCVSAbnormal,
+            radioButtonRSNormal, radioButtonRSAbnormal, radioButtonPANormal, radioButtonPAAbnormal, radioButtonCNSNormal, radioButtonCNSAbnormal,
+            radioButtonExtremitiesNormal, radioButtonExtremitiesAbnormal;
+
+    private CheckBox checkBoxPallor, checkBoxJaundice, checkBoxCyanosis, checkBoxLymphadenopathy, checkBoxOedema, checkBoxDehydration, checkBoxExamOther, checkBoxUlcers,
+            checkBoxCallouses, checkBoxHardenedNails, checkBoxFungus, checkBoxCellutis, checkBoxEdema, checkBoxDry;
+
+    private TextView_Roboto_Bold bmi, waist_hip_ratio;
+
     private String medication_none, medication_metformin, medication_glibenclamide, medication_insulin, medication_nph, medication_soluble_insulin,
-            medication_enalapril, medication_hctz, medication_losartan, medication_nifedipine, medication_atenolol, medication_other;
+            medication_enalapril, medication_hctz, medication_losartan, medication_nifedipine, medication_atenolol, medication_other, adhere_medication, allergies;
+
+    private String general_exam, pallor, jaundice, cyanosis, lymphadenopathy, oedema, dehydration, exam_other, visual_impairment, cvs, rs, pa, cns, extremities;
+    private String ulcers, callouses, hardened_nails, fungus, cellulitis, edema, dry;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_2, container, false);
 
-
         linearLayoutPastCurrentMedication = view.findViewById(R.id.past_current_medication);
         linearLayoutOtherPastCurrentMedication = view.findViewById(R.id.other_past_current_medication);
+        linearLayoutExamOther = view.findViewById(R.id.linearLayoutExamOther);
+        linearLayoutExtremities = view.findViewById(R.id.extremitiesLinearLayout);
 
         checkBoxNone = view.findViewById(R.id.checkbox_medication_none);
         checkBoxMetformin = view.findViewById(R.id.checkbox_medication_metformin);
@@ -72,6 +87,7 @@ public class Initial_page_2 extends Fragment {
         checkBoxAtenolol = view.findViewById(R.id.checkbox_medication_atenolol);
         checkBoxMedicationOther = view.findViewById(R.id.checkbox_medication_other);
 
+        checkBox(checkBoxNone);
         checkBox(checkBoxMetformin);
         checkBox(checkBoxGlibenclamide);
         checkBox(checkBoxInsulin);
@@ -84,42 +100,155 @@ public class Initial_page_2 extends Fragment {
         checkBox(checkBoxAtenolol);
         checkBox(checkBoxMedicationOther);
 
-        adhere_specify = view.findViewById(R.id.adhere_specify);
-        allergy_specify = view.findViewById(R.id.allergy_specify);
+        editTextMetformin = view.findViewById(R.id.medication_metformin);
+        editTextGlibenclamide = view.findViewById(R.id.medication_glibenclamide);
+        editTextInsulin = view.findViewById(R.id.medication_insulin);
+        editTextNPH = view.findViewById(R.id.medication_nph);
+        editTextSolubleInsulin = view.findViewById(R.id.medication_soluble_insulin);
+        editTextEnalapril = view.findViewById(R.id.medication_enalapril);
+        editTextHCTZ = view.findViewById(R.id.medication_hctz);
+        editTextLosartan = view.findViewById(R.id.medication_losartan);
+        editTextNifedipine = view.findViewById(R.id.medication_nifedipine);
+        editTextAtenolol = view.findViewById(R.id.medication_atenolol);
+        editTextMedicationOther = view.findViewById(R.id.medication_other);
+        editTextAdhereSpecify = view.findViewById(R.id.adhere_specify);
+        editTextAllergySpecify = view.findViewById(R.id.allergy_specify);
 
-        temp = view.findViewById(R.id.temp);
-        pulse_rate = view.findViewById(R.id.pulse_rate);
+        textWatcher(editTextMetformin, "");
+        textWatcher(editTextGlibenclamide, "");
+        textWatcher(editTextInsulin, "");
+        textWatcher(editTextNPH, "");
+        textWatcher(editTextSolubleInsulin, "");
+        textWatcher(editTextEnalapril, "");
+        textWatcher(editTextHCTZ, "");
+        textWatcher(editTextLosartan, "");
+        textWatcher(editTextNifedipine, "");
+        textWatcher(editTextAtenolol, "");
+        textWatcher(editTextMedicationOther, "");
+        textWatcher(editTextAdhereSpecify, "");
+        textWatcher(editTextAllergySpecify, "");
 
-        systolic_one = view.findViewById(R.id.bp_systolic_one);
-        diastolic_one = view.findViewById(R.id.bp_diastolic_one);
-        systolic_two = view.findViewById(R.id.bp_systolic_two);
-        diastolic_two = view.findViewById(R.id.bp_diastolic_two);
+        radioButtonAdhereMedicationYes = view.findViewById(R.id.radio_adhere_yes);
+        radioButtonAdhereMedicationNo = view.findViewById(R.id.radio_adhere_no);
+        radioButtonAdhereMedicationNA = view.findViewById(R.id.radio_adhere_na);
+        radioButtonAllergiesYes = view.findViewById(R.id.radio_allergies_yes);
+        radioButtonAllergiesNo = view.findViewById(R.id.radio_allergies_no);
+
+        radioButton(radioButtonAdhereMedicationYes);
+        radioButton(radioButtonAdhereMedicationNo);
+        radioButton(radioButtonAdhereMedicationNA);
+        radioButton(radioButtonAllergiesYes);
+        radioButton(radioButtonAllergiesNo);
+
+        editTextTemp = view.findViewById(R.id.temp);
+        editTextPulseRate = view.findViewById(R.id.pulse_rate);
+
+        editTextSystolicOne = view.findViewById(R.id.bp_systolic_one);
+        editTextDiastolicOne = view.findViewById(R.id.bp_diastolic_one);
+        editTextSystolicTwo = view.findViewById(R.id.bp_systolic_two);
+        editTextDiastolicTwo = view.findViewById(R.id.bp_diastolic_two);
 
         editTextWaist = view.findViewById(R.id.waist_circ);
         editTextHip = view.findViewById(R.id.hip_circ);
         editTextHeight = view.findViewById(R.id.height);
         editTextWeight = view.findViewById(R.id.weight);
+        editTextRespiratoryRate = view.findViewById(R.id.respiratory_rate);
+        editTextExamOther = view.findViewById(R.id.other_general_exam);
+
+        editTextVisual = view.findViewById(R.id.describe_visual_impairment);
+        editTextCVS = view.findViewById(R.id.describe_cvs);
+        editTextRS = view.findViewById(R.id.describe_rs);
+        editTextPA = view.findViewById(R.id.describe_pa);
+        editTextCNS = view.findViewById(R.id.describe_cns);
+        editTextmMonofilamentRF = view.findViewById(R.id.monofilament_rf);
+        editTextmMonofilamentLF = view.findViewById(R.id.monofilament_lf);
+
         bmi = view.findViewById(R.id.bmi);
         waist_hip_ratio = view.findViewById(R.id.waist_hip_ratio);
 
-        linearLayoutExtremities = view.findViewById(R.id.extremitiesLinearLayout);
-
-        monofilament_rf = view.findViewById(R.id.monofilament_rf);
-        monofilament_lf = view.findViewById(R.id.monofilament_lf);
-
-        textWatcher(temp, "temp");
-        textWatcher(pulse_rate, "pulse_rate");
-        textWatcher(systolic_one, "blood_pressure");
-        textWatcher(systolic_two, "blood_pressure");
-        textWatcher(diastolic_one, "blood_pressure");
-        textWatcher(diastolic_two, "blood_pressure");
+        textWatcher(editTextTemp, "editTextTemp");
+        textWatcher(editTextPulseRate, "editTextPulseRate");
+        textWatcher(editTextSystolicOne, "blood_pressure");
+        textWatcher(editTextSystolicTwo, "blood_pressure");
+        textWatcher(editTextDiastolicOne, "blood_pressure");
+        textWatcher(editTextDiastolicTwo, "blood_pressure");
         textWatcher(editTextHeight, "bmi");
         textWatcher(editTextWeight, "bmi");
         textWatcher(editTextWaist, "whr");
         textWatcher(editTextHip, "whr");
-        textWatcher(monofilament_rf, "monofilament_lf");
-        textWatcher(monofilament_lf, "monofilament_rf");
+        textWatcher(editTextRespiratoryRate, "");
+        textWatcher(editTextExamOther, "");
+        textWatcher(editTextVisual, "");
+        textWatcher(editTextCVS, "");
+        textWatcher(editTextRS, "");
+        textWatcher(editTextPA, "");
+        textWatcher(editTextCNS, "");
+        textWatcher(editTextmMonofilamentRF, "editTextmMonofilamentLF");
+        textWatcher(editTextmMonofilamentLF, "editTextmMonofilamentRF");
 
+        radioButtonExamFair = view.findViewById(R.id.radio_exam_fair);
+        radioButtonExamGood = view.findViewById(R.id.radio_exam_good);
+        radioButtonExamSick = view.findViewById(R.id.radio_exam_sick);
+        radioButtonVisualYes = view.findViewById(R.id.radio_visual_impairment_yes);
+        radioButtonVisualNo = view.findViewById(R.id.radio_visual_impairment_no);
+        radioButtonCVSNormal = view.findViewById(R.id.radio_cvs_normal);
+        radioButtonCVSAbnormal = view.findViewById(R.id.radio_cvs_abnormal);
+        radioButtonRSNormal = view.findViewById(R.id.radio_rs_normal);
+        radioButtonRSAbnormal = view.findViewById(R.id.radio_rs_abnormal);
+        radioButtonPANormal = view.findViewById(R.id.radio_pa_normal);
+        radioButtonPAAbnormal = view.findViewById(R.id.radio_pa_abnormal);
+        radioButtonCNSNormal = view.findViewById(R.id.radio_cns_normal);
+        radioButtonCNSAbnormal = view.findViewById(R.id.radio_cns_abnormal);
+        radioButtonExtremitiesNormal = view.findViewById(R.id.radio_extremities_normal);
+        radioButtonExtremitiesAbnormal = view.findViewById(R.id.radio_extremities_abnormal);
+
+        radioButton(radioButtonExamFair);
+        radioButton(radioButtonExamGood);
+        radioButton(radioButtonExamSick);
+        radioButton(radioButtonVisualYes);
+        radioButton(radioButtonVisualNo);
+        radioButton(radioButtonCVSNormal);
+        radioButton(radioButtonCVSAbnormal);
+        radioButton(radioButtonRSNormal);
+        radioButton(radioButtonRSAbnormal);
+        radioButton(radioButtonPANormal);
+        radioButton(radioButtonPAAbnormal);
+        radioButton(radioButtonCNSNormal);
+        radioButton(radioButtonCNSAbnormal);
+        radioButton(radioButtonExtremitiesNormal);
+        radioButton(radioButtonExtremitiesAbnormal);
+
+        checkBoxPallor = view.findViewById(R.id.checkbox_exam_pallor);
+        checkBoxJaundice = view.findViewById(R.id.checkbox_exam_jaundice);
+        checkBoxCyanosis = view.findViewById(R.id.checkbox_exam_cyanosis);
+        checkBoxLymphadenopathy = view.findViewById(R.id.checkbox_exam_lymphadenopathy);
+        checkBoxOedema = view.findViewById(R.id.checkbox_exam_oedema);
+        checkBoxDehydration = view.findViewById(R.id.checkbox_exam_dehydration);
+        checkBoxExamOther = view.findViewById(R.id.checkbox_exam_other);
+
+        checkBoxUlcers = view.findViewById(R.id.checkbox_extremities_ulcers);
+        checkBoxCallouses = view.findViewById(R.id.checkbox_extremities_callouses);
+        checkBoxHardenedNails = view.findViewById(R.id.checkbox_extremities_nails);
+        checkBoxFungus = view.findViewById(R.id.checkbox_extremities_fungus);
+        checkBoxCellutis = view.findViewById(R.id.checkbox_extremities_cellulitis);
+        checkBoxEdema = view.findViewById(R.id.checkbox_extremities_edema);
+        checkBoxDry = view.findViewById(R.id.checkbox_extremities_dry);
+
+        checkBox(checkBoxPallor);
+        checkBox(checkBoxJaundice);
+        checkBox(checkBoxCyanosis);
+        checkBox(checkBoxLymphadenopathy);
+        checkBox(checkBoxOedema);
+        checkBox(checkBoxDehydration);
+        checkBox(checkBoxExamOther);
+
+        checkBox(checkBoxUlcers);
+        checkBox(checkBoxCallouses);
+        checkBox(checkBoxHardenedNails);
+        checkBox(checkBoxFungus);
+        checkBox(checkBoxCellutis);
+        checkBox(checkBoxEdema);
+        checkBox(checkBoxDry);
 
         return view;
     }
@@ -131,7 +260,6 @@ public class Initial_page_2 extends Fragment {
         } else {
             linearLayoutPastCurrentMedication.setVisibility(View.VISIBLE);
         }
-        Log.d("None", status + " ");
     }
 
     public void medicationOther(String status) {
@@ -142,6 +270,14 @@ public class Initial_page_2 extends Fragment {
         }
     }
 
+    public void examOther(String status) {
+        if (status.matches("161602")) {
+            linearLayoutExamOther.setVisibility(View.VISIBLE);
+        } else {
+            linearLayoutExamOther.setVisibility(View.GONE);
+        }
+    }
+
     public void extremitiesStatus(String status) {
         if (status.matches("1116")) {
             linearLayoutExtremities.setVisibility(View.VISIBLE);
@@ -149,6 +285,7 @@ public class Initial_page_2 extends Fragment {
             linearLayoutExtremities.setVisibility(View.GONE);
         }
     }
+
 
     public void textWatcher(EditText editText, final String check) {
 
@@ -164,19 +301,19 @@ public class Initial_page_2 extends Fragment {
 
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
-                        if (check.matches("temp")) {
+                        if (check.matches("editTextTemp")) {
                             Common_Functions.checkTemp(getContext(), editable.toString());
-                        } else if (check.matches("pulse_rate")) {
+                        } else if (check.matches("editTextPulseRate")) {
                             Common_Functions.checkPR(getContext(), editable.toString());
                         } else if (check.matches("blood_pressure")) {
-                            Common_Functions.checkBP(getContext(), systolic_one, diastolic_one, systolic_two, diastolic_two);
+                            Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
                         } else if (check.matches("bmi")) {
                             Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, bmi);
                         } else if (check.matches("whr")) {
                             Common_Functions.WHR(getActivity(), editTextWaist, editTextHip, waist_hip_ratio);
-                        } else if (check.matches("monofilament_lf")) {
+                        } else if (check.matches("editTextmMonofilamentLF")) {
                             Common_Functions.monofilament(getContext(), editable.toString());
-                        } else if (check.matches("monofilament_rf")) {
+                        } else if (check.matches("editTextmMonofilamentRF")) {
                             Common_Functions.monofilament(getContext(), editable.toString());
                         }
                     }
@@ -189,6 +326,8 @@ public class Initial_page_2 extends Fragment {
                 };
 
                 timer.schedule(task, DELAY);
+
+                updateValues();
             }
 
 
@@ -219,59 +358,68 @@ public class Initial_page_2 extends Fragment {
                     case R.id.checkbox_medication_none:
                         if (checked) {
                             medication_none = "1107";
-                            InitialActivityModel_Two.getInstance().medicationNone(medication_none);
+                            medicationNone(medication_none);
                         } else {
                             medication_none = "";
-                            InitialActivityModel_Two.getInstance().medicationNone(medication_none);
+                            medicationNone(medication_none);
                         }
+                        break;
                     case R.id.checkbox_medication_metformin:
                         if (checked) {
                             medication_metformin = "79651";
                         } else {
                             medication_metformin = "";
                         }
+                        break;
                     case R.id.checkbox_medication_glibenclamide:
                         if (checked) {
                             medication_glibenclamide = "77071";
                         } else {
                             medication_glibenclamide = "";
                         }
+                        break;
                     case R.id.checkbox_medication_insulin:
                         if (checked) {
                             medication_insulin = "159459";
                         } else {
                             medication_insulin = "";
                         }
+                        break;
                     case R.id.checkbox_medication_nph:
                         if (checked) {
                             medication_nph = "78068";
                         } else {
                             medication_nph = "";
                         }
+                        break;
                     case R.id.checkbox_medication_soluble_insulin:
                         if (checked) {
                             medication_soluble_insulin = "282";
                         } else {
                             medication_soluble_insulin = "";
                         }
+                        break;
                     case R.id.checkbox_medication_enalapril:
                         if (checked) {
                             medication_enalapril = "75633";
                         } else {
                             medication_enalapril = "";
                         }
+                        break;
                     case R.id.checkbox_medication_hctz:
                         if (checked) {
                             medication_hctz = "77696";
                         } else {
                             medication_hctz = "";
                         }
+                        break;
                     case R.id.checkbox_medication_losartan:
                         if (checked) {
                             medication_losartan = "79074";
                         } else {
                             medication_losartan = "";
                         }
+                        break;
                     case R.id.checkbox_medication_nifedipine:
                         if (checked) {
                             medication_nifedipine = "80637";
@@ -284,11 +432,224 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_atenolol = "";
                         }
+                        break;
+                    case R.id.checkbox_medication_other:
+                        if (checked) {
+                            medication_other = "5622";
+                            medicationOther(medication_other);
+                        } else {
+                            medication_other = "";
+                            medicationOther(medication_other);
+                        }
+                        break;
+                    case R.id.checkbox_exam_pallor:
+                        if (checked) {
+                            pallor = "5245";
+                        } else {
+                            pallor = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_jaundice:
+                        if (checked) {
+                            jaundice = "136443";
+                        } else {
+                            jaundice = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_cyanosis:
+                        if (checked) {
+                            cyanosis = "143050";
+                        } else {
+                            cyanosis = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_lymphadenopathy:
+                        if (checked) {
+                            lymphadenopathy = "135488";
+                        } else {
+                            lymphadenopathy = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_oedema:
+                        if (checked) {
+                            oedema = "460";
+                        } else {
+                            oedema = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_dehydration:
+                        if (checked) {
+                            dehydration = "142630";
+                        } else {
+                            dehydration = "";
+                        }
+                        break;
+                    case R.id.checkbox_exam_other:
+                        if (checked) {
+                            exam_other = "161602";
+                            examOther(exam_other);
+                        } else {
+                            exam_other = "";
+                            examOther(exam_other);
+                        }
+                        break;
+                    case R.id.checkbox_extremities_ulcers:
+                        if (checked) {
+                            ulcers = "123919";
+                        } else {
+                            ulcers = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_callouses:
+                        if (checked) {
+                            callouses = "120943";
+                        } else {
+                            callouses = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_nails:
+                        if (checked) {
+                            hardened_nails = "165113";
+                        } else {
+                            hardened_nails = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_fungus:
+                        if (checked) {
+                            fungus = "165114";
+                        } else {
+                            fungus = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_cellulitis:
+                        if (checked) {
+                            cellulitis = "134";
+                        } else {
+                            cellulitis = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_edema:
+                        if (checked) {
+                            edema = "156113";
+                        } else {
+                            edema = "";
+                        }
+                        break;
+                    case R.id.checkbox_extremities_dry:
+                        if (checked) {
+                            dry = "165115";
+                        } else {
+                            dry = "";
+                        }
+                        break;
                 }
 
                 updateValues();
             }
         });
+    }
+
+
+    public void radioButton(final RadioButton radioButton) {
+
+        radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Is the button now checked?
+                boolean checked = (buttonView).isChecked();
+
+                // Check which radio button was clicked
+                switch (radioButton.getId()) {
+                    case R.id.radio_adhere_yes:
+                        if (checked)
+                            adhere_medication = "1065";
+                        break;
+                    case R.id.radio_adhere_no:
+                        if (checked)
+                            adhere_medication = "1066";
+                        break;
+                    case R.id.radio_adhere_na:
+                        if (checked)
+                            adhere_medication = "1175";
+                        break;
+                    case R.id.radio_allergies_yes:
+                        if (checked)
+                            allergies = "1065";
+                        break;
+                    case R.id.radio_allergies_no:
+                        if (checked)
+                            allergies = "1066";
+                        break;
+                    case R.id.radio_exam_fair:
+                        if (checked)
+                            general_exam = "162133";
+                        break;
+                    case R.id.radio_exam_good:
+                        if (checked)
+                            general_exam = "1855";
+                        break;
+                    case R.id.radio_exam_sick:
+                        if (checked)
+                            general_exam = "163293";
+                        break;
+                    case R.id.radio_visual_impairment_yes:
+                        if (checked)
+                            visual_impairment = "1065";
+                        break;
+                    case R.id.radio_visual_impairment_no:
+                        if (checked)
+                            visual_impairment = "1066";
+                        break;
+                    case R.id.radio_cvs_normal:
+                        if (checked)
+                            cvs = "1115";
+                        break;
+                    case R.id.radio_cvs_abnormal:
+                        if (checked)
+                            cvs = "1116";
+                        break;
+                    case R.id.radio_rs_normal:
+                        if (checked)
+                            rs = "1115";
+                        break;
+                    case R.id.radio_rs_abnormal:
+                        if (checked)
+                            rs = "1116";
+                        break;
+                    case R.id.radio_pa_normal:
+                        if (checked)
+                            pa = "1115";
+                        break;
+                    case R.id.radio_pa_abnormal:
+                        if (checked)
+                            pa = "1116";
+                        break;
+                    case R.id.radio_cns_normal:
+                        if (checked)
+                            cns = "1115";
+                        break;
+                    case R.id.radio_cns_abnormal:
+                        if (checked)
+                            cns = "1116";
+                        break;
+                    case R.id.radio_extremities_normal:
+                        if (checked)
+                            extremities = "1115";
+                        extremitiesStatus(extremities);
+                        break;
+                    case R.id.radio_extremities_abnormal:
+                        if (checked)
+                            extremities = "1116";
+                        extremitiesStatus(extremities);
+                        break;
+
+                }
+
+                updateValues();
+            }
+        });
+
     }
 
     public void updateValues() {
@@ -298,8 +659,86 @@ public class Initial_page_2 extends Fragment {
 
         JSONArray jsonArry = new JSONArray();
 
-        //jsonArry.put(JSONFormBuilder.observations("1712", "", "valueCoded", education_level, current_date, ""));
-        //jsonArry.put(JSONFormBuilder.observations("165165", "", "string", editTextRiskOther.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("159460", "", "valueCoded", medication_none, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_metformin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_glibenclamide, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_insulin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nph, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_soluble_insulin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_enalapril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_hctz, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_losartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nifedipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_atenolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_other, current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextMetformin.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextGlibenclamide.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextInsulin.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextNPH.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextSolubleInsulin.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextEnalapril.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextHCTZ.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextLosartan.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextNifedipine.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "1442", "numeric", editTextAtenolol.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165157", "1442", "string", editTextMedicationOther.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165108", "", "valueCoded", adhere_medication, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165109", "", "string", editTextAdhereSpecify.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165146", "", "valueCoded", allergies, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165166", "", "string", editTextAllergySpecify.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("5088", "", "valueCoded", editTextTemp.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5087", "", "valueCoded", editTextPulseRate.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("5085", "", "valueCoded", editTextSystolicOne.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5086", "", "valueCoded", editTextDiastolicOne.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165111", "", "valueCoded", editTextSystolicTwo.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165110", "", "valueCoded", editTextDiastolicTwo.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("163081", "", "valueCoded", editTextHip.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163080", "", "valueCoded", editTextWaist.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5090", "", "valueCoded", editTextHeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5089", "", "valueCoded", editTextWeight.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5242", "", "valueCoded", editTextRespiratoryRate.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", general_exam, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", pallor, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", jaundice, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", cyanosis, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", lymphadenopathy, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", oedema, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", dehydration, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", exam_other, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("163042", "", "valueCoded", editTextExamOther.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165206", "", "valueCoded", visual_impairment, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165175", "", "valueCoded", editTextVisual.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1124", "", "valueCoded", cvs, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165158", "", "valueCoded", editTextCVS.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1123", "", "valueCoded", rs, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165159", "", "valueCoded", editTextRS.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("139549", "", "valueCoded", pa, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165160", "", "valueCoded", editTextPA.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("163109", "", "valueCoded", cns, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165161", "", "valueCoded", editTextCNS.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", extremities, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", ulcers, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", callouses, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", hardened_nails, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", fungus, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", cellulitis, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", edema, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", dry, current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextmMonofilamentRF.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextmMonofilamentLF.getText().toString().trim(), current_date, ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
@@ -310,7 +749,4 @@ public class Initial_page_2 extends Fragment {
 
         FragmentModelFollowUp.getInstance().followUpTwo(jsonArry);
     }
-
-
-
 }

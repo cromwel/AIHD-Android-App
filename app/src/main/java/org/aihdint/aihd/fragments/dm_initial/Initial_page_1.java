@@ -35,17 +35,19 @@ import java.util.Date;
  * Developed by Rodney on 24/04/2018.
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class Initial_page_1 extends Fragment {
-
-    private EditText dm_initial_dateEditText, occupation_otherEditText, editTextDiagnosisDiabetes, editTextDiagnosisHypertention;
-    private EditText editTextPatientStatus, editTextTBDate, editTextTBComment, editTextNHIFOther, editTextReferralComment, editTextReferralDetails,
-            editTextComplaintOther, editTextLMP, editTextRiskOther;
-
-    private RadioGroup hiv_enrolled, referral_patient;
 
     private LinearLayout nhif_other_details;
 
     private String occupation, education_level;
+
+    private EditText dm_initial_dateEditText, occupation_otherEditText, editTextDiagnosisDiabetes, editTextDiagnosisHypertention;
+
+    private EditText editTextPatientStatus, editTextTBDate, editTextTBComment, editTextNHIFOther, editTextReferralComment, editTextReferralDetails,
+            editTextComplaintOther, editTextLMP, editTextRiskOther;
+
+    private RadioGroup hiv_enrolled, referral_patient;
 
     //Checkboxes
     private CheckBox checkBoxTBStatus, checkBoxBreathing, checkBoxPalpitations, checkBoxDizziness, checkBoxFainting, checkBoxLegSwell, checkBoxUrinationFatigue,
@@ -697,6 +699,7 @@ public class Initial_page_1 extends Fragment {
                             complaint_other = "";
                             complaintStatus(complaint_other);
                         }
+                        break;
                 }
 
                 updateValues();

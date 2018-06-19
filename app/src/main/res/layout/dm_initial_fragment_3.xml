@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/round_border"
                 app:cardCornerRadius="5dp"
                 card_view:cardElevation="9dp">
@@ -110,24 +111,24 @@
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/blood_work_rbs"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:inputType="numberDecimal"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/blood_work_rbs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="numberDecimal"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/datetime_rbs"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/datetime_rbs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="dd/mm/yyyy"
+                            android:inputType="date"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
                     </LinearLayout>
 
 
@@ -135,6 +136,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -187,6 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -247,6 +250,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -306,6 +310,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -357,6 +362,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -408,6 +414,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="3">
 
@@ -461,7 +468,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -520,7 +528,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -572,7 +581,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -624,7 +634,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -676,7 +687,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -736,7 +748,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -788,7 +801,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1006,7 +1020,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1049,11 +1064,11 @@
                             </RadioGroup>
 
                             <RadioGroup
-                                android:visibility="gone"
                                 android:id="@+id/radiogroup_glucose"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <RadioButton
                                     android:id="@+id/radio_glucose_plus"
@@ -1102,7 +1117,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1145,11 +1161,11 @@
                             </RadioGroup>
 
                             <RadioGroup
-                                android:visibility="gone"
                                 android:id="@+id/radiogroup_protein"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <RadioButton
                                     android:id="@+id/radio_protein_plus"
@@ -1197,7 +1213,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1240,11 +1257,11 @@
                             </RadioGroup>
 
                             <RadioGroup
-                                android:visibility="gone"
                                 android:id="@+id/radiogroup_ketone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <RadioButton
                                     android:id="@+id/radio_ketone_plus"
@@ -1293,7 +1310,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1367,14 +1385,11 @@
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
 
                             <RadioGroup
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <RadioButton
@@ -1392,7 +1407,6 @@
                                     android:text="Abnormal" />
                             </RadioGroup>
 
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1432,33 +1446,29 @@
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
-                        <LinearLayout
+
+                        <RadioGroup
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <RadioGroup
+                            <RadioButton
+                                android:id="@+id/radio_cxr_normal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Normal" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Normal" />
+                            <RadioButton
+                                android:id="@+id/radio_cxr_abnormal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Abnormal" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:text="Abnormal" />
+                        </RadioGroup>
 
-                            </RadioGroup>
-
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1525,13 +1535,13 @@
                         android:weightSum="3">
 
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:padding="10dp"
-                                android:text="PDT"
-                                android:textAllCaps="false" />
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="PDT"
+                            android:textAllCaps="false" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/commnet_pdt"
@@ -1542,15 +1552,15 @@
                             android:padding="15dp"
                             android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/datetime_pdt"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:hint="dd/mm/yyyy"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/datetime_pdt"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="dd/mm/yyyy"
+                            android:inputType="date"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
 
                     </LinearLayout>

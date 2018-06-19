@@ -565,7 +565,7 @@
                                 android:id="@+id/checkbox_tb_status"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="On treatment" />
                         </LinearLayout>
 
@@ -892,84 +892,84 @@
                             android:id="@+id/checkbox_complaint_breath"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Shortness of breath on activity" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_palpitations"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Palpitations (heart racing)" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_dizziness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Recurrent Dizziness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_fainting"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Fainting" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_leg_swell"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Leg Swelling" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_urination_fatigue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Frequent urination and fatigue" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_lose_consciousness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Loss of Consciousness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_blurr_vision"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Blurring of Vision" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_focal_weakness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Focal Weakness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_foot_complaint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Foot Complaints" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_headache_migraines"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Headaches / Migraines" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_other"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
+
                             android:text="Other" />
 
                         <customfonts.EditText_Roboto_Light

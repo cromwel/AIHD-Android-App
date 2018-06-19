@@ -50,7 +50,6 @@
                             android:id="@+id/checkbox_medication_none"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxClicked"
                             android:text="None" />
 
                         <LinearLayout
@@ -67,7 +66,7 @@
                                     android:id="@+id/checkbox_medication_metformin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Metformin" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -88,7 +87,7 @@
                                     android:id="@+id/checkbox_medication_glibenclamide"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Glibenclamide" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -109,7 +108,7 @@
                                     android:id="@+id/checkbox_medication_insulin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Insulin 70/30" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -130,7 +129,7 @@
                                     android:id="@+id/checkbox_medication_nph"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="NPH" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -151,7 +150,7 @@
                                     android:id="@+id/checkbox_medication_soluble_insulin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Soluble Insulin" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -172,7 +171,7 @@
                                     android:id="@+id/checkbox_medication_enalapril"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Enalapril" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -193,7 +192,7 @@
                                     android:id="@+id/checkbox_medication_hctz"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="HCTZ" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -214,7 +213,7 @@
                                     android:id="@+id/checkbox_medication_losartan"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Losartan" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -235,7 +234,7 @@
                                     android:id="@+id/checkbox_medication_nifedipine"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Nifedipine" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -256,7 +255,7 @@
                                     android:id="@+id/checkbox_medication_atenolol"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Atenolol" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -275,7 +274,6 @@
                             android:id="@+id/checkbox_medication_other"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onCheckboxMedicineOther"
                             android:text="Other" />
 
                         <LinearLayout
@@ -315,21 +313,21 @@
                                 android:id="@+id/radio_adhere_yes"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Yes" />
 
                             <RadioButton
                                 android:id="@+id/radio_adhere_no"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="No" />
 
                             <RadioButton
                                 android:id="@+id/radio_adhere_na"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="N/A" />
                         </RadioGroup>
 
@@ -369,14 +367,14 @@
                                     android:id="@+id/radio_allergies_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_allergies_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="No" />
 
                             </RadioGroup>
@@ -817,21 +815,21 @@
                                     android:id="@+id/radio_exam_fair"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Fair General" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exam_good"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Good General" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exam_sick"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Sick Looking" />
                             </RadioGroup>
 
@@ -839,56 +837,58 @@
                                 android:id="@+id/checkbox_exam_pallor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Pallor" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_jaundice"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Jaundice" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_cyanosis"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Cyanosis" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_lymphadenopathy"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Lymphadenopathy" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_oedema"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Oedema" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_dehydration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Dehydration" />
 
                             <CheckBox
                                 android:id="@+id/checkbox_exam_other"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Other" />
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/linearLayoutExamOther"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -936,14 +936,12 @@
                                         android:id="@+id/radio_visual_impairment_yes"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Yes" />
 
                                     <RadioButton
                                         android:id="@+id/radio_visual_impairment_no"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="No" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -978,7 +976,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1001,14 +1000,14 @@
                                         android:id="@+id/radio_cvs_normal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Normal" />
 
                                     <RadioButton
                                         android:id="@+id/radio_cvs_abnormal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Abnormal" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -1042,7 +1041,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1065,14 +1065,13 @@
                                         android:id="@+id/radio_rs_normal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
                                         android:text="Normal" />
 
                                     <RadioButton
                                         android:id="@+id/radio_rs_abnormal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Abnormal" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -1106,7 +1105,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1129,14 +1129,14 @@
                                         android:id="@+id/radio_pa_normal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Normal" />
 
                                     <RadioButton
                                         android:id="@+id/radio_pa_abnormal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Abnormal" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -1170,7 +1170,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1193,14 +1194,14 @@
                                         android:id="@+id/radio_cns_normal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Normal" />
 
                                     <RadioButton
                                         android:id="@+id/radio_cns_abnormal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Abnormal" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -1235,7 +1236,8 @@
                             android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="2"
+                            android:baselineAligned="false">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1258,14 +1260,14 @@
                                         android:id="@+id/radio_extremities_normal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Normal" />
 
                                     <RadioButton
                                         android:id="@+id/radio_extremities_abnormal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:onClick="onRadioButtonClicked"
+
                                         android:text="Abnormal" />
                                 </RadioGroup>
                             </LinearLayout>
@@ -1283,49 +1285,48 @@
                                     android:id="@+id/checkbox_extremities_ulcers"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Ulcers" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_callouses"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Callouses" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_nails"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Hardened Nails" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_fungus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Fungus" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_cellulitis"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
-                                    android:text="Cellutis" />
+                                    android:text="Cellulitis" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_edema"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Edema" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_dry"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Dry" />
                             </LinearLayout>
                         </LinearLayout>
