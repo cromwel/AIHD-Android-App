@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,7 +21,6 @@ import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
-import org.aihdint.aihd.fragments.dm_initial.InitialActivityModel_Three;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,8 +45,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     private static final String TAG = DM_Initial.class.getSimpleName();
 
-    //Page 3
-    private String glucose, protein, ketone, ecg, cxr;
     private ProgressDialog pDialog;
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
@@ -109,47 +105,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             }
         });
 
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-
-            case R.id.radio_glucose_yes:
-                if (checked)
-                    glucose = "1065";
-                InitialActivityModel_Three.getInstance().urinalysisGlucose(glucose);
-                break;
-            case R.id.radio_glucose_no:
-                if (checked)
-                    glucose = "1066";
-                InitialActivityModel_Three.getInstance().urinalysisGlucose(glucose);
-                break;
-            case R.id.radio_protein_yes:
-                if (checked)
-                    protein = "1065";
-                InitialActivityModel_Three.getInstance().urinalysisProtein(protein);
-                break;
-            case R.id.radio_protein_no:
-                if (checked)
-                    protein = "1066";
-                InitialActivityModel_Three.getInstance().urinalysisProtein(protein);
-                break;
-            case R.id.radio_ketone_yes:
-                if (checked)
-                    ketone = "1065";
-                InitialActivityModel_Three.getInstance().urinalysisKetone(ketone);
-                break;
-            case R.id.radio_ketone_no:
-                if (checked)
-                    ketone = "1066";
-                InitialActivityModel_Three.getInstance().urinalysisKetone(ketone);
-                break;
-
-        }
     }
 
 

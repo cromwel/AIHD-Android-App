@@ -1,5 +1,6 @@
 package org.aihdint.aihd.fragments.dm_initial;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -13,19 +14,24 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
+import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.json.JSONArray;
+import org.json.JSONException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
 
 /**
  * Developed by Rodney on 24/04/2018.
  */
-
+@SuppressWarnings("FieldCanBeLocal")
 public class Initial_page_3 extends Fragment {
 
     private EditText editTextRBS, editTextFBC, editTextHBA, editTextUrea, editTextSodium, editTextChloride, editTextPotassium, editTextCreatinine, editTextHDL, editTextLDL, editTextCholesterol,
@@ -33,7 +39,8 @@ public class Initial_page_3 extends Fragment {
 
     private EditText editTextRBSDate, editTextFBCDate, editTextHBADate, editTextUreaDate, editTextSodiumDate, editTextChlorideDate, editTextPotassiumDate, editTextCreatinineDate,
             editTextHDLDate, editTextLDLDate, editTextCholesterolDate, editTextTriglceridesDate, editTextASTDate, editTextALTDate, editTextTotalBilirubinDate,
-            editTextDirectBilirubinDate, editTextGammaDate;
+            editTextDirectBilirubinDate, editTextGammaDate, editTextGlucoseDate, editTextProteinDate, editTextKetoneDate, editTextDeposits, editTextDepositsDate,
+            editTextECGDate, editTextCXRDate, editTextUltraSound, editTextPDT, editTextPDTDate;
 
     private RadioGroup radioGroupGlucose, radioGroupProtein, radioGroupKetone;
     private RadioButton radioButtonGlucoseYes, radioButtonGlucoseNo, radioButtonGlucose1, radioButtonGlucose2, radioButtonGlucose3,
@@ -41,7 +48,7 @@ public class Initial_page_3 extends Fragment {
             radioButtonKetoneYes, radioButtonKetoneNo, radioButtonKetone1, radioButtonKetone2, radioButtonKetone3,
             radioButtonECGNormal, radioButtonECGAbnormal, radioButtonCXRNormal, radioButtonCXRAbnormal;
 
-    private String glucose, protein, ketone, ecg, cxr;
+    private String glucose, glucose_plus, protein, protein_plus, ketone, ketone_plus, ecg, cxr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +72,9 @@ public class Initial_page_3 extends Fragment {
         editTextDirectBilirubin= view.findViewById(R.id.blood_work_direct_bilirubin);
         editTextGamma= view.findViewById(R.id.blood_work_gamma);
 
+        editTextDeposits = view.findViewById(R.id.deposit_comment);
+        editTextPDT = view.findViewById(R.id.commnet_pdt);
+
         editTextRBSDate = view.findViewById(R.id.datetime_rbs);
         editTextFBCDate = view.findViewById(R.id.datetime_fbc);
         editTextHBADate = view.findViewById(R.id.datetime_hba);
@@ -82,6 +92,14 @@ public class Initial_page_3 extends Fragment {
         editTextTotalBilirubinDate = view.findViewById(R.id.datetime_bilirubin);
         editTextDirectBilirubinDate = view.findViewById(R.id.datetime_direct_bilirubin);
         editTextGammaDate = view.findViewById(R.id.datetime_gamma);
+        editTextUltraSound = view.findViewById(R.id.datetime_ultrasound);
+        editTextPDTDate = view.findViewById(R.id.datetime_pdt);
+        editTextGlucoseDate = view.findViewById(R.id.datetime_urinalysis_glucose);
+        editTextProteinDate = view.findViewById(R.id.datetime_urinalysis_protein);
+        editTextKetoneDate = view.findViewById(R.id.datetime_urinalysis_ketone);
+        editTextDepositsDate = view.findViewById(R.id.datetime_urinalysis_deposit);
+        editTextECGDate = view.findViewById(R.id.datetime_ecg);
+        editTextCXRDate = view.findViewById(R.id.datetime_cxr);
 
         textWatcher(editTextRBS, "rbs");
         textWatcher(editTextFBC, "fbc");
@@ -100,6 +118,8 @@ public class Initial_page_3 extends Fragment {
         textWatcher(editTextTotalBilirubin, "tbilirubin");
         textWatcher(editTextDirectBilirubin, "dbilirubin");
         textWatcher(editTextGamma, "gamma");
+        textWatcher(editTextDeposits, "");
+        textWatcher(editTextPDT, "");
 
         textWatcher(editTextRBSDate, "");
         textWatcher(editTextFBCDate, "");
@@ -118,6 +138,14 @@ public class Initial_page_3 extends Fragment {
         textWatcher(editTextTotalBilirubinDate, "");
         textWatcher(editTextDirectBilirubinDate, "");
         textWatcher(editTextGammaDate, "");
+        textWatcher(editTextUltraSound, "");
+        textWatcher(editTextPDTDate, "");
+        textWatcher(editTextGlucoseDate, "");
+        textWatcher(editTextProteinDate, "");
+        textWatcher(editTextKetoneDate, "");
+        textWatcher(editTextDepositsDate, "");
+        textWatcher(editTextECGDate, "");
+        textWatcher(editTextCXRDate, "");
 
         radioGroupGlucose = view.findViewById(R.id.radiogroup_glucose);
         radioGroupProtein = view.findViewById(R.id.radiogroup_protein);
@@ -166,7 +194,7 @@ public class Initial_page_3 extends Fragment {
         return view;
     }
 
-    public void textWatcher(EditText editText, final String field) {
+    public void textWatcher(final EditText editText, final String field) {
 
         editText.addTextChangedListener(new TextWatcher() {
 
@@ -180,8 +208,9 @@ public class Initial_page_3 extends Fragment {
 
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
-                        if (editable.length() > 0) {
-                            double value = parseDouble(editable.toString());
+                        if (editText.length() > 0 && !field.equals("")) {
+
+                            double value = parseDouble(editable.toString().trim());
                             if (value > 11.1 && field.matches("rbs")) {
                                 Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal RBS");
                             }
@@ -203,7 +232,7 @@ public class Initial_page_3 extends Fragment {
                             if ((value < 3.5 || value < 5.5) && field.matches("potassium")) {
                                 Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Potassium");
                             }
-                            if ((value < 0.7 && value > 1.9) && field.matches("ldl")) {
+                            if ((value < 0.7 && value > 1.9) && field.matches("hdl")) {
                                 Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HDL");
                             }
                             if (value > 3.4 && field.matches("ldl")) {
@@ -218,7 +247,7 @@ public class Initial_page_3 extends Fragment {
                             if ((value < 0 || value > 42) && field.matches("ast")) {
                                 Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal AST");
                             }
-                            if ((value < 0 || value > 37) && field.matches("dbilirubin")) {
+                            if ((value < 0 || value > 37) && field.matches("alt")) {
                                 Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal ALT");
                             }
                             if ((value < 1.17 && value > 20.5) && field.matches("tbilirubin")) {
@@ -242,7 +271,7 @@ public class Initial_page_3 extends Fragment {
 
                 timer.schedule(task, DELAY);
 
-                //updateValues();
+                updateValues();
             }
 
 
@@ -304,6 +333,18 @@ public class Initial_page_3 extends Fragment {
                             glucose = "1066";
                         urinalysisGlucose(glucose);
                         break;
+                    case R.id.radio_glucose_plus:
+                        if (checked)
+                            glucose_plus = "1362";
+                        break;
+                    case R.id.radio_glucose_plus2:
+                        if (checked)
+                            glucose_plus = "1363";
+                        break;
+                    case R.id.radio_glucose_plus3:
+                        if (checked)
+                            glucose_plus = "1364";
+                        break;
                     case R.id.radio_protein_yes:
                         if (checked)
                             protein = "1065";
@@ -313,6 +354,18 @@ public class Initial_page_3 extends Fragment {
                         if (checked)
                             protein = "1066";
                         urinalysisProtein(protein);
+                        break;
+                    case R.id.radio_protein_plus:
+                        if (checked)
+                            protein_plus = "1362";
+                        break;
+                    case R.id.radio_protein_plus2:
+                        if (checked)
+                            protein_plus = "1363";
+                        break;
+                    case R.id.radio_protein_plus3:
+                        if (checked)
+                            protein_plus = "1364";
                         break;
                     case R.id.radio_ketone_yes:
                         if (checked)
@@ -324,11 +377,99 @@ public class Initial_page_3 extends Fragment {
                             ketone = "1066";
                         urinalysisKetone(ketone);
                         break;
+                    case R.id.radio_ketone_plus:
+                        if (checked)
+                            ketone_plus = "1362";
+                        break;
+                    case R.id.radio_ketone_plus2:
+                        if (checked)
+                            ketone_plus = "1363";
+                        break;
+                    case R.id.radio_ketone_plus3:
+                        if (checked)
+                            ketone_plus = "1364";
+                        break;
+                    case R.id.radio_ecg_normal:
+                        if (checked)
+                            ecg = "1115";
+                        break;
+                    case R.id.radio_ecg_abnormal:
+                        if (checked)
+                            ecg = "1116";
+                        break;
+                    case R.id.radio_cxr_normal:
+                        if (checked)
+                            cxr = "1115";
+                        break;
+                    case R.id.radio_cxr_abnormal:
+                        if (checked)
+                            cxr = "1116";
+                        break;
                 }
 
-                //updateValues();
+                updateValues();
             }
         });
 
+    }
+
+
+    public void updateValues() {
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String current_date = dateFormat.format(new Date());
+
+        JSONArray jsonArry = new JSONArray();
+
+        jsonArry.put(JSONFormBuilder.observations("887", "", "string", editTextRBS.getText().toString().trim(), editTextRBSDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160912", "", "string", editTextFBC.getText().toString().trim(), editTextFBCDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "", "string", editTextHBA.getText().toString().trim(), editTextHBADate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165297", "", "string", editTextUrea.getText().toString().trim(), editTextUreaDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165298", "", "string", editTextSodium.getText().toString().trim(), editTextSodiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165299", "", "string", editTextChloride.getText().toString().trim(), editTextChlorideDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165300", "", "string", editTextPotassium.getText().toString().trim(), editTextPotassiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "", "string", editTextCreatinine.getText().toString().trim(), editTextCreatinineDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1007", "", "string", editTextHDL.getText().toString().trim(), editTextHDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", "", "string", editTextLDL.getText().toString().trim(), editTextLDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1006", "", "string", editTextCholesterol.getText().toString().trim(), editTextCholesterolDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "", "string", editTextTriglcerides.getText().toString().trim(), editTextTriglceridesDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("653", "", "string", editTextAST.getText().toString().trim(), editTextASTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("654", "", "string", editTextALT.getText().toString().trim(), editTextALTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("655", "", "string", editTextTotalBilirubin.getText().toString().trim(), editTextTotalBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1297", "", "string", editTextDirectBilirubin.getText().toString().trim(), editTextDirectBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159829", "", "string", editTextGamma.getText().toString().trim(), editTextGammaDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose, editTextGlucoseDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose_plus, editTextGlucoseDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("128340", "", "valueCoded", protein, editTextGlucoseDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("128340", "", "valueCoded", protein_plus, editTextGlucoseDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("161442", "", "valueCoded", ketone, editTextKetoneDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("161442", "", "valueCoded", ketone_plus, editTextKetoneDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165121", "", "valueCoded", editTextDeposits.getText().toString().trim(), editTextDepositsDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("159565", "", "valueCoded", ecg, editTextECGDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", cxr, editTextCXRDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueCoded", editTextUltraSound.getText().toString().trim(), current_date, ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165312", "", "valueCoded", editTextPDT.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165144", "", "valueCoded", editTextPDTDate.getText().toString().trim(), current_date, ""));
+
+        try {
+            jsonArry = JSONFormBuilder.concatArray(jsonArry);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d("JSON Initial Page 3", jsonArry.toString() + " ");
+
+        FragmentModelFollowUp.getInstance().followUpThree(jsonArry);
     }
 }

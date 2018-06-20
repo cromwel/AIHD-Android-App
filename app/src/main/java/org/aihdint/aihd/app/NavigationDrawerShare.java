@@ -19,7 +19,6 @@ import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
 import org.aihdint.aihd.Patient.Patients;
-import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Patient.Register;
 import org.aihdint.aihd.Forms.DM_FollowUp;
@@ -63,13 +62,14 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         TextView nav_version = hView.findViewById(R.id.nav_version);
         TextView nav_name = hView.findViewById(R.id.nav_name);
         try {
-            nav_version.setText("Version " + Version);
+            nav_version.setText(String.format("Version %s", Version));
             nav_name.setText(AppController.getInstance().getSessionManager().getUserDetails().get("name"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @SuppressWarnings("unused")
     public void onBackPressed() {
         DrawerLayout drawer = ((Activity) mContext).findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -79,7 +79,6 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -94,11 +93,11 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             mContext.startActivity(reports);
         }*/
          else if (id == R.id.nav_dm_initial) {
-            Intent dm_initial = new Intent(mContext.getApplicationContext(), DM_Initial.class);
+            Intent dm_initial = new Intent(mContext.getApplicationContext(), Patients.class);
             mContext.startActivity(dm_initial);
             ((Activity)mContext).finish();
         } else if (id == R.id.nav_dm_follow_up) {
-            Intent dm_followup = new Intent(mContext.getApplicationContext(), DM_FollowUp.class);
+            Intent dm_followup = new Intent(mContext.getApplicationContext(), Patients.class);
             mContext.startActivity(dm_followup);
             ((Activity)mContext).finish();
         }else if (id == R.id.nav_add_patients) {

@@ -47,7 +47,7 @@ public class Initial_page_2 extends Fragment {
 
     private EditText editTextTemp, editTextPulseRate, editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo, editTextWaist,
             editTextHip, editTextHeight, editTextWeight, editTextRespiratoryRate, editTextExamOther, editTextVisual, editTextCVS, editTextRS, editTextPA, editTextCNS,
-            editTextmMonofilamentRF, editTextmMonofilamentLF;
+            editTextMonofilamentRF, editTextMonofilamentLF;
 
     private RadioButton radioButtonExamFair, radioButtonExamGood, radioButtonExamSick, radioButtonVisualYes, radioButtonVisualNo, radioButtonCVSNormal, radioButtonCVSAbnormal,
             radioButtonRSNormal, radioButtonRSAbnormal, radioButtonPANormal, radioButtonPAAbnormal, radioButtonCNSNormal, radioButtonCNSAbnormal,
@@ -160,8 +160,8 @@ public class Initial_page_2 extends Fragment {
         editTextRS = view.findViewById(R.id.describe_rs);
         editTextPA = view.findViewById(R.id.describe_pa);
         editTextCNS = view.findViewById(R.id.describe_cns);
-        editTextmMonofilamentRF = view.findViewById(R.id.monofilament_rf);
-        editTextmMonofilamentLF = view.findViewById(R.id.monofilament_lf);
+        editTextMonofilamentRF = view.findViewById(R.id.monofilament_rf);
+        editTextMonofilamentLF = view.findViewById(R.id.monofilament_lf);
 
         bmi = view.findViewById(R.id.bmi);
         waist_hip_ratio = view.findViewById(R.id.waist_hip_ratio);
@@ -183,8 +183,8 @@ public class Initial_page_2 extends Fragment {
         textWatcher(editTextRS, "");
         textWatcher(editTextPA, "");
         textWatcher(editTextCNS, "");
-        textWatcher(editTextmMonofilamentRF, "editTextmMonofilamentLF");
-        textWatcher(editTextmMonofilamentLF, "editTextmMonofilamentRF");
+        textWatcher(editTextMonofilamentRF, "");
+        textWatcher(editTextMonofilamentLF, "");
 
         radioButtonExamFair = view.findViewById(R.id.radio_exam_fair);
         radioButtonExamGood = view.findViewById(R.id.radio_exam_good);
@@ -321,7 +321,11 @@ public class Initial_page_2 extends Fragment {
 
                 TimerTask task = new TimerTask() {
                     public void run() {
-                        getActivity().runOnUiThread(checkRunnable);
+                        try {
+                            getActivity().runOnUiThread(checkRunnable);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 };
 
@@ -737,15 +741,15 @@ public class Initial_page_2 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", edema, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", dry, current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextmMonofilamentRF.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextmMonofilamentLF.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextMonofilamentRF.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueCoded", editTextMonofilamentLF.getText().toString().trim(), current_date, ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON FollowUp Page 2", jsonArry.toString() + " ");
+        Log.d("JSON Initial Page 2", jsonArry.toString() + " ");
 
         FragmentModelFollowUp.getInstance().followUpTwo(jsonArry);
     }
