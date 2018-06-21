@@ -710,7 +710,7 @@ public class Initial_page_1 extends Fragment {
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
         JSONArray jsonArry = new JSONArray();
@@ -773,7 +773,7 @@ public class Initial_page_1 extends Fragment {
         }
         Log.d("JSON FollowUp Page 1", jsonArry.toString() + " ");
 
-        FragmentModelFollowUp.getInstance().followUpOne(dm_initial_dateEditText.getText().toString().trim(), jsonArry);
+        FragmentModelInitial.getInstance().initialOne(dm_initial_dateEditText.getText().toString().trim(), jsonArry);
     }
 
 }

@@ -99,6 +99,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         linearLayoutDOB = findViewById(R.id.layout_dob);
         isEstimated = "0";
 
+        editTextPatientNumber.setText(String.format("%s-", AppController.getInstance().getSessionManager().getUserDetails().get("mfl_code")));
+
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
 
         ArrayList<KeyValue> keyvalue = new ArrayList<>();

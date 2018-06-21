@@ -585,7 +585,7 @@
                                 android:id="@+id/tb_treatment_start"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -989,7 +989,7 @@
                             android:id="@+id/complaint_lmp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="dd/mm/yyyy"
+                            android:hint="yyyy-mm-dd"
                             android:inputType="date"
                             android:textSize="13sp" />
                     </LinearLayout>

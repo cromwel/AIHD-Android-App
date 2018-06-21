@@ -42,7 +42,7 @@ public class Followup_page_1 extends Fragment {
         supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
         supporter_phone_otherEditText = view.findViewById(R.id.supporter_telephone_other);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         dm_followup_date.setText(dateFormat.format(new Date())); // current date
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
@@ -181,7 +181,7 @@ public class Followup_page_1 extends Fragment {
     public void updateValues() {
         String encounter_date = dm_followup_date.getText().toString().trim();
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
         JSONArray jsonArry = new JSONArray();

@@ -28,10 +28,10 @@ public class JSONFormBuilder {
         try {
             //Values
             if (!TextUtils.isEmpty(conceptAnswer)) {
-                jsonObs.put("id", conceptID);
+                jsonObs.put("concept_id", conceptID);
                 jsonObs.put("group_id", groupID);
                 jsonObs.put("type", type);
-                jsonObs.put("answer", conceptAnswer);
+                jsonObs.put("concept_answer", conceptAnswer);
                 jsonObs.put("datetime", datetime);
                 jsonObs.put("comment", comment);
             }

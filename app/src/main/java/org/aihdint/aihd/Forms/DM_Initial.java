@@ -47,8 +47,8 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     private ProgressDialog pDialog;
 
-    private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
-    private String file_name;
+    private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
+    private String encounter_date, file_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         jsonArry2 = new JSONArray();
         jsonArry3 = new JSONArray();
         jsonArry4 = new JSONArray();
-
+        jsonArry5 = new JSONArray();
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
@@ -109,8 +109,8 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
 
     @Override
-    public void initialOne(String date, JSONArray params) {
-
+    public void initialOne(String encounterDate, JSONArray params) {
+        encounter_date = encounterDate;
         jsonArry1 = params;
     }
 
@@ -129,6 +129,11 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         jsonArry4 = params;
     }
 
+    @Override
+    public void initialFive(JSONArray params) {
+        jsonArry5 = params;
+    }
+
     public void validate(View view) {
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
@@ -140,7 +145,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         try {
 
-            JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4);
+            JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5);
             JSONObject jsonForm = new JSONObject();
 
             try {
@@ -150,8 +155,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("formVersion", "1.0");
                 jsonForm.put("formUILocation", "patientDashboard.visitActions");
                 jsonForm.put("formOrder", "1");
-                jsonForm.put("encounterDate", "");
-                jsonForm.put("encounterProvider", "");
+                jsonForm.put("encounterDate", encounter_date);
+                jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+                jsonForm.put("location_id", "");
                 jsonForm.put("patient_id", "");
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {

@@ -16,6 +16,8 @@ public class FragmentModelInitial {
 
         void initialFour(JSONArray params);
 
+        void initialFive(JSONArray params);
+
     }
 
     private static FragmentModelInitial mInstance;
@@ -57,7 +59,11 @@ public class FragmentModelInitial {
         }
     }
 
+    public void initialFive(JSONArray params) {
+        if (mListener != null) {
+            mListener.initialFive(params);
+        }
+    }
+
 }
-
-
 

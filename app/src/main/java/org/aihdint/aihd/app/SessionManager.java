@@ -28,6 +28,7 @@ public class SessionManager {
     private static final String KEY_USER_ID = "user_id";
     private static final String KEY_USER = "user";
     private static final String KEY_LOCATION = "location_id";
+    private static final String KEY_MFL_CODE = "mfl_code";
     private static final String KEY_PASS = "password";
 
     public SessionManager(Context context) {
@@ -50,11 +51,12 @@ public class SessionManager {
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
     }
 
-    public void createLogin(String user_id,String name, String pass,String location_id) {
+    public void createLogin(String user_id, String name, String pass, String location_id, String mfl_code) {
         editor.putString(KEY_USER_ID,user_id);
         editor.putString(KEY_USER, name);
         editor.putString(KEY_PASS, pass);
         editor.putString(KEY_LOCATION, location_id);
+        editor.putString(KEY_MFL_CODE, mfl_code);
         editor.putBoolean(KEY_IS_LOGGEDIN, true);
         editor.commit();
     }
@@ -65,6 +67,7 @@ public class SessionManager {
         profile.put("name", pref.getString(KEY_USER, null));
         profile.put("password", pref.getString(KEY_PASS, null));
         profile.put("location_id", pref.getString(KEY_LOCATION, null));
+        profile.put("mfl_code", pref.getString(KEY_MFL_CODE, null));
         return profile;
     }
 }

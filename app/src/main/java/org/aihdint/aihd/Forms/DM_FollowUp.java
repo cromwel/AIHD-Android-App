@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adpater;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.json.JSONArray;
@@ -34,7 +35,7 @@ import java.io.PrintWriter;
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
-    private String file_name;
+    private String encounter_date, file_name;
 
 
     @SuppressLint("SimpleDateFormat")
@@ -90,7 +91,8 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
     }
 
     @Override
-    public void followUpOne(String encounter_date, JSONArray params) {
+    public void followUpOne(String encounterDate, JSONArray params) {
+        encounter_date = encounterDate;
         jsonArry1 = params;
     }
 
@@ -132,8 +134,9 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 jsonForm.put("formVersion", "1.0");
                 jsonForm.put("formUILocation", "patientDashboard.visitActions");
                 jsonForm.put("formOrder", "2");
-                jsonForm.put("encounterDate", "");
-                jsonForm.put("encounterProvider", "");
+                jsonForm.put("encounterDate", encounter_date);
+                jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+                jsonForm.put("location_id", "");
                 jsonForm.put("patient_id", "");
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {

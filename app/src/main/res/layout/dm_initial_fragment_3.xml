@@ -125,7 +125,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="dd/mm/yyyy"
+                            android:hint="yyyy-mm-dd"
                             android:inputType="date"
                             android:padding="15dp"
                             android:textSize="13sp" />
@@ -177,7 +177,7 @@
                                 android:id="@+id/datetime_fbc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -230,7 +230,7 @@
                                 android:id="@+id/datetime_hba"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -291,7 +291,7 @@
                                 android:id="@+id/datetime_urea"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -351,7 +351,7 @@
                                 android:id="@+id/datetime_sodium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -403,7 +403,7 @@
                                 android:id="@+id/datetime_chloride"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -456,7 +456,7 @@
                                 android:id="@+id/datetime_potassium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -508,7 +508,7 @@
                                 android:id="@+id/datetime_creatinine"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -569,7 +569,7 @@
                                 android:id="@+id/datetime_hdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -622,7 +622,7 @@
                                 android:id="@+id/datetime_ldl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -675,7 +675,7 @@
                                 android:id="@+id/datetime_cholesterol"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -728,7 +728,7 @@
                                 android:id="@+id/datetime_triglycerides"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -789,7 +789,7 @@
                                 android:id="@+id/datetime_ast"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -842,7 +842,7 @@
                                 android:id="@+id/datetime_alt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -895,7 +895,7 @@
                                 android:id="@+id/datetime_bilirubin"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -947,7 +947,7 @@
                                 android:id="@+id/datetime_direct_bilirubin"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1000,7 +1000,7 @@
                                 android:id="@+id/datetime_gamma"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1104,7 +1104,7 @@
                                 android:id="@+id/datetime_urinalysis_glucose"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1201,7 +1201,7 @@
                                 android:id="@+id/datetime_urinalysis_protein"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1298,7 +1298,7 @@
                                 android:id="@+id/datetime_urinalysis_ketone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1350,7 +1350,7 @@
                                 android:id="@+id/datetime_urinalysis_deposit"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1418,7 +1418,7 @@
                                 android:id="@+id/datetime_ecg"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1480,7 +1480,7 @@
                                 android:id="@+id/datetime_cxr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1517,7 +1517,7 @@
                                 android:id="@+id/datetime_ultrasound"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="dd/mm/yyyy"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1558,7 +1558,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="dd/mm/yyyy"
+                            android:hint="yyyy-mm-dd"
                             android:inputType="date"
                             android:padding="15dp"
                             android:textSize="13sp" />

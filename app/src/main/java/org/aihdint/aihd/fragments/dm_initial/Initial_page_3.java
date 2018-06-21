@@ -416,7 +416,7 @@ public class Initial_page_3 extends Fragment {
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
         JSONArray jsonArry = new JSONArray();
@@ -470,6 +470,6 @@ public class Initial_page_3 extends Fragment {
         }
         Log.d("JSON Initial Page 3", jsonArry.toString() + " ");
 
-        FragmentModelFollowUp.getInstance().followUpThree(jsonArry);
+        FragmentModelInitial.getInstance().initialThree(jsonArry);
     }
 }
