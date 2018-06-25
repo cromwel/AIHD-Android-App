@@ -1052,14 +1052,14 @@
                                     android:id="@+id/radio_glucose_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_glucose_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="No" />
 
                             </RadioGroup>
@@ -1075,21 +1075,21 @@
                                     android:id="@+id/radio_glucose_plus"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+" />
 
                                 <RadioButton
                                     android:id="@+id/radio_glucose_plus2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="++" />
 
                                 <RadioButton
                                     android:id="@+id/radio_glucose_plus3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+++" />
                             </RadioGroup>
 
@@ -1149,14 +1149,14 @@
                                     android:id="@+id/radio_protein_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_protein_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="No" />
 
                             </RadioGroup>
@@ -1172,21 +1172,21 @@
                                     android:id="@+id/radio_protein_plus"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+" />
 
                                 <RadioButton
                                     android:id="@+id/radio_protein_plus2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="++" />
 
                                 <RadioButton
                                     android:id="@+id/radio_protein_plus3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+++" />
                             </RadioGroup>
 
@@ -1245,14 +1245,14 @@
                                     android:id="@+id/radio_ketone_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_ketone_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="No" />
 
                             </RadioGroup>
@@ -1268,21 +1268,21 @@
                                     android:id="@+id/radio_ketone_plus"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+" />
 
                                 <RadioButton
                                     android:id="@+id/radio_ketone_plus2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="++" />
 
                                 <RadioButton
                                     android:id="@+id/radio_ketone_plus3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="+++" />
                             </RadioGroup>
 
@@ -1397,14 +1397,14 @@
                                     android:id="@+id/radio_ecg_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Normal" />
 
                                 <RadioButton
                                     android:id="@+id/radio_ecg_abnormal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Abnormal" />
                             </RadioGroup>
 
@@ -1458,14 +1458,14 @@
                                 android:id="@+id/radio_cxr_normal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Normal" />
 
                             <RadioButton
                                 android:id="@+id/radio_cxr_abnormal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Abnormal" />
 
                         </RadioGroup>

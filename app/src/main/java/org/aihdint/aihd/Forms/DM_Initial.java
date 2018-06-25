@@ -157,7 +157,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("formOrder", "1");
                 jsonForm.put("encounterDate", encounter_date);
                 jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-                jsonForm.put("location_id", "");
+                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 jsonForm.put("patient_id", "");
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {

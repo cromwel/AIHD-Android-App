@@ -194,7 +194,9 @@ public class Followup_page_3 extends Fragment {
                             public void run() {
 
                                 if (check.matches("blood_pressure")) {
-                                    Common_Functions.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
+                                    if (editTextSystolic != null && editTextDiastolic != null) {
+                                        Common_Functions.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
+                                    }
                                 } else if (check.matches("textViewBMI")) {
                                     Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, textViewBMI);
                                 } else if (check.matches("whr")) {

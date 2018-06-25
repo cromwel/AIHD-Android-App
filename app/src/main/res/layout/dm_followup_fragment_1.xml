@@ -196,7 +196,7 @@
                                 android:id="@+id/radio_diabetes_new"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="New DM Patient"
                                 android:textSize="13sp" />
 
@@ -204,7 +204,7 @@
                                 android:id="@+id/radio_diabetes_known"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Known DM Patient"
                                 android:textSize="13sp" />
 
@@ -212,7 +212,7 @@
                                 android:id="@+id/radio_diabetes_na"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="N/A" />
                         </RadioGroup>
 
@@ -293,7 +293,7 @@
                                 android:id="@+id/radio_diabetes_type_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Type 1"
                                 android:textSize="13sp" />
 
@@ -301,7 +301,7 @@
                                 android:id="@+id/radio_diabetes_type_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Type 2"
                                 android:textSize="13sp" />
 
@@ -309,7 +309,7 @@
                                 android:id="@+id/radio_diabetes_GDM"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="GDM"
                                 android:textSize="13sp" />
 
@@ -317,7 +317,7 @@
                                 android:id="@+id/radio_diabetes_secondary"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Diabetes Secondary to other causes"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -343,7 +343,7 @@
                             android:id="@+id/radio_hypertension_new"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
+
                             android:text="New HTN patient"
                             android:textSize="13sp" />
 
@@ -351,7 +351,7 @@
                             android:id="@+id/radio_hypertension_known"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
+
                             android:text="Known HTN patient"
                             android:textSize="13sp" />
 
@@ -359,7 +359,7 @@
                             android:id="@+id/radio_hypertension_na"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
+
                             android:text="N/A" />
                     </RadioGroup>
 
@@ -440,7 +440,7 @@
                                 android:id="@+id/radio_hypertension_mild"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Mild Hypertension"
                                 android:textSize="13sp" />
 
@@ -448,7 +448,7 @@
                                 android:id="@+id/radio_hypertension_moderate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Moderate Hypertension"
                                 android:textSize="13sp" />
 
@@ -456,7 +456,7 @@
                                 android:id="@+id/radio_hypertension_severe"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Severe Hypertension"
                                 android:textSize="13sp" />
 
@@ -464,7 +464,7 @@
                                 android:id="@+id/radio_hypertension_preeclampsia"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Preeclampsia"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -495,7 +495,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Yes"
                                 android:textSize="13sp" />
 
@@ -504,7 +504,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="No"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -531,7 +531,7 @@
                                     android:id="@+id/radio_HIV_negative"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="HIV -ve"
                                     android:textSize="13sp" />
 
@@ -539,7 +539,7 @@
                                     android:id="@+id/radio_HIV_positive"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="HIV +ve"
                                     android:textSize="13sp" />
 
@@ -547,7 +547,7 @@
                                     android:id="@+id/radio_HIV_unknown"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onRadioButtonClicked"
+
                                     android:text="Unknown"
                                     android:textSize="13sp" />
                             </RadioGroup>

@@ -867,9 +867,8 @@
 
 
                         <RadioGroup
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -877,7 +876,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="Yes" />
 
                             <RadioButton
@@ -885,7 +884,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:onClick="onRadioButtonClicked"
+
                                 android:text="No" />
                         </RadioGroup>
                     </LinearLayout>

@@ -136,7 +136,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 jsonForm.put("formOrder", "2");
                 jsonForm.put("encounterDate", encounter_date);
                 jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-                jsonForm.put("location_id", "");
+                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 jsonForm.put("patient_id", "");
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {

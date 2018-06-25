@@ -306,7 +306,9 @@ public class Initial_page_2 extends Fragment {
                         } else if (check.matches("editTextPulseRate")) {
                             Common_Functions.checkPR(getContext(), editable.toString());
                         } else if (check.matches("blood_pressure")) {
-                            Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
+                            if (editTextSystolicOne != null && editTextDiastolicOne != null) {
+                                Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
+                            }
                         } else if (check.matches("bmi")) {
                             Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, bmi);
                         } else if (check.matches("whr")) {

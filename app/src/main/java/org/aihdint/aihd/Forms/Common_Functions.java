@@ -28,18 +28,15 @@ public class Common_Functions {
             diastolic_1 = Integer.parseInt(editTextDiastolicOne.getText().toString().trim());
         }
 
-        try {
 
-            if (editTextSystolicTwo.getText().toString().trim().length() > 0) {
-                systolic_2 = Integer.parseInt(editTextSystolicTwo.getText().toString().trim());
-            }
-
-            if (editTextDiastolicTwo.getText().toString().trim().length() > 0) {
-                diastolic_2 = Integer.parseInt(editTextDiastolicTwo.getText().toString().trim());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (editTextSystolicTwo != null && editTextSystolicTwo.getText() != null) {
+            systolic_2 = Integer.parseInt(editTextSystolicTwo.getText().toString().trim());
         }
+
+        if (editTextDiastolicTwo != null && editTextDiastolicTwo.getText() != null) {
+            diastolic_2 = Integer.parseInt(editTextDiastolicTwo.getText().toString().trim());
+        }
+
 
         if (diastolic_1 > 0 && systolic_1 > 0) {
 

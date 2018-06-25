@@ -190,12 +190,12 @@ public class Followup_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("160642", "", "string", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165209", "", "string", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165086", "", "", dm_diagnosis, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165091", "", "", hypertension, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165086", "", "valueCoded", dm_diagnosis, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165091", "", "valueCoded", hypertension, current_date, ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1917", "", "", nhif, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165094", "", "", diabetes_type, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("138405", "", "", hiv_status, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1917", "", "valueCoded", nhif, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165094", "", "valueCoded", diabetes_type, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("138405", "", "valueCoded", hiv_status, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("165089", "", "string", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165150", "", "string", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
