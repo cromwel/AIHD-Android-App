@@ -168,9 +168,9 @@ public class Initial_page_2 extends Fragment {
 
         textWatcher(editTextTemp, "editTextTemp");
         textWatcher(editTextPulseRate, "editTextPulseRate");
-        textWatcher(editTextSystolicOne, "blood_pressure");
+        textWatcher(editTextSystolicOne, "");
         textWatcher(editTextSystolicTwo, "blood_pressure");
-        textWatcher(editTextDiastolicOne, "blood_pressure");
+        textWatcher(editTextDiastolicOne, "");
         textWatcher(editTextDiastolicTwo, "blood_pressure");
         textWatcher(editTextHeight, "bmi");
         textWatcher(editTextWeight, "bmi");
@@ -306,7 +306,9 @@ public class Initial_page_2 extends Fragment {
                         } else if (check.matches("editTextPulseRate")) {
                             Common_Functions.checkPR(getContext(), editable.toString());
                         } else if (check.matches("blood_pressure")) {
-                            if (editTextSystolicOne != null && editTextDiastolicOne != null) {
+                            if (editTextSystolicTwo != null && editTextDiastolicTwo != null) {
+                                Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
+                            } else if (editTextSystolicOne != null && editTextDiastolicOne != null) {
                                 Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
                             }
                         } else if (check.matches("bmi")) {

@@ -45,10 +45,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     private static final String TAG = DM_Initial.class.getSimpleName();
 
-    private ProgressDialog pDialog;
-
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
     private String encounter_date, file_name;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +58,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
-
-        // Progress dialog
-        pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(false);
 
         FragmentModelInitial.getInstance().setListener(this);
 
@@ -134,7 +129,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         jsonArry5 = params;
     }
 
-    public void validate(View view) {
+    public void validateInitial(View view) {
+
+        pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
         if (!dir.mkdirs()) {
@@ -181,6 +178,12 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
 
+        boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+        if (isConnected) {
+            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, null);
+        } else {
+            Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
+        }
         //Read File
         try {
             File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);
@@ -194,14 +197,12 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             }
             Log.e("Reading from storage", aBuffer.toString());
             myReader.close();
-            Toast.makeText(getBaseContext(),
-                    "Done reading SD 'mysdfile.txt'",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getBaseContext(), "Done reading SD 'mysdfile.txt'",Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(getBaseContext(), e.getMessage(),
                     Toast.LENGTH_SHORT).show();
         }
-
+        pDialog.dismiss();
         //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
 
 
@@ -233,9 +234,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                         Toast.makeText(getApplicationContext(), "Form successfully uploaded.!", Toast.LENGTH_LONG).show();
                     }
 
-                    hideDialog();
+                    pDialog.dismiss();
                 } catch (JSONException e) {
-                    hideDialog();
+                    pDialog.dismiss();
                     e.printStackTrace();
                 }
 
@@ -247,7 +248,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 Log.e(TAG, "Upload Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
+                pDialog.dismiss();
             }
         }) {
 
@@ -282,20 +283,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     }
 
 
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
-    }
-
+    /*
     public void validateInitial(View view) {
-        pDialog.setMessage("Uploading DM Initial Form" +
-                "...");
-        showDialog();
-        dmInitialForm();
+        //dmInitialForm();
+        //File_Upload.
     }
+    */
 }

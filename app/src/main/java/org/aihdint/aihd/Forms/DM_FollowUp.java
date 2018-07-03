@@ -1,6 +1,7 @@
 package org.aihdint.aihd.Forms;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.TabLayout;
@@ -16,6 +17,7 @@ import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -146,7 +148,6 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             FileOutputStream f = new FileOutputStream(file);
             PrintWriter pw = new PrintWriter(f);
             pw.println(jsonForm.toString());
-            //pw.println(jsonObs2.toString());
             pw.flush();
             pw.close();
             f.close();
@@ -159,7 +160,12 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
 
         Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
-
+        boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+        if (isConnected) {
+            File_Upload.upload(getApplicationContext(), file_name, null);
+        } else {
+            Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
+        }
         //Read File
         try {
             File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);

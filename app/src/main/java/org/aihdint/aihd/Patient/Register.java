@@ -1,5 +1,6 @@
 package org.aihdint.aihd.Patient;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -34,11 +35,14 @@ import org.aihdint.aihd.model.Person;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
 import static org.aihdint.aihd.app.Config.PATIENT_REGISTER_URL;
 
 /**
@@ -176,7 +180,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             case R.id.birthdate_estimated_yes:
                 if (checked)
                     isEstimated = "1";
-                birthdate = editTextAge.getText().toString().trim();
                 linearLayoutAge.setVisibility(View.VISIBLE);
                 linearLayoutDOB.setVisibility(View.GONE);
                 break;
@@ -215,6 +218,15 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String supporter = editTextSupporter.getText().toString().trim();
         String supporter_address = editTextSupporterAddress.getText().toString().trim();
         String supporter_number = editTextSupporterNumber.getText().toString().trim();
+
+        //birthdate;
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat year = new SimpleDateFormat("yyyy");
+        int birth_year = parseInt(year.format(new Date())) - parseInt(editTextAge.getText().toString().trim());
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("-MM-dd HH:mm:ss");
+        String current_date = birth_year + dateFormat.format(new Date());
+
+        birthdate = current_date;
 
         // Check for empty data in the form
         if (!family_name.isEmpty()
@@ -266,8 +278,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         // Tag used to cancel the request
         String tag_string_req = "req_register";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                PATIENT_REGISTER_URL, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, PATIENT_REGISTER_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

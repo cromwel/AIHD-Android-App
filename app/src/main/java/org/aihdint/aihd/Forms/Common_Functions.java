@@ -29,11 +29,11 @@ public class Common_Functions {
         }
 
 
-        if (editTextSystolicTwo != null && editTextSystolicTwo.getText() != null) {
+        if (editTextSystolicTwo != null && editTextSystolicTwo.getText() != null && !editTextSystolicTwo.getText().toString().matches("")) {
             systolic_2 = Integer.parseInt(editTextSystolicTwo.getText().toString().trim());
         }
 
-        if (editTextDiastolicTwo != null && editTextDiastolicTwo.getText() != null) {
+        if (editTextDiastolicTwo != null && editTextDiastolicTwo.getText() != null && !editTextDiastolicTwo.getText().toString().matches("")) {
             diastolic_2 = Integer.parseInt(editTextDiastolicTwo.getText().toString().trim());
         }
 

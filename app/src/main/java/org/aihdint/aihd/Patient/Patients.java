@@ -20,6 +20,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.orm.query.Condition;
 import com.orm.query.Select;
 
 import org.aihdint.aihd.MainActivity;
@@ -90,8 +91,15 @@ public class Patients extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         if(isConnected) {
-            new GetPersons().execute();
-            getPatients();
+            List<Person> person_count = Select.from(Person.class)
+                    .where(Condition.prop("_status").eq("0"))
+                    .list();
+            if (person_count.size() > 0) {
+
+            } else {
+                new GetPersons().execute();
+                getPatients();
+            }
         }else{
             getPatients();
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
@@ -136,7 +144,6 @@ public class Patients extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             HttpHandler sh = new HttpHandler();
             // Making a request to url and getting response
-            //https://api.androidhive.info/contacts/
 
             //List<Note> notes = Note.findWithQuery(Note.class, "Select * from Note where name = ?", "mynote");
             //Select.from(Note.class).where(Condition.prop("title").eq("mynote"),Condition.prop("description").eq("notedesc")).list();

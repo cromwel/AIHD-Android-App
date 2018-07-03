@@ -35,6 +35,7 @@ import com.android.volley.error.AuthFailureError;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 
+import org.aihdint.aihd.Forms.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
@@ -175,13 +176,7 @@ public class Login extends Activity {
         //&& !location_id.isEmpty()
         if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
             // login user
-            ConnectivityManager cm =
-                    (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            assert cm != null;
-            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-            boolean isConnected = activeNetwork != null &&
-                    activeNetwork.isConnectedOrConnecting();
+            boolean isConnected = File_Upload.Connectivity(getApplicationContext());
 
             if (isConnected) {
                 loginServer(username, password);

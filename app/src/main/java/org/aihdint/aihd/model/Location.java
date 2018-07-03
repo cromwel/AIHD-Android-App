@@ -51,4 +51,6 @@ public class Location extends SugarRecord {
         this._mfl_code = _mfl_code;
     }
 
+    //ALTER TABLE LOCATION ADD _MFLCODE TEXT;
+
 }
