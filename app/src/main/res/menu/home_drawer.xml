@@ -16,10 +16,7 @@
             android:id="@+id/nav_dm_follow_up"
             android:icon="@drawable/ic_description"
             android:title="DM Follow Up" />
-        <!--<item
-            android:id="@+id/nav_reports"
-            android:icon="@drawable/ic_reports"
-            android:title="Reports" />-->
+
         <item
             android:id="@+id/nav_add_patients"
             android:icon="@drawable/ic_person_add"

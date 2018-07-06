@@ -16,7 +16,6 @@ import android.widget.EditText;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.database.DatabaseHandler;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.model.adapter.PatientAdapter;
 
@@ -27,7 +26,7 @@ import java.util.List;
 public class Patient_Reports extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
-    private DatabaseHandler database;
+    //private DatabaseHandler database;
 
     private EditText inputSearch;
     private List <Person> contactList;
@@ -67,7 +66,7 @@ public class Patient_Reports extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         */
 
-        database = new DatabaseHandler(this);
+        //database = new DatabaseHandler(this);
 
         getPatients();
 
@@ -100,18 +99,19 @@ public class Patient_Reports extends AppCompatActivity {
     public void getPatients(){
         // Reading all contacts
         Log.d("Reading: ", "Reading all persons..");
-        List<Person> persons = database.getAllPersons();
+        /*List<Person> persons = database.getAllPersons();
 
         for (Person cn : persons) {
             // adding each child node to HashMap key => value
             Person person = new Person();
-            person.setID(cn.getID());
-            person.setName(cn.getName());
-            person.setStatus("1");
+            //person.setID(cn.getID());
+            //person.setName(cn.getName());
+            //person.setStatus("1");
             // adding contact to contact list
             contactList.add(person);
             adapter.notifyDataSetChanged();
         }
+        */
     }
 
     void filter(String text){
@@ -119,9 +119,7 @@ public class Patient_Reports extends AppCompatActivity {
         for(Person d: contactList){
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
-            if(d.getName().toLowerCase().contains(text.toLowerCase())){
-                temp.add(d);
-            }
+            //if(d.getName().toLowerCase().contains(text.toLowerCase())){ temp.add(d); }
         }
         //update recyclerview
         adapter.searchList(temp);

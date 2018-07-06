@@ -1,5 +1,6 @@
 package org.aihdint.aihd.model;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 /**
@@ -8,8 +9,11 @@ import com.orm.SugarRecord;
 
 public class Person extends SugarRecord {
     //private variables
+    @SerializedName("person_id")
     private String _id;
-    private String family_name,given_name;
+
+    private String family_name;
+    private String given_name;
     private String gender;
     private String birthdate;
     private String birthdate_estimated;
@@ -23,6 +27,8 @@ public class Person extends SugarRecord {
     private String _status;
     private String isDead;
 
+    private String isReport;
+
     // Empty constructor
     public Person(){
 
@@ -33,6 +39,7 @@ public class Person extends SugarRecord {
         this._id = id;
         this.family_name = name;
     }
+
     // constructor
     public Person(String family_name, String given_name, String gender, String birthdate, String birthdate_estimated,
                   String telephone, String identifier_type, String location_id,
@@ -52,41 +59,122 @@ public class Person extends SugarRecord {
         this.county_district = county_district;
         this.city_village = city_village;
         this.supporter = supporter;
+
         this.supporter_address = supporter_address;
         this.supporter_number = supporter_number;
         this._status = status;
     }
 
-
-
-    // getting ID
-    public String  getID(){
-        return this._id;
+    public String get_id() {
+        return _id;
     }
 
-    // setting id
-    public void setID(String id){
-        this._id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    // getting name
-    public String getName(){
-        return this.family_name;
+    public String getFamily_name() {
+        return family_name;
     }
 
-    // getting status
-    public String getStatus(){
-        return this._status;
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
     }
 
-    // setting name
-    public void setName(String name){
-        this.family_name = name;
+    public String getGiven_name() {
+        return given_name;
     }
 
-    // setting status
-    public void setStatus(String status){
-        this._status = status;
+    public void setGiven_name(String given_name) {
+        this.given_name = given_name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getBirthdate_estimated() {
+        return birthdate_estimated;
+    }
+
+    public void setBirthdate_estimated(String birthdate_estimated) {
+        this.birthdate_estimated = birthdate_estimated;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getIdentifier_type() {
+        return identifier_type;
+    }
+
+    public void setIdentifier_type(String identifier_type) {
+        this.identifier_type = identifier_type;
+    }
+
+    public String getLocation_id() {
+        return location_id;
+    }
+
+    public void setLocation_id(String location_id) {
+        this.location_id = location_id;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public String getCounty_district() {
+        return county_district;
+    }
+
+    public void setCounty_district(String county_district) {
+        this.county_district = county_district;
+    }
+
+    public String getCity_village() {
+        return city_village;
+    }
+
+    public void setCity_village(String city_village) {
+        this.city_village = city_village;
     }
 
     public String getSupporter() {
@@ -113,6 +201,14 @@ public class Person extends SugarRecord {
         this.supporter_number = supporter_number;
     }
 
+    public String get_status() {
+        return _status;
+    }
+
+    public void set_status(String _status) {
+        this._status = _status;
+    }
+
     public String getIsDead() {
         return isDead;
     }
@@ -120,4 +216,18 @@ public class Person extends SugarRecord {
     public void setIsDead(String isDead) {
         this.isDead = isDead;
     }
+
+    public String getIsReport() {
+        return isReport;
+    }
+
+    public void setIsReport(String isReport) {
+        this.isReport = isReport;
+    }
+
+
+
+
+
+
 }

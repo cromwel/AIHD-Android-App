@@ -18,7 +18,9 @@ import android.widget.TextView;
 import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
+import org.aihdint.aihd.Patient.Admission;
 import org.aihdint.aihd.Patient.Patients;
+import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Patient.Register;
 import org.aihdint.aihd.Forms.DM_FollowUp;
@@ -87,17 +89,16 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         if (id == R.id.nav_home) {
             Intent home = new Intent(mContext.getApplicationContext(), Home.class);
             mContext.startActivity(home);
-        }
-        /*else if (id == R.id.nav_reports) {
-            Intent reports = new Intent(mContext.getApplicationContext(), Patient_Reports.class);
-            mContext.startActivity(reports);
-        }*/
-         else if (id == R.id.nav_dm_initial) {
+        } else if (id == R.id.nav_dm_initial) {
             Intent dm_initial = new Intent(mContext.getApplicationContext(), Patients.class);
+            dm_initial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            dm_initial.putExtra("isForm", "1");
             mContext.startActivity(dm_initial);
             ((Activity)mContext).finish();
         } else if (id == R.id.nav_dm_follow_up) {
             Intent dm_followup = new Intent(mContext.getApplicationContext(), Patients.class);
+            dm_followup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            dm_followup.putExtra("isForm", "2");
             mContext.startActivity(dm_followup);
             ((Activity)mContext).finish();
         }else if (id == R.id.nav_add_patients) {

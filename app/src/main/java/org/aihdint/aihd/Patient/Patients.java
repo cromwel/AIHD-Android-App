@@ -2,12 +2,10 @@ package org.aihdint.aihd.Patient;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -17,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,22 +24,18 @@ import com.orm.query.Select;
 
 import org.aihdint.aihd.MainActivity;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
-import org.aihdint.aihd.app.HttpHandler;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.model.adapter.PatientAdapter;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.aihdint.aihd.services.LoadPatients;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Patients extends AppCompatActivity {
 
-    private String TAG = MainActivity.class.getSimpleName();
+    //private String TAG = MainActivity.class.getSimpleName();
 
     private List <Person> contactList;
     private List <Person> personList;
@@ -94,11 +89,19 @@ public class Patients extends AppCompatActivity {
             List<Person> person_count = Select.from(Person.class)
                     .where(Condition.prop("_status").eq("0"))
                     .list();
+
+            Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
+            getApplication().startService(grapprIntent);
+
+            getPatients();
+
             if (person_count.size() > 0) {
+                //Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
+                //getApplication().startService(grapprIntent);
 
             } else {
-                new GetPersons().execute();
-                getPatients();
+                //new GetPersons().execute();
+                //getPatients();
             }
         }else{
             getPatients();
@@ -131,98 +134,6 @@ public class Patients extends AppCompatActivity {
 
     }
 
-    @SuppressLint("StaticFieldLeak")
-    private class GetPersons extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            //Toast.makeText(Patients.this,"Patient Data is downloading",Toast.LENGTH_LONG).show();
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            // Making a request to url and getting response
-
-            //List<Note> notes = Note.findWithQuery(Note.class, "Select * from Note where name = ?", "mynote");
-            //Select.from(Note.class).where(Condition.prop("title").eq("mynote"),Condition.prop("description").eq("notedesc")).list();
-            //find(Class<T> type, String whereClause, String[]whereArgs, String groupBy, String orderBy, String limit)
-
-            String jsonStr = sh.makeServiceCall(Config.PATIENT_URL);
-
-            Log.e(TAG, "Response from url: " + jsonStr);
-            if (jsonStr != null) {
-                try {
-                    JSONObject jsonObj = new JSONObject(jsonStr);
-
-                    // Getting JSON Array node
-                    JSONArray persons = jsonObj.getJSONArray("results");
-
-                    List<Person> person_count = Select.from(Person.class).list();
-
-                    // looping through All Users
-                    Log.d("Server Persons ", String.valueOf(persons.length()));
-                    Log.d("Database Persons ", String.valueOf(person_count.size()));
-
-                    for (int i = 0; i < persons.length(); i++) {
-                        JSONObject c = persons.getJSONObject(i);
-                        String id = c.getString("uuid");
-                        String name = c.getString("display");
-
-
-                        if(persons.length()>person_count.size()) {
-                            Log.d("Insert ", "Inserting " + name);
-                            //database.addPerson(new Person(id, name));
-                            Person person = new Person(id, name);
-                            person.save();
-                        }
-
-                        /*
-                        Links node is JSON Object
-                        JSONObject links = c.getJSONObject("links");
-                        String rel = links.getString("rel");
-                        String uri = links.getString("uri");
-                        */
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-            // Reading all contacts
-            getPatients();
-
-        }
-    }
-
 
     public void getPatients(){
         // Reading all contacts
@@ -233,9 +144,10 @@ public class Patients extends AppCompatActivity {
         for (Person cn : persons) {
             // adding each child node to HashMap key => value
             Person person = new Person();
-            person.setID(cn.getID());
-            person.setName(cn.getName());
-            person.setStatus("0");
+            person.set_id(cn.get_id());
+            person.setFamily_name(cn.getFamily_name());
+            person.setGiven_name(cn.getGiven_name());
+            person.set_status("0");
             // adding contact to contact list
             contactList.add(person);
             adapter.notifyDataSetChanged();
@@ -245,9 +157,10 @@ public class Patients extends AppCompatActivity {
         for (Person pn : allpersons) {
             // adding each child node to HashMap key => value
             Person person = new Person();
-            person.setID(pn.getID());
-            person.setName(pn.getName());
-            person.setStatus("0");
+            person.set_id(pn.get_id());
+            person.setFamily_name(pn.getFamily_name());
+            person.setGiven_name(pn.getGiven_name());
+            person.set_status("0");
             // adding contact to contact list
             personList.add(person);
         }
@@ -259,11 +172,14 @@ public class Patients extends AppCompatActivity {
         for(Person d: contactList){
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
-            if(d.getName().toLowerCase().contains(text.toLowerCase())){
+            String name = d.getFamily_name() + " " + d.getGiven_name();
+            if (name.toLowerCase().contains(text.toLowerCase())) {
                 temp.add(d);
             }
         }
         //update recyclerview
         adapter.searchList(temp);
     }
+
+
 }

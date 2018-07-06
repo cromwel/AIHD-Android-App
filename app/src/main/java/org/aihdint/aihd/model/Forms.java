@@ -35,6 +35,15 @@ public class Forms extends SugarRecord {
         this.patient_id = patient_id;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
     private String form_id;
     private String form_name;
     private String creator;

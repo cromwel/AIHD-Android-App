@@ -8,13 +8,18 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
+import org.aihdint.aihd.model.Person;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -27,44 +32,43 @@ public class LoadPatients extends IntentService {
         super(LoadPatients.class.getSimpleName());
     }
 
+    private Gson patientsGson;
+
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        final Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                DownloadPatients();
-            }
-        });
-        thread.start();
+        DownloadPatients();
 
     }
 
     private void DownloadPatients() {
 
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("yyyy-M-d");
+        patientsGson = gsonBuilder.create();
+
         StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
 
             @Override
-            public void onResponse(String jsonString) {
+            public void onResponse(String response) {
                 try {
-                    JSONObject jsonObj = new JSONObject(jsonString);
+                    JSONObject jsonObj = new JSONObject(response);
 
                     // Getting JSON Array node
                     JSONArray patients = jsonObj.getJSONArray("data");
-                    Log.d("Response", jsonString);
+
+
+                    //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
+                    Log.d("Response", response);
                     if (patients.length() > 0) {
-                        // looping through json and adding to list
-                        for (int i = 0; i < patients.length(); i++) {
+                        Person.deleteAll(Person.class);
 
-                            JSONObject patientObj = patients.getJSONObject(i);
+                        List<Person> persons = Arrays.asList(patientsGson.fromJson(patients.toString(), Person[].class));
 
-                            String person_id = patientObj.getString("person_id");
-                            String gender = patientObj.getString("gender");
-                            String birthdate = patientObj.getString("birthdate");
-                            String phone = patientObj.getString("value");
-                            String family_name = patientObj.getString("family_name");
-                            String given_name = patientObj.getString("given_name");
-
+                        for (Person person : persons) {
+                            // GOT THE OBJECT of PEOPLE
+                            person.save();
+                            Log.d("Patient List", patients.toString());
                         }
 
                     }

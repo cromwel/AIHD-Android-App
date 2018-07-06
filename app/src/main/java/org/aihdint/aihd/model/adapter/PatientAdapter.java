@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.aihdint.aihd.MainActivity;
 import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.View_Reports;
@@ -51,19 +50,19 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         @Override
         public void onClick(final View view) {
 
-            final Person person = reportList.get(getPosition());
+            @SuppressWarnings("deprecation") final Person person = reportList.get(getPosition());
 
-                if(person.getStatus().matches("0")) {
+            if (person.get_status().matches("0")) {
                     Intent graph = new Intent(view.getContext(), Profile.class);
                     graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    graph.putExtra("id", person.getID());
-                    graph.putExtra("name", person.getName());
+                graph.putExtra("id", person.get_id());
+                graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                     mContext.startActivity(graph);
                 }else{
                     Intent graph = new Intent(view.getContext(), View_Reports.class);
                     graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    graph.putExtra("id", person.getID());
-                    graph.putExtra("name", person.getName());
+                graph.putExtra("id", person.get_id());
+                graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                     mContext.startActivity(graph);
                 }
 
@@ -74,7 +73,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
     public void onBindViewHolder(final PatientAdapter.MyViewHolder holder, int position) {
        final Person person = reportList.get(position);
 
-        holder.name.setText(person.getName());
+        holder.name.setText(String.format("%s %s", person.getFamily_name(), person.getGiven_name()));
 
     }
 
@@ -88,11 +87,13 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         notifyDataSetChanged();
     }
 
+    /*
     public void clear() {
         int size = this.reportList.size();
         this.reportList.clear();
         notifyItemRangeRemoved(0, size);
     }
+    */
 }
 
 

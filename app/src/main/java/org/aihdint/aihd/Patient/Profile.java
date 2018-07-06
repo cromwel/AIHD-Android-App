@@ -1,6 +1,5 @@
 package org.aihdint.aihd.Patient;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +19,7 @@ public class Profile extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_patient);
+        setContentView(R.layout.activity_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -51,11 +50,6 @@ public class Profile extends AppCompatActivity {
                 } else {
                 }
                 break;
-            case R.id.checkbox_deceased:
-                if (checked) {
-                } else {
-                }
-                break;
 
         }
     }
@@ -70,5 +64,28 @@ public class Profile extends AppCompatActivity {
         Intent dm_followup = new Intent(getApplicationContext(), DM_FollowUp.class);
         startActivity(dm_followup);
         finish();
+    }
+
+    public void admission(View view) {
+        Intent admission = new Intent(getApplicationContext(), Admission.class);
+        startActivity(admission);
+        finish();
+    }
+
+    public void foot_clinic(View view) {
+
+        Intent foot_clinic = new Intent(getApplicationContext(), FootClinic.class);
+        startActivity(foot_clinic);
+        finish();
+    }
+
+    public void transfer(View view) {
+
+        Intent transfer = new Intent(getApplicationContext(), Transfer.class);
+        startActivity(transfer);
+        finish();
+    }
+
+    public void deceased(View view) {
     }
 }

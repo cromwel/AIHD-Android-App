@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import org.aihdint.aihd.app.AndroidMultiPartEntity;
 import org.aihdint.aihd.app.Config;
-import org.aihdint.aihd.database.DatabaseHandler;
 import org.aihdint.aihd.model.Report;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -50,7 +49,6 @@ public class UploadRecord extends AppCompatActivity {
     long totalSize = 0;
     private String id,name;
     private byte[] image_data;
-    private DatabaseHandler dbhandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,6 @@ public class UploadRecord extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         imgPreview = findViewById(R.id.imgPreview);
 
-        dbhandler = new DatabaseHandler(this);
 
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
@@ -95,7 +92,7 @@ public class UploadRecord extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                dbhandler.addReport(new Report(id,name,formattedDate,image_data));
+                //dbhandler.addReport(new Report(id,name,formattedDate,image_data));
                 // uploading the file to server
                 new UploadRecord.UploadFileToServer().execute();
 

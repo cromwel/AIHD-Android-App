@@ -71,12 +71,12 @@
         <activity
             android:name=".Forms.DM_Initial"
             android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_home"
+            android:label="DM HTN Initial"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Forms.DM_FollowUp"
             android:windowSoftInputMode="stateHidden"
-            android:label="DM Follow Up "
+            android:label="DM HTN Follow Up "
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
@@ -88,7 +88,7 @@
         <activity
             android:name=".Patient.Profile"
             android:windowSoftInputMode="stateHidden"
-            android:label="@string/title_activity_home"
+            android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
@@ -96,6 +96,24 @@
             android:windowSoftInputMode="stateHidden"
             android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".Patient.Admission"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Admission"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Patient.Transfer"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Transfer"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Patient.FootClinic"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Foot Clinic"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Intent service -->
         <service

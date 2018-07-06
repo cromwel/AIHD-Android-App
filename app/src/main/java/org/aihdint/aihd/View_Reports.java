@@ -13,7 +13,6 @@ import android.util.Log;
 import android.widget.EditText;
 
 import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.database.DatabaseHandler;
 import org.aihdint.aihd.model.Report;
 import org.aihdint.aihd.model.adapter.PatientReportAdapter;
 
@@ -27,7 +26,6 @@ import java.util.List;
 public class View_Reports extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
-    private DatabaseHandler database;
 
     private EditText inputSearch;
     private List<Report> reportList;
@@ -58,9 +56,6 @@ public class View_Reports extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
-
-        database = new DatabaseHandler(this);
 
         getPatientsReports();
 
@@ -94,7 +89,7 @@ public class View_Reports extends AppCompatActivity {
         // Reading all contacts
         Log.d("Reading: ", "Reading all reports..");
 
-            List<Report> reports = database.getReports();
+            /*List<Report> reports = database.getReports();
 
             for (Report rp : reports) {
                 // adding each child node to HashMap key => value
@@ -105,6 +100,8 @@ public class View_Reports extends AppCompatActivity {
                 report.setImage(rp.getImage());
                 reportList.add(report);
             }
+
+            */
 
         adapter.notifyDataSetChanged();
 

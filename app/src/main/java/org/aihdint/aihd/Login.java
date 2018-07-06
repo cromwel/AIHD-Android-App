@@ -34,6 +34,7 @@ import com.android.volley.Response;
 import com.android.volley.error.AuthFailureError;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
+import com.orm.query.Select;
 
 import org.aihdint.aihd.Forms.File_Upload;
 import org.aihdint.aihd.app.AppController;
@@ -41,6 +42,7 @@ import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
+import org.aihdint.aihd.model.Person;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -129,10 +131,16 @@ public class Login extends Activity {
 
     public void loadJSONLocation() {
 
-        Location.deleteAll(Location.class);
-
         String json = null;
+
+
         try {
+
+            List<Location> location_count = Select.from(Location.class).list();
+            if (location_count.size() > 0) {
+                Location.deleteAll(Location.class);
+            }
+
             InputStream is = getAssets().open("locations.json");
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -140,10 +148,7 @@ public class Login extends Activity {
             is.read(buffer);
             is.close();
             json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        try {
+
 
             JSONArray jsonArray = new JSONArray(json);
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -160,7 +165,7 @@ public class Login extends Activity {
 
             setLocationData();
 
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -345,7 +350,6 @@ public class Login extends Activity {
             }
         }
     }
-
 
 
 }
