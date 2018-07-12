@@ -65,6 +65,7 @@ public class Person extends SugarRecord {
         this._status = status;
     }
 
+
     public String get_id() {
         return _id;
     }

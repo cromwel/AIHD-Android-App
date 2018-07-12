@@ -2,6 +2,7 @@ package org.aihdint.aihd.Forms;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.TabLayout;
@@ -37,7 +38,7 @@ import java.io.PrintWriter;
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
-    private String encounter_date, file_name;
+    private String encounter_date, file_name, patient_id;
 
 
     @SuppressLint("SimpleDateFormat")
@@ -52,6 +53,9 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         navigate.CreateDrawer(toolbar);
 
         FragmentModelFollowUp.getInstance().setListener(this);
+
+        Intent intent = getIntent();
+        patient_id = intent.getStringExtra("patient_id");
 
         file_name = "DM_HTN_FOLLOWUP_" + System.currentTimeMillis() + ".json";
 
@@ -139,7 +143,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 jsonForm.put("encounterDate", encounter_date);
                 jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
                 jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-                jsonForm.put("patient_id", "");
+                jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -179,9 +183,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             }
             Log.e("Reading from storage", aBuffer.toString());
             myReader.close();
-            Toast.makeText(getBaseContext(),
-                    "Done reading SD 'mysdfile.txt'",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getBaseContext(),"Done reading SD 'mysdfile.txt'",Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(getBaseContext(), e.getMessage(),
                     Toast.LENGTH_SHORT).show();

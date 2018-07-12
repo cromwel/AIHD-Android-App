@@ -1,6 +1,7 @@
 package org.aihdint.aihd.Forms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.TabLayout;
@@ -46,7 +47,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     private static final String TAG = DM_Initial.class.getSimpleName();
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
-    private String encounter_date, file_name;
+    private String encounter_date, file_name, patient_id;
     private ProgressDialog pDialog;
 
     @Override
@@ -60,6 +61,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         navigate.CreateDrawer(toolbar);
 
         FragmentModelInitial.getInstance().setListener(this);
+
+        Intent intent = getIntent();
+        patient_id = intent.getStringExtra("patient_id");
 
         file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
 
@@ -155,7 +159,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("encounterDate", encounter_date);
                 jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
                 jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-                jsonForm.put("patient_id", "");
+                jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -180,7 +184,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         boolean isConnected = File_Upload.Connectivity(getApplicationContext());
         if (isConnected) {
-            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, null);
+            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, null);
         } else {
             Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
         }

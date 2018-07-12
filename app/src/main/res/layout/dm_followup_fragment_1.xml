@@ -491,20 +491,18 @@
                             android:weightSum="2">
 
                             <RadioButton
-                                android:id="@+id/radio_NHIF_yes"
+                                android:id="@+id/radio_nhif_yes"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-
                                 android:text="Yes"
                                 android:textSize="13sp" />
 
                             <RadioButton
-                                android:id="@+id/radio_NHIF_no"
+                                android:id="@+id/radio_nhif_no"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-
                                 android:text="No"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -528,26 +526,23 @@
                                 android:orientation="vertical">
 
                                 <RadioButton
-                                    android:id="@+id/radio_HIV_negative"
+                                    android:id="@+id/radio_hiv_negative"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="HIV -ve"
                                     android:textSize="13sp" />
 
                                 <RadioButton
-                                    android:id="@+id/radio_HIV_positive"
+                                    android:id="@+id/radio_hiv_positive"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="HIV +ve"
                                     android:textSize="13sp" />
 
                                 <RadioButton
-                                    android:id="@+id/radio_HIV_unknown"
+                                    android:id="@+id/radio_hiv_unknown"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Unknown"
                                     android:textSize="13sp" />
                             </RadioGroup>
@@ -555,6 +550,168 @@
 
 
                     </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Screened for TB" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="No" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_na"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="N/A" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Status" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_negative"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Negative" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_positive"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Positive" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_unknown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Unknown" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tb_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="TB Status" />
+
+                            <CheckBox
+                                android:id="@+id/checkbox_tb_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="On treatment" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Treatment Start Date" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/tb_treatment_start"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="yyyy-mm-dd"
+                                android:inputType="date"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Comments (details)" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/tb_comment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="comments"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

@@ -1,6 +1,139 @@
 [
   {
-    "Concept ID": 18271,
-    "Concept": ""
+    "Concept ID": 1712,
+    "Concept": "Educational Level"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 165171,
+    "Concept": "Occupation Other"
+  },
+  {
+    "Concept ID": 165086,
+    "Concept": "Diabetes Status"
+  },
+  {
+    "Concept ID": 140228,
+    "Concept": "Diabetes Family"
+  },
+  {
+    "Concept ID": 165153,
+    "Concept": "Diagnosis Diabetes"
+  },
+  {
+    "Concept ID": 165094,
+    "Concept": "Diabetes Type"
+  },
+  {
+    "Concept ID": 165091,
+    "Concept": "Hypertension Status"
+  },
+  {
+    "Concept ID": 165191,
+    "Concept": "Hypertension Family"
+  },
+  {
+    "Concept ID": 165154,
+    "Concept": "Diagnosis Hypertension"
+  },
+  {
+    "Concept ID": 165198,
+    "Concept": "Hypertension Type"
+  },
+  {
+    "Concept ID": 138405,
+    "Concept": "HIV Status"
+  },
+  {
+    "Concept ID": 165155,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
+  },
+  {
+    "Concept ID": 1542,
+    "Concept": "Occupation"
   }
+
 ]

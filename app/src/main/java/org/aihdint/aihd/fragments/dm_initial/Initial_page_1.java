@@ -22,7 +22,6 @@ import android.widget.Spinner;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,7 +41,7 @@ public class Initial_page_1 extends Fragment {
 
     private String occupation, education_level;
 
-    private EditText dm_initial_dateEditText, occupation_otherEditText, editTextDiagnosisDiabetes, editTextDiagnosisHypertention;
+    private EditText dm_initial_dateEditText, occupation_otherEditText, editTextDiagnosisDiabetes, editTextDiagnosisHypertension;
 
     private EditText editTextPatientStatus, editTextTBDate, editTextTBComment, editTextNHIFOther, editTextReferralComment, editTextReferralDetails,
             editTextComplaintOther, editTextLMP, editTextRiskOther;
@@ -53,7 +52,7 @@ public class Initial_page_1 extends Fragment {
     private CheckBox checkBoxTBStatus, checkBoxBreathing, checkBoxPalpitations, checkBoxDizziness, checkBoxFainting, checkBoxLegSwell, checkBoxUrinationFatigue,
             checkBoxLoseConsciousness, checkBoxBlurrVision, checkBoxFocalWeakness, checkBoxFootComplaint, checkBoxHeadacheMigraines, checkBoxComplaintOther;
 
-    private String tb_status, breathing, palpitations, dizziness, fainting, leg_swell, urination_fatigue, lose_consciousness,
+    private String tb_treatment, breathing, palpitations, dizziness, fainting, leg_swell, urination_fatigue, lose_consciousness,
             blurr_vision, focal_weakness, foot_complaint, headache_migraines, complaint_other;
 
     //RadioButtons
@@ -65,7 +64,7 @@ public class Initial_page_1 extends Fragment {
             radioButtonExerciseNo, radioButtonExerciseStopped, radioButtonDietYes, radioButtonDietNo, radioButtonDietStopped, radioButtonCigarettesYes, radioButtonCigarettesNo,
             radioButtonCigarettesStopped, radioButtonAlcoholYes, radioButtonAlcoholNo, radioButtonAlcoholStopped;
 
-    private String diabetes_status, diabetes_family, diabetes_type, htn_status, htn_family, htn_type, hiv_status, enrolled_to_hiv_care, nhif_status, referral_status,
+    private String diabetes_status, diabetes_family, diabetes_type, htn_status, htn_family, htn_type, hiv_status, enrolled_to_hiv_care, tb_status, tb_screen, nhif_status, referral_status,
             referral_inter, referral_intra, exercise, diet, smoking, drinking;
 
     private String intra_referral, inter_referral, extremities;
@@ -78,7 +77,7 @@ public class Initial_page_1 extends Fragment {
         dm_initial_dateEditText = view.findViewById(R.id.dm_initial_date);
         occupation_otherEditText = view.findViewById(R.id.occupation_other);
         editTextDiagnosisDiabetes = view.findViewById(R.id.diagnosis_diabetes_date);
-        editTextDiagnosisHypertention = view.findViewById(R.id.diagnosis_hypertension_date);
+        editTextDiagnosisHypertension = view.findViewById(R.id.diagnosis_hypertension_date);
         editTextPatientStatus = view.findViewById(R.id.hiv_other_status);
         editTextTBDate = view.findViewById(R.id.tb_treatment_start);
         editTextTBComment = view.findViewById(R.id.tb_comment);
@@ -92,7 +91,7 @@ public class Initial_page_1 extends Fragment {
         textWatcher(dm_initial_dateEditText);
         textWatcher(occupation_otherEditText);
         textWatcher(editTextDiagnosisDiabetes);
-        textWatcher(editTextDiagnosisHypertention);
+        textWatcher(editTextDiagnosisHypertension);
         textWatcher(editTextPatientStatus);
         textWatcher(editTextTBDate);
         textWatcher(editTextTBComment);
@@ -152,6 +151,13 @@ public class Initial_page_1 extends Fragment {
         radioButtonAlcoholYes = view.findViewById(R.id.radio_drink_yes);
         radioButtonAlcoholNo = view.findViewById(R.id.radio_drink_no);
         radioButtonAlcoholStopped = view.findViewById(R.id.radio_drink_stopped);
+        RadioButton radioButtonTBYes = view.findViewById(R.id.radio_tb_yes);
+        RadioButton radioButtonTBNo = view.findViewById(R.id.radio_tb_no);
+        RadioButton radioButtonTBNa = view.findViewById(R.id.radio_tb_na);
+        RadioButton radioButtonTBNegative = view.findViewById(R.id.radio_tb_status_negative);
+        RadioButton radioButtonTBPositive = view.findViewById(R.id.radio_tb_status_positive);
+        RadioButton radioButtonTBUknown = view.findViewById(R.id.radio_tb_status_unknown);
+
 
         radioCheck(radioButtonDMNew);
         radioCheck(radioButtonDNKnown);
@@ -201,6 +207,12 @@ public class Initial_page_1 extends Fragment {
         radioCheck(radioButtonAlcoholYes);
         radioCheck(radioButtonAlcoholNo);
         radioCheck(radioButtonAlcoholStopped);
+        radioCheck(radioButtonTBYes);
+        radioCheck(radioButtonTBNo);
+        radioCheck(radioButtonTBNa);
+        radioCheck(radioButtonTBNegative);
+        radioCheck(radioButtonTBPositive);
+        radioCheck(radioButtonTBUknown);
 
         //Checkboxes
         checkBoxTBStatus = view.findViewById(R.id.checkbox_tb_status);
@@ -320,9 +332,9 @@ public class Initial_page_1 extends Fragment {
 
     public void htnDiagnosis(String status) {
         if (status.matches("165093")) {
-            editTextDiagnosisHypertention.setVisibility(View.VISIBLE);
+            editTextDiagnosisHypertension.setVisibility(View.VISIBLE);
         } else {
-            editTextDiagnosisHypertention.setVisibility(View.GONE);
+            editTextDiagnosisHypertension.setVisibility(View.GONE);
         }
     }
 
@@ -409,32 +421,26 @@ public class Initial_page_1 extends Fragment {
                     case R.id.radio_dm_patient_family_yes:
                         if (checked)
                             diabetes_family = "1065";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_dm_patient_family_no:
                         if (checked)
                             diabetes_family = "1066";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_diabetes_type_1:
                         if (checked)
                             diabetes_type = "142474";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_diabetes_type_2:
                         if (checked)
                             diabetes_type = "142473";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_diabetes_GDM:
                         if (checked)
                             diabetes_type = "1449";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_diabetes_secondary:
                         if (checked)
                             diabetes_type = "165199";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_new_htn_patient:
                         if (checked)
@@ -454,32 +460,26 @@ public class Initial_page_1 extends Fragment {
                     case R.id.radio_htn_patient_family_yes:
                         if (checked)
                             htn_family = "1065";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_htn_patient_family_no:
                         if (checked)
                             htn_family = "1066";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_hypertension_mild:
                         if (checked)
                             htn_type = "165194";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_hypertension_moderate:
                         if (checked)
                             htn_type = "165195";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_hypertension_severe:
                         if (checked)
                             htn_type = "165196";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_hypertension_preeclampsia:
                         if (checked)
                             htn_type = "165197";
-                        dmDiagnosis(diabetes_status);
                         break;
                     case R.id.radio_hiv_negative:
                         if (checked)
@@ -514,6 +514,30 @@ public class Initial_page_1 extends Fragment {
                             nhif_status = "1066";
                         nhifStatus(nhif_status);
                         Alerts.alert_msg(getContext(), "NHIF Registration", "Encourage Client to Register for NHIF");
+                        break;
+                    case R.id.radio_tb_yes:
+                        if (checked)
+                            tb_screen = "1065";
+                        break;
+                    case R.id.radio_tb_no:
+                        if (checked)
+                            tb_screen = "1066";
+                        break;
+                    case R.id.radio_tb_na:
+                        if (checked)
+                            tb_screen = "1175";
+                        break;
+                    case R.id.radio_tb_status_negative:
+                        if (checked)
+                            tb_status = "664";
+                        break;
+                    case R.id.radio_tb_status_positive:
+                        if (checked)
+                            tb_status = "138571";
+                        break;
+                    case R.id.radio_tb_status_unknown:
+                        if (checked)
+                            tb_status = "1067";
                         break;
                     case R.id.radio_nhif_other:
                         if (checked)
@@ -609,9 +633,9 @@ public class Initial_page_1 extends Fragment {
                 switch (checkBox.getId()) {
                     case R.id.checkbox_tb_status:
                         if (checked) {
-                            tb_status = "1659";
+                            tb_treatment = "1659";
                         } else {
-                            tb_status = "";
+                            tb_treatment = "";
                         }
                         break;
                     case R.id.checkbox_complaint_breath:
@@ -727,13 +751,15 @@ public class Initial_page_1 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("165091", "", "valueCoded", htn_status, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165191", "", "valueCoded", htn_family, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165154", "", "string", editTextDiagnosisHypertention.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165154", "", "string", editTextDiagnosisHypertension.getText().toString().trim(), current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165198", "", "valueCoded", htn_type, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("138405", "", "valueCoded", hiv_status, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("159811", "", "valueCoded", enrolled_to_hiv_care, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165155", "", "string", editTextPatientStatus.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_status, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("", "", "valueCoded", tb_status, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_treatment, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165172", "", "string", editTextTBDate.getText().toString().trim(), current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165173", "", "string", editTextTBComment.getText().toString().trim(), current_date, ""));
 

@@ -15,14 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
-import org.aihdint.aihd.MainActivity;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -40,6 +38,7 @@ public class Patients extends AppCompatActivity {
     private List <Person> contactList;
     private List <Person> personList;
     private PatientAdapter adapter;
+    private String IsForm;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -51,6 +50,10 @@ public class Patients extends AppCompatActivity {
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
+
+        Intent intent = getIntent();
+        IsForm = intent.getStringExtra("isForm");
+
 
         EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
@@ -148,6 +151,7 @@ public class Patients extends AppCompatActivity {
             person.setFamily_name(cn.getFamily_name());
             person.setGiven_name(cn.getGiven_name());
             person.set_status("0");
+            person.setIsReport(IsForm);
             // adding contact to contact list
             contactList.add(person);
             adapter.notifyDataSetChanged();
@@ -161,6 +165,7 @@ public class Patients extends AppCompatActivity {
             person.setFamily_name(pn.getFamily_name());
             person.setGiven_name(pn.getGiven_name());
             person.set_status("0");
+            person.setIsReport(IsForm);
             // adding contact to contact list
             personList.add(person);
         }

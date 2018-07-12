@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.aihdint.aihd.Forms.DM_FollowUp;
+import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.View_Reports;
@@ -38,7 +40,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         return new PatientAdapter.MyViewHolder(itemView);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
 
         private MyViewHolder(View view) {
@@ -52,26 +54,32 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
             @SuppressWarnings("deprecation") final Person person = reportList.get(getPosition());
 
-            if (person.get_status().matches("0")) {
-                    Intent graph = new Intent(view.getContext(), Profile.class);
-                    graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                graph.putExtra("id", person.get_id());
+            if (person.getIsReport().matches("1")) {
+                Intent graph = new Intent(view.getContext(), DM_Initial.class);
+                graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                graph.putExtra("patient_id", person.get_id());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
-                    mContext.startActivity(graph);
-                }else{
-                    Intent graph = new Intent(view.getContext(), View_Reports.class);
-                    graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                graph.putExtra("id", person.get_id());
+                mContext.startActivity(graph);
+            } else if (person.getIsReport().matches("2")) {
+                Intent graph = new Intent(view.getContext(), DM_FollowUp.class);
+                graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                graph.putExtra("patient_id", person.get_id());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
-                    mContext.startActivity(graph);
-                }
-
+                mContext.startActivity(graph);
+            } else {
+                Intent graph = new Intent(view.getContext(), Profile.class);
+                graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                graph.putExtra("patient_id", person.get_id());
+                graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
+                mContext.startActivity(graph);
             }
+
+        }
     }
 
     @Override
     public void onBindViewHolder(final PatientAdapter.MyViewHolder holder, int position) {
-       final Person person = reportList.get(position);
+        final Person person = reportList.get(position);
 
         holder.name.setText(String.format("%s %s", person.getFamily_name(), person.getGiven_name()));
 
@@ -82,7 +90,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         return reportList.size();
     }
 
-    public void searchList(List<Person> list){
+    public void searchList(List<Person> list) {
         reportList = list;
         notifyDataSetChanged();
     }

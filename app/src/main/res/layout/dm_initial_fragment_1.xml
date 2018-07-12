@@ -52,9 +52,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Date"
+                            android:inputType="date"
                             android:padding="15dp"
-                            android:textSize="13sp"
-                            android:inputType="date" />
+                            android:textSize="13sp" />
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -114,44 +114,33 @@
                         android:layout_marginTop="20dp"
                         android:text="Diabetes *" />
 
-                    <LinearLayout
+
+                    <RadioGroup
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical">
 
-                        <RadioGroup
-                            android:layout_width="0dp"
+                        <RadioButton
+                            android:id="@+id/radio_new_dm_patient"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="New DM Patient" />
 
-                            <RadioButton
-                                android:id="@+id/radio_new_dm_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                        <RadioButton
+                            android:id="@+id/radio_known_dm_patient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Known DM Patient" />
 
-                                android:text="New DM Patient" />
-
-                            <RadioButton
-                                android:id="@+id/radio_known_dm_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Known DM Patient" />
-
-                            <RadioButton
-                                android:id="@+id/radio_na_dm_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="N/A" />
-                        </RadioGroup>
-                    </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/radio_na_dm_patient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="N/A" />
+                    </RadioGroup>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -223,8 +212,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -281,43 +270,32 @@
                         android:layout_marginTop="20dp"
                         android:text="Hypertension *" />
 
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical">
 
-                        <RadioGroup
-                            android:layout_width="0dp"
+                        <RadioButton
+                            android:id="@+id/radio_new_htn_patient"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="New HTN Patient" />
 
-                            <RadioButton
-                                android:id="@+id/radio_new_htn_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                        <RadioButton
+                            android:id="@+id/radio_known_htn_patient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Known HTN Patient" />
 
-                                android:text="New HTN Patient" />
-
-                            <RadioButton
-                                android:id="@+id/radio_known_htn_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Known HTN Patient" />
-
-                            <RadioButton
-                                android:id="@+id/radio_na_htn_patient"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="N/A" />
-                        </RadioGroup>
-                    </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/radio_na_htn_patient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="N/A" />
+                    </RadioGroup>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -390,8 +368,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -521,6 +499,9 @@
                         android:id="@+id/hiv_status_details"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
                         <customfonts.TextView_Roboto_Bold
@@ -538,6 +519,91 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Screened for TB" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="No" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_na"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="N/A" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Status" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_negative"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Negative" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_positive"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Positive" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_tb_status_unknown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Unknown" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/tb_details"
@@ -565,7 +631,6 @@
                                 android:id="@+id/checkbox_tb_status"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="On treatment" />
                         </LinearLayout>
 
