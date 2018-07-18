@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 
-public class TextView_Roboto_Italic extends TextView {
+public class TextView_Roboto_Italic extends android.support.v7.widget.AppCompatTextView {
 
     public TextView_Roboto_Italic(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);

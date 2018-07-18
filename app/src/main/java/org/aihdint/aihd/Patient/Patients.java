@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
+import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -30,6 +32,8 @@ import org.aihdint.aihd.services.LoadPatients;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Patients extends AppCompatActivity {
 
@@ -96,7 +100,15 @@ public class Patients extends AppCompatActivity {
             Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
             getApplication().startService(grapprIntent);
 
-            getPatients();
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //Do something after 2000ms
+                    getPatients();
+                }
+            }, 2000);
 
             if (person_count.size() > 0) {
                 //Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
@@ -141,6 +153,7 @@ public class Patients extends AppCompatActivity {
     public void getPatients(){
         // Reading all contacts
         Log.d("Reading: ", "Reading all persons..");
+
 
         List<Person> allpersons = Person.listAll(Person.class);
         List<Person> persons = Select.from(Person.class).limit("10").list();

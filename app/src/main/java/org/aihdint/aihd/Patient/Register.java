@@ -178,8 +178,9 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                     gender = "F";
                 break;
             case R.id.birthdate_estimated_yes:
-                if (checked)
+                if (checked) {
                     isEstimated = "1";
+                }
                 linearLayoutAge.setVisibility(View.VISIBLE);
                 linearLayoutDOB.setVisibility(View.GONE);
                 break;
@@ -200,10 +201,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         }
     }
 
-    public void Submit(View view) {
-
-        validation();
-    }
 
     public void validation() {
         String family_name = editTextFamilyName.getText().toString().trim();
@@ -220,13 +217,14 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String supporter_number = editTextSupporterNumber.getText().toString().trim();
 
         //birthdate;
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat year = new SimpleDateFormat("yyyy");
-        int birth_year = parseInt(year.format(new Date())) - parseInt(editTextAge.getText().toString().trim());
+        if (!editTextAge.getText().toString().matches("") && parseInt(editTextAge.getText().toString()) > 0) {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat year = new SimpleDateFormat("yyyy");
+            int birth_year = parseInt(year.format(new Date())) - parseInt(editTextAge.getText().toString().trim());
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("-MM-dd HH:mm:ss");
-        String current_date = birth_year + dateFormat.format(new Date());
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("-MM-dd HH:mm:ss");
 
-        birthdate = current_date;
+            birthdate = birth_year + dateFormat.format(new Date());
+        }
 
         // Check for empty data in the form
         if (!family_name.isEmpty()
@@ -376,4 +374,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
 
+    public void Submit(View view) {
+        validation();
+    }
 }

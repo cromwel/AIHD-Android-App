@@ -14,7 +14,7 @@
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:background="@drawable/round_border"
             app:cardCornerRadius="5dp"
             card_view:cardElevation="9dp">
@@ -41,7 +41,7 @@
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.25"
+                        android:layout_weight="1.2"
                         android:background="@color/background_inner"
                         android:padding="10dp"
                         android:text="Drug"
@@ -50,7 +50,7 @@
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.75"
+                        android:layout_weight="1.8"
                         android:background="@color/background_inner"
                         android:padding="10dp"
                         android:text="Dose(mg) &amp; Frequency"

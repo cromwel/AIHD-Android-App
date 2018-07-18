@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 
-public class TextView_Roboto_Black extends TextView {
+public class TextView_Roboto_Black extends android.support.v7.widget.AppCompatTextView {
 
     public TextView_Roboto_Black(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
