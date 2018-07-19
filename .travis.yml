@@ -1,4 +1,10 @@
 language: android
+
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov --file coverage/lcov.info --disable search
+  
 android:
   components:
     # Uncomment the lines below if you want to
