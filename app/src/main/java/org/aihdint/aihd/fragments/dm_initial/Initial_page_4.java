@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,6 @@ import android.widget.RadioButton;
 
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -26,19 +25,14 @@ import java.util.Date;
 /**
  * Developed by Rodney on 24/04/2018.
  */
-@SuppressWarnings("FieldCanBeLocal")
+
 public class Initial_page_4 extends Fragment {
 
-    private CheckBox checkBoxStroke, checkBoxHeart, checkBoxKidney, checkBoxNeuropahty, checkBoxVisual, checkBoxUlcers, checkBoxErectile, checkBoxOther,
-            checkBoxNutrition, checkBoxActivity, checkBoxPsychosocial;
-
+    //Checkboxes
     private String stroke, heart, kidney, neuropahty, visual, ulcers, erectile, other, nutrition, activity, psychosocial, diagnosis_stroke, diagnosis_heart, diagnosis_kidney,
             diagnosis_neuropahty, diagnosis_visual, diagnosis_ulcers, diagnosis_erectile, diagnosis_other;
 
-    private RadioButton radioButtonStrokeResolved, radioButtonHeartResolved, radioButtonKidneyResolved, radioButtonNeuropahtyResolved, radioButtonVisualResolved,
-            radioButtonUlcersResolved, radioButtonErectileResolved, radioButtonOtherResolved, radioButtonStrokeReferral, radioButtonHeartReferral, radioButtonKidneyReferral,
-            radioButtonNeuropahtyReferral, radioButtonVisualReferral, radioButtonUlcersReferral, radioButtonErectileReferral, radioButtonOtherReferral;
-
+    //RadioButtons
     private EditText editTextStroke, editTextHeart, editTextKidney, editTextNeuropahty, editTextVisual, editTextUlcers, editTextErectile, editTextOtherComplication,
             editTextStrokeDate, editTextHeartDate, editTextKidneyDate, editTextNeuropahtyDate, editTextVisualDate, editTextUlcersDate, editTextErectileDate,
             editTextOtherComplicationDate, editTextOtherProvision;
@@ -48,17 +42,17 @@ public class Initial_page_4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_4, container, false);
 
-        checkBoxStroke = view.findViewById(R.id.checkbox_complication_stroke);
-        checkBoxHeart = view.findViewById(R.id.checkbox_complication_heart);
-        checkBoxKidney = view.findViewById(R.id.checkbox_complication_kidney);
-        checkBoxNeuropahty = view.findViewById(R.id.checkbox_complication_neuropathy);
-        checkBoxVisual = view.findViewById(R.id.checkbox_complication_visual);
-        checkBoxUlcers = view.findViewById(R.id.checkbox_complication_foot_ulcer);
-        checkBoxErectile = view.findViewById(R.id.checkbox_complication_erectile);
-        checkBoxOther = view.findViewById(R.id.checkbox_complication_other);
-        checkBoxNutrition = view.findViewById(R.id.checkbox_nutrition);
-        checkBoxActivity = view.findViewById(R.id.checkbox_physical_activity);
-        checkBoxPsychosocial = view.findViewById(R.id.checkbox_psychosocial);
+        CheckBox checkBoxStroke = view.findViewById(R.id.checkbox_complication_stroke);
+        CheckBox checkBoxHeart = view.findViewById(R.id.checkbox_complication_heart);
+        CheckBox checkBoxKidney = view.findViewById(R.id.checkbox_complication_kidney);
+        CheckBox checkBoxNeuropahty = view.findViewById(R.id.checkbox_complication_neuropathy);
+        CheckBox checkBoxVisual = view.findViewById(R.id.checkbox_complication_visual);
+        CheckBox checkBoxUlcers = view.findViewById(R.id.checkbox_complication_foot_ulcer);
+        CheckBox checkBoxErectile = view.findViewById(R.id.checkbox_complication_erectile);
+        CheckBox checkBoxOther = view.findViewById(R.id.checkbox_complication_other);
+        CheckBox checkBoxNutrition = view.findViewById(R.id.checkbox_nutrition);
+        CheckBox checkBoxActivity = view.findViewById(R.id.checkbox_physical_activity);
+        CheckBox checkBoxPsychosocial = view.findViewById(R.id.checkbox_psychosocial);
 
         checkBox(checkBoxStroke);
         checkBox(checkBoxHeart);
@@ -72,23 +66,23 @@ public class Initial_page_4 extends Fragment {
         checkBox(checkBoxActivity);
         checkBox(checkBoxPsychosocial);
 
-        radioButtonStrokeResolved = view.findViewById(R.id.radio_diagnosis_stroke_resolved);
-        radioButtonHeartResolved = view.findViewById(R.id.radio_diagnosis_heart_failure_resolved);
-        radioButtonKidneyResolved = view.findViewById(R.id.radio_diagnosis_kidney_failure_resolved);
-        radioButtonNeuropahtyResolved = view.findViewById(R.id.radio_diagnosis_neuropathy_resolved);
-        radioButtonVisualResolved = view.findViewById(R.id.radio_diagnosis_visual_resolved);
-        radioButtonUlcersResolved = view.findViewById(R.id.radio_diagnosis_foot_ulcer_resolved);
-        radioButtonErectileResolved = view.findViewById(R.id.radio_diagnosis_erectile_resolved);
-        radioButtonOtherResolved = view.findViewById(R.id.radio_diagnosis_other_resolved);
+        RadioButton radioButtonStrokeResolved = view.findViewById(R.id.radio_diagnosis_stroke_resolved);
+        RadioButton radioButtonHeartResolved = view.findViewById(R.id.radio_diagnosis_heart_failure_resolved);
+        RadioButton radioButtonKidneyResolved = view.findViewById(R.id.radio_diagnosis_kidney_failure_resolved);
+        RadioButton radioButtonNeuropahtyResolved = view.findViewById(R.id.radio_diagnosis_neuropathy_resolved);
+        RadioButton radioButtonVisualResolved = view.findViewById(R.id.radio_diagnosis_visual_resolved);
+        RadioButton radioButtonUlcersResolved = view.findViewById(R.id.radio_diagnosis_foot_ulcer_resolved);
+        RadioButton radioButtonErectileResolved = view.findViewById(R.id.radio_diagnosis_erectile_resolved);
+        RadioButton radioButtonOtherResolved = view.findViewById(R.id.radio_diagnosis_other_resolved);
 
-        radioButtonStrokeReferral = view.findViewById(R.id.radio_diagnosis_stroke_referral);
-        radioButtonHeartReferral = view.findViewById(R.id.radio_diagnosis_heart_failure_referral);
-        radioButtonKidneyReferral = view.findViewById(R.id.radio_diagnosis_kidney_failure_referral);
-        radioButtonNeuropahtyReferral = view.findViewById(R.id.radio_diagnosis_neuropathy_referral);
-        radioButtonVisualReferral = view.findViewById(R.id.radio_diagnosis_visual_referral);
-        radioButtonUlcersReferral = view.findViewById(R.id.radio_diagnosis_foot_ulcer_referral);
-        radioButtonErectileReferral = view.findViewById(R.id.radio_diagnosis_erectile_referral);
-        radioButtonOtherReferral = view.findViewById(R.id.radio_diagnosis_other_referral);
+        RadioButton radioButtonStrokeReferral = view.findViewById(R.id.radio_diagnosis_stroke_referral);
+        RadioButton radioButtonHeartReferral = view.findViewById(R.id.radio_diagnosis_heart_failure_referral);
+        RadioButton radioButtonKidneyReferral = view.findViewById(R.id.radio_diagnosis_kidney_failure_referral);
+        RadioButton radioButtonNeuropahtyReferral = view.findViewById(R.id.radio_diagnosis_neuropathy_referral);
+        RadioButton radioButtonVisualReferral = view.findViewById(R.id.radio_diagnosis_visual_referral);
+        RadioButton radioButtonUlcersReferral = view.findViewById(R.id.radio_diagnosis_foot_ulcer_referral);
+        RadioButton radioButtonErectileReferral = view.findViewById(R.id.radio_diagnosis_erectile_referral);
+        RadioButton radioButtonOtherReferral = view.findViewById(R.id.radio_diagnosis_other_referral);
 
         radioButton(radioButtonStrokeResolved);
         radioButton(radioButtonHeartResolved);
@@ -213,14 +207,14 @@ public class Initial_page_4 extends Fragment {
                         break;
                     case R.id.checkbox_complication_visual:
                         if (checked) {
-                            visual = "163411";
+                            visual = "159298";
                         } else {
                             visual = "";
                         }
                         break;
                     case R.id.checkbox_complication_foot_ulcer:
                         if (checked) {
-                            ulcers = "156162";
+                            ulcers = "163411";
                         } else {
                             ulcers = "";
                         }
@@ -401,7 +395,7 @@ public class Initial_page_4 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON Initial Page 4", jsonArry.toString() + " ");
+        //Log.d("JSON Initial Page 4", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialFour(jsonArry);
     }

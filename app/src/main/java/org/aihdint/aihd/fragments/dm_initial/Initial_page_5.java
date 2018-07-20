@@ -11,11 +11,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EdgeEffect;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +46,9 @@ public class Initial_page_5 extends Fragment {
             frequencyCandesartan, frequencyIrbesartan, frequencyLosartan, frequencyTelmisartan, frequencyValsartan, frequencyOlmesartan, frequencyAtenolol, frequencyLabetolol,
             frequencyPropranolol, frequencyCarvedilol, frequencyNebivolol, frequencyMetoprolol, frequencyBisoprolol, frequencyAmlodipine, frequencyFelodipine,
             frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin;
+
+    private EditText editTextDiet, editTextPhysicalExercise, editTextHerbal, editTextTreatmentOther, editTextComment;
+    //private EditText
 
     private String support_group, designation;
 
@@ -124,6 +128,42 @@ public class Initial_page_5 extends Fragment {
         checkBoxTreatment(checkBoxMethyldopa);
         checkBoxTreatment(checkBoxHydralazine);
         checkBoxTreatment(checkBoxPrazocin);
+
+        CheckBox checkBoxUrinalysis = view.findViewById(R.id.treatment_urinalysis);
+        CheckBox checkBoxHBA = view.findViewById(R.id.treatment_hba);
+        CheckBox checkBoxMicroalbumin = view.findViewById(R.id.treatment_microalbumin);
+        CheckBox checkBoxCreatinine = view.findViewById(R.id.treatment_creatinine);
+        CheckBox checkBoxPotassium = view.findViewById(R.id.treatment_potassium);
+        CheckBox checkBoxECG = view.findViewById(R.id.treatment_ecg);
+        CheckBox checkBoxTestOther = view.findViewById(R.id.treatment_followup_other);
+
+        checkBoxTreatment(checkBoxUrinalysis);
+        checkBoxTreatment(checkBoxHBA);
+        checkBoxTreatment(checkBoxMicroalbumin);
+        checkBoxTreatment(checkBoxCreatinine);
+        checkBoxTreatment(checkBoxPotassium);
+        checkBoxTreatment(checkBoxECG);
+        checkBoxTreatment(checkBoxTestOther);
+
+        CheckBox checkBoxManagementDM = view.findViewById(R.id.followup_further_management_dm);
+        CheckBox checkBoxManagementHTN = view.findViewById(R.id.followup_further_management_htn);
+        CheckBox checkBoxEyeReview = view.findViewById(R.id.followup_eye_review);
+        CheckBox checkBoxSurgicalReview = view.findViewById(R.id.followup_surgical_review);
+        CheckBox checkBoxRenalReview = view.findViewById(R.id.followup_renal_review);
+        CheckBox checkBoxCVDReview = view.findViewById(R.id.followup_cvd_review);
+        CheckBox checkBoxNutrition = view.findViewById(R.id.followup_nutrition);
+        CheckBox checkBoxPhysiotherapy = view.findViewById(R.id.followup_physiotherapy);
+        CheckBox checkBoxFollowUpOther = view.findViewById(R.id.followup_other);
+
+        checkBoxTreatment(checkBoxManagementDM);
+        checkBoxTreatment(checkBoxManagementHTN);
+        checkBoxTreatment(checkBoxEyeReview);
+        checkBoxTreatment(checkBoxSurgicalReview);
+        checkBoxTreatment(checkBoxRenalReview);
+        checkBoxTreatment(checkBoxCVDReview);
+        checkBoxTreatment(checkBoxNutrition);
+        checkBoxTreatment(checkBoxPhysiotherapy);
+        checkBoxTreatment(checkBoxFollowUpOther);
 
         //SpinnerDosage
         Spinner spinnerDrugMetformin = view.findViewById(R.id.spinnerDrugMetformin);
@@ -822,21 +862,21 @@ public class Initial_page_5 extends Fragment {
                         break;
                     case R.id.treatment_insulin:
                         if (checked) {
-                            Insulin = "165099";
+                            Insulin = "159459";
                         } else {
                             Insulin = "";
                         }
                         break;
                     case R.id.treatment_soluble_insulin:
                         if (checked) {
-                            SolubleInsulin = "165099";
+                            SolubleInsulin = "282";
                         } else {
                             SolubleInsulin = "";
                         }
                         break;
                     case R.id.treatment_nph:
                         if (checked) {
-                            NPH = "165099";
+                            NPH = "78068";
                         } else {
                             NPH = "";
                         }
@@ -1234,7 +1274,7 @@ public class Initial_page_5 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON Initial Page 5", jsonArry.toString() + " ");
+        //Log.d("JSON Initial Page 5", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialFive(jsonArry);
     }

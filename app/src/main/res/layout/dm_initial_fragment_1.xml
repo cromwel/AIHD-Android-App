@@ -522,11 +522,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false">
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -614,7 +614,7 @@
                         android:layout_marginTop="10dp"
                         android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -655,29 +655,27 @@
                                 android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Comments (details)" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/tb_comment"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="comments"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-
                     </LinearLayout>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:text="Comments (details)" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/tb_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="comments"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -692,7 +690,7 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
@@ -732,7 +730,7 @@
                             android:id="@+id/nhif_other_details"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
@@ -757,7 +755,7 @@
                         android:layout_marginTop="10dp"
                         android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -812,14 +810,12 @@
                                     android:id="@+id/radio_referral_chw"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="CHW" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_dispensary"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Dispensary" />
                             </RadioGroup>
 
@@ -839,68 +835,61 @@
                                     android:id="@+id/radio_referral_maternity"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Maternity" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_inpatient"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="In Patient" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_opd"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="OPD" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_casualty"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Casualty" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_ccc"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="CCC" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_other"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Other" />
 
                             </RadioGroup>
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Comments (Specify)" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/referral_other"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Comment"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
                     </LinearLayout>
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:text="Comments (Specify)" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/referral_other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="Comment"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

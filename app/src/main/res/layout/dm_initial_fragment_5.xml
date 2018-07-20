@@ -78,7 +78,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Continue Care in clinic" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -101,7 +101,7 @@
                                 android:id="@+id/followup_refer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Refer to referral facility" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -130,7 +130,7 @@
                                     android:id="@+id/followup_transfer"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:onClick="onCheckboxClicked"
+
                                     android:text="Transfer care to Health center, specify" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -184,63 +184,55 @@
                                 android:id="@+id/followup_further_management_dm"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
+
                                 android:text="Further management of DM" />
 
                             <CheckBox
                                 android:id="@+id/followup_further_management_htn"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Further management of HTN" />
 
                             <CheckBox
                                 android:id="@+id/followup_eye_review"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Eye review" />
 
                             <CheckBox
                                 android:id="@+id/followup_surgical_review"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Surgical review" />
 
                             <CheckBox
                                 android:id="@+id/followup_renal_review"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Renal review" />
 
                             <CheckBox
                                 android:id="@+id/followup_cvd_review"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="CVD review" />
 
                             <CheckBox
                                 android:id="@+id/followup_nutrition"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Nutrition" />
 
                             <CheckBox
                                 android:id="@+id/followup_physiotherapy"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Physiotherapy" />
 
                             <CheckBox
                                 android:id="@+id/followup_other"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:onClick="onCheckboxClicked"
                                 android:text="Other" />
 
                             <customfonts.EditText_Roboto_Regular

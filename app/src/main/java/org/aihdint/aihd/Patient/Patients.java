@@ -108,7 +108,7 @@ public class Patients extends AppCompatActivity {
                     //Do something after 2000ms
                     getPatients();
                 }
-            }, 2000);
+            }, 500);
 
             if (person_count.size() > 0) {
                 //Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);

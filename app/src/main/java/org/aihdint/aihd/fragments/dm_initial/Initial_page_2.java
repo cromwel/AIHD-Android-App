@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,6 @@ import android.widget.RadioButton;
 import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -32,15 +31,10 @@ import customfonts.TextView_Roboto_Bold;
 /**
  * Developed by Rodney on 24/04/2018.
  */
-@SuppressWarnings("FieldCanBeLocal")
+
 public class Initial_page_2 extends Fragment {
 
     private LinearLayout linearLayoutPastCurrentMedication, linearLayoutOtherPastCurrentMedication, linearLayoutExamOther, linearLayoutExtremities;
-
-    private CheckBox checkBoxNone, checkBoxMetformin, checkBoxGlibenclamide, checkBoxInsulin, checkBoxNPH, checkBoxSoluble_insulin, checkBoxEnalapril,
-            checkBoxHCTZ, checkBoxLosartan, checkBoxNifedipine, checkBoxAtenolol, checkBoxMedicationOther;
-
-    private RadioButton radioButtonAdhereMedicationYes, radioButtonAdhereMedicationNo, radioButtonAdhereMedicationNA, radioButtonAllergiesYes, radioButtonAllergiesNo;
 
     private EditText editTextMetformin, editTextGlibenclamide, editTextInsulin, editTextNPH, editTextSolubleInsulin, editTextEnalapril, editTextHCTZ,
             editTextLosartan, editTextNifedipine, editTextAtenolol, editTextMedicationOther, editTextAdhereSpecify, editTextAllergySpecify;
@@ -48,13 +42,6 @@ public class Initial_page_2 extends Fragment {
     private EditText editTextTemp, editTextPulseRate, editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo, editTextWaist,
             editTextHip, editTextHeight, editTextWeight, editTextRespiratoryRate, editTextExamOther, editTextVisual, editTextCVS, editTextRS, editTextPA, editTextCNS,
             editTextMonofilamentRF, editTextMonofilamentLF;
-
-    private RadioButton radioButtonExamFair, radioButtonExamGood, radioButtonExamSick, radioButtonVisualYes, radioButtonVisualNo, radioButtonCVSNormal, radioButtonCVSAbnormal,
-            radioButtonRSNormal, radioButtonRSAbnormal, radioButtonPANormal, radioButtonPAAbnormal, radioButtonCNSNormal, radioButtonCNSAbnormal,
-            radioButtonExtremitiesNormal, radioButtonExtremitiesAbnormal;
-
-    private CheckBox checkBoxPallor, checkBoxJaundice, checkBoxCyanosis, checkBoxLymphadenopathy, checkBoxOedema, checkBoxDehydration, checkBoxExamOther, checkBoxUlcers,
-            checkBoxCallouses, checkBoxHardenedNails, checkBoxFungus, checkBoxCellutis, checkBoxEdema, checkBoxDry;
 
     private TextView_Roboto_Bold bmi, waist_hip_ratio;
 
@@ -74,18 +61,18 @@ public class Initial_page_2 extends Fragment {
         linearLayoutExamOther = view.findViewById(R.id.linearLayoutExamOther);
         linearLayoutExtremities = view.findViewById(R.id.extremitiesLinearLayout);
 
-        checkBoxNone = view.findViewById(R.id.checkbox_medication_none);
-        checkBoxMetformin = view.findViewById(R.id.checkbox_medication_metformin);
-        checkBoxGlibenclamide = view.findViewById(R.id.checkbox_medication_glibenclamide);
-        checkBoxInsulin = view.findViewById(R.id.checkbox_medication_insulin);
-        checkBoxNPH = view.findViewById(R.id.checkbox_medication_nph);
-        checkBoxSoluble_insulin = view.findViewById(R.id.checkbox_medication_soluble_insulin);
-        checkBoxEnalapril = view.findViewById(R.id.checkbox_medication_enalapril);
-        checkBoxHCTZ = view.findViewById(R.id.checkbox_medication_hctz);
-        checkBoxLosartan = view.findViewById(R.id.checkbox_medication_losartan);
-        checkBoxNifedipine = view.findViewById(R.id.checkbox_medication_nifedipine);
-        checkBoxAtenolol = view.findViewById(R.id.checkbox_medication_atenolol);
-        checkBoxMedicationOther = view.findViewById(R.id.checkbox_medication_other);
+        CheckBox checkBoxNone = view.findViewById(R.id.checkbox_medication_none);
+        CheckBox checkBoxMetformin = view.findViewById(R.id.checkbox_medication_metformin);
+        CheckBox checkBoxGlibenclamide = view.findViewById(R.id.checkbox_medication_glibenclamide);
+        CheckBox checkBoxInsulin = view.findViewById(R.id.checkbox_medication_insulin);
+        CheckBox checkBoxNPH = view.findViewById(R.id.checkbox_medication_nph);
+        CheckBox checkBoxSoluble_insulin = view.findViewById(R.id.checkbox_medication_soluble_insulin);
+        CheckBox checkBoxEnalapril = view.findViewById(R.id.checkbox_medication_enalapril);
+        CheckBox checkBoxHCTZ = view.findViewById(R.id.checkbox_medication_hctz);
+        CheckBox checkBoxLosartan = view.findViewById(R.id.checkbox_medication_losartan);
+        CheckBox checkBoxNifedipine = view.findViewById(R.id.checkbox_medication_nifedipine);
+        CheckBox checkBoxAtenolol = view.findViewById(R.id.checkbox_medication_atenolol);
+        CheckBox checkBoxMedicationOther = view.findViewById(R.id.checkbox_medication_other);
 
         checkBox(checkBoxNone);
         checkBox(checkBoxMetformin);
@@ -128,11 +115,11 @@ public class Initial_page_2 extends Fragment {
         textWatcher(editTextAdhereSpecify, "");
         textWatcher(editTextAllergySpecify, "");
 
-        radioButtonAdhereMedicationYes = view.findViewById(R.id.radio_adhere_yes);
-        radioButtonAdhereMedicationNo = view.findViewById(R.id.radio_adhere_no);
-        radioButtonAdhereMedicationNA = view.findViewById(R.id.radio_adhere_na);
-        radioButtonAllergiesYes = view.findViewById(R.id.radio_allergies_yes);
-        radioButtonAllergiesNo = view.findViewById(R.id.radio_allergies_no);
+        RadioButton radioButtonAdhereMedicationYes = view.findViewById(R.id.radio_adhere_yes);
+        RadioButton radioButtonAdhereMedicationNo = view.findViewById(R.id.radio_adhere_no);
+        RadioButton radioButtonAdhereMedicationNA = view.findViewById(R.id.radio_adhere_na);
+        RadioButton radioButtonAllergiesYes = view.findViewById(R.id.radio_allergies_yes);
+        RadioButton radioButtonAllergiesNo = view.findViewById(R.id.radio_allergies_no);
 
         radioButton(radioButtonAdhereMedicationYes);
         radioButton(radioButtonAdhereMedicationNo);
@@ -186,21 +173,21 @@ public class Initial_page_2 extends Fragment {
         textWatcher(editTextMonofilamentRF, "");
         textWatcher(editTextMonofilamentLF, "");
 
-        radioButtonExamFair = view.findViewById(R.id.radio_exam_fair);
-        radioButtonExamGood = view.findViewById(R.id.radio_exam_good);
-        radioButtonExamSick = view.findViewById(R.id.radio_exam_sick);
-        radioButtonVisualYes = view.findViewById(R.id.radio_visual_impairment_yes);
-        radioButtonVisualNo = view.findViewById(R.id.radio_visual_impairment_no);
-        radioButtonCVSNormal = view.findViewById(R.id.radio_cvs_normal);
-        radioButtonCVSAbnormal = view.findViewById(R.id.radio_cvs_abnormal);
-        radioButtonRSNormal = view.findViewById(R.id.radio_rs_normal);
-        radioButtonRSAbnormal = view.findViewById(R.id.radio_rs_abnormal);
-        radioButtonPANormal = view.findViewById(R.id.radio_pa_normal);
-        radioButtonPAAbnormal = view.findViewById(R.id.radio_pa_abnormal);
-        radioButtonCNSNormal = view.findViewById(R.id.radio_cns_normal);
-        radioButtonCNSAbnormal = view.findViewById(R.id.radio_cns_abnormal);
-        radioButtonExtremitiesNormal = view.findViewById(R.id.radio_extremities_normal);
-        radioButtonExtremitiesAbnormal = view.findViewById(R.id.radio_extremities_abnormal);
+        RadioButton radioButtonExamFair = view.findViewById(R.id.radio_exam_fair);
+        RadioButton radioButtonExamGood = view.findViewById(R.id.radio_exam_good);
+        RadioButton radioButtonExamSick = view.findViewById(R.id.radio_exam_sick);
+        RadioButton radioButtonVisualYes = view.findViewById(R.id.radio_visual_impairment_yes);
+        RadioButton radioButtonVisualNo = view.findViewById(R.id.radio_visual_impairment_no);
+        RadioButton radioButtonCVSNormal = view.findViewById(R.id.radio_cvs_normal);
+        RadioButton radioButtonCVSAbnormal = view.findViewById(R.id.radio_cvs_abnormal);
+        RadioButton radioButtonRSNormal = view.findViewById(R.id.radio_rs_normal);
+        RadioButton radioButtonRSAbnormal = view.findViewById(R.id.radio_rs_abnormal);
+        RadioButton radioButtonPANormal = view.findViewById(R.id.radio_pa_normal);
+        RadioButton radioButtonPAAbnormal = view.findViewById(R.id.radio_pa_abnormal);
+        RadioButton radioButtonCNSNormal = view.findViewById(R.id.radio_cns_normal);
+        RadioButton radioButtonCNSAbnormal = view.findViewById(R.id.radio_cns_abnormal);
+        RadioButton radioButtonExtremitiesNormal = view.findViewById(R.id.radio_extremities_normal);
+        RadioButton radioButtonExtremitiesAbnormal = view.findViewById(R.id.radio_extremities_abnormal);
 
         radioButton(radioButtonExamFair);
         radioButton(radioButtonExamGood);
@@ -218,21 +205,21 @@ public class Initial_page_2 extends Fragment {
         radioButton(radioButtonExtremitiesNormal);
         radioButton(radioButtonExtremitiesAbnormal);
 
-        checkBoxPallor = view.findViewById(R.id.checkbox_exam_pallor);
-        checkBoxJaundice = view.findViewById(R.id.checkbox_exam_jaundice);
-        checkBoxCyanosis = view.findViewById(R.id.checkbox_exam_cyanosis);
-        checkBoxLymphadenopathy = view.findViewById(R.id.checkbox_exam_lymphadenopathy);
-        checkBoxOedema = view.findViewById(R.id.checkbox_exam_oedema);
-        checkBoxDehydration = view.findViewById(R.id.checkbox_exam_dehydration);
-        checkBoxExamOther = view.findViewById(R.id.checkbox_exam_other);
+        CheckBox checkBoxPallor = view.findViewById(R.id.checkbox_exam_pallor);
+        CheckBox checkBoxJaundice = view.findViewById(R.id.checkbox_exam_jaundice);
+        CheckBox checkBoxCyanosis = view.findViewById(R.id.checkbox_exam_cyanosis);
+        CheckBox checkBoxLymphadenopathy = view.findViewById(R.id.checkbox_exam_lymphadenopathy);
+        CheckBox checkBoxOedema = view.findViewById(R.id.checkbox_exam_oedema);
+        CheckBox checkBoxDehydration = view.findViewById(R.id.checkbox_exam_dehydration);
+        CheckBox checkBoxExamOther = view.findViewById(R.id.checkbox_exam_other);
 
-        checkBoxUlcers = view.findViewById(R.id.checkbox_extremities_ulcers);
-        checkBoxCallouses = view.findViewById(R.id.checkbox_extremities_callouses);
-        checkBoxHardenedNails = view.findViewById(R.id.checkbox_extremities_nails);
-        checkBoxFungus = view.findViewById(R.id.checkbox_extremities_fungus);
-        checkBoxCellutis = view.findViewById(R.id.checkbox_extremities_cellulitis);
-        checkBoxEdema = view.findViewById(R.id.checkbox_extremities_edema);
-        checkBoxDry = view.findViewById(R.id.checkbox_extremities_dry);
+        CheckBox checkBoxUlcers = view.findViewById(R.id.checkbox_extremities_ulcers);
+        CheckBox checkBoxCallouses = view.findViewById(R.id.checkbox_extremities_callouses);
+        CheckBox checkBoxHardenedNails = view.findViewById(R.id.checkbox_extremities_nails);
+        CheckBox checkBoxFungus = view.findViewById(R.id.checkbox_extremities_fungus);
+        CheckBox checkBoxCellutis = view.findViewById(R.id.checkbox_extremities_cellulitis);
+        CheckBox checkBoxEdema = view.findViewById(R.id.checkbox_extremities_edema);
+        CheckBox checkBoxDry = view.findViewById(R.id.checkbox_extremities_dry);
 
         checkBox(checkBoxPallor);
         checkBox(checkBoxJaundice);
@@ -342,12 +329,13 @@ public class Initial_page_2 extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
+                /*Check text Change before typing*/
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-
+                /*Check text Change while typing*/
             }
         });
     }
@@ -753,7 +741,7 @@ public class Initial_page_2 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON Initial Page 2", jsonArry.toString() + " ");
+        //Log.d("JSON Initial Page 2", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialTwo(jsonArry);
     }

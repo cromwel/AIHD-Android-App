@@ -25,10 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight=".5"
-
             android:text="Diet" />
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/treatment_diet_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -49,10 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight=".5"
-
             android:text="Physical exercise" />
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/treatment_physical_exercise_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -73,10 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight=".5"
-
             android:text="Herbal" />
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/treatment_herbal_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -97,10 +97,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight=".5"
-
             android:text="Other" />
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/treatment_other_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -150,42 +150,36 @@
             android:id="@+id/treatment_urinalysis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Urinalysis" />
 
         <CheckBox
             android:id="@+id/treatment_hba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="HBA1c" />
 
         <CheckBox
             android:id="@+id/treatment_microalbumin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Microalbumin" />
 
         <CheckBox
             android:id="@+id/treatment_creatinine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Creatinine" />
 
         <CheckBox
             android:id="@+id/treatment_potassium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Potassium" />
 
         <CheckBox
             android:id="@+id/treatment_ecg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="ECG" />
 
         <CheckBox

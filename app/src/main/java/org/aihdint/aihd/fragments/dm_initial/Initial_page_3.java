@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,6 @@ import android.widget.RadioGroup;
 import org.aihdint.aihd.Forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -208,57 +207,10 @@ public class Initial_page_3 extends Fragment {
 
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
-                        if (editText.length() > 0 && !field.equals("")) {
+                        if (editText.length() > 0 && !field.matches("")) {
 
                             double value = parseDouble(editable.toString().trim());
-                            if (value > 11.1 && field.matches("rbs")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal RBS");
-                            }
-                            if (value < 7.8 && field.matches("fbc")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal FBS");
-                            }
-                            if (value > 6.5 && field.matches("hba")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HBA 1c(%)");
-                            }
-                            if ((value < 2.7 || value > 8) && field.matches("urea")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Urea");
-                            }
-                            if ((value < 135 || value > 155) && field.matches("sodium")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Sodium");
-                            }
-                            if ((value < 98 || value < 108) && field.matches("chloride")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Chloride");
-                            }
-                            if ((value < 3.5 || value < 5.5) && field.matches("potassium")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Potassium");
-                            }
-                            if ((value < 0.7 && value > 1.9) && field.matches("hdl")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HDL");
-                            }
-                            if (value > 3.4 && field.matches("ldl")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal LDL");
-                            }
-                            if ((value < 0 || value > 5.7) && field.matches("cholesterol")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Cholesterol");
-                            }
-                            if ((value < 0 || value > 5.7) && field.matches("triglcerides")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Triglcerides");
-                            }
-                            if ((value < 0 || value > 42) && field.matches("ast")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal AST");
-                            }
-                            if ((value < 0 || value > 37) && field.matches("alt")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal ALT");
-                            }
-                            if ((value < 1.17 && value > 20.5) && field.matches("tbilirubin")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Total Bilirubin");
-                            }
-                            if (value > 5.1 && field.matches("dbilirubin")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Direct Bilirubin");
-                            }
-                            if ((value < 9 || value > 48) && field.matches("gamma")) {
-                                Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Gamma");
-                            }
+                            checkAlert(value, field);
                         }
                     }
                 };
@@ -286,6 +238,57 @@ public class Initial_page_3 extends Fragment {
 
             }
         });
+    }
+
+    public void checkAlert(double value, String field) {
+        if (value > 11.1 && field.matches("rbs")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal RBS");
+        }
+        if (value < 7.8 && field.matches("fbc")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal FBS");
+        }
+        if (value > 6.5 && field.matches("hba")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HBA 1c(%)");
+        }
+        if ((value < 2.7 || value > 8) && field.matches("urea")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Urea");
+        }
+        if ((value < 135 || value > 155) && field.matches("sodium")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Sodium");
+        }
+        if ((value < 98 || value > 108) && field.matches("chloride")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Chloride");
+        }
+        if ((value < 3.5 || value > 5.5) && field.matches("potassium")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Potassium");
+        }
+        if ((value < 0.7 || value > 1.9) && field.matches("hdl")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal HDL");
+        }
+        if (value > 3.4 && field.matches("ldl")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal LDL");
+        }
+        if ((value < 0 || value > 5.7) && field.matches("cholesterol")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Cholesterol");
+        }
+        if ((value < 0 || value > 5.7) && field.matches("triglcerides")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Triglcerides");
+        }
+        if ((value < 0 || value > 42) && field.matches("ast")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal AST");
+        }
+        if ((value < 0 || value > 37) && field.matches("alt")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal ALT");
+        }
+        if ((value < 1.17 || value > 20.5) && field.matches("tbilirubin")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Total Bilirubin");
+        }
+        if (value > 5.1 && field.matches("dbilirubin")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Direct Bilirubin");
+        }
+        if ((value < 9 || value > 48) && field.matches("gamma")) {
+            Alerts.alert_msg(getContext(), "Investigation Alert", "Abnormal Gamma");
+        }
     }
 
     public void urinalysisGlucose(String status) {
@@ -468,7 +471,7 @@ public class Initial_page_3 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON Initial Page 3", jsonArry.toString() + " ");
+        //Log.d("JSON Initial Page 3", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialThree(jsonArry);
     }

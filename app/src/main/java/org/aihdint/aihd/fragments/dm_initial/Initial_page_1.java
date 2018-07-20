@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +34,7 @@ import java.util.Date;
  * Developed by Rodney on 24/04/2018.
  */
 
-@SuppressWarnings("FieldCanBeLocal")
+
 public class Initial_page_1 extends Fragment {
 
     private LinearLayout nhif_other_details;
@@ -49,25 +49,13 @@ public class Initial_page_1 extends Fragment {
     private RadioGroup hiv_enrolled, referral_patient;
 
     //Checkboxes
-    private CheckBox checkBoxTBStatus, checkBoxBreathing, checkBoxPalpitations, checkBoxDizziness, checkBoxFainting, checkBoxLegSwell, checkBoxUrinationFatigue,
-            checkBoxLoseConsciousness, checkBoxBlurrVision, checkBoxFocalWeakness, checkBoxFootComplaint, checkBoxHeadacheMigraines, checkBoxComplaintOther;
-
     private String tb_treatment, breathing, palpitations, dizziness, fainting, leg_swell, urination_fatigue, lose_consciousness,
             blurr_vision, focal_weakness, foot_complaint, headache_migraines, complaint_other;
 
     //RadioButtons
-    private RadioButton radioButtonDMNew, radioButtonDNKnown, radioButtonDMNa, radioButtonDMFamYes, radioButtonDMFamNo, radioButtonDMType1, radioButtonDMType2,
-            radioButtonDMGDM, radioButtonDMSecondary, radioButtonHTNNew, radioButtonHTNKnown, radioButtonHTNNa, radioButtonHTNFamYes, radioButtonHTNFamNo, radioButtonHTNMild,
-            radioButtonHTNModerate, radioButtonHTNSevere, radioButtonHTNPreeclampsia, radioButtonHIV_N, radioButtonHIV_P, radioButtonHIVUknown, radioButtonErolledYes,
-            radioButtonEnrolledNo, radioButtonNHIFYes, radioButtonNHIFNo, radioButtonNHIFOther, radioButtonReferralYes, radioButtonReferralNo, radioButtonReferralCHW,
-            radioButtonDispensary, radioButtonMaternity, radioButtonInPatient, radioButtonOPD, radioButtonCasualty, radioButtonCCC, radioButtonOther, radioButtonExerciseYes,
-            radioButtonExerciseNo, radioButtonExerciseStopped, radioButtonDietYes, radioButtonDietNo, radioButtonDietStopped, radioButtonCigarettesYes, radioButtonCigarettesNo,
-            radioButtonCigarettesStopped, radioButtonAlcoholYes, radioButtonAlcoholNo, radioButtonAlcoholStopped;
-
     private String diabetes_status, diabetes_family, diabetes_type, htn_status, htn_family, htn_type, hiv_status, enrolled_to_hiv_care, tb_status, tb_screen, nhif_status, referral_status,
             referral_inter, referral_intra, exercise, diet, smoking, drinking;
 
-    private String intra_referral, inter_referral, extremities;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -103,54 +91,54 @@ public class Initial_page_1 extends Fragment {
         textWatcher(editTextRiskOther);
 
         //RadioButton
-        radioButtonDMNew = view.findViewById(R.id.radio_new_dm_patient);
-        radioButtonDNKnown = view.findViewById(R.id.radio_known_dm_patient);
-        radioButtonDMNa = view.findViewById(R.id.radio_na_dm_patient);
-        radioButtonDMFamYes = view.findViewById(R.id.radio_dm_patient_family_yes);
-        radioButtonDMFamNo = view.findViewById(R.id.radio_dm_patient_family_no);
-        radioButtonDMType1 = view.findViewById(R.id.radio_diabetes_type_1);
-        radioButtonDMType2 = view.findViewById(R.id.radio_diabetes_type_2);
-        radioButtonDMGDM = view.findViewById(R.id.radio_diabetes_GDM);
-        radioButtonDMSecondary = view.findViewById(R.id.radio_diabetes_secondary);
-        radioButtonHTNNew = view.findViewById(R.id.radio_new_htn_patient);
-        radioButtonHTNKnown = view.findViewById(R.id.radio_known_htn_patient);
-        radioButtonHTNNa = view.findViewById(R.id.radio_na_htn_patient);
-        radioButtonHTNFamYes = view.findViewById(R.id.radio_htn_patient_family_yes);
-        radioButtonHTNFamNo = view.findViewById(R.id.radio_htn_patient_family_no);
-        radioButtonHTNMild = view.findViewById(R.id.radio_hypertension_mild);
-        radioButtonHTNModerate = view.findViewById(R.id.radio_hypertension_moderate);
-        radioButtonHTNSevere = view.findViewById(R.id.radio_hypertension_severe);
-        radioButtonHTNPreeclampsia = view.findViewById(R.id.radio_hypertension_preeclampsia);
-        radioButtonHIV_N = view.findViewById(R.id.radio_hiv_negative);
-        radioButtonHIV_P = view.findViewById(R.id.radio_hiv_positive);
-        radioButtonHIVUknown = view.findViewById(R.id.radio_hiv_unknown);
-        radioButtonErolledYes = view.findViewById(R.id.radio_enrolled_yes);
-        radioButtonEnrolledNo = view.findViewById(R.id.radio_enrolled_no);
-        radioButtonNHIFYes = view.findViewById(R.id.radio_nhif_yes);
-        radioButtonNHIFNo = view.findViewById(R.id.radio_nhif_no);
-        radioButtonNHIFOther = view.findViewById(R.id.radio_nhif_other);
-        radioButtonReferralYes = view.findViewById(R.id.radio_referral_yes);
-        radioButtonReferralNo = view.findViewById(R.id.radio_referral_no);
-        radioButtonReferralCHW = view.findViewById(R.id.radio_referral_chw);
-        radioButtonDispensary = view.findViewById(R.id.radio_referral_dispensary);
-        radioButtonMaternity = view.findViewById(R.id.radio_referral_maternity);
-        radioButtonInPatient = view.findViewById(R.id.radio_referral_inpatient);
-        radioButtonOPD = view.findViewById(R.id.radio_referral_opd);
-        radioButtonCasualty = view.findViewById(R.id.radio_referral_casualty);
-        radioButtonCCC = view.findViewById(R.id.radio_referral_ccc);
-        radioButtonOther = view.findViewById(R.id.radio_referral_other);
-        radioButtonExerciseYes = view.findViewById(R.id.radio_exercise_yes);
-        radioButtonExerciseNo = view.findViewById(R.id.radio_exercise_no);
-        radioButtonExerciseStopped = view.findViewById(R.id.radio_exercise_stopped);
-        radioButtonDietYes = view.findViewById(R.id.radio_diet_yes);
-        radioButtonDietNo = view.findViewById(R.id.radio_diet_no);
-        radioButtonDietStopped = view.findViewById(R.id.radio_diet_stopped);
-        radioButtonCigarettesYes = view.findViewById(R.id.radio_smoke_yes);
-        radioButtonCigarettesNo = view.findViewById(R.id.radio_smoke_no);
-        radioButtonCigarettesStopped = view.findViewById(R.id.radio_smoke_stopped);
-        radioButtonAlcoholYes = view.findViewById(R.id.radio_drink_yes);
-        radioButtonAlcoholNo = view.findViewById(R.id.radio_drink_no);
-        radioButtonAlcoholStopped = view.findViewById(R.id.radio_drink_stopped);
+        RadioButton radioButtonDMNew = view.findViewById(R.id.radio_new_dm_patient);
+        RadioButton radioButtonDNKnown = view.findViewById(R.id.radio_known_dm_patient);
+        RadioButton radioButtonDMNa = view.findViewById(R.id.radio_na_dm_patient);
+        RadioButton radioButtonDMFamYes = view.findViewById(R.id.radio_dm_patient_family_yes);
+        RadioButton radioButtonDMFamNo = view.findViewById(R.id.radio_dm_patient_family_no);
+        RadioButton radioButtonDMType1 = view.findViewById(R.id.radio_diabetes_type_1);
+        RadioButton radioButtonDMType2 = view.findViewById(R.id.radio_diabetes_type_2);
+        RadioButton radioButtonDMGDM = view.findViewById(R.id.radio_diabetes_GDM);
+        RadioButton radioButtonDMSecondary = view.findViewById(R.id.radio_diabetes_secondary);
+        RadioButton radioButtonHTNNew = view.findViewById(R.id.radio_new_htn_patient);
+        RadioButton radioButtonHTNKnown = view.findViewById(R.id.radio_known_htn_patient);
+        RadioButton radioButtonHTNNa = view.findViewById(R.id.radio_na_htn_patient);
+        RadioButton radioButtonHTNFamYes = view.findViewById(R.id.radio_htn_patient_family_yes);
+        RadioButton radioButtonHTNFamNo = view.findViewById(R.id.radio_htn_patient_family_no);
+        RadioButton radioButtonHTNMild = view.findViewById(R.id.radio_hypertension_mild);
+        RadioButton radioButtonHTNModerate = view.findViewById(R.id.radio_hypertension_moderate);
+        RadioButton radioButtonHTNSevere = view.findViewById(R.id.radio_hypertension_severe);
+        RadioButton radioButtonHTNPreeclampsia = view.findViewById(R.id.radio_hypertension_preeclampsia);
+        RadioButton radioButtonHIV_N = view.findViewById(R.id.radio_hiv_negative);
+        RadioButton radioButtonHIV_P = view.findViewById(R.id.radio_hiv_positive);
+        RadioButton radioButtonHIVUknown = view.findViewById(R.id.radio_hiv_unknown);
+        RadioButton radioButtonErolledYes = view.findViewById(R.id.radio_enrolled_yes);
+        RadioButton radioButtonEnrolledNo = view.findViewById(R.id.radio_enrolled_no);
+        RadioButton radioButtonNHIFYes = view.findViewById(R.id.radio_nhif_yes);
+        RadioButton radioButtonNHIFNo = view.findViewById(R.id.radio_nhif_no);
+        RadioButton radioButtonNHIFOther = view.findViewById(R.id.radio_nhif_other);
+        RadioButton radioButtonReferralYes = view.findViewById(R.id.radio_referral_yes);
+        RadioButton radioButtonReferralNo = view.findViewById(R.id.radio_referral_no);
+        RadioButton radioButtonReferralCHW = view.findViewById(R.id.radio_referral_chw);
+        RadioButton radioButtonDispensary = view.findViewById(R.id.radio_referral_dispensary);
+        RadioButton radioButtonMaternity = view.findViewById(R.id.radio_referral_maternity);
+        RadioButton radioButtonInPatient = view.findViewById(R.id.radio_referral_inpatient);
+        RadioButton radioButtonOPD = view.findViewById(R.id.radio_referral_opd);
+        RadioButton radioButtonCasualty = view.findViewById(R.id.radio_referral_casualty);
+        RadioButton radioButtonCCC = view.findViewById(R.id.radio_referral_ccc);
+        RadioButton radioButtonOther = view.findViewById(R.id.radio_referral_other);
+        RadioButton radioButtonExerciseYes = view.findViewById(R.id.radio_exercise_yes);
+        RadioButton radioButtonExerciseNo = view.findViewById(R.id.radio_exercise_no);
+        RadioButton radioButtonExerciseStopped = view.findViewById(R.id.radio_exercise_stopped);
+        RadioButton radioButtonDietYes = view.findViewById(R.id.radio_diet_yes);
+        RadioButton radioButtonDietNo = view.findViewById(R.id.radio_diet_no);
+        RadioButton radioButtonDietStopped = view.findViewById(R.id.radio_diet_stopped);
+        RadioButton radioButtonCigarettesYes = view.findViewById(R.id.radio_smoke_yes);
+        RadioButton radioButtonCigarettesNo = view.findViewById(R.id.radio_smoke_no);
+        RadioButton radioButtonCigarettesStopped = view.findViewById(R.id.radio_smoke_stopped);
+        RadioButton radioButtonAlcoholYes = view.findViewById(R.id.radio_drink_yes);
+        RadioButton radioButtonAlcoholNo = view.findViewById(R.id.radio_drink_no);
+        RadioButton radioButtonAlcoholStopped = view.findViewById(R.id.radio_drink_stopped);
         RadioButton radioButtonTBYes = view.findViewById(R.id.radio_tb_yes);
         RadioButton radioButtonTBNo = view.findViewById(R.id.radio_tb_no);
         RadioButton radioButtonTBNa = view.findViewById(R.id.radio_tb_na);
@@ -215,19 +203,19 @@ public class Initial_page_1 extends Fragment {
         radioCheck(radioButtonTBUknown);
 
         //Checkboxes
-        checkBoxTBStatus = view.findViewById(R.id.checkbox_tb_status);
-        checkBoxBreathing = view.findViewById(R.id.checkbox_complaint_breath);
-        checkBoxPalpitations = view.findViewById(R.id.checkbox_complaint_palpitations);
-        checkBoxDizziness = view.findViewById(R.id.checkbox_complaint_dizziness);
-        checkBoxFainting = view.findViewById(R.id.checkbox_complaint_fainting);
-        checkBoxLegSwell = view.findViewById(R.id.checkbox_complaint_leg_swell);
-        checkBoxUrinationFatigue = view.findViewById(R.id.checkbox_complaint_urination_fatigue);
-        checkBoxLoseConsciousness = view.findViewById(R.id.checkbox_complaint_lose_consciousness);
-        checkBoxBlurrVision = view.findViewById(R.id.checkbox_complaint_blurr_vision);
-        checkBoxFocalWeakness = view.findViewById(R.id.checkbox_complaint_focal_weakness);
-        checkBoxFootComplaint = view.findViewById(R.id.checkbox_foot_complaint);
-        checkBoxHeadacheMigraines = view.findViewById(R.id.checkbox_complaint_headache_migraines);
-        checkBoxComplaintOther = view.findViewById(R.id.checkbox_complaint_other);
+        CheckBox checkBoxTBStatus = view.findViewById(R.id.checkbox_tb_status);
+        CheckBox checkBoxBreathing = view.findViewById(R.id.checkbox_complaint_breath);
+        CheckBox checkBoxPalpitations = view.findViewById(R.id.checkbox_complaint_palpitations);
+        CheckBox checkBoxDizziness = view.findViewById(R.id.checkbox_complaint_dizziness);
+        CheckBox checkBoxFainting = view.findViewById(R.id.checkbox_complaint_fainting);
+        CheckBox checkBoxLegSwell = view.findViewById(R.id.checkbox_complaint_leg_swell);
+        CheckBox checkBoxUrinationFatigue = view.findViewById(R.id.checkbox_complaint_urination_fatigue);
+        CheckBox checkBoxLoseConsciousness = view.findViewById(R.id.checkbox_complaint_lose_consciousness);
+        CheckBox checkBoxBlurrVision = view.findViewById(R.id.checkbox_complaint_blurr_vision);
+        CheckBox checkBoxFocalWeakness = view.findViewById(R.id.checkbox_complaint_focal_weakness);
+        CheckBox checkBoxFootComplaint = view.findViewById(R.id.checkbox_foot_complaint);
+        CheckBox checkBoxHeadacheMigraines = view.findViewById(R.id.checkbox_complaint_headache_migraines);
+        CheckBox checkBoxComplaintOther = view.findViewById(R.id.checkbox_complaint_other);
 
         checkBox(checkBoxTBStatus);
         checkBox(checkBoxBreathing);
@@ -554,6 +542,62 @@ public class Initial_page_1 extends Fragment {
                             referral_status = "1066";
                         referralStatus(referral_status);
                         break;
+                    case R.id.radio_referral_chw:
+                        if (checked)
+                            referral_intra = "1759";
+                        break;
+                    case R.id.radio_referral_dispensary:
+                        if (checked)
+                            referral_intra = "165107";
+                        break;
+                    case R.id.radio_referral_maternity:
+                        if (checked)
+                            referral_inter = "163146";
+                        break;
+                    case R.id.radio_referral_inpatient:
+                        if (checked)
+                            referral_inter = "160551";
+                        break;
+                    case R.id.radio_referral_opd:
+                        if (checked)
+                            referral_inter = "160542";
+                        break;
+                    case R.id.radio_referral_casualty:
+                        if (checked)
+                            referral_inter = "160473";
+                        break;
+                    case R.id.radio_referral_ccc:
+                        if (checked)
+                            referral_inter = "162050";
+                        break;
+                    case R.id.radio_referral_other:
+                        if (checked)
+                            referral_inter = "5622";
+                        break;
+                    case R.id.radio_exercise_yes:
+                        if (checked)
+                            exercise = "1065";
+                        break;
+                    case R.id.radio_exercise_no:
+                        if (checked)
+                            exercise = "1066";
+                        break;
+                    case R.id.radio_exercise_stopped:
+                        if (checked)
+                            exercise = "158939";
+                        break;
+                    case R.id.radio_diet_yes:
+                        if (checked)
+                            diet = "1065";
+                        break;
+                    case R.id.radio_diet_no:
+                        if (checked)
+                            diet = "1066";
+                        break;
+                    case R.id.radio_diet_stopped:
+                        if (checked)
+                            diet = "158939";
+                        break;
                     case R.id.radio_smoke_yes:
                         if (checked)
                             smoking = "1065";
@@ -568,47 +612,15 @@ public class Initial_page_1 extends Fragment {
                         break;
                     case R.id.radio_drink_yes:
                         if (checked)
-                            drinking = "159450";
+                            drinking = "1065";
                         break;
                     case R.id.radio_drink_no:
                         if (checked)
-                            drinking = "1090";
+                            drinking = "1066";
                         break;
                     case R.id.radio_drink_stopped:
                         if (checked)
-                            drinking = "159452";
-                        break;
-                    case R.id.radio_referral_chw:
-                        if (checked)
-                            intra_referral = "1759";
-                        break;
-                    case R.id.radio_referral_dispensary:
-                        if (checked)
-                            intra_referral = "165107";
-                        break;
-                    case R.id.radio_referral_maternity:
-                        if (checked)
-                            inter_referral = "163146";
-                        break;
-                    case R.id.radio_referral_inpatient:
-                        if (checked)
-                            inter_referral = "160551";
-                        break;
-                    case R.id.radio_referral_opd:
-                        if (checked)
-                            inter_referral = "160542";
-                        break;
-                    case R.id.radio_referral_casualty:
-                        if (checked)
-                            inter_referral = "160473";
-                        break;
-                    case R.id.radio_referral_ccc:
-                        if (checked)
-                            inter_referral = "162050";
-                        break;
-                    case R.id.radio_referral_other:
-                        if (checked)
-                            inter_referral = "5622";
+                            drinking = "158939";
                         break;
 
                 }
@@ -743,7 +755,6 @@ public class Initial_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("1542", "", "valueCoded", occupation, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165171", "", "string", occupation_otherEditText.getText().toString().trim(), current_date, ""));
 
-
         jsonArry.put(JSONFormBuilder.observations("165086", "", "valueCoded", diabetes_status, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("140228", "", "valueCoded", diabetes_family, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165153", "", "string", editTextDiagnosisDiabetes.getText().toString().trim(), current_date, ""));
@@ -797,7 +808,7 @@ public class Initial_page_1 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("JSON FollowUp Page 1", jsonArry.toString() + " ");
+        //Log.d("JSON FollowUp Page 1", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialOne(dm_initial_dateEditText.getText().toString().trim(), jsonArry);
     }
