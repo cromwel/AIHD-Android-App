@@ -14,11 +14,11 @@ import org.aihdint.aihd.fragments.dm_initial.Initial_page_5;
  * Created : dennis on 3/23/18.
  */
 
-public class DM_Initial_Adpater extends FragmentStatePagerAdapter {
+public class DM_Initial_Adapter extends FragmentStatePagerAdapter {
 
     private int tabsNumber;
 
-    public DM_Initial_Adpater(FragmentManager fm, int tabsNumber) {
+    public DM_Initial_Adapter(FragmentManager fm, int tabsNumber) {
         super(fm);
         this.tabsNumber = tabsNumber;
     }

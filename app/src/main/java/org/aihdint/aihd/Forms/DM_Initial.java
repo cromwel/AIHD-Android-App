@@ -17,11 +17,12 @@ import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 
-import org.aihdint.aihd.PageAdapters.DM_Initial_Adpater;
+import org.aihdint.aihd.PageAdapters.DM_Initial_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
+import org.aihdint.aihd.model.Forms;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,7 +83,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
-        final DM_Initial_Adpater adapter = new DM_Initial_Adpater
+        final DM_Initial_Adapter adapter = new DM_Initial_Adapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -137,7 +138,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
-        File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/followup");
+        File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
         if (!dir.mkdirs()) {
             Log.e("Directory Message", "Directory not created");
         }
@@ -149,21 +150,19 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5);
             JSONObject jsonForm = new JSONObject();
 
-            try {
-                jsonForm.put("formDescription", "DM HTN Initial Encounter Form");
-                jsonForm.put("formEncounterType", "bf3f3108-f87c-11e7-913d-5f679b8fdacb");
-                jsonForm.put("formUuid", "7b0abbe2-98ab-4ba3-a423-e2441859f976");
-                jsonForm.put("formVersion", "1.0");
-                jsonForm.put("formUILocation", "patientDashboard.visitActions");
-                jsonForm.put("formOrder", "1");
-                jsonForm.put("encounterDate", encounter_date);
-                jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-                jsonForm.put("patient_id", patient_id);
-                jsonForm.put("obs", jsonArray);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
+
+            jsonForm.put("formDescription", "DM HTN Initial Encounter Form");
+            jsonForm.put("formEncounterType", "bf3f3108-f87c-11e7-913d-5f679b8fdacb");
+            jsonForm.put("formUuid", "7b0abbe2-98ab-4ba3-a423-e2441859f976");
+            jsonForm.put("formVersion", "1.0");
+            jsonForm.put("formUILocation", "patientDashboard.visitActions");
+            jsonForm.put("formOrder", "1");
+            jsonForm.put("encounterDate", encounter_date);
+            jsonForm.put("encounterProvider", creator);
+            jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+            jsonForm.put("patient_id", patient_id);
+            jsonForm.put("obs", jsonArray);
 
             FileOutputStream f = new FileOutputStream(file);
             PrintWriter pw = new PrintWriter(f);
@@ -172,6 +171,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             pw.flush();
             pw.close();
             f.close();
+
+            Forms forms = new Forms(System.currentTimeMillis() + "_" + patient_id, file_name, creator, patient_id);
+            forms.save();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.i("Error", "*** File not found. Did you add a WRITE_EXTERNAL_STORAGE permission to the manifest?");
@@ -190,7 +193,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         }
         //Read File
         try {
-            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);
+            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name);
             FileInputStream fIn = new FileInputStream(myFile);
             BufferedReader myReader = new BufferedReader(
                     new InputStreamReader(fIn));
@@ -215,7 +218,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     /**
      * Method to make json array request where response starts with [
-     * */
+     */
 
     private void dmInitialForm() {
 
@@ -261,7 +264,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 // Posting params to register url
                 Map<String, String> params = new HashMap<>();
 
-                params.put("uuid",AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
                 JSONObject jsonParams = new JSONObject(params);
                 JSONObject jsonAdd = new JSONObject();

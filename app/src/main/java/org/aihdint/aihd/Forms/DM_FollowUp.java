@@ -1,7 +1,6 @@
 package org.aihdint.aihd.Forms;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,12 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adpater;
+import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
-import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +70,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
-        final DM_FollowUp_Adpater adapter = new DM_FollowUp_Adpater
+        final DM_FollowUp_Adapter adapter = new DM_FollowUp_Adapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

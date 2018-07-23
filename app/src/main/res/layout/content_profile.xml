@@ -74,20 +74,24 @@
                                 android:textSize="14sp" />
                         </LinearLayout>
 
-                        <CheckBox
+                        <customfonts.TextView_Roboto_Regular
                             android:id="@+id/checkbox_appointment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
                             android:text="Missed Appointment"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
                             android:textSize="14sp" />
 
-                        <CheckBox
+                        <customfonts.TextView_Roboto_Regular
                             android:id="@+id/checkbox_lost_followup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
                             android:text="Lost to Follow Up"
+                            android:textColor="@color/black"
+                            android:padding="5dp"
                             android:textSize="14sp" />
 
 
@@ -166,6 +170,34 @@
                                 </LinearLayout>
                             </android.support.v7.widget.CardView>
                         </LinearLayout>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="10dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="forms"
+                            app:cardCornerRadius="5dp"
+                            card_view:cardElevation="9dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="DM HTN Forms"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
 
 
                         <LinearLayout

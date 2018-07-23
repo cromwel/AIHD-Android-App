@@ -13,11 +13,11 @@ import org.aihdint.aihd.fragments.dm_followup.Followup_page_2;
  * Created : dennis on 3/23/18.
  */
 
-public class DM_FollowUp_Adpater extends FragmentStatePagerAdapter {
+public class DM_FollowUp_Adapter extends FragmentStatePagerAdapter {
 
     private int tabsNumber;
 
-    public DM_FollowUp_Adpater(FragmentManager fm, int tabsNumber) {
+    public DM_FollowUp_Adapter(FragmentManager fm, int tabsNumber) {
         super(fm);
         this.tabsNumber = tabsNumber;
     }

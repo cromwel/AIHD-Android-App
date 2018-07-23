@@ -1,25 +1,25 @@
 package org.aihdint.aihd.Forms;
 
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class JSONFormBuilder {
-
-    private Context mContext;
-
-    public JSONFormBuilder(Context mContext) {
-        this.mContext = mContext;
-    }
 
     public static JSONObject observations(String conceptID, String groupID, String type, String conceptAnswer, String datetime, String comment) {
 
@@ -60,4 +60,32 @@ public class JSONFormBuilder {
     }
 
 
+    public static String loadForm(Context mContext, String folder, String file_name) {
+
+        String data = null;
+        ProgressDialog pDialog = File_Upload.showProgressDialog(mContext, "Reading DM Initial Form ...");
+
+        //Read File
+        try {
+            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/" + folder + "/" + file_name);
+            FileInputStream fIn = new FileInputStream(myFile);
+            BufferedReader myReader = new BufferedReader(
+                    new InputStreamReader(fIn));
+            String aDataRow;
+            StringBuilder aBuffer = new StringBuilder();
+            while ((aDataRow = myReader.readLine()) != null) {
+                aBuffer.append(aDataRow).append("\n");
+            }
+            Log.e("Reading from storage", aBuffer.toString());
+            data = aBuffer.toString();
+            myReader.close();
+            //Toast.makeText(getBaseContext(), "Done reading SD 'mysdfile.txt'",Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        pDialog.dismiss();
+        //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
+
+        return data;
+    }
 }
