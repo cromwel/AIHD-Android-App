@@ -164,31 +164,10 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
         boolean isConnected = File_Upload.Connectivity(getApplicationContext());
         if (isConnected) {
-            File_Upload.upload(getApplicationContext(), file_name, null);
+            File_Upload.upload(getApplicationContext(), Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, null);
         } else {
             Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
         }
-        //Read File
-        try {
-            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name);
-            FileInputStream fIn = new FileInputStream(myFile);
-            BufferedReader myReader = new BufferedReader(
-                    new InputStreamReader(fIn));
-            String aDataRow;
-            StringBuilder aBuffer = new StringBuilder();
-            while ((aDataRow = myReader.readLine()) != null) {
-                aBuffer.append(aDataRow).append("\n");
-            }
-            Log.e("Reading from storage", aBuffer.toString());
-            myReader.close();
-            //Toast.makeText(getBaseContext(),"Done reading SD 'mysdfile.txt'",Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
-
 
     }
 

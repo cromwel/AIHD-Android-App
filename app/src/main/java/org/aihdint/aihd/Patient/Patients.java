@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -17,12 +16,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
-import org.aihdint.aihd.Forms.Common_Functions;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -32,15 +29,13 @@ import org.aihdint.aihd.services.LoadPatients;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Patients extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
 
-    private List <Person> contactList;
-    private List <Person> personList;
+    private List<Person> contactList;
+    private List<Person> personList;
     private PatientAdapter adapter;
     private String IsForm;
 
@@ -60,7 +55,7 @@ public class Patients extends AppCompatActivity {
 
 
         EditText inputSearch = findViewById(R.id.input_search);
-        RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
 
         contactList = new ArrayList<>();
         personList = new ArrayList<>();
@@ -85,42 +80,30 @@ public class Patients extends AppCompatActivity {
 
 
         ConnectivityManager cm =
-                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         assert cm != null;
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        if(isConnected) {
+        if (isConnected) {
             List<Person> person_count = Select.from(Person.class)
                     .where(Condition.prop("_status").eq("0"))
                     .list();
 
-            Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
-            getApplication().startService(grapprIntent);
-
-
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    //Do something after 2000ms
-                    getPatients();
-                }
-            }, 500);
-
             if (person_count.size() > 0) {
-                //Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
-                //getApplication().startService(grapprIntent);
 
+                Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
+                getApplication().startService(grapprIntent);
+
+                getPatients();
             } else {
-                //new GetPersons().execute();
-                //getPatients();
+                getPatients();
             }
-        }else{
+        } else {
             getPatients();
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
 
         inputSearch.addTextChangedListener(new TextWatcher() {
@@ -150,7 +133,7 @@ public class Patients extends AppCompatActivity {
     }
 
 
-    public void getPatients(){
+    public void getPatients() {
         // Reading all contacts
         Log.d("Reading: ", "Reading all persons..");
 
@@ -184,10 +167,10 @@ public class Patients extends AppCompatActivity {
         }
     }
 
-    void filter(String text){
+    void filter(String text) {
         @SuppressWarnings("unchecked") List<Person> temp = new ArrayList();
         contactList = personList;
-        for(Person d: contactList){
+        for (Person d : contactList) {
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
             String name = d.getFamily_name() + " " + d.getGiven_name();

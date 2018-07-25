@@ -12,7 +12,6 @@ import org.aihdint.aihd.Forms.DM_FollowUp;
 import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Patient.Profile;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.View_Reports;
 import org.aihdint.aihd.model.Person;
 
 import java.util.List;
@@ -24,11 +23,11 @@ import java.util.List;
 public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Person> reportList;
+    private List<Person> patientList;
 
-    public PatientAdapter(Context mContext, List<Person> reportList) {
+    public PatientAdapter(Context mContext, List<Person> patientList) {
         this.mContext = mContext;
-        this.reportList = reportList;
+        this.patientList = patientList;
 
     }
 
@@ -52,7 +51,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         @Override
         public void onClick(final View view) {
 
-            @SuppressWarnings("deprecation") final Person person = reportList.get(getPosition());
+            @SuppressWarnings("deprecation") final Person person = patientList.get(getPosition());
 
             if (person.getIsReport().matches("1")) {
                 Intent graph = new Intent(view.getContext(), DM_Initial.class);
@@ -79,7 +78,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(final PatientAdapter.MyViewHolder holder, int position) {
-        final Person person = reportList.get(position);
+        final Person person = patientList.get(position);
 
         holder.name.setText(String.format("%s %s", person.getFamily_name(), person.getGiven_name()));
 
@@ -87,18 +86,18 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return reportList.size();
+        return patientList.size();
     }
 
     public void searchList(List<Person> list) {
-        reportList = list;
+        patientList = list;
         notifyDataSetChanged();
     }
 
     /*
     public void clear() {
-        int size = this.reportList.size();
-        this.reportList.clear();
+        int size = this.patientList.size();
+        this.patientList.clear();
         notifyItemRangeRemoved(0, size);
     }
     */

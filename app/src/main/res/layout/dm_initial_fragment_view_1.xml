@@ -95,46 +95,24 @@
                         android:layout_marginTop="20dp"
                         android:text="Diabetes " />
 
-                    <LinearLayout
+                    <customfonts.TextView_Roboto_Bold
+                        android:id="@+id/diabetes_family"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:text="Diabetes runs in the family?"
+                        android:textSize="13sp" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/diabetes_family"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Diabetes runs in the family?"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/diagnosis_diabetes_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Year of Diagnosis" />
-
-                        </LinearLayout>
-                    </LinearLayout>
+                    <customfonts.TextView_Roboto_Bold
+                        android:id="@+id/diagnosis_diabetes_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Year of Diagnosis" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -162,47 +140,24 @@
                         android:layout_marginTop="20dp"
                         android:text="Hypertension " />
 
-                    <LinearLayout
+                    <customfonts.TextView_Roboto_Bold
+                        android:id="@+id/hypertension_family"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:text="Hypertension runs in the family?"
+                        android:textSize="13sp" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/hypertension_family"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Hypertension runs in the family?"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/diagnosis_hypertension_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Year of Diagnosis" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
+                    <customfonts.TextView_Roboto_Bold
+                        android:id="@+id/diagnosis_hypertension_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Year of Diagnosis" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -220,45 +175,22 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:text="HIV Status " />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="HIV Status " />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:id="@+id/hiv_enrolled"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Enrolled to Care" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
+                    <customfonts.TextView_Roboto_Bold
+                        android:id="@+id/hiv_enrolled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Enrolled to Care" />
 
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
@@ -336,56 +268,24 @@
                         android:padding="10dp"
                         android:text="Comments (details)" />
 
-                    <customfonts.EditText_Roboto_Regular
-                        android:id="@+id/tb_comment"
+
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:hint="comments"
-                        android:padding="15dp"
-                        android:textSize="13sp" />
+                        android:padding="5dp"
+                        android:text="Active NHIF" />
 
-                    <LinearLayout
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="Active NHIF" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/nhif_other_details"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="Other" />
-
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:padding="5dp"
+                        android:text="Other" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

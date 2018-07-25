@@ -63,7 +63,7 @@ public class JSONFormBuilder {
     public static String loadForm(Context mContext, String folder, String file_name) {
 
         String data = null;
-        ProgressDialog pDialog = File_Upload.showProgressDialog(mContext, "Reading DM Initial Form ...");
+        ProgressDialog pDialog = File_Upload.showProgressDialog(mContext, "Reading DM HTN Form ...");
 
         //Read File
         try {

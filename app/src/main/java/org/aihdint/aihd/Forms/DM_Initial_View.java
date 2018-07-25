@@ -41,7 +41,6 @@ public class DM_Initial_View extends AppCompatActivity {
 
         Intent intent = getIntent();
         //report_id = intent.getStringExtra("report_id");
-        //patient_id = intent.getStringExtra("patient_id");
         String file_name = intent.getStringExtra("file_name");
 
         Log.d("Form Data", JSONFormBuilder.loadForm(this, "initial", file_name) + "");
@@ -80,7 +79,7 @@ public class DM_Initial_View extends AppCompatActivity {
     }
 
 
-    public void viewForm(String response) {
+    public static void viewForm(String response) {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy-M-d");

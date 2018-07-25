@@ -8,13 +8,19 @@ public class Forms extends SugarRecord {
     private String form_name;
     private String creator;
     private String patient_id;
+    private String date;
     private String status;
 
-    public Forms(String form_id, String form_name, String creator, String patient_id) {
+    public Forms() {
+    }
+
+    public Forms(String form_id, String form_name, String creator, String patient_id, String date, String status) {
         this.form_id = form_id;
         this.form_name = form_name;
         this.creator = creator;
         this.patient_id = patient_id;
+        this.date = date;
+        this.status = status;
     }
 
     public String getForm_id() {
@@ -57,4 +63,11 @@ public class Forms extends SugarRecord {
         this.status = status;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

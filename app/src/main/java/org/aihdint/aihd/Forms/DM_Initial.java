@@ -139,9 +139,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
-        if (!dir.mkdirs()) {
-            Log.e("Directory Message", "Directory not created");
-        }
+        if (!dir.exists())
+            if (!dir.mkdirs()) {
+                Log.e("Directory Message", "Directory not created");
+            }
 
         File file = new File(dir, file_name);
 
@@ -172,7 +173,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             pw.close();
             f.close();
 
-            Forms forms = new Forms(System.currentTimeMillis() + "_" + patient_id, file_name, creator, patient_id);
+            Forms forms = new Forms(System.currentTimeMillis() + "_" + patient_id, file_name, creator, patient_id, encounter_date, "0");
             forms.save();
 
         } catch (FileNotFoundException e) {

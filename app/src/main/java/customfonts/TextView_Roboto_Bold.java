@@ -1,6 +1,7 @@
 package customfonts;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 
@@ -29,6 +30,7 @@ public class TextView_Roboto_Bold extends android.support.v7.widget.AppCompatTex
         if (!isInEditMode()) {
             Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
             setTypeface(tf);
+            setTextColor(Color.BLACK);
         }
     }
 

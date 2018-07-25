@@ -84,13 +84,16 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@color/btn_login_bg"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center"
+            android:padding="15dp"
             android:text="@string/btn_login"
+            android:textAllCaps="false"
             android:onClick="login"
-            android:textColor="@color/btn_login" />
+            android:textColor="#ffffff" />
 
         <!-- Link to Login Screen -->
 

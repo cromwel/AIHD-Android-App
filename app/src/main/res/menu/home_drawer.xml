@@ -8,14 +8,6 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="Home" />
-        <item
-            android:id="@+id/nav_dm_initial"
-            android:icon="@drawable/ic_note_add"
-            android:title="DM Initial Encounter" />
-        <item
-            android:id="@+id/nav_dm_follow_up"
-            android:icon="@drawable/ic_description"
-            android:title="DM Follow Up" />
 
         <item
             android:id="@+id/nav_add_patients"
@@ -25,6 +17,14 @@
             android:id="@+id/nav_patients"
             android:icon="@drawable/ic_people"
             android:title="Patients" />
+        <item
+            android:id="@+id/nav_dm_initial"
+            android:icon="@drawable/ic_note_add"
+            android:title="DM HTN Initial Encounter" />
+        <item
+            android:id="@+id/nav_dm_follow_up"
+            android:icon="@drawable/ic_description"
+            android:title="DM HTN Follow Up" />
 
     </group>
 

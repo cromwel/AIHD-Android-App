@@ -8,11 +8,8 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,7 +28,6 @@ import android.widget.Toast;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.error.AuthFailureError;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 import com.orm.query.Select;
@@ -42,19 +38,16 @@ import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
-import org.aihdint.aihd.model.Person;
+import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static java.lang.Integer.parseInt;
 
 
 public class Login extends Activity {
@@ -64,7 +57,7 @@ public class Login extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private CoordinatorLayout coordinatorLayout;
-    private String location_id, mfl_code;
+    private String location_id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,7 +124,7 @@ public class Login extends Activity {
 
     public void loadJSONLocation() {
 
-        String json = null;
+        String json;
 
 
         try {
@@ -225,6 +218,8 @@ public class Login extends Activity {
 
                         // Now store the user in SQLite
                         //String uuid = jObj.getString("uid");
+                        Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
+                        getApplication().startService(grapprIntent);
 
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("display");

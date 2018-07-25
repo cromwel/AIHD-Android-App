@@ -9,11 +9,14 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.aihdint.aihd.Forms.DM_FollowUp;
+import org.aihdint.aihd.Forms.DM_HTN_Forms;
 import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 
 public class Profile extends AppCompatActivity {
+
+    private String patient_id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class Profile extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
+        patient_id = intent.getStringExtra("patient_id");
 
         TextView textViewName = findViewById(R.id.patient_name);
         textViewName.setText(name);
@@ -63,6 +67,14 @@ public class Profile extends AppCompatActivity {
     public void dm_followup(View view) {
         Intent dm_followup = new Intent(getApplicationContext(), DM_FollowUp.class);
         startActivity(dm_followup);
+        finish();
+    }
+
+    public void forms(View view) {
+        Intent forms = new Intent(getApplicationContext(), DM_HTN_Forms.class);
+        forms.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        forms.putExtra("patient_id", patient_id);
+        startActivity(forms);
         finish();
     }
 
