@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Forms;
+package org.aihdint.aihd.forms;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 
-import org.aihdint.aihd.PageAdapters.DM_Initial_Adapter;
+import org.aihdint.aihd.pageadapters.DM_Initial_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -139,10 +139,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
-        if (!dir.exists())
-            if (!dir.mkdirs()) {
-                Log.e("Directory Message", "Directory not created");
-            }
+
+        if (!dir.mkdirs()) {
+            Log.e("Directory Message", "Directory not created");
+        }
 
         File file = new File(dir, file_name);
 

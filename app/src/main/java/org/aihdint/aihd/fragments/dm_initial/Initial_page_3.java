@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.json.JSONArray;

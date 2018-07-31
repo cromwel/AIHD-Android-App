@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Forms;
+package org.aihdint.aihd.forms;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.aihdint.aihd.PageAdapters.DM_Initial_View_Adapter;
+import org.aihdint.aihd.pageadapters.DM_Initial_View_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.model.Forms;

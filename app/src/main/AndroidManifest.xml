@@ -40,7 +40,7 @@
         </activity>
 
         <activity
-            android:name=".Patient.Register"
+            android:name=".patient.Register"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,7 +50,7 @@
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Patient.Patients"
+            android:name=".patient.Patients"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -65,24 +65,24 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".Forms.DM_Initial"
+            android:name=".forms.DM_Initial"
             android:windowSoftInputMode="stateHidden"
             android:label="DM HTN Initial"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".Forms.DM_FollowUp"
+            android:name=".forms.DM_FollowUp"
             android:windowSoftInputMode="stateHidden"
             android:label="DM HTN Follow Up "
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".Patient.Patient_Reports"
+            android:name=".patient.Patient_Reports"
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Patient.Profile"
+            android:name=".patient.Profile"
             android:windowSoftInputMode="stateHidden"
             android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -94,30 +94,30 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".Patient.Admission"
+            android:name=".patient.Admission"
             android:windowSoftInputMode="stateHidden"
             android:label="Admission"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Patient.Transfer"
+            android:name=".patient.Transfer"
             android:windowSoftInputMode="stateHidden"
             android:label="Transfer"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Patient.FootClinic"
+            android:name=".patient.FootClinic"
             android:windowSoftInputMode="stateHidden"
             android:label="Foot Clinic"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Forms.DM_Initial_View"
+            android:name=".forms.DM_Initial_View"
             android:windowSoftInputMode="stateHidden"
             android:label="DM Initial Form"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Forms.DM_HTN_Forms"
+            android:name=".forms.DM_HTN_Forms"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

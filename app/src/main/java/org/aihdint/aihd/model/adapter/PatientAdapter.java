@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.aihdint.aihd.Forms.DM_FollowUp;
-import org.aihdint.aihd.Forms.DM_Initial;
-import org.aihdint.aihd.Patient.Profile;
+import org.aihdint.aihd.forms.DM_FollowUp;
+import org.aihdint.aihd.forms.DM_Initial;
+import org.aihdint.aihd.patient.Profile;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.Person;
 

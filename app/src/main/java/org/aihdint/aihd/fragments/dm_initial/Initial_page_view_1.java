@@ -8,13 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import org.aihdint.aihd.Forms.DM_Initial_View;
-import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.aihdint.aihd.forms.DM_Initial_View;
+import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
-
-import static android.content.Intent.getIntent;
 
 public class Initial_page_view_1 extends Fragment {
 

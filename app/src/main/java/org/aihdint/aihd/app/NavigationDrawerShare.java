@@ -15,15 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import org.aihdint.aihd.Forms.DM_Initial;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
-import org.aihdint.aihd.Patient.Admission;
-import org.aihdint.aihd.Patient.Patients;
-import org.aihdint.aihd.Patient.Profile;
+import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.Patient.Register;
-import org.aihdint.aihd.Forms.DM_FollowUp;
+import org.aihdint.aihd.patient.Register;
 
 /**
  * Developed by Rodney on 20/03/2018.

@@ -1,4 +1,4 @@
-package org.aihdint.aihd.PageAdapters;
+package org.aihdint.aihd.pageadapters;
 
 
 import android.support.v4.app.Fragment;

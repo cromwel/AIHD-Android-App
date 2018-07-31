@@ -32,7 +32,7 @@ import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 import com.orm.query.Select;
 
-import org.aihdint.aihd.Forms.File_Upload;
+import org.aihdint.aihd.forms.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
@@ -147,9 +147,14 @@ public class Login extends Activity {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject locationObj = jsonArray.getJSONObject(i);
 
-                String location_id = locationObj.getString("location_id");
+                //String location_id = locationObj.getString("location_id");
                 String mfl_code = String.valueOf(locationObj.getInt("MFL Code"));
                 String name = locationObj.getString("Facility Name");
+                String location_id = name;
+                location_id = location_id.toLowerCase();
+                location_id = location_id.replace(".", "");
+                location_id = location_id.replace(" ", "_");
+                Log.d("Location Name", location_id);
 
                 Location location = new Location(location_id, name, mfl_code);
                 location.save();

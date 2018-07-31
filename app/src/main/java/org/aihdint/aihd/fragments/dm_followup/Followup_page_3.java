@@ -16,13 +16,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 
-import org.aihdint.aihd.Forms.Common_Functions;
+import org.aihdint.aihd.forms.Common_Functions;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.Alerts;
-import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

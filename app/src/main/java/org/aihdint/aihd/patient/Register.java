@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Patient;
+package org.aihdint.aihd.patient;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;

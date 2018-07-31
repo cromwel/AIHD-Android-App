@@ -1,7 +1,6 @@
-package org.aihdint.aihd.Forms;
+package org.aihdint.aihd.patient;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,26 +13,24 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.orm.query.Condition;
-import com.orm.query.Select;
-
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.model.Forms;
-import org.aihdint.aihd.model.adapter.FormAdapter;
+import org.aihdint.aihd.model.Person;
+import org.aihdint.aihd.model.adapter.PatientAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DM_HTN_Forms extends AppCompatActivity {
+
+public class Patient_Reports extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
+    //private DatabaseHandler database;
 
-    private List<Forms> formList;
-    private List<Forms> allFormsList;
-    private FormAdapter adapter;
-    private String patient_id;
+    private EditText inputSearch;
+    private List <Person> contactList;
+    private PatientAdapter adapter;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -46,16 +43,12 @@ public class DM_HTN_Forms extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.CreateDrawer(toolbar);
 
-        Intent intent = getIntent();
-        patient_id = intent.getStringExtra("patient_id");
+        inputSearch = findViewById(R.id.input_search);
+        RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
 
-        EditText inputSearch = findViewById(R.id.input_search);
-        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+        contactList = new ArrayList<>();
 
-        allFormsList = new ArrayList<>();
-        formList = new ArrayList<>();
-
-        adapter = new FormAdapter(this, allFormsList);
+        adapter = new PatientAdapter(this, contactList);
 
         assert recyclerView != null;
         recyclerView.setHasFixedSize(true);
@@ -66,17 +59,28 @@ public class DM_HTN_Forms extends AppCompatActivity {
         recyclerView.addItemDecoration(new CustomDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
         recyclerView.setAdapter(adapter);
 
+        /*
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        */
+
+        //database = new DatabaseHandler(this);
+
         getPatients();
 
         inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
+
+                // TODO Auto-generated method stub
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
+
+                // TODO Auto-generated method stub
             }
 
             @Override
@@ -84,46 +88,42 @@ public class DM_HTN_Forms extends AppCompatActivity {
 
                 // filter your list from your input
                 filter(s.toString());
+
+                //you can use runnable postDelayed like 500 ms to delay search text
             }
         });
 
 
     }
 
-
-    public void getPatients() {
+    public void getPatients(){
         // Reading all contacts
-        Log.d("Reading: ", "Reading all forms..");
+        Log.d("Reading: ", "Reading all persons..");
+        /*List<Person> persons = database.getAllPersons();
 
-        List<Forms> forms = Select.from(Forms.class)
-                .where(Condition.prop("patientid").eq(patient_id))
-                .list();
-
-        for (Forms fn : forms) {
+        for (Person cn : persons) {
             // adding each child node to HashMap key => value
-            Forms form = new Forms();
-            form.setForm_id(fn.getForm_id());
-            form.setForm_name(fn.getForm_name());
-            form.setStatus(fn.getStatus());
-            form.setDate(fn.getDate());
-            allFormsList.add(form);
+            Person person = new Person();
+            //person.setID(cn.getID());
+            //person.setName(cn.getName());
+            //person.setStatus("1");
+            // adding contact to contact list
+            contactList.add(person);
+            adapter.notifyDataSetChanged();
         }
+        */
     }
 
-    void filter(String text) {
-        @SuppressWarnings("unchecked") List<Forms> temp = new ArrayList();
-        formList = allFormsList;
-        for (Forms f : formList) {
+    void filter(String text){
+        List<Person> temp = new ArrayList();
+        for(Person d: contactList){
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
-            String name = f.getForm_name();
-            if (name.toLowerCase().contains(text.toLowerCase())) {
-                temp.add(f);
+            if ((d.getFamily_name() + " " + d.getGiven_name()).toLowerCase().contains(text.toLowerCase())) {
+                temp.add(d);
             }
         }
         //update recyclerview
         adapter.searchList(temp);
     }
-
-
 }

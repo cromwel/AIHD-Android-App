@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import org.aihdint.aihd.Forms.Common_Functions;
-import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.aihdint.aihd.forms.Common_Functions;
+import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.json.JSONArray;
 import org.json.JSONException;

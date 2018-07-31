@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Forms;
+package org.aihdint.aihd.forms;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import org.aihdint.aihd.PageAdapters.DM_FollowUp_Adapter;
+import org.aihdint.aihd.pageadapters.DM_FollowUp_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
@@ -21,12 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**

@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import org.aihdint.aihd.Forms.JSONFormBuilder;
+import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;

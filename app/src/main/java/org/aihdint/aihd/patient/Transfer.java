@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Patient;
+package org.aihdint.aihd.patient;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.Window;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 
-public class FootClinic extends AppCompatActivity {
+public class Transfer extends AppCompatActivity {
 
     private ProgressDialog pDialog;
 
@@ -18,7 +18,7 @@ public class FootClinic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.activity_foot_clinic);
+        setContentView(R.layout.activity_discontinue);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -29,4 +29,5 @@ public class FootClinic extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
     }
+
 }

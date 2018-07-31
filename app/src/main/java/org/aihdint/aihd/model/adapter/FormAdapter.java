@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.aihdint.aihd.Forms.DM_Initial_View;
+import org.aihdint.aihd.forms.DM_Initial_View;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.Forms;
 

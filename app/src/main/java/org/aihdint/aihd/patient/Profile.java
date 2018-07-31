@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Patient;
+package org.aihdint.aihd.patient;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import org.aihdint.aihd.Forms.DM_FollowUp;
-import org.aihdint.aihd.Forms.DM_HTN_Forms;
-import org.aihdint.aihd.Forms.DM_Initial;
+import org.aihdint.aihd.forms.DM_FollowUp;
+import org.aihdint.aihd.forms.DM_HTN_Forms;
+import org.aihdint.aihd.forms.DM_Initial;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 
