@@ -97,6 +97,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
 
         List<Forms> forms = Select.from(Forms.class)
                 .where(Condition.prop("patientid").eq(patient_id))
+                .orderBy("date")
                 .list();
 
         for (Forms fn : forms) {

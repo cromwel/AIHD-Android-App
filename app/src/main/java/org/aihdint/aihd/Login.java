@@ -36,6 +36,7 @@ import org.aihdint.aihd.forms.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
+import org.aihdint.aihd.model.Concepts;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
 import org.aihdint.aihd.services.LoadPatients;
@@ -85,6 +86,7 @@ public class Login extends Activity {
         } else {
             checkPermissions();
             loadJSONLocation();
+            loadJSONConcepts();
         }
 
     }
@@ -120,6 +122,47 @@ public class Login extends Activity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+    }
+
+
+    public void loadJSONConcepts() {
+
+        String json;
+
+        try {
+
+            List<Concepts> concept_count = Select.from(Concepts.class).list();
+            if (concept_count.size() > 0) {
+                Concepts.deleteAll(Concepts.class);
+            }
+
+            InputStream is = getAssets().open("concepts.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            //noinspection ResultOfMethodCallIgnored
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+
+            JSONArray jsonArray = new JSONArray(json);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject conceptObj = jsonArray.getJSONObject(i);
+
+                String concept_id = conceptObj.getString("Concept ID");
+                String concept = conceptObj.getString("Concept");
+
+                Concepts concepts = new Concepts(concept_id, concept);
+                concepts.save();
+
+            }
+
+            setLocationData();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void loadJSONLocation() {

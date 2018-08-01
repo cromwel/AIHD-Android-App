@@ -1,5 +1,37 @@
 [
   {
+    "Concept ID": 1540,
+    "Concept": "Employed"
+  },
+  {
+    "Concept ID": 165170,
+    "Concept": "Unemployed"
+  },
+  {
+    "Concept ID": 161382,
+    "Concept": "Self Employed"
+  },
+  {
+    "Concept ID": 159465,
+    "Concept": "Student"
+  },
+  {
+    "Concept ID": 160290,
+    "Concept": "Incomplete Primary"
+  },
+  {
+    "Concept ID": 1713,
+    "Concept": "Primary"
+  },
+  {
+    "Concept ID": 1714,
+    "Concept": "Secondary"
+  },
+  {
+    "Concept ID": 160292,
+    "Concept": "Tertiary Education"
+  },
+  {
     "Concept ID": 165087,
     "Concept": "New DM Patient"
   },
