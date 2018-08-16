@@ -8,15 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import org.aihdint.aihd.pageadapters.DM_Initial_View_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.pageadapters.DM_Initial_View_Adapter;
 
 /**
  * Developed by Rodney on 26/03/2018.
  */
 
-public class DM_Initial_View extends AppCompatActivity {
+public class DM_FollowUp_View extends AppCompatActivity {
 
     //private static final String TAG = DM_Initial_View.class.getSimpleName();
     public static String json;
@@ -35,15 +35,14 @@ public class DM_Initial_View extends AppCompatActivity {
         //report_id = intent.getStringExtra("report_id");
         String file_name = intent.getStringExtra("file_name");
 
-        Log.d("Form Data", JSONFormBuilder.loadForm(this, "initial", file_name) + "");
-        json = JSONFormBuilder.loadForm(this, "initial", file_name);
+        Log.d("Form Data", JSONFormBuilder.loadForm(this, "followup", file_name) + "");
+        json = JSONFormBuilder.loadForm(this, "followup", file_name);
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 2"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 3"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 4"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 5"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);

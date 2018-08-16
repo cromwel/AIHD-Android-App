@@ -1,5 +1,4 @@
-package org.aihdint.aihd.fragments.dm_initial;
-
+package org.aihdint.aihd.fragments.dm_followup;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class Initial_page_view_5 extends Fragment {
+public class Followup_page_view_4 extends Fragment {
 
     private TextView textViewTreatment, textViewDrug, textViewFrequency;
 
@@ -103,3 +102,4 @@ public class Initial_page_view_5 extends Fragment {
         return value;
     }
 }
+

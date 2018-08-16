@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
+import org.aihdint.aihd.forms.DM_Initial_View;
 import org.aihdint.aihd.forms.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.Concepts;
@@ -65,13 +66,7 @@ public class Initial_page_view_1 extends Fragment {
         textViewAlcohol = view.findViewById(R.id.drinking);
         textViewRiskOther = view.findViewById(R.id.risk_other);
 
-
-        Intent intent = getActivity().getIntent();
-        //report_id = intent.getStringExtra("report_id");
-        String file_name = intent.getStringExtra("file_name");
-
-        Log.d("Form Data", JSONFormBuilder.loadForm(getContext(), "initial", file_name) + "");
-        viewForm(JSONFormBuilder.loadForm(getContext(), "initial", file_name));
+        viewForm(DM_Initial_View.json);
 
         return view;
     }

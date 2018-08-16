@@ -1,4 +1,4 @@
-package org.aihdint.aihd.fragments.dm_initial;
+package org.aihdint.aihd.fragments.dm_followup;
 
 
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 
 import org.aihdint.aihd.R;
 
-public class Initial_page_view_2 extends Fragment {
+public class Followup_page_view_1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dm_initial_fragment_view_2, container, false);
+        View view = inflater.inflate(R.layout.dm_initial_fragment_view_1, container, false);
 
         return view;
     }

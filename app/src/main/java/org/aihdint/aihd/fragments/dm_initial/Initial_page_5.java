@@ -47,7 +47,6 @@ public class Initial_page_5 extends Fragment {
             frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin;
 
     private EditText editTextDiet, editTextPhysicalExercise, editTextHerbal, editTextTreatmentOther, editTextComment;
-    //private EditText
 
     private String support_group, designation;
 
@@ -243,7 +242,7 @@ public class Initial_page_5 extends Fragment {
         String[] arraySpinnerEnalapril = new String[]{"Select", "10mg", "20mg "};
         String[] arraySpinnerLisinopril = new String[]{"Select", "20mg ", "40mg "};
         String[] arraySpinnerPerindopril = new String[]{"Select", "2mg ", "4mg", "5mg", "8mg", "10mg"};
-        String[] arraySpinnerRamipril = new String[]{"Select", "1.25", "2.5mg ", "10mg "};
+        String[] arraySpinnerRamipril = new String[]{"Select", "1.25mg", "2.5mg ", "10mg "};
 
         String[] arraySpinnerCandesartan = new String[]{"Select", "4mg", "8mg ", "16mg", "32mg "};
         String[] arraySpinnerIrbesartan = new String[]{"Select", "75mg", "150mg ", "300mg "};
@@ -355,7 +354,7 @@ public class Initial_page_5 extends Fragment {
         return view;
     }
 
-    public void spinnerData(Spinner spinner, final String data) {
+    public void spinnerData(final Spinner spinner, final String data) {
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
 
         if (data.matches("support_group")) {
@@ -383,10 +382,17 @@ public class Initial_page_5 extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 KeyValue value = (KeyValue) parent.getSelectedItem();
-                if (data.matches("support_group")) {
-                    support_group = value.getId();
-                } else if (data.matches("designation")) {
-                    designation = value.getId();
+                switch (spinner.getId()) {
+                    case R.id.spinnerSupportGroup:
+                        if (data.matches("support_group")) {
+                            support_group = value.getId();
+                        }
+                        break;
+                    case R.id.spinnerDesignation:
+                        if (data.matches("designation")) {
+                            designation = value.getId();
+                        }
+                        break;
                 }
                 updateValues();
             }
@@ -398,8 +404,7 @@ public class Initial_page_5 extends Fragment {
     }
 
 
-
-    public void spinnerDataFrequency(Spinner spinner, final String drug) {
+    public void spinnerDataFrequency(final Spinner spinner, final String drug) {
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
 
         // adding each child node to HashMap key => value
@@ -422,179 +427,215 @@ public class Initial_page_5 extends Fragment {
 
                 if (!keyValue.getId().isEmpty()) {
 
-                    if (drug.matches("Metformin")) {
-                        frequencyMetformin = keyValue.getId();
-                    } else {
-                        frequencyMetformin = "";
+                    switch (spinner.getId()) {
+                        case R.id.spinnerDrugMetforminFrq:
+                            if (drug.matches("Metformin")) {
+                                frequencyMetformin = keyValue.getId();
+                            } else {
+                                frequencyMetformin = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugGlibenclamideFrq:
+                            if (drug.matches("Glibenclamide")) {
+                                frequencyGlibenclamide = keyValue.getId();
+                            } else {
+                                frequencyGlibenclamide = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugEnalaprilFrq:
+                            if (drug.matches("Enalapril")) {
+                                frequencyEnalapril = keyValue.getId();
+                            } else {
+                                frequencyEnalapril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCaptoprilFrq:
+                            if (drug.matches("Captopril")) {
+                                frequencyCaptopril = keyValue.getId();
+                            } else {
+                                frequencyCaptopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLisinoprilFrq:
+                            if (drug.matches("Lisinopril")) {
+                                frequencyLisinopril = keyValue.getId();
+                            } else {
+                                frequencyLisinopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPerindoprilFrq:
+                            if (drug.matches("Perindopril")) {
+                                frequencyPerindopril = keyValue.getId();
+                            } else {
+                                frequencyPerindopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugRamiprilFrq:
+                            if (drug.matches("Ramipril")) {
+                                frequencyRamipril = keyValue.getId();
+                            } else {
+                                frequencyRamipril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCandesartanFrq:
+                            if (drug.matches("Candesartan")) {
+                                frequencyCandesartan = keyValue.getId();
+                            } else {
+                                frequencyCandesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugIrbesartanFrq:
+                            if (drug.matches("Irbesartan")) {
+                                frequencyIrbesartan = keyValue.getId();
+                            } else {
+                                frequencyIrbesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLosartanFrq:
+                            if (drug.matches("Losartan")) {
+                                frequencyLosartan = keyValue.getId();
+                            } else {
+                                frequencyLosartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugTelmisartanFrq:
+                            if (drug.matches("Telmisartan")) {
+                                frequencyTelmisartan = keyValue.getId();
+                            } else {
+                                frequencyTelmisartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugValsartanFrq:
+                            if (drug.matches("Valsartan")) {
+                                frequencyValsartan = keyValue.getId();
+                            } else {
+                                frequencyValsartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugOlmesartanFrq:
+                            if (drug.matches("Olmesartan")) {
+                                frequencyOlmesartan = keyValue.getId();
+                            } else {
+                                frequencyOlmesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugAtenololFrq:
+                            if (drug.matches("Atenolol")) {
+                                frequencyAtenolol = keyValue.getId();
+                            } else {
+                                frequencyAtenolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLabetololFrq:
+                            if (drug.matches("Labetolol")) {
+                                frequencyLabetolol = keyValue.getId();
+                            } else {
+                                frequencyLabetolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPropranololFrq:
+                            if (drug.matches("Propranolol")) {
+                                frequencyPropranolol = keyValue.getId();
+                            } else {
+                                frequencyPropranolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCarvedilolFrq:
+                            if (drug.matches("Carvedilol")) {
+                                frequencyCarvedilol = keyValue.getId();
+                            } else {
+                                frequencyCarvedilol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugNebivololFrq:
+                            if (drug.matches("Nebivolol")) {
+                                frequencyNebivolol = keyValue.getId();
+                            } else {
+                                frequencyNebivolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugMetoprololFrq:
+                            if (drug.matches("Metoprolol")) {
+                                frequencyMetoprolol = keyValue.getId();
+                            } else {
+                                frequencyMetoprolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugBisoprololFrq:
+                            if (drug.matches("Bisoprolol")) {
+                                frequencyBisoprolol = keyValue.getId();
+                            } else {
+                                frequencyBisoprolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugAmlodipineFrq:
+                            if (drug.matches("Amlodipine")) {
+                                frequencyAmlodipine = keyValue.getId();
+                            } else {
+                                frequencyAmlodipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugFelodipineFrq:
+                            if (drug.matches("Felodipine")) {
+                                frequencyFelodipine = keyValue.getId();
+                            } else {
+                                frequencyFelodipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugNifedipineFrq:
+                            if (drug.matches("Nifedipine")) {
+                                frequencyNifedipine = keyValue.getId();
+                            } else {
+                                frequencyNifedipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugMethyldopaFrq:
+                            if (drug.matches("Methyldopa")) {
+                                frequencyMethyldopa = keyValue.getId();
+                            } else {
+                                frequencyMethyldopa = "";
+                            }
+
+                            break;
+                        case R.id.spinnerDrugHydralazineFrq:
+                            if (drug.matches("Hydralazine")) {
+                                frequencyHydralazine = keyValue.getId();
+                            } else {
+                                frequencyHydralazine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPrazocinFrq:
+                            if (drug.matches("Prazocin")) {
+                                frequencyPrazocin = keyValue.getId();
+                            } else {
+                                frequencyPrazocin = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugChlorthalidoneFrq:
+                            if (drug.matches("Chlorthalidone")) {
+                                frequencyChlorthalidone = keyValue.getId();
+                            } else {
+                                frequencyChlorthalidone = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugHydrochlorothiaFrq:
+                            if (drug.matches("Hydrochlorothia")) {
+                                frequencyHydrochlorothia = keyValue.getId();
+                            } else {
+                                frequencyHydrochlorothia = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugIndapamideFrq:
+                            if (drug.matches("Indapamide")) {
+                                frequencyIndapamide = keyValue.getId();
+                            } else {
+                                frequencyIndapamide = "";
+                            }
+                            break;
+                        default:
+                            break;
                     }
 
-                    if (drug.matches("Glibenclamide")) {
-                        frequencyGlibenclamide = keyValue.getId();
-                    } else {
-                        frequencyGlibenclamide = "";
-                    }
-
-                    if (drug.matches("Enalapril")) {
-                        frequencyEnalapril = keyValue.getId();
-                    } else {
-                        frequencyEnalapril = "";
-                    }
-
-                    if (drug.matches("Captopril")) {
-                        frequencyCaptopril = keyValue.getId();
-                    } else {
-                        frequencyCaptopril = "";
-                    }
-
-                    if (drug.matches("Lisinopril")) {
-                        frequencyLisinopril = keyValue.getId();
-                    } else {
-                        frequencyLisinopril = "";
-                    }
-
-                    if (drug.matches("Perindopril")) {
-                        frequencyPerindopril = keyValue.getId();
-                    } else {
-                        frequencyPerindopril = "";
-                    }
-
-                    if (drug.matches("Ramipril")) {
-                        frequencyRamipril = keyValue.getId();
-                    } else {
-                        frequencyRamipril = "";
-                    }
-
-                    if (drug.matches("Candesartan")) {
-                        frequencyCandesartan = keyValue.getId();
-                    } else {
-                        frequencyCandesartan = "";
-                    }
-
-                    if (drug.matches("Irbesartan")) {
-                        frequencyIrbesartan = keyValue.getId();
-                    } else {
-                        frequencyIrbesartan = "";
-                    }
-
-                    if (drug.matches("Losartan")) {
-                        frequencyLosartan = keyValue.getId();
-                    } else {
-                        frequencyLosartan = "";
-                    }
-
-                    if (drug.matches("Telmisartan")) {
-                        frequencyTelmisartan = keyValue.getId();
-                    } else {
-                        frequencyTelmisartan = "";
-                    }
-
-                    if (drug.matches("Valsartan")) {
-                        frequencyValsartan = keyValue.getId();
-                    } else {
-                        frequencyValsartan = "";
-                    }
-
-                    if (drug.matches("Olmesartan")) {
-                        frequencyOlmesartan = keyValue.getId();
-                    } else {
-                        frequencyOlmesartan = "";
-                    }
-
-                    if (drug.matches("Atenolol")) {
-                        frequencyAtenolol = keyValue.getId();
-                    } else {
-                        frequencyAtenolol = "";
-                    }
-
-                    if (drug.matches("Labetolol")) {
-                        frequencyLabetolol = keyValue.getId();
-                    } else {
-                        frequencyLabetolol = "";
-                    }
-
-                    if (drug.matches("Propranolol")) {
-                        frequencyPropranolol = keyValue.getId();
-                    } else {
-                        frequencyPropranolol = "";
-                    }
-
-                    if (drug.matches("Carvedilol")) {
-                        frequencyCarvedilol = keyValue.getId();
-                    } else {
-                        frequencyCarvedilol = "";
-                    }
-
-                    if (drug.matches("Nebivolol")) {
-                        frequencyNebivolol = keyValue.getId();
-                    } else {
-                        frequencyNebivolol = "";
-                    }
-
-                    if (drug.matches("Metoprolol")) {
-                        frequencyMetoprolol = keyValue.getId();
-                    } else {
-                        frequencyMetoprolol = "";
-                    }
-
-                    if (drug.matches("Bisoprolol")) {
-                        frequencyBisoprolol = keyValue.getId();
-                    } else {
-                        frequencyBisoprolol = "";
-                    }
-
-                    if (drug.matches("Amlodipine")) {
-                        frequencyAmlodipine = keyValue.getId();
-                    } else {
-                        frequencyAmlodipine = "";
-                    }
-
-                    if (drug.matches("Felodipine")) {
-                        frequencyFelodipine = keyValue.getId();
-                    } else {
-                        frequencyFelodipine = "";
-                    }
-
-                    if (drug.matches("Nifedipine")) {
-                        frequencyNifedipine = keyValue.getId();
-                    } else {
-                        frequencyNifedipine = "";
-                    }
-
-                    if (drug.matches("Methyldopa")) {
-                        frequencyMethyldopa = keyValue.getId();
-                    } else {
-                        frequencyMethyldopa = "";
-                    }
-
-                    if (drug.matches("Hydralazine")) {
-                        frequencyHydralazine = keyValue.getId();
-                    } else {
-                        frequencyHydralazine = "";
-                    }
-
-                    if (drug.matches("Prazocin")) {
-                        frequencyPrazocin = keyValue.getId();
-                    } else {
-                        frequencyPrazocin = "";
-                    }
-
-                    if (drug.matches("Chlorthalidone")) {
-                        frequencyChlorthalidone = keyValue.getId();
-                    } else {
-                        frequencyChlorthalidone = "";
-                    }
-
-                    if (drug.matches("Hydrochlorothia")) {
-                        frequencyHydrochlorothia = keyValue.getId();
-                    } else {
-                        frequencyHydrochlorothia = "";
-                    }
-
-                    if (drug.matches("Indapamide")) {
-                        frequencyIndapamide = keyValue.getId();
-                    } else {
-                        frequencyIndapamide = "";
-                    }
 
                     updateValues();
                 }
@@ -611,7 +652,7 @@ public class Initial_page_5 extends Fragment {
     }
 
 
-    public void spinnerDoseData(Spinner spinner, String[] arraySpinner, final String drug) {
+    public void spinnerDoseData(final Spinner spinner, String[] arraySpinner, final String drug) {
         //fill data in spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, arraySpinner);
         spinner.setAdapter(adapter);
@@ -629,178 +670,215 @@ public class Initial_page_5 extends Fragment {
                 if (!dose.isEmpty()) {
                     Log.d("Dose", dose + " ");
 
-                    if (drug.matches("Metformin")) {
-                        doseMetformin = dose;
-                    } else {
-                        doseMetformin = "";
-                    }
+                    switch (spinner.getId()) {
+                        case R.id.spinnerDrugMetformin:
+                            if (drug.matches("Metformin")) {
+                                doseMetformin = dose;
+                            } else {
+                                doseMetformin = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugGlibenclamide:
+                            if (drug.matches("Glibenclamide")) {
+                                doseGlibenclamide = dose;
+                            } else {
+                                doseGlibenclamide = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugEnalapril:
+                            if (drug.matches("Enalapril")) {
+                                doseEnalapril = dose;
+                            } else {
+                                doseEnalapril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCaptopril:
+                            if (drug.matches("Captopril")) {
+                                doseCaptopril = dose;
+                            } else {
+                                doseCaptopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLisinopril:
+                            if (drug.matches("Lisinopril")) {
+                                doseLisinopril = dose;
+                            } else {
+                                doseLisinopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPerindopril:
+                            if (drug.matches("Perindopril")) {
+                                dosePerindopril = dose;
+                            } else {
+                                dosePerindopril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugRamipril:
+                            if (drug.matches("Ramipril")) {
+                                doseRamipril = dose;
+                            } else {
+                                doseRamipril = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCandesartan:
+                            if (drug.matches("Candesartan")) {
+                                doseCandesartan = dose;
+                            } else {
+                                doseCandesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugIrbesartan:
+                            if (drug.matches("Irbesartan")) {
+                                doseIrbesartan = dose;
+                            } else {
+                                doseIrbesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLosartan:
+                            if (drug.matches("Losartan")) {
+                                doseLosartan = dose;
+                            } else {
+                                doseLosartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugTelmisartan:
+                            if (drug.matches("Telmisartan")) {
+                                doseTelmisartan = dose;
+                            } else {
+                                doseTelmisartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugValsartan:
+                            if (drug.matches("Valsartan")) {
+                                doseValsartan = dose;
+                            } else {
+                                doseValsartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugOlmesartan:
+                            if (drug.matches("Olmesartan")) {
+                                doseOlmesartan = dose;
+                            } else {
+                                doseOlmesartan = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugAtenolol:
+                            if (drug.matches("Atenolol")) {
+                                doseAtenolol = dose;
+                            } else {
+                                doseAtenolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugLabetolol:
+                            if (drug.matches("Labetolol")) {
+                                doseLabetolol = dose;
+                            } else {
+                                doseLabetolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPropranolol:
+                            if (drug.matches("Propranolol")) {
+                                dosePropranolol = dose;
+                            } else {
+                                dosePropranolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugCarvedilol:
+                            if (drug.matches("Carvedilol")) {
+                                doseCarvedilol = dose;
+                            } else {
+                                doseCarvedilol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugNebivolol:
+                            if (drug.matches("Nebivolol")) {
+                                doseNebivolol = dose;
+                            } else {
+                                doseNebivolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugMetoprolol:
+                            if (drug.matches("Metoprolol")) {
+                                doseMetoprolol = dose;
+                            } else {
+                                doseMetoprolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugBisoprolol:
+                            if (drug.matches("Bisoprolol")) {
+                                doseBisoprolol = dose;
+                            } else {
+                                doseBisoprolol = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugAmlodipine:
+                            if (drug.matches("Amlodipine")) {
+                                doseAmlodipine = dose;
+                            } else {
+                                doseAmlodipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugFelodipine:
+                            if (drug.matches("Felodipine")) {
+                                doseFelodipine = dose;
+                            } else {
+                                doseFelodipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugNifedipine:
+                            if (drug.matches("Nifedipine")) {
+                                doseNifedipine = dose;
+                            } else {
+                                doseNifedipine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugMethyldopa:
+                            if (drug.matches("Methyldopa")) {
+                                doseMethyldopa = dose;
+                            } else {
+                                doseMethyldopa = "";
+                            }
 
-                    if (drug.matches("Glibenclamide")) {
-                        doseGlibenclamide = dose;
-                    } else {
-                        doseGlibenclamide = "";
-                    }
+                            break;
+                        case R.id.spinnerDrugHydralazine:
+                            if (drug.matches("Hydralazine")) {
+                                doseHydralazine = dose;
+                            } else {
+                                doseHydralazine = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugPrazocin:
+                            if (drug.matches("Prazocin")) {
+                                dosePrazocin = dose;
+                            } else {
+                                dosePrazocin = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugChlorthalidone:
+                            if (drug.matches("Chlorthalidone")) {
+                                doseChlorthalidone = dose;
+                            } else {
+                                doseChlorthalidone = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugHydrochlorothia:
+                            if (drug.matches("Hydrochlorothia")) {
+                                doseHydrochlorothia = dose;
+                            } else {
+                                doseHydrochlorothia = "";
+                            }
+                            break;
+                        case R.id.spinnerDrugIndapamide:
+                            if (drug.matches("Indapamide")) {
+                                doseIndapamide = dose;
+                            } else {
+                                doseIndapamide = "";
+                            }
+                            break;
+                        default:
+                            break;
 
-                    if (drug.matches("Enalapril")) {
-                        doseEnalapril = dose;
-                    } else {
-                        doseEnalapril = "";
-                    }
 
-                    if (drug.matches("Captopril")) {
-                        doseCaptopril = dose;
-                    } else {
-                        doseCaptopril = "";
-                    }
-
-                    if (drug.matches("Lisinopril")) {
-                        doseLisinopril = dose;
-                    } else {
-                        doseLisinopril = "";
-                    }
-
-                    if (drug.matches("Perindopril")) {
-                        dosePerindopril = dose;
-                    } else {
-                        dosePerindopril = "";
-                    }
-
-                    if (drug.matches("Ramipril")) {
-                        doseRamipril = dose;
-                    } else {
-                        doseRamipril = "";
-                    }
-
-                    if (drug.matches("Candesartan")) {
-                        doseCandesartan = dose;
-                    } else {
-                        doseCandesartan = "";
-                    }
-
-                    if (drug.matches("Irbesartan")) {
-                        doseIrbesartan = dose;
-                    } else {
-                        doseIrbesartan = "";
-                    }
-
-                    if (drug.matches("Losartan")) {
-                        doseLosartan = dose;
-                    } else {
-                        doseLosartan = "";
-                    }
-
-                    if (drug.matches("Telmisartan")) {
-                        doseTelmisartan = dose;
-                    } else {
-                        doseTelmisartan = "";
-                    }
-
-                    if (drug.matches("Valsartan")) {
-                        doseValsartan = dose;
-                    } else {
-                        doseValsartan = "";
-                    }
-
-                    if (drug.matches("Olmesartan")) {
-                        doseOlmesartan = dose;
-                    } else {
-                        doseOlmesartan = "";
-                    }
-
-                    if (drug.matches("Atenolol")) {
-                        doseAtenolol = dose;
-                    } else {
-                        doseAtenolol = "";
-                    }
-
-                    if (drug.matches("Labetolol")) {
-                        doseLabetolol = dose;
-                    } else {
-                        doseLabetolol = "";
-                    }
-
-                    if (drug.matches("Propranolol")) {
-                        dosePropranolol = dose;
-                    } else {
-                        dosePropranolol = "";
-                    }
-
-                    if (drug.matches("Carvedilol")) {
-                        doseCarvedilol = dose;
-                    } else {
-                        doseCarvedilol = "";
-                    }
-
-                    if (drug.matches("Nebivolol")) {
-                        doseNebivolol = dose;
-                    } else {
-                        doseNebivolol = "";
-                    }
-
-                    if (drug.matches("Metoprolol")) {
-                        doseMetoprolol = dose;
-                    } else {
-                        doseMetoprolol = "";
-                    }
-
-                    if (drug.matches("Bisoprolol")) {
-                        doseBisoprolol = dose;
-                    } else {
-                        doseBisoprolol = "";
-                    }
-
-                    if (drug.matches("Amlodipine")) {
-                        doseAmlodipine = dose;
-                    } else {
-                        doseAmlodipine = "";
-                    }
-
-                    if (drug.matches("Felodipine")) {
-                        doseFelodipine = dose;
-                    } else {
-                        doseFelodipine = "";
-                    }
-
-                    if (drug.matches("Nifedipine")) {
-                        doseNifedipine = dose;
-                    } else {
-                        doseNifedipine = "";
-                    }
-
-                    if (drug.matches("Methyldopa")) {
-                        doseMethyldopa = dose;
-                    } else {
-                        doseMethyldopa = "";
-                    }
-
-                    if (drug.matches("Hydralazine")) {
-                        doseHydralazine = dose;
-                    } else {
-                        doseHydralazine = "";
-                    }
-
-                    if (drug.matches("Prazocin")) {
-                        dosePrazocin = dose;
-                    } else {
-                        dosePrazocin = "";
-                    }
-
-                    if (drug.matches("Chlorthalidone")) {
-                        doseChlorthalidone = dose;
-                    } else {
-                        doseChlorthalidone = "";
-                    }
-
-                    if (drug.matches("Hydrochlorothia")) {
-                        doseHydrochlorothia = dose;
-                    } else {
-                        doseHydrochlorothia = "";
-                    }
-
-                    if (drug.matches("Indapamide")) {
-                        doseIndapamide = dose;
-                    } else {
-                        doseIndapamide = "";
                     }
 
                     updateValues();
@@ -1124,95 +1202,95 @@ public class Initial_page_5 extends Fragment {
         JSONArray jsonArry = new JSONArray();
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165280", "valueCoded", Metformin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueCoded", doseMetformin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueNumeric", doseMetformin, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165280", "valueCoded", frequencyMetformin, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165281", "valueCoded", Glibenclamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueCoded", doseGlibenclamide, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueText", "", current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueText", "", current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165284", "valueCoded", NPH, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "valueText", "", current_date, ""));
 
         //ACE
         jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueCoded", doseCaptopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueNumeric", doseCaptopril, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165253", "valueCoded", frequencyCaptopril, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165254", "valueCoded", Enalapril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueCoded", doseEnalapril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueNumeric", doseEnalapril, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165254", "valueCoded", frequencyEnalapril, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165255", "valueCoded", Lisinopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueCoded", doseLisinopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueNumeric", doseLisinopril, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165255", "valueCoded", frequencyLisinopril, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165256", "valueCoded", Perindopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueCoded", dosePerindopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueNumeric", dosePerindopril, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165256", "valueCoded", frequencyPerindopril, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165257", "valueCoded", Ramipril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueCoded", doseRamipril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueNumeric", doseRamipril, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165257", "valueCoded", frequencyRamipril, current_date, ""));
 
         //ARB
         jsonArry.put(JSONFormBuilder.observations("1282", "165258", "valueCoded", Candesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueCoded", doseCandesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueNumeric", doseCandesartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165258", "valueCoded", frequencyCandesartan, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165259", "valueCoded", Irbesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueCoded", doseIrbesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueNumeric", doseIrbesartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165259", "valueCoded", frequencyIrbesartan, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165260", "valueCoded", Losartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueCoded", doseLosartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueNumeric", doseLosartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165260", "valueCoded", frequencyLosartan, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165261", "valueCoded", Telmisartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueCoded", doseTelmisartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueNumeric", doseTelmisartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165261", "valueCoded", frequencyTelmisartan, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165262", "valueCoded", Valsartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueCoded", doseValsartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueNumeric", doseValsartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165262", "valueCoded", frequencyValsartan, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165263", "valueCoded", Olmesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueCoded", doseOlmesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueNumeric", doseOlmesartan, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165263", "valueCoded", frequencyOlmesartan, current_date, ""));
 
         //Beta Blockers
         jsonArry.put(JSONFormBuilder.observations("1282", "165264", "valueCoded", Atenolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueCoded", doseAtenolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueNumeric", doseAtenolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165264", "valueCoded", frequencyAtenolol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165265", "valueCoded", Labetolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueCoded", doseLabetolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueNumeric", doseLabetolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165265", "valueCoded", frequencyLabetolol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165266", "valueCoded", Propranolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueCoded", dosePropranolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueNumeric", dosePropranolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165266", "valueCoded", frequencyPropranolol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165267", "valueCoded", Carvedilol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueCoded", doseCarvedilol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueNumeric", doseCarvedilol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165267", "valueCoded", frequencyCarvedilol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165268", "valueCoded", Nebivolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueCoded", doseNebivolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueNumeric", doseNebivolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165268", "valueCoded", frequencyNebivolol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165269", "valueCoded", Metoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueCoded", doseMetoprolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueNumeric", doseMetoprolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165269", "valueCoded", frequencyMetoprolol, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165270", "valueCoded", Bisoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueCoded", doseBisoprolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueNumeric", doseBisoprolol, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165270", "valueCoded", frequencyBisoprolol, current_date, ""));
 
         //Long Acting CCB
@@ -1221,52 +1299,53 @@ public class Initial_page_5 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", frequencyAmlodipine, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", Felodipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165272", "", doseFelodipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", doseFelodipine, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", frequencyFelodipine, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", Nifedipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueCoded", doseNifedipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", doseNifedipine, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165273", "valueCoded", frequencyNifedipine, current_date, ""));
 
         //AntiHypersensitives
         jsonArry.put(JSONFormBuilder.observations("1282", "165277", "valueCoded", Methyldopa, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueCoded", doseMethyldopa, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueNumeric", doseMethyldopa, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165277", "valueCoded", frequencyMethyldopa, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165278", "valueCoded", Hydralazine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueCoded", doseHydralazine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueNumeric", doseHydralazine, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165278", "valueCoded", frequencyHydralazine, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165279", "valueCoded", Prazocin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueCoded", dosePrazocin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueNumeric", dosePrazocin, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165279", "valueCoded", frequencyPrazocin, current_date, ""));
 
         //Thizide
         jsonArry.put(JSONFormBuilder.observations("1282", "165274", "valueCoded", Chlorthalidone, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueCoded", doseChlorthalidone, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueNumeric", doseChlorthalidone, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165274", "valueCoded", frequencyChlorthalidone, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165275", "valueCoded", Hydrochlorothia, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueCoded", doseHydrochlorothia, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueNumeric", doseHydrochlorothia, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165275", "valueCoded", frequencyHydrochlorothia, current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165276", "valueCoded", Indapamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueCoded", doseIndapamide, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueNumeric", doseIndapamide, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165276", "valueCoded", frequencyIndapamide, current_date, ""));
 
+        //Other
         jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Diet, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165201", "165142", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165201", "165142", "valueText", "", current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", PhysicalExercise, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165202", "165142", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165202", "165142", "valueText", "", current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Herbal, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165203", "165142", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165203", "165142", "valueText", "", current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", TreatmentOther, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165204", "165142", "string", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165204", "165142", "valueText", "", current_date, ""));
 
-        //jsonArry.put(JSONFormBuilder.observations("161011", "", "string", editTextComment.getText().toString().trim(), current_date, ""));
+        //jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), current_date, ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

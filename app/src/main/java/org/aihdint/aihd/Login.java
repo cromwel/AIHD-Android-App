@@ -271,9 +271,9 @@ public class Login extends Activity {
 
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("display");
+                        String user_id = user.getString("uuid");
 
-                        JSONObject person = user.getJSONObject("person");
-                        String user_id = person.getString("uuid");
+                        //JSONObject person = user.getJSONObject("person");
 
                         List<Location> location = Location.findWithQuery(Location.class, "SELECT * from LOCATION WHERE _id = ? LIMIT 1", location_id);
 

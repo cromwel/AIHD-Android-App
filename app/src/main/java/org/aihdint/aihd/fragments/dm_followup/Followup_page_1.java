@@ -311,16 +311,18 @@ public class Followup_page_1 extends Fragment {
     }
 
     public void updateValues() {
-        String encounter_date = dm_followup_date.getText().toString().trim();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String current_time = timeFormat.format(new Date());
+        String encounter_date = dm_followup_date.getText().toString().trim() + " " + current_time;
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("160638", "", "string", supporter_nameEditText.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160642", "", "string", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165209", "", "string", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("160638", "", "valueText", supporter_nameEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("160642", "", "valueText", supporter_phoneEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165209", "", "valueText", supporter_phone_otherEditText.getText().toString().trim(), current_date, ""));
 
         jsonArry.put(JSONFormBuilder.observations("165086", "", "valueCoded", dm_diagnosis, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("165094", "", "valueCoded", diabetes_type, current_date, ""));
@@ -334,14 +336,14 @@ public class Followup_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("", "", "valueCoded", tb_status, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_treatment, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165172", "", "string", editTextTBDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165173", "", "string", editTextTBComment.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165172", "", "valueText", editTextTBDate.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), current_date, ""));
 
 
-        jsonArry.put(JSONFormBuilder.observations("165089", "", "string", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165150", "", "string", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165090", "", "string", htnDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165151", "", "string", htnClinicDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueText", dmDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165150", "", "valueText", dmClinicDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueText", htnDiagnosisDateEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165151", "", "valueText", htnClinicDateEditText.getText().toString().trim(), current_date, ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
