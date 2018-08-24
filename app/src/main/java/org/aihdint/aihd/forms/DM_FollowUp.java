@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.aihdint.aihd.app.JSONFormBuilder;
+import org.aihdint.aihd.model.Forms;
 import org.aihdint.aihd.pageadapters.DM_FollowUp_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
@@ -33,7 +35,8 @@ import java.io.PrintWriter;
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
-    private String encounter_date, file_name, patient_id;
+    private String encounter_date, file_name, form_id, patient_id;
+    private long id;
 
 
     @SuppressLint("SimpleDateFormat")
@@ -53,6 +56,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         patient_id = intent.getStringExtra("patient_id");
 
         file_name = "DM_HTN_FOLLOWUP_" + System.currentTimeMillis() + ".json";
+        form_id = System.currentTimeMillis() + "_" + patient_id;
 
         jsonArry1 = new JSONArray();
         jsonArry2 = new JSONArray();
@@ -128,6 +132,8 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4);
             JSONObject jsonForm = new JSONObject();
 
+            String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
+
             try {
                 jsonForm.put("formDescription", "Diabetes Clinical Follow Up Form");
                 jsonForm.put("formEncounterType", "2da542a4-f87d-11e7-8eb4-37dc291c1b12");
@@ -136,7 +142,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 jsonForm.put("formUILocation", "patientDashboard.visitActions");
                 jsonForm.put("formOrder", "2");
                 jsonForm.put("encounterDate", encounter_date);
-                jsonForm.put("encounterProvider", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+                jsonForm.put("encounterProvider", creator);
                 jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
@@ -150,6 +156,10 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             pw.flush();
             pw.close();
             f.close();
+
+            Forms forms = new Forms(form_id, file_name, creator, patient_id, "followup", encounter_date, "0");
+            id = forms.save();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.i("Error", "*** File not found. Did you add a WRITE_EXTERNAL_STORAGE permission to the manifest?");
@@ -161,7 +171,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
         boolean isConnected = File_Upload.Connectivity(getApplicationContext());
         if (isConnected) {
-            File_Upload.upload(getApplicationContext(), Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, null);
+            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);
         } else {
             Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
         }

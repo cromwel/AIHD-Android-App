@@ -38,7 +38,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:textAllCaps="false"
-            android:text="Pending"
+            android:text="@string/pending"
             android:textColor="@color/white" />
 
         <Button
@@ -52,7 +52,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:textAllCaps="false"
-            android:text="Sent"
+            android:text="@string/uploaded"
             android:textColor="@color/white" />
 
         <customfonts.TextView_RobotoLight
@@ -66,7 +66,6 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:padding="5dp"
-            android:text="2018-05-12"
             android:textSize="13sp"
             tools:targetApi="jelly_bean" />
     </LinearLayout>

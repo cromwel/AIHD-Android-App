@@ -19,7 +19,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-import org.aihdint.aihd.forms.JSONFormBuilder;
+import org.aihdint.aihd.app.Common;
+import org.aihdint.aihd.app.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.aihdint.aihd.model.KeyValue;
@@ -746,62 +747,60 @@ public class Initial_page_1 extends Fragment {
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String current_date = dateFormat.format(new Date());
-
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("1712", "", "valueCoded", education_level, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1542", "", "valueCoded", occupation, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165171", "", "valueText", occupation_otherEditText.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1712", "", "valueCoded", education_level, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1542", "", "valueCoded", occupation, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165171", "", "valueText", occupation_otherEditText.getText().toString().trim(), Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165086", "", "valueCoded", diabetes_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("140228", "", "valueCoded", diabetes_family, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165153", "", "valueText", editTextDiagnosisDiabetes.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165094", "", "valueCoded", diabetes_type, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165086", "", "valueCoded", diabetes_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("140228", "", "valueCoded", diabetes_family, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165153", "", "valueText", editTextDiagnosisDiabetes.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165094", "", "valueCoded", diabetes_type, Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165091", "", "valueCoded", htn_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165191", "", "valueCoded", htn_family, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165154", "", "valueText", editTextDiagnosisHypertension.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165198", "", "valueCoded", htn_type, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165091", "", "valueCoded", htn_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165191", "", "valueCoded", htn_family, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165154", "", "valueText", editTextDiagnosisHypertension.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165198", "", "valueCoded", htn_type, Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("138405", "", "valueCoded", hiv_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159811", "", "valueCoded", enrolled_to_hiv_care, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165155", "", "valueText", editTextPatientStatus.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("", "", "valueCoded", tb_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_treatment, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165172", "", "valueText", editTextTBDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("138405", "", "valueCoded", hiv_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159811", "", "valueCoded", enrolled_to_hiv_care, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165155", "", "valueText", editTextPatientStatus.getText().toString().trim(), Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1917", "", "valueCoded", nhif_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165162", "", "valueText", editTextNHIFOther.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1648", "", "valueCoded", referral_status, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("164408", "", "valueCoded", referral_inter, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165163", "", "valueCoded", referral_intra, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165164", "", "valueText", editTextReferralComment.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165156", "", "valueText", editTextReferralDetails.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("", "", "valueCoded", tb_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_treatment, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165172", "", "valueText", editTextTBDate.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", breathing, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", palpitations, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", dizziness, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", fainting, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", leg_swell, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", urination_fatigue, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", lose_consciousness, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", blurr_vision, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", focal_weakness, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", foot_complaint, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", headache_migraines, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", complaint_other, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165174", "", "valueText", editTextComplaintOther.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1427", "", "valueText", editTextLMP.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1917", "", "valueCoded", nhif_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165162", "", "valueText", editTextNHIFOther.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1648", "", "valueCoded", referral_status, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164408", "", "valueCoded", referral_inter, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165163", "", "valueCoded", referral_intra, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165164", "", "valueText", editTextReferralComment.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165156", "", "valueText", editTextReferralDetails.getText().toString().trim(), Common.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165208", "", "valueCoded", exercise, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165207", "", "valueCoded", diet, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("152722", "", "valueCoded", smoking, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159449", "", "valueCoded", drinking, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueText", editTextRiskOther.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", breathing, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", palpitations, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", dizziness, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", fainting, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", leg_swell, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", urination_fatigue, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", lose_consciousness, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", blurr_vision, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", focal_weakness, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", foot_complaint, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", headache_migraines, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("6042", "", "valueCoded", complaint_other, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165174", "", "valueText", editTextComplaintOther.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1427", "", "valueText", editTextLMP.getText().toString().trim(), Common.date(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165208", "", "valueCoded", exercise, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165207", "", "valueCoded", diet, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("152722", "", "valueCoded", smoking, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159449", "", "valueCoded", drinking, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueText", editTextRiskOther.getText().toString().trim(), Common.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
@@ -810,10 +809,7 @@ public class Initial_page_1 extends Fragment {
         }
         //Log.d("JSON FollowUp Page 1", jsonArry.toString() + " ");
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String current_time = timeFormat.format(new Date());
-
-        FragmentModelInitial.getInstance().initialOne(dm_initial_dateEditText.getText().toString().trim() + " " + current_time, jsonArry);
+        FragmentModelInitial.getInstance().initialOne(dm_initial_dateEditText.getText().toString().trim() + " " + Common.time(), jsonArry);
     }
 
 }

@@ -9,9 +9,7 @@ import com.orm.SugarRecord;
 
 public class Person extends SugarRecord {
     //private variables
-    @SerializedName("person_id")
-    private String _id;
-
+    private String person_id;
     private String family_name;
     private String given_name;
     private String gender;
@@ -35,8 +33,8 @@ public class Person extends SugarRecord {
     }
 
     // constructor
-    public Person(String id, String name){
-        this._id = id;
+    public Person(String person_id, String name) {
+        this.person_id = person_id;
         this.family_name = name;
     }
 
@@ -67,11 +65,11 @@ public class Person extends SugarRecord {
 
 
     public String get_id() {
-        return _id;
+        return person_id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void set_id(String person_id) {
+        this.person_id = person_id;
     }
 
     public String getFamily_name() {

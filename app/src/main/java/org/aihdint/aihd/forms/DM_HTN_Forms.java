@@ -105,9 +105,12 @@ public class DM_HTN_Forms extends AppCompatActivity {
             Forms form = new Forms();
             form.setForm_id(fn.getForm_id());
             form.setForm_name(fn.getForm_name());
+            form.setForm_type(fn.getForm_type());
             form.setStatus(fn.getStatus());
             form.setDate(fn.getDate());
             allFormsList.add(form);
+
+            Log.d("Type", fn.getForm_type());
         }
     }
 

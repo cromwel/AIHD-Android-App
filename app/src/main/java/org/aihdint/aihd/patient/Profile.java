@@ -1,11 +1,15 @@
 package org.aihdint.aihd.patient;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.aihdint.aihd.forms.DM_FollowUp;
@@ -14,7 +18,7 @@ import org.aihdint.aihd.forms.DM_Initial;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private String patient_id;
 
@@ -60,12 +64,14 @@ public class Profile extends AppCompatActivity {
 
     public void dm_initial(View view) {
         Intent dm_initial = new Intent(getApplicationContext(), DM_Initial.class);
+        dm_initial.putExtra("patient_id", patient_id);
         startActivity(dm_initial);
         finish();
     }
 
     public void dm_followup(View view) {
         Intent dm_followup = new Intent(getApplicationContext(), DM_FollowUp.class);
+        dm_followup.putExtra("patient_id", patient_id);
         startActivity(dm_followup);
         finish();
     }
@@ -80,6 +86,7 @@ public class Profile extends AppCompatActivity {
 
     public void admission(View view) {
         Intent admission = new Intent(getApplicationContext(), Admission.class);
+        admission.putExtra("patient_id", patient_id);
         startActivity(admission);
         finish();
     }
@@ -87,6 +94,7 @@ public class Profile extends AppCompatActivity {
     public void foot_clinic(View view) {
 
         Intent foot_clinic = new Intent(getApplicationContext(), FootClinic.class);
+        foot_clinic.putExtra("patient_id", patient_id);
         startActivity(foot_clinic);
         finish();
     }
@@ -94,10 +102,45 @@ public class Profile extends AppCompatActivity {
     public void transfer(View view) {
 
         Intent transfer = new Intent(getApplicationContext(), Transfer.class);
+        transfer.putExtra("patient_id", patient_id);
         startActivity(transfer);
         finish();
     }
 
     public void deceased(View view) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        // Set Dialog Title
+        alertDialog.setTitle("Patient Deceased");
+
+        // Set Dialog Message
+        alertDialog.setMessage("Patient Status?");
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+
+        CheckBox checkBox = new CheckBox(this);
+        checkBox.setOnCheckedChangeListener(this);
+        checkBox.setId(R.id.checkBoxDeceased);
+        checkBox.setText(R.string.deceased);
+
+        checkBox.setLayoutParams(lp);
+        alertDialog.setView(checkBox);
+
+        // Set OK Button
+        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        // Show Alert Message
+        alertDialog.show();
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
     }
 }

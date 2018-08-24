@@ -31,7 +31,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="5dp"
                     android:background="@drawable/round_border"
                     app:cardCornerRadius="5dp"
                     card_view:cardElevation="9dp">
@@ -102,8 +102,7 @@
                                 android:id="@+id/spinnerPerson"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:entries="@array/location_arrays"
-                                android:prompt="@string/location_prompt" />
+                                android:entries="@array/location_arrays" />
 
 
                             <customfonts.TextView_Roboto_Medium

@@ -30,7 +30,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="5dp"
                     android:background="@drawable/round_border"
                     app:cardCornerRadius="5dp"
                     card_view:cardElevation="9dp">
@@ -57,15 +57,13 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Reason for Discontinuation" />
+                                android:text="Visit Type" />
 
                             <Spinner
-                                android:id="@+id/spinnerReason"
+                                android:id="@+id/spinnerVisit"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_marginBottom="20dp"
-                                android:entries="@array/location_arrays"
-                                android:prompt="@string/location_prompt" />
+                                android:layout_marginBottom="20dp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -424,6 +422,7 @@
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:padding="15dp"
                             android:text="Comments" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -457,7 +456,6 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
                             android:orientation="horizontal"
                             android:weightSum="2">
 
@@ -465,17 +463,17 @@
                                 android:id="@+id/followup_continue"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="1.25"
                                 android:onClick="onCheckboxClicked"
                                 android:text="Continue Care in clinic" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="0.75"
                                 android:hint="Return date"
                                 android:inputType="date"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="15sp" />
 
                         </LinearLayout>
@@ -487,12 +485,10 @@
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
-                        <Spinner
-                            android:id="@+id/spinnerPerson"
+                        <customfonts.EditText_Roboto_Regular
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:entries="@array/location_arrays"
-                            android:prompt="@string/location_prompt" />
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp" />
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -505,8 +501,7 @@
                             android:id="@+id/spinnerDesignation"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:entries="@array/location_arrays"
-                            android:prompt="@string/location_prompt" />
+                            android:entries="@array/location_arrays" />
 
                         <customfonts.TextView_Roboto_Medium
                             android:layout_width="match_parent"

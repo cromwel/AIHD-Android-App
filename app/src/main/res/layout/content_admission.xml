@@ -63,8 +63,7 @@
                             <Spinner
                                 android:id="@+id/spinnerReason"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:entries="@array/location_arrays" />
+                                android:layout_height="50dp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"

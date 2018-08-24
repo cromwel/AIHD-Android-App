@@ -1,6 +1,6 @@
 package org.aihdint.aihd.patient;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -39,7 +39,6 @@ public class Patients extends AppCompatActivity {
     private PatientAdapter adapter;
     private String IsForm;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,10 +91,10 @@ public class Patients extends AppCompatActivity {
                     .where(Condition.prop("_status").eq("0"))
                     .list();
 
-            if (person_count.size() > 0) {
+            if (person_count.size() < 1) {
 
-                Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
-                getApplication().startService(grapprIntent);
+                Intent intentPatient = new Intent(getApplicationContext(), LoadPatients.class);
+                getApplication().startService(intentPatient);
 
                 getPatients();
             } else {

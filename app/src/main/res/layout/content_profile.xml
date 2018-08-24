@@ -32,8 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/round_border"
-                    app:cardCornerRadius="5dp"
-                    card_view:cardElevation="9dp">
+                    app:cardCornerRadius="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -110,8 +109,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="dm_initial"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -128,7 +126,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="5dp"
-                                        android:text="DM HTN Initial Form"
+                                        android:text="Initial Form"
                                         android:textAlignment="center"
                                         android:textColor="@color/black"
                                         android:textSize="14sp" />
@@ -144,8 +142,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="dm_followup"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -163,7 +160,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="5dp"
-                                        android:text="DM HTN FollowUp Form"
+                                        android:text="FollowUp Form"
                                         android:textAlignment="center"
                                         android:textColor="@color/black"
                                         android:textSize="14sp" />
@@ -180,8 +177,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="forms"
-                            app:cardCornerRadius="5dp"
-                            card_view:cardElevation="9dp">
+                            app:cardCornerRadius="5dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -215,8 +211,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="admission"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -243,8 +238,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="foot_clinic"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -279,8 +273,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="transfer"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -307,8 +300,7 @@
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:onClick="deceased"
-                                app:cardCornerRadius="5dp"
-                                card_view:cardElevation="9dp">
+                                app:cardCornerRadius="5dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"

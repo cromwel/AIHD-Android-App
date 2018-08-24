@@ -3,13 +3,13 @@ package org.aihdint.aihd.model.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.aihdint.aihd.forms.DM_FollowUp_View;
 import org.aihdint.aihd.forms.DM_Initial_View;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.Forms;
@@ -58,16 +58,23 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.MyViewHolder> 
 
             @SuppressWarnings("deprecation") final Forms forms = formList.get(getPosition());
 
-            String input = forms.getForm_name();
-            String result = input.split("_")[2];
-            Log.d("Form Type", result);
-
-            Intent initial_view = new Intent(view.getContext(), DM_Initial_View.class);
-            initial_view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            initial_view.putExtra("form_id", forms.getForm_id());
-            initial_view.putExtra("file_name", forms.getForm_name());
-            initial_view.putExtra("status", forms.getStatus());
-            mContext.startActivity(initial_view);
+            if (forms.getForm_type().equals("initial")) {
+                Intent initial_view = new Intent(view.getContext(), DM_Initial_View.class);
+                initial_view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                initial_view.putExtra("form_id", forms.getForm_id());
+                initial_view.putExtra("file_name", forms.getForm_name());
+                initial_view.putExtra("form_type", forms.getForm_type());
+                initial_view.putExtra("status", forms.getStatus());
+                mContext.startActivity(initial_view);
+            } else if (forms.getForm_type().equals("followup")) {
+                Intent followup_view = new Intent(view.getContext(), DM_FollowUp_View.class);
+                followup_view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                followup_view.putExtra("form_id", forms.getForm_id());
+                followup_view.putExtra("file_name", forms.getForm_name());
+                followup_view.putExtra("form_type", forms.getForm_type());
+                followup_view.putExtra("status", forms.getStatus());
+                //mContext.startActivity(followup_view);
+            }
 
         }
     }
@@ -96,13 +103,6 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.MyViewHolder> 
         notifyDataSetChanged();
     }
 
-    /*
-    public void clear() {
-        int size = this.formList.size();
-        this.formList.clear();
-        notifyItemRangeRemoved(0, size);
-    }
-    */
 }
 
 

@@ -10,18 +10,20 @@ public class Forms extends SugarRecord {
     private String form_name;
     private String creator;
     private String patient_id;
+    private String form_type;
     private String date;
-    private String status;
+    public String status;
     private JSONObject obs;
 
     public Forms() {
     }
 
-    public Forms(String form_id, String form_name, String creator, String patient_id, String date, String status) {
+    public Forms(String form_id, String form_name, String creator, String patient_id, String form_type, String date, String status) {
         this.form_id = form_id;
         this.form_name = form_name;
         this.creator = creator;
         this.patient_id = patient_id;
+        this.form_type = form_type;
         this.date = date;
         this.status = status;
     }
@@ -72,6 +74,14 @@ public class Forms extends SugarRecord {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getForm_type() {
+        return form_type;
+    }
+
+    public void setForm_type(String form_type) {
+        this.form_type = form_type;
     }
 
     public JSONObject getObs() {

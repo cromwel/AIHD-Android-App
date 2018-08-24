@@ -1,4 +1,4 @@
-package org.aihdint.aihd.forms;
+package org.aihdint.aihd.app;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.aihdint.aihd.forms.File_Upload;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +44,7 @@ public class JSONFormBuilder {
     public static JSONArray concatArray(JSONArray... arrs)
             throws JSONException {
         JSONArray result = new JSONArray();
+
         for (JSONArray arr : arrs) {
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject element = (JSONObject) arr.get(i);

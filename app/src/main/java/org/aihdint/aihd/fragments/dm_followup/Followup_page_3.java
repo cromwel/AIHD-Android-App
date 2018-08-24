@@ -16,9 +16,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 
-import org.aihdint.aihd.forms.Common_Functions;
+import org.aihdint.aihd.app.Common;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.forms.JSONFormBuilder;
+import org.aihdint.aihd.app.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -193,12 +193,12 @@ public class Followup_page_3 extends Fragment {
 
                                 if (check.matches("blood_pressure")) {
                                     if (editTextSystolic != null && editTextDiastolic != null) {
-                                        Common_Functions.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
+                                        Common.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
                                     }
                                 } else if (check.matches("textViewBMI")) {
-                                    Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, textViewBMI);
+                                    Common.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, textViewBMI);
                                 } else if (check.matches("whr")) {
-                                    Common_Functions.WHR(getActivity(), editTextWaist, editTextHip, textViewWaistHipRatio);
+                                    Common.WHR(getActivity(), editTextWaist, editTextHip, textViewWaistHipRatio);
                                 } else {
                                     updateValues();
                                 }

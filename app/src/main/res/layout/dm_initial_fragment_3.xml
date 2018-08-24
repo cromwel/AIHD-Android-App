@@ -1545,7 +1545,7 @@
                             android:textAllCaps="false" />
 
                         <customfonts.EditText_Roboto_Regular
-                            android:id="@+id/commnet_pdt"
+                            android:id="@+id/comment_pdt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

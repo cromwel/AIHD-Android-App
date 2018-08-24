@@ -59,4 +59,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nairobi_city_council">Nairobi City County</string>
+    <string name="pending">Pending</string>
+    <string name="uploaded">Uploaded</string>
+    <string name="deceased">Is the patient deceased?</string>
 </resources>

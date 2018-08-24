@@ -184,7 +184,6 @@
                                 android:id="@+id/followup_further_management_dm"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Further management of DM" />
 
                             <CheckBox

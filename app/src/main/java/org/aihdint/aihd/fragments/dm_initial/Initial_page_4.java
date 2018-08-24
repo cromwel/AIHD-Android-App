@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 //import android.util.Log;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import org.aihdint.aihd.forms.JSONFormBuilder;
+import org.aihdint.aihd.app.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -350,39 +352,49 @@ public class Initial_page_4 extends Fragment {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String current_date = dateFormat.format(new Date());
 
+
         JSONArray jsonArry = new JSONArray();
+        JSONArray jsonArry1 = new JSONArray();
+        JSONArray jsonArry2 = new JSONArray();
+        JSONArray jsonArry3 = new JSONArray();
+        JSONArray jsonArry4 = new JSONArray();
+        JSONArray jsonArry5 = new JSONArray();
+        JSONArray jsonArry6 = new JSONArray();
+        JSONArray jsonArry7 = new JSONArray();
+        JSONArray jsonArry8 = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", stroke, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextStrokeDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_stroke, current_date, editTextStroke.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", heart, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextHeartDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_heart, current_date, editTextHeart.getText().toString().trim()));
+        jsonArry1.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", stroke, current_date, ""));
+        jsonArry1.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextStrokeDate.getText().toString().trim(), current_date, ""));
+        jsonArry1.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_stroke, current_date, editTextStroke.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", kidney, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextKidneyDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_kidney, current_date, editTextKidney.getText().toString().trim()));
+        jsonArry2.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", heart, current_date, ""));
+        jsonArry2.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextHeartDate.getText().toString().trim(), current_date, ""));
+        jsonArry2.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_heart, current_date, editTextHeart.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", neuropahty, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextNeuropahtyDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_neuropahty, current_date, editTextNeuropahty.getText().toString().trim()));
+        jsonArry3.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", kidney, current_date, ""));
+        jsonArry3.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextKidneyDate.getText().toString().trim(), current_date, ""));
+        jsonArry3.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_kidney, current_date, editTextKidney.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", visual, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextVisualDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_visual, current_date, editTextVisual.getText().toString().trim()));
+        jsonArry4.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", neuropahty, current_date, ""));
+        jsonArry4.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextNeuropahtyDate.getText().toString().trim(), current_date, ""));
+        jsonArry4.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_neuropahty, current_date, editTextNeuropahty.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", ulcers, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextUlcersDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_ulcers, current_date, editTextUlcers.getText().toString().trim()));
+        jsonArry5.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", visual, current_date, ""));
+        jsonArry5.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextVisualDate.getText().toString().trim(), current_date, ""));
+        jsonArry5.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_visual, current_date, editTextVisual.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", erectile, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextErectileDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_erectile, current_date, editTextErectile.getText().toString().trim()));
+        jsonArry6.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", ulcers, current_date, ""));
+        jsonArry6.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextUlcersDate.getText().toString().trim(), current_date, ""));
+        jsonArry6.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_ulcers, current_date, editTextUlcers.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", other, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextOtherComplicationDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_other, current_date, editTextOtherComplication.getText().toString().trim()));
+        jsonArry7.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", erectile, current_date, ""));
+        jsonArry7.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextErectileDate.getText().toString().trim(), current_date, ""));
+        jsonArry7.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_erectile, current_date, editTextErectile.getText().toString().trim()));
+
+        jsonArry8.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", other, current_date, ""));
+        jsonArry8.put(JSONFormBuilder.observations("159948", "165124", "valueCoded", editTextOtherComplicationDate.getText().toString().trim(), current_date, ""));
+        jsonArry8.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_other, current_date, editTextOtherComplication.getText().toString().trim()));
 
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", nutrition, current_date, ""));
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", activity, current_date, ""));
@@ -390,12 +402,58 @@ public class Initial_page_4 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", editTextOtherProvision.getText().toString().trim(), current_date, ""));
 
+
         try {
+            jsonArry1 = JSONFormBuilder.concatArray(jsonArry1);
+            jsonArry2 = JSONFormBuilder.concatArray(jsonArry2);
+            jsonArry3 = JSONFormBuilder.concatArray(jsonArry3);
+            jsonArry4 = JSONFormBuilder.concatArray(jsonArry4);
+            jsonArry5 = JSONFormBuilder.concatArray(jsonArry5);
+            jsonArry6 = JSONFormBuilder.concatArray(jsonArry6);
+            jsonArry7 = JSONFormBuilder.concatArray(jsonArry7);
+            jsonArry8 = JSONFormBuilder.concatArray(jsonArry8);
+
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
+
+            JSONArray jsonObs = new JSONArray();
+            if (jsonArry1.length() > 0) {
+                jsonObs.put(jsonArry1);
+            }
+            if (jsonArry2.length() > 0) {
+                jsonObs.put(jsonArry2);
+            }
+
+            if (jsonArry3.length() > 0) {
+                jsonObs.put(jsonArry3);
+            }
+
+            if (jsonArry4.length() > 0) {
+                jsonObs.put(jsonArry4);
+            }
+
+            if (jsonArry5.length() > 0) {
+                jsonObs.put(jsonArry5);
+            }
+            if (jsonArry6.length() > 0) {
+                jsonObs.put(jsonArry6);
+            }
+
+            if (jsonArry7.length() > 0) {
+                jsonObs.put(jsonArry7);
+            }
+
+            if (jsonArry8.length() > 0) {
+                jsonObs.put(jsonArry8);
+            }
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("165124", jsonObs);
+
+            jsonArry.put(jsonObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //Log.d("JSON Initial Page 4", jsonArry.toString() + " ");
+        Log.d("JSON Initial Page 4", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialFour(jsonArry);
     }

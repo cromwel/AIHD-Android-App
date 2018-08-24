@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import org.aihdint.aihd.forms.Common_Functions;
-import org.aihdint.aihd.forms.JSONFormBuilder;
+import org.aihdint.aihd.app.Common;
+import org.aihdint.aihd.app.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -289,23 +289,23 @@ public class Initial_page_2 extends Fragment {
                 final Runnable checkRunnable = new Runnable() {
                     public void run() {
                         if (check.matches("editTextTemp")) {
-                            Common_Functions.checkTemp(getContext(), editable.toString());
+                            Common.checkTemp(getContext(), editable.toString());
                         } else if (check.matches("editTextPulseRate")) {
-                            Common_Functions.checkPR(getContext(), editable.toString());
+                            Common.checkPR(getContext(), editable.toString());
                         } else if (check.matches("blood_pressure")) {
                             if (editTextSystolicTwo != null && editTextDiastolicTwo != null) {
-                                Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
+                                Common.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
                             } else if (editTextSystolicOne != null && editTextDiastolicOne != null) {
-                                Common_Functions.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
+                                Common.checkBP(getContext(), editTextSystolicOne, editTextDiastolicOne, editTextSystolicTwo, editTextDiastolicTwo);
                             }
                         } else if (check.matches("bmi")) {
-                            Common_Functions.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, bmi);
+                            Common.BMI(getActivity(), getContext(), editTextHeight, editTextWeight, bmi);
                         } else if (check.matches("whr")) {
-                            Common_Functions.WHR(getActivity(), editTextWaist, editTextHip, waist_hip_ratio);
+                            Common.WHR(getActivity(), editTextWaist, editTextHip, waist_hip_ratio);
                         } else if (check.matches("editTextmMonofilamentLF")) {
-                            Common_Functions.monofilament(getContext(), editable.toString());
+                            Common.monofilament(getContext(), editable.toString());
                         } else if (check.matches("editTextmMonofilamentRF")) {
-                            Common_Functions.monofilament(getContext(), editable.toString());
+                            Common.monofilament(getContext(), editable.toString());
                         }
                     }
                 };

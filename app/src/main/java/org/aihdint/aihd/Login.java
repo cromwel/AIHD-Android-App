@@ -350,8 +350,9 @@ public class Login extends Activity {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -360,6 +361,7 @@ public class Login extends Activity {
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
             List<String> permissions = new ArrayList<>();
+            permissions.add(Manifest.permission.ACCESS_NETWORK_STATE);
             permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
             permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 

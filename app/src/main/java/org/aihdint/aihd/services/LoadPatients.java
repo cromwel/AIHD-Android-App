@@ -1,5 +1,6 @@
 package org.aihdint.aihd.services;
 
+import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.google.gson.GsonBuilder;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.model.Person;
+import org.aihdint.aihd.patient.Patients;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -37,11 +39,15 @@ public class LoadPatients extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        DownloadPatients();
+        if (intent != null) {
+            DownloadPatients(intent.getStringExtra("page"));
+        } else {
+            DownloadPatients(null);
+        }
 
     }
 
-    private void DownloadPatients() {
+    private void DownloadPatients(final String page) {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy-M-d");
@@ -68,9 +74,15 @@ public class LoadPatients extends IntentService {
                         for (Person person : persons) {
                             // GOT THE OBJECT of PEOPLE
                             person.save();
-                            Log.d("Patient List", patients.toString());
+                            Log.d("Patient List", person.get_id().toString());
                         }
 
+                        if (page != null && page.equals("patient")) {
+                            Intent add_patient = new Intent(getApplicationContext(), Patients.class);
+                            add_patient.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(add_patient);
+                            ((Activity) getApplicationContext()).finish();
+                        }
                     }
 
                 } catch (Exception e) {

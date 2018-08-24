@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import org.aihdint.aihd.forms.JSONFormBuilder;
+import org.aihdint.aihd.app.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 import org.json.JSONArray;
@@ -72,7 +72,7 @@ public class Initial_page_3 extends Fragment {
         editTextGamma= view.findViewById(R.id.blood_work_gamma);
 
         editTextDeposits = view.findViewById(R.id.deposit_comment);
-        editTextPDT = view.findViewById(R.id.commnet_pdt);
+        editTextPDT = view.findViewById(R.id.comment_pdt);
 
         editTextRBSDate = view.findViewById(R.id.datetime_rbs);
         editTextFBCDate = view.findViewById(R.id.datetime_fbc);

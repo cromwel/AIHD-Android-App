@@ -1,7 +1,9 @@
 package org.aihdint.aihd.forms;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
@@ -14,6 +16,8 @@ import com.android.volley.error.VolleyError;
 import com.android.volley.request.SimpleMultiPartRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.aihdint.aihd.Home;
+import org.aihdint.aihd.model.Forms;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +50,7 @@ public class File_Upload {
     }
 
 
-    public static void upload(final Context mContext, final String filePath, ArrayList<KeyValue> keyValues) {
+    public static void upload(final Context mContext, final String filePath, final long form_id, ArrayList<KeyValue> keyValues) {
 
         SimpleMultiPartRequest smr = new SimpleMultiPartRequest(Request.Method.POST, FILE_UPLOAD_URL,
                 new Response.Listener<String>() {
@@ -60,10 +64,20 @@ public class File_Upload {
                             if (!error) {
                                 // User successfully stored in MySQL
                                 // Now store the user in sqlite
-                                Toast.makeText(mContext, "Form successfully uploaded.!", Toast.LENGTH_LONG).show();
+                                Forms form = Forms.findById(Forms.class, form_id);
+                                form.status = "1";
+                                form.save();
+
+                                Toast.makeText(mContext, "Form successfully uploaded!", Toast.LENGTH_LONG).show();
+
+                                // Launch login activity
+                                Intent intent = new Intent(mContext, Home.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                mContext.startActivity(intent);
+                                ((Activity) mContext).finish();
                             }
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }

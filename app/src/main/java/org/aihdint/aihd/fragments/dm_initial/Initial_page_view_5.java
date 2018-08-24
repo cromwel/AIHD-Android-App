@@ -31,14 +31,14 @@ public class Initial_page_view_5 extends Fragment {
         textViewDrug = view.findViewById(R.id.drug);
         textViewFrequency = view.findViewById(R.id.frequency);
 
-        viewForm(DM_Initial_View.json);
+        setMedicine(DM_Initial_View.json);
 
         return view;
     }
 
-    public void viewForm(String response) {
-
+    public void setMedicine(String response) {
         try {
+
             JSONObject jsonObj = new JSONObject(response);
 
             // Getting JSON Array node
@@ -48,34 +48,25 @@ public class Initial_page_view_5 extends Fragment {
                 for (int i = 0; i < obs.length(); i++) {
                     JSONObject concept = obs.getJSONObject(i);
                     //for (int j = 165253; j < 165284; j++) {
-                    setMedicine(concept);
 
+                    switch (concept.getString("concept_id")) {
+                        case "1282":
+                            textViewTreatment.append(conceptAnswer(concept, "1282") + " \n");
+                            break;
+                        case "1443":
+                            textViewDrug.append(String.format("%s mg", concept.getString("concept_answer")) + " \n");
+                            break;
+                        case "160855":
+                            textViewFrequency.append(conceptAnswer(concept, "160855") + " \n");
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
             }
 
-        } catch (Exception e) {
-            // hiding the progress bar
-            e.printStackTrace();
-        }
-    }
 
-    public void setMedicine(JSONObject concept) {
-        try {
-
-            switch (concept.getString("concept_id")) {
-                case "1282":
-                    textViewTreatment.append(conceptAnswer(concept, "1282") + " \n");
-                    break;
-                case "1443":
-                    textViewDrug.append(String.format("%s mg", concept.getString("concept_answer")) + " \n");
-                    break;
-                case "160855":
-                    textViewFrequency.append(conceptAnswer(concept, "160855") + " \n");
-                    break;
-                default:
-                    break;
-
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

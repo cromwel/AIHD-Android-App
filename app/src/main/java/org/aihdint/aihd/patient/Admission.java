@@ -45,6 +45,9 @@ public class Admission extends AppCompatActivity {
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+
+        Spinner spinnerDesignation = findViewById(R.id.spinnerDesignation);
+        spinnerData(spinnerDesignation, "designation");
     }
 
     public void spinnerData(final Spinner spinner, final String data) {
@@ -52,7 +55,6 @@ public class Admission extends AppCompatActivity {
 
         // adding each child node to HashMap key => value
         if (data.matches("reason")) {
-            // adding each child node to HashMap key => value
             keyvalue.add(new KeyValue("", "Select Reason"));
             keyvalue.add(new KeyValue("", "Admitted with DKA"));
             keyvalue.add(new KeyValue("", "Admitted with Hypoglycemia"));
@@ -80,11 +82,6 @@ public class Admission extends AppCompatActivity {
 
                     KeyValue value = (KeyValue) parent.getSelectedItem();
                     switch (spinner.getId()) {
-                        case R.id.spinnerSupportGroup:
-                            if (data.matches("reason")) {
-                                reason = value.getId();
-                            }
-                            break;
                         case R.id.spinnerDesignation:
                             if (data.matches("designation")) {
                                 designation = value.getId();

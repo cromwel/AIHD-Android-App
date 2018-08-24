@@ -1,4 +1,4 @@
-package org.aihdint.aihd.forms;
+package org.aihdint.aihd.app;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -11,7 +11,10 @@ import android.widget.TextView;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.Alerts;
 
-public class Common_Functions {
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Common {
 
     public static void checkBP(final Context mContext, final EditText editTextSystolicOne, final EditText editTextDiastolicOne, final EditText editTextSystolicTwo, final EditText editTextDiastolicTwo) {
 
@@ -158,5 +161,15 @@ public class Common_Functions {
                 Alerts.alert_msg(mContext, "Monofilament", "Abnormal Monofilament");
             }
         }
+    }
+
+    public static String time() {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        return timeFormat.format(new Date());
+    }
+
+    public static String date() {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return dateFormat.format(new Date());
     }
 }

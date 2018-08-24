@@ -32,6 +32,7 @@ import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Person;
+import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,7 +54,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
     private static final String TAG = Register.class.getSimpleName();
 
-    private String gender, birthdate, isEstimated, location_id, patient_type, jsonResponse;
+    private String gender, birthdate, isEstimated, location_id, patient_type;
     private TextView textViewDOB;
     private EditText editTextAge, editTextFamilyName, editTextGivenName, editTextTelephone, editTextTelephoneOther, editTextPatientNumber;
     private EditText editTextAddress1, editTextAddress2, editTextAddress3, editTextCounty, editTextVillage;
@@ -206,6 +207,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String family_name = editTextFamilyName.getText().toString().trim();
         String given_name = editTextGivenName.getText().toString().trim();
         String telephone = editTextTelephone.getText().toString().trim();
+        String telephone_other = editTextTelephoneOther.getText().toString().trim();
         String patient_number = editTextPatientNumber.getText().toString().trim();
         String address1 = editTextAddress1.getText().toString().trim();
         String address2 = editTextAddress2.getText().toString().trim();
@@ -215,6 +217,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String supporter = editTextSupporter.getText().toString().trim();
         String supporter_address = editTextSupporterAddress.getText().toString().trim();
         String supporter_number = editTextSupporterNumber.getText().toString().trim();
+        String supporter_number_other = editTextSupporterNumberOther.getText().toString().trim();
 
         //birthdate;
         if (!editTextAge.getText().toString().matches("") && parseInt(editTextAge.getText().toString()) > 0) {
@@ -250,7 +253,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                     activeNetwork.isConnectedOrConnecting();
 
             if (isConnected) {
-                registerPatient(family_name, given_name, telephone, patient_number, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number);
+                registerPatient(family_name, given_name, telephone, telephone_other, patient_number, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, supporter_number_other);
             } else {
                 Intent intent = new Intent(getApplicationContext(), Profile.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -270,8 +273,10 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
      * Method to make json array request where response starts with [
      */
 
-    private void registerPatient(final String family_name, final String given_name, final String telephone, final String patient_number,
-                                 final String address1, final String address2, final String address3, final String county_district, final String city_village, final String supporter, final String supporter_address, final String supporter_number) {
+    private void registerPatient(final String family_name, final String given_name,
+                                 final String telephone, final String telephone_other, final String patient_number,
+                                 final String address1, final String address2, final String address3, final String county_district, final String city_village,
+                                 final String supporter, final String supporter_address, final String supporter_number, final String supporter_number_other) {
 
         // Tag used to cancel the request
         String tag_string_req = "req_register";
@@ -280,7 +285,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
             @Override
             public void onResponse(String response) {
-                jsonResponse = response;
+
                 Log.d(TAG, "Register Response: " + response);
 
                 try {
@@ -289,9 +294,13 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                     if (!error) {
                         // User successfully stored in MySQL
                         // Now store the user in sqlite
-                        String uuid = jObj.getString("uuid");
+                        //String uuid = jObj.getString("uuid");
 
                         Toast.makeText(getApplicationContext(), "Patient successfully registered!", Toast.LENGTH_LONG).show();
+
+                        Intent intentPatient = new Intent(getApplicationContext(), LoadPatients.class);
+                        intentPatient.putExtra("page", "patient");
+                        getApplication().startService(intentPatient);
 
                         // Launch login activity
                         Intent intent = new Intent(getApplicationContext(), Profile.class);
@@ -299,14 +308,12 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                         intent.putExtra("name", given_name + " " + family_name);
                         startActivity(intent);
                         finish();
-                    } else {
-
-                        // Error occurred in registration. Get the error
-                        // message
-                        String errorMsg = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
                     }
+                    /*else {
+                        //Error occurred in registration. Get the error message
+                        Toast.makeText(getApplicationContext(), jObj.getString("message"), Toast.LENGTH_LONG).show();
+                    }
+                    */
 
                     hideDialog();
                 } catch (JSONException e) {
@@ -332,6 +339,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("family_name", family_name);
                 params.put("given_name", given_name);
                 params.put("telephone", telephone);
+                params.put("telephone_other", telephone_other);
                 params.put("patient_number", patient_number);
                 params.put("patient_type", patient_type);
                 params.put("gender", gender);
@@ -345,6 +353,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("supporter", supporter);
                 params.put("supporter_address", supporter_address);
                 params.put("supporter_number", supporter_number);
+                params.put("supporter_number_other", supporter_number_other);
                 params.put("service_delivery_point", location_id);
                 params.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
@@ -354,6 +363,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
                 return params;
             }
+
 
         };
 

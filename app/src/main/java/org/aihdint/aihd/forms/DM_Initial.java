@@ -1,6 +1,7 @@
 package org.aihdint.aihd.forms;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 
+import org.aihdint.aihd.Home;
+import org.aihdint.aihd.app.Alerts;
+import org.aihdint.aihd.app.JSONFormBuilder;
+import org.aihdint.aihd.app.Validation;
 import org.aihdint.aihd.pageadapters.DM_Initial_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
@@ -27,12 +32,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,9 +50,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     private static final String TAG = DM_Initial.class.getSimpleName();
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
-    private String encounter_date, file_name, patient_id;
+    private String encounter_date, file_name, form_id, patient_id;
     private ProgressDialog pDialog;
-
+    private long id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +67,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         Intent intent = getIntent();
         patient_id = intent.getStringExtra("patient_id");
+        Log.d("PatientID", patient_id);
 
         file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
+        form_id = System.currentTimeMillis() + "_" + patient_id;
 
         jsonArry1 = new JSONArray();
         jsonArry2 = new JSONArray();
@@ -144,6 +148,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             Log.e("Directory Message", "Directory not created");
         }
 
+
         File file = new File(dir, file_name);
 
         try {
@@ -151,30 +156,54 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5);
             JSONObject jsonForm = new JSONObject();
 
-            String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
+            String error = Validation.InitialValidation(jsonArray);
 
-            jsonForm.put("formDescription", "DM HTN Initial Encounter Form");
-            jsonForm.put("formEncounterType", "bf3f3108-f87c-11e7-913d-5f679b8fdacb");
-            jsonForm.put("formUuid", "7b0abbe2-98ab-4ba3-a423-e2441859f976");
-            jsonForm.put("formVersion", "1.0");
-            jsonForm.put("formUILocation", "patientDashboard.visitActions");
-            jsonForm.put("formOrder", "1");
-            jsonForm.put("encounterDate", encounter_date);
-            jsonForm.put("encounterProvider", creator);
-            jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-            jsonForm.put("patient_id", patient_id);
-            jsonForm.put("obs", jsonArray);
+            if (jsonArray.length() == 0) {
+                error = "Please fill in required fields(*)";
+            }
 
-            FileOutputStream f = new FileOutputStream(file);
-            PrintWriter pw = new PrintWriter(f);
-            pw.println(jsonForm.toString());
-            //pw.println(jsonObs2.toString());
-            pw.flush();
-            pw.close();
-            f.close();
+            if (error.length() == 0 && jsonArray.length() > 0) {
+                String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
 
-            Forms forms = new Forms(System.currentTimeMillis() + "_" + patient_id, file_name, creator, patient_id, encounter_date, "0");
-            forms.save();
+                jsonForm.put("formDescription", "DM HTN Initial Encounter Form");
+                jsonForm.put("formEncounterType", "bf3f3108-f87c-11e7-913d-5f679b8fdacb");
+                jsonForm.put("formUuid", "7b0abbe2-98ab-4ba3-a423-e2441859f976");
+                jsonForm.put("formVersion", "1.0");
+                jsonForm.put("formUILocation", "patientDashboard.visitActions");
+                jsonForm.put("formOrder", "1");
+                jsonForm.put("encounterDate", encounter_date);
+                jsonForm.put("encounterProvider", creator);
+                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                jsonForm.put("patient_id", patient_id);
+                jsonForm.put("obs", jsonArray);
+
+                FileOutputStream f = new FileOutputStream(file);
+                PrintWriter pw = new PrintWriter(f);
+                pw.println(jsonForm.toString());
+                pw.flush();
+                pw.close();
+                f.close();
+
+                Forms forms = new Forms(form_id, file_name, creator, patient_id, "initial", encounter_date, "0");
+                id = forms.save();
+
+                Toast.makeText(getBaseContext(), "Initial Encounter file saved", Toast.LENGTH_SHORT).show();
+
+                boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+                if (isConnected) {
+                    File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, id, null);
+                } else {
+                    Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
+
+                    // Launch login activity
+                    Intent intent = new Intent(this, Home.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            } else {
+                Alerts.alert_msg(this, "Validation Error", error);
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -184,32 +213,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         }
 
 
-        Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
-
-        boolean isConnected = File_Upload.Connectivity(getApplicationContext());
-        if (isConnected) {
-            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, null);
-        } else {
-            Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
-        }
-        //Read File
-        try {
-            File myFile = new File(Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name);
-            FileInputStream fIn = new FileInputStream(myFile);
-            BufferedReader myReader = new BufferedReader(
-                    new InputStreamReader(fIn));
-            String aDataRow;
-            StringBuilder aBuffer = new StringBuilder();
-            while ((aDataRow = myReader.readLine()) != null) {
-                aBuffer.append(aDataRow).append("\n");
-            }
-            Log.e("Reading from storage", aBuffer.toString());
-            myReader.close();
-            //Toast.makeText(getBaseContext(), "Done reading SD 'mysdfile.txt'",Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
-        }
         pDialog.dismiss();
         //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
 
