@@ -30,11 +30,19 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/my_recycler_view"
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:visibility="gone" />
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:padding="10dp"
+                        android:text="Complications(Diagnosis Management)"
+                        android:textAllCaps="false" />
+
+                    <customfonts.TextView_Roboto_Regular
+                        android:id="@+id/complication"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp" />
 
 
                 </LinearLayout>

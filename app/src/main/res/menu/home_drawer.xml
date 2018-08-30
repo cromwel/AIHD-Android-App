@@ -18,6 +18,10 @@
             android:icon="@drawable/ic_people"
             android:title="Patients" />
         <item
+            android:id="@+id/nav_past_forms"
+            android:icon="@drawable/ic_folder"
+            android:title="Past Forms" />
+        <item
             android:id="@+id/nav_dm_initial"
             android:icon="@drawable/ic_note_add"
             android:title="DM HTN Initial Encounter" />

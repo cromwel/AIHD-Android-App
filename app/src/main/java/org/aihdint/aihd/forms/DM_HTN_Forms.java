@@ -1,6 +1,5 @@
 package org.aihdint.aihd.forms;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,14 +13,11 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.orm.query.Condition;
-import com.orm.query.Select;
-
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Forms;
-import org.aihdint.aihd.model.adapter.FormAdapter;
+import org.aihdint.aihd.adapters.models.FormAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +31,6 @@ public class DM_HTN_Forms extends AppCompatActivity {
     private FormAdapter adapter;
     private String patient_id;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +39,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         Intent intent = getIntent();
         patient_id = intent.getStringExtra("patient_id");
@@ -95,10 +90,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
         // Reading all contacts
         Log.d("Reading: ", "Reading all forms..");
 
-        List<Forms> forms = Select.from(Forms.class)
-                .where(Condition.prop("patientid").eq(patient_id))
-                .orderBy("date")
-                .list();
+        List<Forms> forms = Forms.findWithQuery(Forms.class, "Select * from FORMS where patientid = ? ORDER BY date DESC", patient_id);
 
         for (Forms fn : forms) {
             // adding each child node to HashMap key => value
@@ -110,7 +102,6 @@ public class DM_HTN_Forms extends AppCompatActivity {
             form.setDate(fn.getDate());
             allFormsList.add(form);
 
-            Log.d("Type", fn.getForm_type());
         }
     }
 

@@ -260,6 +260,34 @@
     "Concept": "Sick Looking"
   },
   {
+    "Concept ID": 123919,
+    "Concept": "Ulcers"
+  },
+  {
+    "Concept ID": 120943,
+    "Concept": "Callouses"
+  },
+  {
+    "Concept ID": 165113,
+    "Concept": "Hardened Nails"
+  },
+  {
+    "Concept ID": 165114,
+    "Concept": "Fungus"
+  },
+  {
+    "Concept ID": 134,
+    "Concept": "Cellulitis"
+  },
+  {
+    "Concept ID": 156113,
+    "Concept": "Edema"
+  },
+  {
+    "Concept ID": 165115,
+    "Concept": "Dry"
+  },
+  {
     "Concept ID": 1362,
     "Concept": "+"
   },

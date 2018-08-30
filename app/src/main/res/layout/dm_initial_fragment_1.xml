@@ -64,8 +64,7 @@
                         <Spinner
                             android:id="@+id/spinnerEducation"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@drawable/round_border" />
+                            android:layout_height="50dp" />
 
                     </LinearLayout>
 
@@ -85,14 +84,14 @@
                         <Spinner
                             android:id="@+id/spinnerOccupation"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@drawable/round_border" />
+                            android:layout_height="50dp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/occupation_other"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Occupation Other"
+                            android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />
 
@@ -142,6 +141,54 @@
                             android:text="N/A" />
                     </RadioGroup>
 
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:text="Type of Diabetes:"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_diabetes_type_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Type 1"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_diabetes_type_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="Type 2"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_diabetes_GDM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="GDM"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_diabetes_secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="Diabetes Secondary to other causes"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -173,14 +220,12 @@
                                     android:id="@+id/radio_dm_patient_family_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_dm_patient_family_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                             </RadioGroup>
@@ -208,59 +253,6 @@
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Type of Diabetes:"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <RadioGroup
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/radio_diabetes_type_1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Type 1"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_diabetes_type_2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Type 2"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_diabetes_GDM"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="GDM"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_diabetes_secondary"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Diabetes Secondary to other causes"
-                                android:textSize="13sp" />
-                        </RadioGroup>
-                    </LinearLayout>
-
 
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
@@ -297,6 +289,52 @@
                             android:text="N/A" />
                     </RadioGroup>
 
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:text="Types of Hypetension"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_mild"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mild Hypertension"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_moderate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Moderate Hypertension"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_severe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Severe Hypertension"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_hypertension_preeclampsia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Preeclampsia"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -328,14 +366,12 @@
                                     android:id="@+id/radio_htn_patient_family_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_htn_patient_family_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                             </RadioGroup>
@@ -368,59 +404,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:orientation="vertical">
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Types of Hypetension"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <RadioGroup
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:orientation="vertical">
-
-                            <RadioButton
-                                android:id="@+id/radio_hypertension_mild"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Mild Hypertension"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_hypertension_moderate"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Moderate Hypertension"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_hypertension_severe"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Severe Hypertension"
-                                android:textSize="13sp" />
-
-                            <RadioButton
-                                android:id="@+id/radio_hypertension_preeclampsia"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:text="Preeclampsia"
-                                android:textSize="13sp" />
-                        </RadioGroup>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
@@ -447,21 +430,18 @@
                                     android:id="@+id/radio_hiv_negative"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="HIV -ve" />
 
                                 <RadioButton
                                     android:id="@+id/radio_hiv_positive"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="HIV +ve" />
 
                                 <RadioButton
                                     android:id="@+id/radio_hiv_unknown"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Uknown" />
                             </RadioGroup>
                         </LinearLayout>
@@ -482,14 +462,12 @@
                                 android:id="@+id/radio_enrolled_yes"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Yes" />
 
                             <RadioButton
                                 android:id="@+id/radio_enrolled_no"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="No" />
                         </RadioGroup>
 
@@ -514,7 +492,8 @@
                             android:id="@+id/hiv_other_status"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="** Other patient status"
+                            android:hint="Other patient status"
+                            android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -587,7 +566,8 @@
                                     android:id="@+id/radio_tb_status_negative"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Negative" />
+                                    android:text="Negative"
+                                    tools:ignore="TooManyViews" />
 
                                 <RadioButton
                                     android:id="@+id/radio_tb_status_positive"
@@ -605,57 +585,42 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/tb_details"
+
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:text="TB Status" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                    <CheckBox
+                        android:id="@+id/checkbox_tb_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:text="On treatment" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="TB Status" />
 
-                            <CheckBox
-                                android:id="@+id/checkbox_tb_status"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="On treatment" />
-                        </LinearLayout>
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:padding="10dp"
+                        android:text="Treatment Start Date" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Treatment Start Date" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/tb_treatment_start"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="yyyy-mm-dd"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/tb_treatment_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:hint="yyyy-mm-dd"
+                        android:inputType="date"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
 
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
@@ -673,6 +638,7 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
+                        android:inputType="text"
                         android:hint="comments"
                         android:padding="15dp"
                         android:textSize="13sp" />
@@ -707,21 +673,18 @@
                                     android:id="@+id/radio_nhif_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_nhif_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_nhif_other"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Other" />
                             </RadioGroup>
                         </LinearLayout>
@@ -742,6 +705,7 @@
                                 android:id="@+id/nhif_other"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="text"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -777,14 +741,12 @@
                                     android:id="@+id/radio_referral_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_referral_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
                             </RadioGroup>
                         </LinearLayout>
@@ -877,7 +839,6 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:padding="10dp"
                         android:text="Comments (Specify)" />
 
                     <customfonts.EditText_Roboto_Regular
@@ -887,29 +848,29 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
+                        android:inputType="text"
                         android:hint="Comment"
-                        android:padding="15dp"
+                        android:padding="10dp"
                         android:textSize="13sp" />
 
-                    <LinearLayout
+                    <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Other referral details" />
 
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="Other referral details" />
-
-                        <customfonts.EditText_Roboto_Regular
-                            android:id="@+id/referral_other_details"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Other referral details"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
-                    </LinearLayout>
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/referral_other_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:hint="Other referral details"
+                        android:inputType="text"
+                        android:padding="10dp"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -946,84 +907,72 @@
                             android:id="@+id/checkbox_complaint_breath"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Shortness of breath on activity" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_palpitations"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Palpitations (heart racing)" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_dizziness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Recurrent Dizziness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_fainting"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Fainting" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_leg_swell"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Leg Swelling" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_urination_fatigue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Frequent urination and fatigue" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_lose_consciousness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Loss of Consciousness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_blurr_vision"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Blurring of Vision" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_focal_weakness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Focal Weakness" />
 
                         <CheckBox
                             android:id="@+id/checkbox_foot_complaint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Foot Complaints" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_headache_migraines"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Headaches / Migraines" />
 
                         <CheckBox
                             android:id="@+id/checkbox_complaint_other"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Other" />
 
                         <customfonts.EditText_Roboto_Light
@@ -1031,6 +980,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Specify other"
+                            android:inputType="text"
                             android:textSize="13sp"
                             android:visibility="gone" />
 
@@ -1098,21 +1048,18 @@
                                     android:id="@+id/radio_exercise_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1136,21 +1083,18 @@
                                     android:id="@+id/radio_diet_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_diet_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_diet_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1183,21 +1127,18 @@
                                     android:id="@+id/radio_smoke_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1221,21 +1162,18 @@
                                     android:id="@+id/radio_drink_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1255,6 +1193,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="25dp"
+                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 

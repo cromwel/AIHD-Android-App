@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import org.aihdint.aihd.app.JSONFormBuilder;
-import org.aihdint.aihd.pageadapters.DM_Initial_View_Adapter;
+import org.aihdint.aihd.common.JSONFormBuilder;
+import org.aihdint.aihd.adapters.pages.DM_Initial_View_Adapter;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 
 /**
  * Developed by Rodney on 26/03/2018.
@@ -30,7 +30,7 @@ public class DM_Initial_View extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         Intent intent = getIntent();
         //report_id = intent.getStringExtra("report_id");
@@ -45,6 +45,7 @@ public class DM_Initial_View extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Page 3"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 4"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 5"));
+        tabLayout.addTab(tabLayout.newTab().setText("Page 6"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
