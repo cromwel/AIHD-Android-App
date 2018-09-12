@@ -25,7 +25,7 @@ public class Followup_page_view_1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_view_1, container, false);
 
-        textViewEncounterDate = view.findViewById(R.id.dm_initial_date);
+        /*textViewEncounterDate = view.findViewById(R.id.dm_initial_date);
         textViewEducation = view.findViewById(R.id.level_education);
         textViewOccupation = view.findViewById(R.id.occupation);
         textViewPatientStatus = view.findViewById(R.id.patient_status);
@@ -59,6 +59,7 @@ public class Followup_page_view_1 extends Fragment {
         textViewRiskOther = view.findViewById(R.id.risk_other);
 
         viewForm(DM_FollowUp_View.json);
+        */
 
         return view;
     }
