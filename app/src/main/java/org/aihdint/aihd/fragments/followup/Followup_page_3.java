@@ -1,6 +1,5 @@
 package org.aihdint.aihd.fragments.followup;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -15,15 +14,13 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-
 import org.aihdint.aihd.common.Common;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -90,6 +87,15 @@ public class Followup_page_3 extends Fragment {
         editTextDateTriglycerides = view.findViewById(R.id.date_triglycerides);
         editTextDateUEC = view.findViewById(R.id.date_uec);
         editTextDateUrinalysis = view.findViewById(R.id.date_urinalysis);
+
+        DateCalendar.date(getActivity(), editTextDateFBS);
+        DateCalendar.date(getActivity(), editTextDateRBS);
+        DateCalendar.date(getActivity(), editTextDateHBA);
+        DateCalendar.date(getActivity(), editTextDateHDL);
+        DateCalendar.date(getActivity(), editTextDateLDL);
+        DateCalendar.date(getActivity(), editTextDateTriglycerides);
+        DateCalendar.date(getActivity(), editTextDateUEC);
+        DateCalendar.date(getActivity(), editTextDateUrinalysis);
 
         textWatcher(editTextSystolic, "blood_pressure");
         textWatcher(editTextDiastolic, "blood_pressure");
@@ -169,7 +175,6 @@ public class Followup_page_3 extends Fragment {
         radioButtonClicked(radioButtonFootAmputationYes);
         radioButtonClicked(radioButtonFootAmputationNo);
 
-
         return view;
     }
 
@@ -212,10 +217,8 @@ public class Followup_page_3 extends Fragment {
                         };
 
                         timer.schedule(task, DELAY);
-
                     }
                 });
-
             }
 
 
@@ -231,8 +234,6 @@ public class Followup_page_3 extends Fragment {
             }
         });
     }
-
-
 
 
     public void radioButtonClicked(final RadioButton radioButton) {
@@ -253,6 +254,8 @@ public class Followup_page_3 extends Fragment {
                         if (checked) {
                             foot_amputation = "1066";
                         }
+                        break;
+                    default:
                         break;
                 }
                 updateValues();
@@ -377,48 +380,44 @@ public class Followup_page_3 extends Fragment {
                             assesment_other = "";
                         }
                         break;
-
+                    default:
+                        break;
                 }
-
                 updateValues();
-
             }
         });
     }
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String current_date = dateFormat.format(new Date());
-
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("5090", "", "valueNumeric", editTextHeight.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5089", "", "valueNumeric", editTextWeight.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5085", "", "valueNumeric", editTextSystolic.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("5086", "", "valueNumeric", editTextDiastolic.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("163081", "", "valueNumeric", editTextHip.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("163080", "", "valueNumeric", editTextWaist.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165190", "", "valueText", editTextNutrition.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("5090", "", "valueNumeric", editTextHeight.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5089", "", "valueNumeric", editTextWeight.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5085", "", "valueNumeric", editTextSystolic.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5086", "", "valueNumeric", editTextDiastolic.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163081", "", "valueNumeric", editTextHip.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163080", "", "valueNumeric", editTextWaist.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165190", "", "valueText", editTextNutrition.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", foot_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", dental_exam, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_checkup, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", foot_exam, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_exam, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", dental_exam, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1391", "", "valueCoded", eye_checkup, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", cardiovascular_disease, current_date, editTextCardiovascularDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_blood_pressure, current_date, editTextHBP.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_cholestrol, current_date, editTextHighCholestrol.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_vascular_disease, current_date, editTextVascularDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_neuropathy, current_date, editTextPNeuropathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", autonomic_neuropathy, current_date, editTextANeuropathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", retinopathy, current_date, editTextRetinopathy.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", kidney_disease, current_date, editTextKidneyDisease.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", asthma_COPD, current_date, editTextAsthma.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", arthritis, current_date, editTextArthritis.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", assesment_other, current_date, editTextOther.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", cardiovascular_disease, DateCalendar.date(), editTextCardiovascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_blood_pressure, DateCalendar.date(), editTextHBP.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", high_cholestrol, DateCalendar.date(), editTextHighCholestrol.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_vascular_disease, DateCalendar.date(), editTextVascularDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", peripheral_neuropathy, DateCalendar.date(), editTextPNeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", autonomic_neuropathy, DateCalendar.date(), editTextANeuropathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", retinopathy, DateCalendar.date(), editTextRetinopathy.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", kidney_disease, DateCalendar.date(), editTextKidneyDisease.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", asthma_COPD, DateCalendar.date(), editTextAsthma.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", arthritis, DateCalendar.date(), editTextArthritis.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", assesment_other, DateCalendar.date(), editTextOther.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("165104", "", "valueCoded", foot_amputation, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("165104", "", "valueCoded", foot_amputation, DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("160912", "161487", "valueText", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("887", "161487", "valueText", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));

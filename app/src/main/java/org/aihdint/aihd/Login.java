@@ -169,6 +169,7 @@ public class Login extends Activity {
 
         String json;
 
+
         try {
 
             List<Location> location_count = Select.from(Location.class).list();
@@ -184,6 +185,7 @@ public class Login extends Activity {
             is.close();
             json = new String(buffer, "UTF-8");
 
+
             JSONArray jsonArray = new JSONArray(json);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject locationObj = jsonArray.getJSONObject(i);
@@ -195,7 +197,7 @@ public class Login extends Activity {
                 location_id = location_id.toLowerCase();
                 location_id = location_id.replace(".", "");
                 location_id = location_id.replace(" ", "_");
-                //Log.d("Location Name", location_id);
+                Log.d("Location Name", location_id);
 
                 Location location = new Location(location_id, name, mfl_code);
                 location.save();
@@ -272,6 +274,7 @@ public class Login extends Activity {
                         String user_id = user.getString("uuid");
 
                         //JSONObject person = user.getJSONObject("person");
+
                         List<Location> location = Location.findWithQuery(Location.class, "SELECT * from LOCATION WHERE _id = ? LIMIT 1", location_id);
 
                         // Create login session
@@ -279,25 +282,29 @@ public class Login extends Activity {
                         session.createLogin(user_id, name, password, location_id, location.get(0).get_mfl_code());
 
                         // Launch main activity
-                        Intent intent = new Intent(Login.this, Home.class);
+                        Intent intent = new Intent(Login.this,
+                                Home.class);
                         startActivity(intent);
                         finish();
                     } else {
                         // Error in login. Get the error message
-                        Toast.makeText(getApplicationContext(), "Username/Password Invalid", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "Username/Password Invalid", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    //Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
+
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error.getMessage());
-                //Toast.makeText(getApplicationContext(),error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {
@@ -328,7 +335,7 @@ public class Login extends Activity {
         };
 
         // Adding request to request queue
-        strReq.setShouldCache(false);
+        AppController.getInstance().getRequestQueue().getCache().clear();
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
@@ -378,6 +385,7 @@ public class Login extends Activity {
 
                     } else if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                         Log.d("Permissions", "Permission Denied: " + permissions[i]);
+                        //Toast.makeText(getActivity(), "LoyaltyClub won't work well unless you allow requested permissions to be granted", Toast.LENGTH_LONG).show();
                         Snackbar snackbar = Snackbar.make(coordinatorLayout, permissions[i] + " : Permission Denied", Snackbar.LENGTH_INDEFINITE);
                         snackbar.show();
                     }

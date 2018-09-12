@@ -48,6 +48,7 @@ public class Admission extends AppCompatActivity {
 
         Spinner spinnerDesignation = findViewById(R.id.spinnerDesignation);
         Spinner spinnerReason = findViewById(R.id.spinnerReason);
+
         spinnerData(spinnerDesignation, "designation");
         spinnerData(spinnerReason, "reason");
     }
@@ -89,19 +90,19 @@ public class Admission extends AppCompatActivity {
                                 designation = value.getId();
                             }
                             break;
+                        case R.id.spinnerReason:
+                            if (data.matches("reason")) {
+                                reason = value.getId();
+                            }
+                            break;
                         default:
                             break;
                     }
-
                 }
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-
     }
 }

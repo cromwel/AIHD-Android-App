@@ -178,8 +178,8 @@ public class Initial_page_view_1 extends Fragment {
                         default:
                             break;
                     }
-                    }
                 }
+            }
 
 
         } catch (Exception e) {

@@ -907,7 +907,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/background"
                     android:orientation="vertical">
-                    
+
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -965,8 +965,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1000,8 +1000,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1034,8 +1034,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1068,8 +1068,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1102,8 +1102,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1136,8 +1136,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1170,8 +1170,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -1204,8 +1204,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="13sp" />
                         </LinearLayout>

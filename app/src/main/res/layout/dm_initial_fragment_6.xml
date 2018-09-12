@@ -80,6 +80,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Return date"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="10dp"
                                 android:textSize="13sp" />
@@ -111,6 +112,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Date referred"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="10dp"
                                 android:textSize="13sp" />
@@ -141,6 +143,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Date transferred out"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="10dp"
                                 android:textSize="13sp" />

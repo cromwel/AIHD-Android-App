@@ -1,8 +1,9 @@
 package org.aihdint.aihd.common;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,12 +12,14 @@ import com.orm.query.Condition;
 import com.orm.query.Select;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.fragments.followup.Followup_page_1;
 import org.aihdint.aihd.model.Concepts;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Common {
 
@@ -76,9 +79,8 @@ public class Common {
 
     }
 
-    @SuppressLint({"DefaultLocale", "SetTextI18n"})
-    public static void whr(final EditText editTextWaist, final EditText editTextHip, final TextView textViewWaistHipRatio) {
 
+    public static void whr(final EditText editTextWaist, final EditText editTextHip, final TextView textViewWaistHipRatio) {
 
         double wst = 0;
         double hp = 0;
@@ -94,14 +96,13 @@ public class Common {
         if (wst > 0 && hp > 0) {
             double whr_value = wst / hp;
 
-            textViewWaistHipRatio.setText(String.format("%.1f", whr_value));
+            textViewWaistHipRatio.setText(String.format(Locale.US, "%.1f", whr_value));
 
         }
 
 
     }
 
-    @SuppressLint("DefaultLocale")
     public static void bmi(final Context mContext, final EditText editTextHeight, final EditText editTextWeight, final TextView textViewBMI) {
 
         double hght = 0;
@@ -132,7 +133,7 @@ public class Common {
                 textViewBMI.setTextColor(ContextCompat.getColor(mContext, R.color.colorAccent));
                 category = " Obese";
             }
-            String bmi = String.format("%.1f", textViewBMI_value) + category;
+            String bmi = String.format(Locale.US, "%.1f", textViewBMI_value) + category;
             textViewBMI.setText(bmi);
         }
 
@@ -200,13 +201,4 @@ public class Common {
 
     }
 
-    public static String time() {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        return timeFormat.format(new Date());
-    }
-
-    public static String date() {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return dateFormat.format(new Date());
-    }
 }

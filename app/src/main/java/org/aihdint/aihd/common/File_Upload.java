@@ -68,6 +68,12 @@ public class File_Upload {
                                 form.save();
 
                                 Toast.makeText(mContext, "Form successfully uploaded!", Toast.LENGTH_LONG).show();
+
+                                // Launch login activity
+                                Intent intent = new Intent(mContext, Home.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                mContext.startActivity(intent);
+                                ((Activity) mContext).finish();
                             }
 
                         } catch (Exception e) {

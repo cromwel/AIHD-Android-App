@@ -72,5 +72,6 @@ public class FragmentModelInitial {
             mListener.initialSix(params);
         }
     }
+
 }
 

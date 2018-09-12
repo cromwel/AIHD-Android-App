@@ -10,6 +10,7 @@ import org.aihdint.aihd.fragments.initial_view.Initial_page_view_2;
 import org.aihdint.aihd.fragments.initial_view.Initial_page_view_3;
 import org.aihdint.aihd.fragments.initial_view.Initial_page_view_4;
 import org.aihdint.aihd.fragments.initial_view.Initial_page_view_5;
+import org.aihdint.aihd.fragments.initial_view.Initial_page_view_6;
 
 public class DM_Initial_View_Adapter extends FragmentStatePagerAdapter {
 
@@ -34,6 +35,8 @@ public class DM_Initial_View_Adapter extends FragmentStatePagerAdapter {
                 return new Initial_page_view_4();
             case 4:
                 return new Initial_page_view_5();
+            case 5:
+                return new Initial_page_view_6();
             default:
                 return null;
         }

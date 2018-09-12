@@ -124,8 +124,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
-                                android:ems="10"
-                                android:hint="(yyyy-mm-dd)"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:textSize="15sp" />
 

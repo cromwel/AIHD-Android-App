@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import org.aihdint.aihd.common.Common;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.common.Alerts;
@@ -97,6 +96,32 @@ public class Initial_page_3 extends Fragment {
         editTextDepositsDate = view.findViewById(R.id.datetime_urinalysis_deposit);
         editTextECGDate = view.findViewById(R.id.datetime_ecg);
         editTextCXRDate = view.findViewById(R.id.datetime_cxr);
+
+        DateCalendar.date(getActivity(), editTextRBSDate);
+        DateCalendar.date(getActivity(), editTextFBCDate);
+        DateCalendar.date(getActivity(), editTextHBADate);
+        DateCalendar.date(getActivity(), editTextUreaDate);
+        DateCalendar.date(getActivity(), editTextSodiumDate);
+        DateCalendar.date(getActivity(), editTextChlorideDate);
+        DateCalendar.date(getActivity(), editTextPotassiumDate);
+        DateCalendar.date(getActivity(), editTextCreatinineDate);
+        DateCalendar.date(getActivity(), editTextHDLDate);
+        DateCalendar.date(getActivity(), editTextLDLDate);
+        DateCalendar.date(getActivity(), editTextCholesterolDate);
+        DateCalendar.date(getActivity(), editTextTriglceridesDate);
+        DateCalendar.date(getActivity(), editTextASTDate);
+        DateCalendar.date(getActivity(), editTextALTDate);
+        DateCalendar.date(getActivity(), editTextTotalBilirubinDate);
+        DateCalendar.date(getActivity(), editTextDirectBilirubinDate);
+        DateCalendar.date(getActivity(), editTextGammaDate);
+        DateCalendar.date(getActivity(), editTextUltraSound);
+        DateCalendar.date(getActivity(), editTextPDTDate);
+        DateCalendar.date(getActivity(), editTextGlucoseDate);
+        DateCalendar.date(getActivity(), editTextProteinDate);
+        DateCalendar.date(getActivity(), editTextKetoneDate);
+        DateCalendar.date(getActivity(), editTextDepositsDate);
+        DateCalendar.date(getActivity(), editTextECGDate);
+        DateCalendar.date(getActivity(), editTextCXRDate);
 
         textWatcher(editTextRBS, "rbs");
         textWatcher(editTextFBC, "fbc");
@@ -440,10 +465,10 @@ public class Initial_page_3 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("159565", "", "valueCoded", ecg, editTextECGDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", cxr, editTextCXRDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueDate", editTextUltraSound.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueDate", editTextUltraSound.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165312", "", "valueText", editTextPDT.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165144", "", "valueDate", editTextPDTDate.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165312", "", "valueText", editTextPDT.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165144", "", "valueDate", editTextPDTDate.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

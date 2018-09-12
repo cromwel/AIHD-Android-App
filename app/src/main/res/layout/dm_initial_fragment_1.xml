@@ -64,7 +64,8 @@
                         <Spinner
                             android:id="@+id/spinnerEducation"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp" />
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_border" />
 
                     </LinearLayout>
 
@@ -84,14 +85,14 @@
                         <Spinner
                             android:id="@+id/spinnerOccupation"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp" />
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_border" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/occupation_other"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Occupation Other"
-                            android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />
 
@@ -220,12 +221,14 @@
                                     android:id="@+id/radio_dm_patient_family_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_dm_patient_family_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="No" />
 
                             </RadioGroup>
@@ -310,6 +313,7 @@
                             android:id="@+id/radio_hypertension_mild"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
                             android:text="Mild Hypertension"
                             android:textSize="13sp" />
 
@@ -317,6 +321,7 @@
                             android:id="@+id/radio_hypertension_moderate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
                             android:text="Moderate Hypertension"
                             android:textSize="13sp" />
 
@@ -324,6 +329,7 @@
                             android:id="@+id/radio_hypertension_severe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
                             android:text="Severe Hypertension"
                             android:textSize="13sp" />
 
@@ -331,6 +337,7 @@
                             android:id="@+id/radio_hypertension_preeclampsia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
                             android:text="Preeclampsia"
                             android:textSize="13sp" />
                     </RadioGroup>
@@ -486,14 +493,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="** Other patient status" />
+                            android:text="Other patient status" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/hiv_other_status"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Other patient status"
-                            android:inputType="text"
                             android:padding="15dp"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -617,6 +623,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
+                        android:focusable="false"
                         android:hint="yyyy-mm-dd"
                         android:inputType="date"
                         android:padding="15dp"
@@ -638,7 +645,6 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:inputType="text"
                         android:hint="comments"
                         android:padding="15dp"
                         android:textSize="13sp" />
@@ -705,7 +711,6 @@
                                 android:id="@+id/nhif_other"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -848,7 +853,6 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:inputType="text"
                         android:hint="Comment"
                         android:padding="10dp"
                         android:textSize="13sp" />
@@ -868,7 +872,6 @@
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:hint="Other referral details"
-                        android:inputType="text"
                         android:padding="10dp"
                         android:textSize="13sp" />
 
@@ -980,7 +983,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Specify other"
-                            android:inputType="text"
                             android:textSize="13sp"
                             android:visibility="gone" />
 
@@ -993,6 +995,7 @@
                             android:id="@+id/complaint_lmp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:hint="yyyy-mm-dd"
                             android:inputType="date"
                             android:textSize="13sp" />
@@ -1048,18 +1051,21 @@
                                     android:id="@+id/radio_exercise_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1083,18 +1089,21 @@
                                     android:id="@+id/radio_diet_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_diet_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_diet_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1127,18 +1136,21 @@
                                     android:id="@+id/radio_smoke_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1162,18 +1174,21 @@
                                     android:id="@+id/radio_drink_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1193,7 +1208,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="25dp"
-                                android:inputType="text"
                                 android:textSize="13sp" />
                         </LinearLayout>
 

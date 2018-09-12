@@ -1,11 +1,9 @@
 package org.aihdint.aihd.fragments.initial;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-//import android.util.Log;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import org.aihdint.aihd.common.Common;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -658,89 +655,89 @@ public class Initial_page_2 extends Fragment {
         JSONArray jsonArry1 = new JSONArray();
         JSONArray jsonArry2 = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("159460", "", "valueCoded", medication_none, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159460", "", "valueCoded", medication_none, DateCalendar.date(), ""));
 
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_metformin, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_glibenclamide, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_insulin, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nph, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_soluble_insulin, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_enalapril, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_hctz, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_losartan, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nifedipine, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_atenolol, Common.date(), ""));
-        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_other, Common.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_metformin, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_glibenclamide, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_insulin, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nph, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_soluble_insulin, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_enalapril, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_hctz, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_losartan, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_nifedipine, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_atenolol, DateCalendar.date(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_other, DateCalendar.date(), ""));
 
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextMetformin.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextGlibenclamide.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextInsulin.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNPH.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextSolubleInsulin.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextEnalapril.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextHCTZ.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextLosartan.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNifedipine.getText().toString().trim(), Common.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextAtenolol.getText().toString().trim(), Common.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextMetformin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextGlibenclamide.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextInsulin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNPH.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextSolubleInsulin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextEnalapril.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextHCTZ.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextLosartan.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNifedipine.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextAtenolol.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry2.put(JSONFormBuilder.observations("165157", "1442", "valueText", editTextMedicationOther.getText().toString().trim(), Common.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165157", "1442", "valueText", editTextMedicationOther.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165108", "", "valueCoded", adhere_medication, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165109", "", "valueText", editTextAdhereSpecify.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165108", "", "valueCoded", adhere_medication, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165109", "", "valueText", editTextAdhereSpecify.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165146", "", "valueCoded", allergies, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165166", "", "valueText", editTextAllergySpecify.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165146", "", "valueCoded", allergies, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165166", "", "valueText", editTextAllergySpecify.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("5088", "", "valueNumeric", editTextTemp.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5087", "", "valueNumeric", editTextPulseRate.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5088", "", "valueNumeric", editTextTemp.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5087", "", "valueNumeric", editTextPulseRate.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("5085", "", "valueNumeric", editTextSystolicOne.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5086", "", "valueNumeric", editTextDiastolicOne.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165111", "", "valueNumeric", editTextSystolicTwo.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165110", "", "valueNumeric", editTextDiastolicTwo.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5085", "", "valueNumeric", editTextSystolicOne.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5086", "", "valueNumeric", editTextDiastolicOne.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165111", "", "valueNumeric", editTextSystolicTwo.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165110", "", "valueNumeric", editTextDiastolicTwo.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("163081", "", "valueNumeric", editTextHip.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("163080", "", "valueNumeric", editTextWaist.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5090", "", "valueNumeric", editTextHeight.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5089", "", "valueNumeric", editTextWeight.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5242", "", "valueNumeric", editTextRespiratoryRate.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163081", "", "valueNumeric", editTextHip.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163080", "", "valueNumeric", editTextWaist.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5090", "", "valueNumeric", editTextHeight.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5089", "", "valueNumeric", editTextWeight.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5242", "", "valueNumeric", editTextRespiratoryRate.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", general_exam, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", pallor, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", jaundice, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", cyanosis, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", lymphadenopathy, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", oedema, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", dehydration, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", exam_other, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("163042", "", "valueText", editTextExamOther.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", general_exam, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", pallor, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", jaundice, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", cyanosis, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", lymphadenopathy, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", oedema, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", dehydration, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1119", "", "valueCoded", exam_other, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163042", "", "valueText", editTextExamOther.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165206", "", "valueCoded", visual_impairment, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165175", "", "valueText", editTextVisual.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165206", "", "valueCoded", visual_impairment, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165175", "", "valueText", editTextVisual.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1124", "", "valueCoded", cvs, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165158", "", "valueText", editTextCVS.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1124", "", "valueCoded", cvs, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165158", "", "valueText", editTextCVS.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1123", "", "valueCoded", rs, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165159", "", "valueText", editTextRS.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1123", "", "valueCoded", rs, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165159", "", "valueText", editTextRS.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("139549", "", "valueCoded", pa, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165160", "", "valueText", editTextPA.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("139549", "", "valueCoded", pa, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165160", "", "valueText", editTextPA.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("163109", "", "valueCoded", cns, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165161", "", "valueText", editTextCNS.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163109", "", "valueCoded", cns, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165161", "", "valueText", editTextCNS.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", extremities, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", ulcers, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", callouses, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", hardened_nails, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", fungus, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", cellulitis, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", edema, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", dry, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", extremities, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", ulcers, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", callouses, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", hardened_nails, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", fungus, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", cellulitis, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", edema, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165112", "", "valueCoded", dry, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueNumeric", editTextMonofilamentRF.getText().toString().trim(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueNumeric", editTextMonofilamentLF.getText().toString().trim(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueNumeric", editTextMonofilamentRF.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165165", "", "valueNumeric", editTextMonofilamentLF.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
 

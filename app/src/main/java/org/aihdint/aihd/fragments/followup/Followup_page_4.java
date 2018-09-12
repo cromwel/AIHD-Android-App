@@ -1,6 +1,5 @@
 package org.aihdint.aihd.fragments.followup;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,15 +16,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Developed by Rodney on 24/04/2018.
@@ -1144,163 +1142,160 @@ public class Followup_page_4 extends Fragment {
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String current_date = dateFormat.format(new Date());
-
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165280", "valueCoded", Metformin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueNumeric", doseMetformin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165280", "valueCoded", frequencyMetformin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165280", "valueCoded", Metformin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueNumeric", doseMetformin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165280", "valueCoded", frequencyMetformin, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165281", "valueCoded", Glibenclamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165281", "valueCoded", Glibenclamide, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueText", "", DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueText", "", DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165284", "valueCoded", NPH, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165284", "valueCoded", NPH, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "valueText", "", DateCalendar.date(), ""));
 
         //ACE
-        jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueNumeric", doseCaptopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165253", "valueCoded", frequencyCaptopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueNumeric", doseCaptopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165253", "valueCoded", frequencyCaptopril, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165254", "valueCoded", Enalapril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueNumeric", doseEnalapril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165254", "valueCoded", frequencyEnalapril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165254", "valueCoded", Enalapril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueNumeric", doseEnalapril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165254", "valueCoded", frequencyEnalapril, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165255", "valueCoded", Lisinopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueNumeric", doseLisinopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165255", "valueCoded", frequencyLisinopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165255", "valueCoded", Lisinopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueNumeric", doseLisinopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165255", "valueCoded", frequencyLisinopril, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165256", "valueCoded", Perindopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueNumeric", dosePerindopril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165256", "valueCoded", frequencyPerindopril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165256", "valueCoded", Perindopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueNumeric", dosePerindopril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165256", "valueCoded", frequencyPerindopril, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165257", "valueCoded", Ramipril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueNumeric", doseRamipril, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165257", "valueCoded", frequencyRamipril, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165257", "valueCoded", Ramipril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueNumeric", doseRamipril, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165257", "valueCoded", frequencyRamipril, DateCalendar.date(), ""));
 
         //ARB
-        jsonArry.put(JSONFormBuilder.observations("1282", "165258", "valueCoded", Candesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueNumeric", doseCandesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165258", "valueCoded", frequencyCandesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165258", "valueCoded", Candesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueNumeric", doseCandesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165258", "valueCoded", frequencyCandesartan, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165259", "valueCoded", Irbesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueNumeric", doseIrbesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165259", "valueCoded", frequencyIrbesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165259", "valueCoded", Irbesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueNumeric", doseIrbesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165259", "valueCoded", frequencyIrbesartan, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165260", "valueCoded", Losartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueNumeric", doseLosartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165260", "valueCoded", frequencyLosartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165260", "valueCoded", Losartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueNumeric", doseLosartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165260", "valueCoded", frequencyLosartan, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165261", "valueCoded", Telmisartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueNumeric", doseTelmisartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165261", "valueCoded", frequencyTelmisartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165261", "valueCoded", Telmisartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueNumeric", doseTelmisartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165261", "valueCoded", frequencyTelmisartan, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165262", "valueCoded", Valsartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueNumeric", doseValsartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165262", "valueCoded", frequencyValsartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165262", "valueCoded", Valsartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueNumeric", doseValsartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165262", "valueCoded", frequencyValsartan, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165263", "valueCoded", Olmesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueNumeric", doseOlmesartan, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165263", "valueCoded", frequencyOlmesartan, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165263", "valueCoded", Olmesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueNumeric", doseOlmesartan, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165263", "valueCoded", frequencyOlmesartan, DateCalendar.date(), ""));
 
         //Beta Blockers
-        jsonArry.put(JSONFormBuilder.observations("1282", "165264", "valueCoded", Atenolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueNumeric", doseAtenolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165264", "valueCoded", frequencyAtenolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165264", "valueCoded", Atenolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueNumeric", doseAtenolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165264", "valueCoded", frequencyAtenolol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165265", "valueCoded", Labetolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueNumeric", doseLabetolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165265", "valueCoded", frequencyLabetolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165265", "valueCoded", Labetolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueNumeric", doseLabetolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165265", "valueCoded", frequencyLabetolol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165266", "valueCoded", Propranolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueNumeric", dosePropranolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165266", "valueCoded", frequencyPropranolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165266", "valueCoded", Propranolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueNumeric", dosePropranolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165266", "valueCoded", frequencyPropranolol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165267", "valueCoded", Carvedilol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueNumeric", doseCarvedilol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165267", "valueCoded", frequencyCarvedilol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165267", "valueCoded", Carvedilol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueNumeric", doseCarvedilol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165267", "valueCoded", frequencyCarvedilol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165268", "valueCoded", Nebivolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueNumeric", doseNebivolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165268", "valueCoded", frequencyNebivolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165268", "valueCoded", Nebivolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueNumeric", doseNebivolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165268", "valueCoded", frequencyNebivolol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165269", "valueCoded", Metoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueNumeric", doseMetoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165269", "valueCoded", frequencyMetoprolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165269", "valueCoded", Metoprolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueNumeric", doseMetoprolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165269", "valueCoded", frequencyMetoprolol, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165270", "valueCoded", Bisoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueNumeric", doseBisoprolol, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165270", "valueCoded", frequencyBisoprolol, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165270", "valueCoded", Bisoprolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueNumeric", doseBisoprolol, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165270", "valueCoded", frequencyBisoprolol, DateCalendar.date(), ""));
 
         //Long Acting CCB
-        jsonArry.put(JSONFormBuilder.observations("1282", "165271", "valueCoded", Amlodipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueCoded", doseAmlodipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", frequencyAmlodipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165271", "valueCoded", Amlodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueCoded", doseAmlodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", frequencyAmlodipine, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", Felodipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", doseFelodipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", frequencyFelodipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", Felodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", doseFelodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", frequencyFelodipine, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", Nifedipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", doseNifedipine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165273", "valueCoded", frequencyNifedipine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", Nifedipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", doseNifedipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165273", "valueCoded", frequencyNifedipine, DateCalendar.date(), ""));
 
         //AntiHypersensitives
-        jsonArry.put(JSONFormBuilder.observations("1282", "165277", "valueCoded", Methyldopa, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueNumeric", doseMethyldopa, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165277", "valueCoded", frequencyMethyldopa, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165277", "valueCoded", Methyldopa, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueNumeric", doseMethyldopa, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165277", "valueCoded", frequencyMethyldopa, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165278", "valueCoded", Hydralazine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueNumeric", doseHydralazine, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165278", "valueCoded", frequencyHydralazine, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165278", "valueCoded", Hydralazine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueNumeric", doseHydralazine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165278", "valueCoded", frequencyHydralazine, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165279", "valueCoded", Prazocin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueNumeric", dosePrazocin, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165279", "valueCoded", frequencyPrazocin, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165279", "valueCoded", Prazocin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueNumeric", dosePrazocin, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165279", "valueCoded", frequencyPrazocin, DateCalendar.date(), ""));
 
         //Thizide
-        jsonArry.put(JSONFormBuilder.observations("1282", "165274", "valueCoded", Chlorthalidone, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueNumeric", doseChlorthalidone, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165274", "valueCoded", frequencyChlorthalidone, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165274", "valueCoded", Chlorthalidone, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueNumeric", doseChlorthalidone, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165274", "valueCoded", frequencyChlorthalidone, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165275", "valueCoded", Hydrochlorothia, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueNumeric", doseHydrochlorothia, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165275", "valueCoded", frequencyHydrochlorothia, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165275", "valueCoded", Hydrochlorothia, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueNumeric", doseHydrochlorothia, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165275", "valueCoded", frequencyHydrochlorothia, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165276", "valueCoded", Indapamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueNumeric", doseIndapamide, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165276", "valueCoded", frequencyIndapamide, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165276", "valueCoded", Indapamide, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueNumeric", doseIndapamide, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165276", "valueCoded", frequencyIndapamide, DateCalendar.date(), ""));
 
         //other
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Diet, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165201", "165142", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Diet, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165201", "165142", "valueText", "", DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", PhysicalExercise, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165202", "165142", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", PhysicalExercise, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165202", "165142", "valueText", "", DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Herbal, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165203", "165142", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Herbal, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165203", "165142", "valueText", "", DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", TreatmentOther, current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165204", "165142", "valueText", "", current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", TreatmentOther, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165204", "165142", "valueText", "", DateCalendar.date(), ""));
 
 
-        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", editTextReferralLocation.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("163181", "", "valueText", editTextReferralDate.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", editTextReferralNote.getText().toString().trim(), current_date, ""));
-        jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextClinician.getText().toString().trim(), current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", editTextReferralLocation.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163181", "", "valueText", editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", editTextReferralNote.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextClinician.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

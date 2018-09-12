@@ -14,14 +14,14 @@
 
     <application
         android:name="org.aihdint.aihd.app.AppController"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fullBackupContent="false">
+        android:fullBackupContent="true">
 
         <meta-data android:name="DATABASE" android:value="aihd.db" />
         <meta-data
@@ -117,6 +117,7 @@
             android:windowSoftInputMode="stateHidden"
             android:label="DM Initial Form"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".forms.DM_HTN_Forms"
             android:windowSoftInputMode="stateHidden"

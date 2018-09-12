@@ -44,22 +44,19 @@ public class Initial_page_view_5 extends Fragment {
                     JSONObject concept = obs.getJSONObject(i);
                     //for (int j = 165253; j < 165284; j++) {
 
-                    if (concept.optString("concept_id").length() > 0) {
+                    switch (concept.getString("concept_id")) {
+                        case "1282":
+                            textViewTreatment.append(Common.conceptAnswer(concept, "1282") + " \n");
+                            break;
+                        case "1443":
+                            textViewDrug.append(String.format("%s mg", concept.getString("concept_answer")) + " \n");
+                            break;
+                        case "160855":
+                            textViewFrequency.append(Common.conceptAnswer(concept, "160855") + " \n");
+                            break;
+                        default:
+                            break;
 
-                        switch (concept.getString("concept_id")) {
-                            case "1282":
-                                textViewTreatment.append(Common.conceptAnswer(concept, "1282") + " \n");
-                                break;
-                            case "1443":
-                                textViewDrug.append(String.format("%s mg", concept.getString("concept_answer")) + " \n");
-                                break;
-                            case "160855":
-                                textViewFrequency.append(Common.conceptAnswer(concept, "160855") + " \n");
-                                break;
-                            default:
-                                break;
-
-                        }
                     }
                 }
             }

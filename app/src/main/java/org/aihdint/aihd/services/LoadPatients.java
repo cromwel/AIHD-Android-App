@@ -63,7 +63,6 @@ public class LoadPatients extends IntentService {
                     // Getting JSON Array node
                     JSONArray patients = jsonObj.getJSONArray("data");
 
-
                     //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
                     Log.d("Response", response);
                     if (patients.length() > 0) {
@@ -74,7 +73,7 @@ public class LoadPatients extends IntentService {
                         for (Person person : persons) {
                             // GOT THE OBJECT of PEOPLE
                             person.save();
-                            Log.d("Patient List", person.get_id().toString());
+                            Log.d("Patient List", person.get_id());
                         }
 
                         if (page != null && page.equals("patient")) {

@@ -19,7 +19,6 @@ import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.SessionManager;
-import org.aihdint.aihd.forms.DM_HTN_Forms;
 import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.patient.Register;

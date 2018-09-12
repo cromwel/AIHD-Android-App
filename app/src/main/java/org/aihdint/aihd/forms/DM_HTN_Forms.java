@@ -1,5 +1,6 @@
 package org.aihdint.aihd.forms;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
+
+import com.orm.query.Condition;
+import com.orm.query.Select;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
@@ -31,6 +35,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
     private FormAdapter adapter;
     private String patient_id;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +107,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
             form.setDate(fn.getDate());
             allFormsList.add(form);
 
+            Log.d("Type", fn.getForm_type());
         }
     }
 

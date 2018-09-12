@@ -39,9 +39,9 @@ public class Transfer extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
-        Spinner spinnerReason = findViewById(R.id.spinnerReason);
+        Spinner spinnerDesignation = findViewById(R.id.spinnerDesignation);
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
-        spinnerData(spinnerReason, "reason");
+        spinnerData(spinnerDesignation, "reason");
         spinnerData(spinnerLocation, "location");
     }
 

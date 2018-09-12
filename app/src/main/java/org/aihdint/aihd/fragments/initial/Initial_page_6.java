@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.common.Common;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
@@ -77,6 +77,10 @@ public class Initial_page_6 extends Fragment {
         editTextRefferalReason = view.findViewById(R.id.followup_other_reason);
         editTextSupportGroup = view.findViewById(R.id.support_group);
         editTextProvider = view.findViewById(R.id.provider_name);
+
+        DateCalendar.date(getActivity(), editTextReturnDate);
+        DateCalendar.date(getActivity(), editTextDateReffered);
+        DateCalendar.date(getActivity(), editTextDateOut);
 
         textWatcher(editTextReturnDate);
         textWatcher(editTextFacility);
@@ -270,34 +274,34 @@ public class Initial_page_6 extends Fragment {
 
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", continueCare, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", editTextReturnDate.getText().toString(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", continueCare, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", referFacility, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", referFacility, DateCalendar.date(), ""));
         editTextDateReffered.getText();
-        jsonArry.put(JSONFormBuilder.observations("165167", "", "valueText", editTextFacility.getText().toString(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165167", "", "valueText", editTextFacility.getText().toString(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", transferFacility, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159495", "", "valueText", editTextHealthFacility.getText().toString(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160649", "", "valueDate", editTextDateOut.getText().toString(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", transferFacility, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159495", "", "valueText", editTextHealthFacility.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160649", "", "valueDate", editTextDateOut.getText().toString(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165168", "", "valueText", editTextReffered.getText().toString(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", managementDM, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", managementHTN, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", eyeReview, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", surgicalReview, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", renalReview, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", cvdReview, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", nutrition, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", physiotherapy, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", followUpOther, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165139", "", "valueText", editTextRefferalReason.getText().toString(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165168", "", "valueText", editTextReffered.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", managementDM, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", managementHTN, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", eyeReview, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", surgicalReview, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", renalReview, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", cvdReview, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", nutrition, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", physiotherapy, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1887", "", "valueCoded", followUpOther, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165139", "", "valueText", editTextRefferalReason.getText().toString(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("163766", "", "valueCoded", supportGroup, Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165169", "", "valueText", editTextSupportGroup.getText().toString(), Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163766", "", "valueCoded", supportGroup, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165169", "", "valueText", editTextSupportGroup.getText().toString(), DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextProvider.getText().toString(), Common.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("163556", "", "valueCoded", designation, Common.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextProvider.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("163556", "", "valueCoded", designation, DateCalendar.date(), ""));
 
 
         try {

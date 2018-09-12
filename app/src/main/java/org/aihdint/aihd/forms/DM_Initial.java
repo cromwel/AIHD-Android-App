@@ -153,7 +153,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             JSONObject jsonForm = new JSONObject();
 
             String error = Validation.initialValidation(jsonArray);
-            error = "";
 
             if (jsonArray.length() == 0) {
                 error = "Please fill in required fields(*)";

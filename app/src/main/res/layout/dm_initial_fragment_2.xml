@@ -287,13 +287,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Other medication **" />
+                                android:text="Other medication" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/medication_other"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Other medication **"
+                                android:hint="Other medication"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -909,17 +909,24 @@
                                     android:padding="10dp"
                                     android:text="Visual Impairment" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_visual_impairment_yes"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Yes" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_visual_impairment_no"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="No" />
+                                    <RadioButton
+                                        android:id="@+id/radio_visual_impairment_yes"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yes"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visual_impairment_no"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="No" />
+
+                                </RadioGroup>
 
                             </LinearLayout>
 
@@ -966,17 +973,23 @@
                                     android:padding="10dp"
                                     android:text="CVS" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_cvs_normal"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Normal" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_cvs_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
+                                    <RadioButton
+                                        android:id="@+id/radio_cvs_normal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Normal"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_cvs_abnormal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Abnormal" />
+                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout
@@ -989,13 +1002,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:text="** Describe" />
+                                    android:text="Describe" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/describe_cvs"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="** Describe"
+                                    android:hint="Describe"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -1021,17 +1034,23 @@
                                     android:padding="10dp"
                                     android:text="RS" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_rs_normal"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Normal" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_rs_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
+                                    <RadioButton
+                                        android:id="@+id/radio_rs_normal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Normal"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_rs_abnormal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Abnormal" />
+                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout
@@ -1044,13 +1063,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:text="** Describe" />
+                                    android:text="Describe" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/describe_rs"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="** Describe"
+                                    android:hint="Describe"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -1076,17 +1095,24 @@
                                     android:padding="10dp"
                                     android:text="P/A" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_pa_normal"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Normal" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_pa_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
+                                    <RadioButton
+                                        android:id="@+id/radio_pa_normal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Normal"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_pa_abnormal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Abnormal" />
+
+                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout
@@ -1099,13 +1125,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:text="** Describe" />
+                                    android:text="Describe" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/describe_pa"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="** Describe"
+                                    android:hint="Describe"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -1131,17 +1157,24 @@
                                     android:padding="10dp"
                                     android:text="CNS" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_cns_normal"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Normal" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_cns_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
+                                    <RadioButton
+                                        android:id="@+id/radio_cns_normal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Normal"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_cns_abnormal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Abnormal" />
+
+                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout
@@ -1154,13 +1187,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:text="** Describe" />
+                                    android:text="Describe" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/describe_cns"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="** Describe"
+                                    android:hint="Describe"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -1187,17 +1220,23 @@
                                     android:padding="10dp"
                                     android:text="Extremities" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_extremities_normal"
+                                <RadioGroup
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Normal" />
+                                    android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/radio_extremities_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
+                                    <RadioButton
+                                        android:id="@+id/radio_extremities_normal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Normal"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_extremities_abnormal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Abnormal" />
+                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout

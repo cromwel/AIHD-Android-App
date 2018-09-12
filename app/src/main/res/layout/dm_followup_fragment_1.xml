@@ -196,7 +196,6 @@
                                 android:id="@+id/radio_diabetes_new"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:text="New DM Patient"
                                 android:textSize="13sp" />
 
@@ -204,7 +203,6 @@
                                 android:id="@+id/radio_diabetes_known"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:text="Known DM Patient"
                                 android:textSize="13sp" />
 
@@ -212,7 +210,6 @@
                                 android:id="@+id/radio_diabetes_na"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="N/A" />
                         </RadioGroup>
 
@@ -255,7 +252,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
+                            android:focusable="false"
                             android:hint="(yyyy-mm-dd)"
                             android:inputType="date"
                             android:textSize="13sp" />
@@ -265,7 +262,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
+                            android:focusable="false"
                             android:hint="(yyyy-mm-dd)"
                             android:inputType="date"
                             android:textSize="13sp" />
@@ -301,7 +298,6 @@
                                 android:id="@+id/radio_diabetes_type_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Type 2"
                                 android:textSize="13sp" />
 
@@ -309,7 +305,6 @@
                                 android:id="@+id/radio_diabetes_GDM"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="GDM"
                                 android:textSize="13sp" />
 
@@ -317,7 +312,6 @@
                                 android:id="@+id/radio_diabetes_secondary"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Diabetes Secondary to other causes"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -343,7 +337,6 @@
                             android:id="@+id/radio_hypertension_new"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="New HTN patient"
                             android:textSize="13sp" />
 
@@ -351,7 +344,6 @@
                             android:id="@+id/radio_hypertension_known"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Known HTN patient"
                             android:textSize="13sp" />
 
@@ -359,7 +351,6 @@
                             android:id="@+id/radio_hypertension_na"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="N/A" />
                     </RadioGroup>
 
@@ -400,7 +391,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
+                            android:focusable="false"
                             android:hint="(yyyy-mm-dd)"
                             android:inputType="date"
                             android:textSize="13sp" />
@@ -410,7 +401,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:ems="10"
+                            android:focusable="false"
                             android:hint="(yyyy-mm-dd)"
                             android:inputType="date"
                             android:textSize="13sp" />
@@ -440,7 +431,6 @@
                                 android:id="@+id/radio_hypertension_mild"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Mild Hypertension"
                                 android:textSize="13sp" />
 
@@ -448,7 +438,6 @@
                                 android:id="@+id/radio_hypertension_moderate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Moderate Hypertension"
                                 android:textSize="13sp" />
 
@@ -456,7 +445,6 @@
                                 android:id="@+id/radio_hypertension_severe"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Severe Hypertension"
                                 android:textSize="13sp" />
 
@@ -464,7 +452,6 @@
                                 android:id="@+id/radio_hypertension_preeclampsia"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Preeclampsia"
                                 android:textSize="13sp" />
                         </RadioGroup>
@@ -555,11 +542,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:baselineAligned="false">
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -614,7 +601,8 @@
                             <RadioGroup
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                tools:ignore="TooManyViews">
 
                                 <RadioButton
                                     android:id="@+id/radio_tb_status_negative"
@@ -646,69 +634,48 @@
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
                         android:baselineAligned="false"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="TB Status" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="TB Status" />
-
-                            <CheckBox
-                                android:id="@+id/checkbox_tb_status"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="On treatment" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <CheckBox
+                            android:id="@+id/checkbox_tb_status"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="On treatment" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Treatment Start Date" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/tb_treatment_start"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="yyyy-mm-dd"
-                                android:inputType="date"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:padding="10dp"
+                            android:text="Treatment Start Date" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Comments (details)" />
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/tb_treatment_start"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:hint="yyyy-mm-dd"
+                            android:inputType="date"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/tb_comment"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="comments"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Comments (details)" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/tb_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="comments"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 

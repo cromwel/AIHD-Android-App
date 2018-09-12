@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,13 +82,19 @@ public class Followup_page_2 extends Fragment {
         editTextNoticableWeightLoss = view.findViewById(R.id.noticable_weight_loss);
         editTextNightSweats = view.findViewById(R.id.night_sweats);
 
-
         editTextSputum = view.findViewById(R.id.date_sputum);
         editTextGene = view.findViewById(R.id.date_gene);
         editTextXray = view.findViewById(R.id.date_chest_xray);
         editTextAntiTB = view.findViewById(R.id.date_antiTB);
         editTextInviteContact = view.findViewById(R.id.date_invite_contacts);
         editTextIPT = view.findViewById(R.id.date_eval_IPT);
+
+        DateCalendar.date(getActivity(), editTextSputum);
+        DateCalendar.date(getActivity(), editTextGene);
+        DateCalendar.date(getActivity(), editTextXray);
+        DateCalendar.date(getActivity(), editTextAntiTB);
+        DateCalendar.date(getActivity(), editTextInviteContact);
+        DateCalendar.date(getActivity(), editTextIPT);
 
         RadioButton radioButtonIndicatorHistoryYes = view.findViewById(R.id.radio_history_contact_yes);
         RadioButton radioButtonIndicatorHistoryNo = view.findViewById(R.id.radio_history_contact_no);
@@ -122,8 +129,6 @@ public class Followup_page_2 extends Fragment {
 
         return view;
     }
-
-
 
 
     public void radioButtonClicked(final RadioButton radioButton) {
@@ -320,32 +325,29 @@ public class Followup_page_2 extends Fragment {
 
     public void updateValues() {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String current_date = dateFormat.format(new Date());
-
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", urination, current_date, editTextUrination.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", thirst, current_date, editTextThirst.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", hunger, current_date, editTextHunger.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", weight_loss, current_date, editTextWeightLoss.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", fatigue, current_date, editTextFatigue.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", vision, current_date, editTextVision.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", impotence, current_date, editTextImpotence.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", numbness, current_date, editTextNumbness.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", urination, DateCalendar.date(), editTextUrination.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", thirst, DateCalendar.date(), editTextThirst.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", hunger, DateCalendar.date(), editTextHunger.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", weight_loss, DateCalendar.date(), editTextWeightLoss.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", fatigue, DateCalendar.date(), editTextFatigue.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", vision, DateCalendar.date(), editTextVision.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", impotence, DateCalendar.date(), editTextImpotence.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("1728", "", "valueCoded", numbness, DateCalendar.date(), editTextNumbness.getText().toString().trim()));
 
-        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", cough, current_date, editTextCough.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", fever, current_date, editTextFever.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", noticable_weight_loss, current_date, editTextNoticableWeightLoss.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", night_sweats, current_date, editTextNightSweats.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("165193", "", "valueCoded", indicator_history, current_date, ""));
+        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", cough, DateCalendar.date(), editTextCough.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", fever, DateCalendar.date(), editTextFever.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", noticable_weight_loss, DateCalendar.date(), editTextNoticableWeightLoss.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("159800", "", "valueCoded", night_sweats, DateCalendar.date(), editTextNightSweats.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165193", "", "valueCoded", indicator_history, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("307", "", "valueCoded", sputum, current_date, editTextSputum.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("162202", "", "valueCoded", gene, current_date, editTextCough.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", chest_xray, current_date, editTextXray.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", antiTB, current_date, editTextAntiTB.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("164072", "", "valueCoded", invitation_contacts, current_date, editTextInviteContact.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("162275", "", "valueCoded", eval_IPT, current_date, editTextIPT.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("307", "", "valueCoded", sputum, DateCalendar.date(), editTextSputum.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("162202", "", "valueCoded", gene, DateCalendar.date(), editTextCough.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", chest_xray, DateCalendar.date(), editTextXray.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", antiTB, DateCalendar.date(), editTextAntiTB.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("164072", "", "valueCoded", invitation_contacts, DateCalendar.date(), editTextInviteContact.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("162275", "", "valueCoded", eval_IPT, DateCalendar.date(), editTextIPT.getText().toString().trim()));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
