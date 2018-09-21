@@ -17,20 +17,32 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.orm.query.Condition;
-import com.orm.query.Select;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.StringRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.AppController;
+import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.adapters.models.PatientAdapter;
-import org.aihdint.aihd.services.LoadPatients;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class Patients extends AppCompatActivity {
+public class Patients extends AppCompatActivity implements SwipyRefreshLayout.OnRefreshListener {
 
     //private String TAG = MainActivity.class.getSimpleName();
 
@@ -38,6 +50,8 @@ public class Patients extends AppCompatActivity {
     private List<Person> personList;
     private PatientAdapter adapter;
     private String IsForm;
+    private SwipyRefreshLayout swipeRefreshLayout;
+    private Gson patientsGson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +66,17 @@ public class Patients extends AppCompatActivity {
         Intent intent = getIntent();
         IsForm = intent.getStringExtra("isForm");
 
-
+        swipeRefreshLayout = findViewById(R.id.swipyrefreshlayout);
         EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
 
         contactList = new ArrayList<>();
         personList = new ArrayList<>();
 
+        swipeRefreshLayout.setOnRefreshListener(this);
         adapter = new PatientAdapter(this, contactList);
+
+        DownloadPatients();
 
         assert recyclerView != null;
         recyclerView.setHasFixedSize(true);
@@ -69,41 +86,6 @@ public class Patients extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new CustomDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
         recyclerView.setAdapter(adapter);
-
-        /*
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-        */
-
-
-        ConnectivityManager cm =
-                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        assert cm != null;
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-
-        if (isConnected) {
-            List<Person> person_count = Select.from(Person.class)
-                    .where(Condition.prop("_status").eq("0"))
-                    .list();
-
-            if (person_count.size() < 1) {
-
-                Intent intentPatient = new Intent(getApplicationContext(), LoadPatients.class);
-                getApplication().startService(intentPatient);
-
-                getPatients();
-            } else {
-                getPatients();
-            }
-        } else {
-            getPatients();
-            //Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-        }
 
         inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -120,38 +102,30 @@ public class Patients extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 // filter your list from your input
                 filter(s.toString());
-
                 //you can use runnable postDelayed like 500 ms to delay search text
             }
         });
 
 
+        swipeRefreshLayout.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        swipeRefreshLayout.setRefreshing(true);
+                                        getPatients();
+                                    }
+                                }
+        );
+
     }
 
 
     public void getPatients() {
-        // Reading all contacts
-        Log.d("Reading: ", "Reading all persons..");
+        contactList.clear();
+        personList.clear();
 
-
-        List<Person> allpersons = Person.listAll(Person.class);
-        List<Person> persons = Select.from(Person.class).limit("10").list();
-        for (Person cn : persons) {
-            // adding each child node to HashMap key => value
-            Person person = new Person();
-            person.set_id(cn.get_id());
-            person.setFamily_name(cn.getFamily_name());
-            person.setGiven_name(cn.getGiven_name());
-            person.set_status("0");
-            person.setIsReport(IsForm);
-            // adding contact to contact list
-            contactList.add(person);
-            adapter.notifyDataSetChanged();
-        }
-
+        List<Person> allpersons = Person.findWithQuery(Person.class, "SELECT * FROM PERSON ORDER BY FAMILYNAME ASC");
 
         for (Person pn : allpersons) {
             // adding each child node to HashMap key => value
@@ -161,10 +135,17 @@ public class Patients extends AppCompatActivity {
             person.setGiven_name(pn.getGiven_name());
             person.set_status("0");
             person.setIsReport(IsForm);
+            person.setIdentifier(pn.getIdentifier());
             // adding contact to contact list
             personList.add(person);
+            contactList.add(person);
+            adapter.notifyDataSetChanged();
         }
+
+        swipeRefreshLayout.setRefreshing(false);
+
     }
+
 
     void filter(String text) {
         @SuppressWarnings("unchecked") List<Person> temp = new ArrayList();
@@ -181,5 +162,84 @@ public class Patients extends AppCompatActivity {
         adapter.searchList(temp);
     }
 
+    @Override
+    public void onRefresh(SwipyRefreshLayoutDirection direction) {
+        Log.d("Patients", "Refresh triggered at " + (direction == SwipyRefreshLayoutDirection.TOP ? "top" : "bottom"));
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        assert cm != null;
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        if (isConnected) {
+            DownloadPatients();
+        }
+    }
+
+
+    private void DownloadPatients() {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("yyyy-M-d");
+        patientsGson = gsonBuilder.create();
+
+        StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObj = new JSONObject(response);
+
+                    // Getting JSON Array node
+                    JSONArray patients = jsonObj.getJSONArray("data");
+
+                    //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
+                    Log.d("Response", response);
+                    if (patients.length() > 0) {
+                        Person.deleteAll(Person.class);
+
+                        List<Person> persons = Arrays.asList(patientsGson.fromJson(patients.toString(), Person[].class));
+
+                        for (Person person : persons) {
+                            // GOT THE OBJECT of PEOPLE
+                            person.save();
+                        }
+
+                        getPatients();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<>();
+                params.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+
+                JSONObject JSONparams = new JSONObject(params);
+                Log.d("Params", JSONparams.toString());
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(req);
+
+    }
 
 }

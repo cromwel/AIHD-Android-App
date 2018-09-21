@@ -200,8 +200,8 @@
                             android:id="@+id/birthdate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/round_border"
                             android:layout_marginTop="10dp"
+                            android:background="@drawable/round_border"
                             android:focusable="false"
                             android:inputType="date"
                             android:padding="15dp"
@@ -211,13 +211,13 @@
 
                     <LinearLayout
                         android:id="@+id/layout_age"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="18dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_margin="18dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
@@ -228,11 +228,11 @@
                             android:id="@+id/age"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/round_border"
                             android:layout_marginTop="10dp"
-                            android:text="0"
+                            android:background="@drawable/round_border"
                             android:inputType="number"
                             android:padding="15dp"
+                            android:text="0"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -285,6 +285,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -327,33 +329,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-
-                        <customfonts.TextView_Roboto_Regular
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="18dp"
-                            android:text="Service Delivery Point" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:layout_marginTop="18dp"
-                            android:background="@drawable/round_border"
-                            android:orientation="vertical">
-
-                            <Spinner
-                                android:id="@+id/spinnerLocation"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:entries="@array/location_arrays"
-                                android:prompt="@string/location_prompt" />
-
-                        </LinearLayout>
-
                         <RadioGroup
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -367,7 +342,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:onClick="onRadioButtonClicked"
-                                android:text="New Patient" />
+                                android:text="Transferred In" />
 
                             <RadioButton
                                 android:id="@+id/radio_patient_in_transit"
@@ -375,6 +350,34 @@
                                 android:layout_height="wrap_content"
                                 android:onClick="onRadioButtonClicked"
                                 android:text="Patient In Transit" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="18dp"
+                            android:layout_marginRight="18dp"
+                            android:layout_marginTop="18dp"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="What language should communication be in?" />
+
+                            <RadioButton
+                                android:id="@+id/radio_english"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="English" />
+
+                            <RadioButton
+                                android:id="@+id/radio_kiswahili"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="onRadioButtonClicked"
+                                android:text="Kiswahili" />
                         </RadioGroup>
                     </LinearLayout>
 

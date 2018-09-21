@@ -1,6 +1,5 @@
 package org.aihdint.aihd.patient;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,41 +11,36 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
+import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.NavigationDrawerShare;
-import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Person;
-import org.aihdint.aihd.services.LoadPatients;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static java.lang.Integer.decode;
 import static java.lang.Integer.parseInt;
 import static org.aihdint.aihd.app.Config.PATIENT_REGISTER_URL;
 
@@ -58,13 +52,14 @@ public class Register extends AppCompatActivity {
 
     private static final String TAG = Register.class.getSimpleName();
 
-    private String gender, birthdate, isEstimated, location_id, patient_type;
+    private String gender, birthdate, isEstimated, location_id, patient_type, language;
     private EditText editTextDOB, editTextAge, editTextFamilyName, editTextGivenName, editTextMiddleName, editTextTelephone, editTextTelephoneOther;
     private EditText editTextAddress1, editTextAddress2, editTextAddress3, editTextCounty, editTextVillage;
     private EditText editTextSupporter, editTextSupporterNumber, editTextSupporterNumberOther, editTextSupporterAddress;
     private LinearLayout linearLayoutDOB, linearLayoutAge;
 
     private ProgressDialog pDialog;
+    private Gson patientsGson;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,41 +104,6 @@ public class Register extends AppCompatActivity {
         linearLayoutDOB = findViewById(R.id.layout_dob);
         isEstimated = "0";
 
-        Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
-
-        ArrayList<KeyValue> keyvalue = new ArrayList<>();
-        //Add locations
-        // adding each child node to HashMap key => value
-        keyvalue.add(new KeyValue("", "Select Location"));
-        keyvalue.add(new KeyValue("1", "OutPatient Clinic"));
-        keyvalue.add(new KeyValue("2", "Maternity"));
-        keyvalue.add(new KeyValue("3", "C.C.C"));
-        keyvalue.add(new KeyValue("4", "Inpatient"));
-        keyvalue.add(new KeyValue("5", "Family Planning"));
-        keyvalue.add(new KeyValue("6", "Casuality"));
-        keyvalue.add(new KeyValue("7", "TB"));
-        keyvalue.add(new KeyValue("8", "ANC"));
-
-
-        //fill data in spinner
-        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
-
-        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                KeyValue value = (KeyValue) parent.getSelectedItem();
-                location_id = value.getId();
-                //Toast.makeText(mContext, "ID: "+value.getId()+", Name : "+value.getName(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
     }
 
     public void onRadioButtonClicked(View view) {
@@ -180,6 +140,14 @@ public class Register extends AppCompatActivity {
             case R.id.radio_patient_in_transit:
                 if (checked)
                     patient_type = "patient_in_transit";
+                break;
+            case R.id.radio_english:
+                if (checked)
+                    language = "english";
+                break;
+            case R.id.radio_kiswahili:
+                if (checked)
+                    language = "kiswahili";
                 break;
             default:
                 break;
@@ -242,11 +210,7 @@ public class Register extends AppCompatActivity {
             if (isConnected) {
                 registerPatient(family_name, given_name, middle_name, telephone, telephone_other, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, supporter_number_other);
             } else {
-                Intent intent = new Intent(getApplicationContext(), Profile.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("name", given_name + " " + family_name);
-                startActivity(intent);
-                finish();
+                Toast.makeText(this, "Internet connection required to complete registration.", Toast.LENGTH_LONG).show();
             }
         } else {
             // Prompt user to enter credentials
@@ -283,10 +247,12 @@ public class Register extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Patient successfully registered!", Toast.LENGTH_LONG).show();
 
+                        DownloadPatients();
                         // Launch login activity
                         Intent intent = new Intent(getApplicationContext(), Profile.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.putExtra("patient_id", patient_id);
+                        intent.putExtra("identifier", "identifier pending");
                         intent.putExtra("name", given_name + " " + family_name);
                         startActivity(intent);
                         finish();
@@ -300,6 +266,8 @@ public class Register extends AppCompatActivity {
                     hideDialog();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    hideDialog();
+                    Toast.makeText(getApplicationContext(), "Sorry unable to add patient", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -307,8 +275,9 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                hideDialog();
                 //Log.e(TAG, "Registration Error: " + error.getMessage());
-                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();hideDialog();
+                Toast.makeText(getApplicationContext(), "Sorry unable to add patient", Toast.LENGTH_LONG).show();
             }
         }) {
 
@@ -322,6 +291,7 @@ public class Register extends AppCompatActivity {
                 params.put("telephone", telephone);
                 params.put("telephone_other", telephone_other);
                 params.put("patient_type", patient_type);
+                params.put("language", language);
                 params.put("gender", gender);
                 params.put("birthdate", birthdate);
                 params.put("birthdate_estimated", isEstimated);
@@ -334,7 +304,6 @@ public class Register extends AppCompatActivity {
                 params.put("supporter_address", supporter_address);
                 params.put("supporter_number", supporter_number);
                 params.put("supporter_number_other", supporter_number_other);
-                params.put("service_delivery_point", location_id);
                 params.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
@@ -347,6 +316,66 @@ public class Register extends AppCompatActivity {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+
+    }
+
+    private void DownloadPatients() {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("yyyy-M-d");
+        patientsGson = gsonBuilder.create();
+
+        StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObj = new JSONObject(response);
+
+                    // Getting JSON Array node
+                    JSONArray patients = jsonObj.getJSONArray("data");
+
+                    //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
+                    Log.d("Response", response);
+                    if (patients.length() > 0) {
+                        Person.deleteAll(Person.class);
+
+                        List<Person> persons = Arrays.asList(patientsGson.fromJson(patients.toString(), Person[].class));
+
+                        for (Person person : persons) {
+                            // GOT THE OBJECT of PEOPLE
+                            person.save();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<>();
+                params.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+
+                JSONObject JSONparams = new JSONObject(params);
+                Log.d("Params", JSONparams.toString());
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(req);
 
     }
 

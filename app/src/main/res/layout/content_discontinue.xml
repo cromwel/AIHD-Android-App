@@ -88,6 +88,7 @@
                                 android:id="@+id/transferred_out_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
                                 android:padding="15dp"
@@ -98,11 +99,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Transferred out by" />
 
-                            <Spinner
-                                android:id="@+id/spinnerPerson"
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/transferred_out_by"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:entries="@array/location_arrays" />
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:padding="15dp"
+                                android:textSize="13sp" />
 
 
                             <customfonts.TextView_Roboto_Medium

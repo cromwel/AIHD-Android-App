@@ -68,6 +68,8 @@ public class Followup_page_4 extends Fragment {
         textWatcher(editTextReferralNote);
         textWatcher(editTextClinician);
 
+        DateCalendar.date(getActivity(), editTextReferralDate);
+
         CheckBox checkBoxMetformin = view.findViewById(R.id.treatment_metformin);
         CheckBox checkBoxGlibenclamide = view.findViewById(R.id.treatment_glibenclamide);
 
@@ -215,8 +217,8 @@ public class Followup_page_4 extends Fragment {
         Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
 
         //SpinnerDose
-        String[] arraySpinnerCaptopril = new String[]{"Select", "25mg", "50mg"};
-        String[] arraySpinnerEnalapril = new String[]{"Select", "10mg", "20mg "};
+        String[] arraySpinnerCaptopril = new String[]{"Select", "5mg", "25mg", "50mg"};
+        String[] arraySpinnerEnalapril = new String[]{"Select", "5mg", "10mg", "20mg "};
         String[] arraySpinnerLisinopril = new String[]{"Select", "20mg ", "40mg "};
         String[] arraySpinnerPerindopril = new String[]{"Select", "2mg ", "4mg", "5mg", "8mg", "10mg"};
         String[] arraySpinnerRamipril = new String[]{"Select", "1.25", "2.5mg ", "10mg "};

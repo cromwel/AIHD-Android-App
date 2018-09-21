@@ -220,8 +220,8 @@ public class Initial_page_5 extends Fragment {
         Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
 
         //SpinnerDose
-        String[] arraySpinnerCaptopril = new String[]{"Select", "25mg", "50mg"};
-        String[] arraySpinnerEnalapril = new String[]{"Select", "10mg", "20mg "};
+        String[] arraySpinnerCaptopril = new String[]{"Select", "5mg", "25mg", "50mg"};
+        String[] arraySpinnerEnalapril = new String[]{"Select", "5mg", "10mg", "20mg "};
         String[] arraySpinnerLisinopril = new String[]{"Select", "20mg ", "40mg "};
         String[] arraySpinnerPerindopril = new String[]{"Select", "2mg ", "4mg", "5mg", "8mg", "10mg"};
         String[] arraySpinnerRamipril = new String[]{"Select", "1.25mg", "2.5mg ", "10mg "};
@@ -326,9 +326,6 @@ public class Initial_page_5 extends Fragment {
         spinnerDataFrequency(spinnerDrugPrazocinFrq, "Prazocin");
         spinnerDataFrequency(spinnerDrugMetforminFrq, "Metformin");
         spinnerDataFrequency(spinnerDrugGlibenclamideFrq, "Glibenclamide");
-
-        Spinner spinnerSupportGroup = view.findViewById(R.id.spinnerSupportGroup);
-        Spinner spinnerDesignation = view.findViewById(R.id.spinnerDesignation);
 
         return view;
     }

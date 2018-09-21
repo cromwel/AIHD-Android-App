@@ -43,50 +43,13 @@
                         android:textAlignment="center"
                         android:textSize="16sp" />
 
-                    <LinearLayout
+                    <customfonts.TextView_RobotoLight
+                        android:id="@+id/patient_identifier"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/checkbox_diagnosis_dm"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:onClick="onCheckboxClicked"
-                            android:text="Diabetic"
-                            android:textSize="14sp" />
-
-                        <CheckBox
-                            android:id="@+id/checkbox_diagnosis_htn"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:onClick="onCheckboxClicked"
-                            android:text="Hypertensive"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <customfonts.TextView_Roboto_Regular
-                        android:id="@+id/checkbox_appointment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onCheckboxClicked"
-                        android:padding="5dp"
-                        android:text="Missed Appointment"
-                        android:textColor="@color/black"
+                        android:layout_margin="20dp"
+                        android:textAlignment="center"
                         android:textSize="14sp" />
-
-                    <customfonts.TextView_Roboto_Regular
-                        android:id="@+id/checkbox_lost_followup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onCheckboxClicked"
-                        android:padding="5dp"
-                        android:text="Lost to Follow Up"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -176,13 +139,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
-                                android:text="Past Visits"
+                                android:text="Patient Summary"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />

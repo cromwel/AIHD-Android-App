@@ -61,9 +61,13 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         View hView = navigationView.getHeaderView(0);
         TextView nav_version = hView.findViewById(R.id.nav_version);
         TextView nav_name = hView.findViewById(R.id.nav_name);
+        String location = AppController.getInstance().getSessionManager().getUserDetails().get("location_id");
+        String name = AppController.getInstance().getSessionManager().getUserDetails().get("name");
+        location = location.replace("_", " ");
+        location = location.substring(0, 1).toUpperCase() + location.substring(1);
         try {
             nav_version.setText(String.format("Version %s", Version));
-            nav_name.setText(AppController.getInstance().getSessionManager().getUserDetails().get("name"));
+            nav_name.setText(String.format("%s - %s", name, location));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,25 +91,25 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         if (id == R.id.nav_home) {
             Intent home = new Intent(mContext.getApplicationContext(), Home.class);
             mContext.startActivity(home);
-        } else if (id == R.id.nav_dm_initial) {
+        } /*else if (id == R.id.nav_dm_initial) {
             Intent dm_initial = new Intent(mContext.getApplicationContext(), Patients.class);
             dm_initial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             dm_initial.putExtra("isForm", "1");
             mContext.startActivity(dm_initial);
             ((Activity)mContext).finish();
-        } else if (id == R.id.nav_dm_follow_up) {
+        } */ else if (id == R.id.nav_dm_follow_up) {
             Intent dm_followup = new Intent(mContext.getApplicationContext(), Patients.class);
             dm_followup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             dm_followup.putExtra("isForm", "2");
             mContext.startActivity(dm_followup);
             ((Activity) mContext).finish();
-        } else if (id == R.id.nav_past_forms) {
+        } /*else if (id == R.id.nav_past_forms) {
             Intent forms = new Intent(mContext.getApplicationContext(), Patients.class);
             forms.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             forms.putExtra("isForm", "3");
             mContext.startActivity(forms);
             ((Activity)mContext).finish();
-        }else if (id == R.id.nav_add_patients) {
+        }*/ else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
             ((Activity)mContext).finish();

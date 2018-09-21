@@ -317,6 +317,22 @@
                                     android:layout_height="50dp" />
                             </LinearLayout>
 
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@drawable/rounded_button"
+                                android:gravity="center"
+                                android:onClick="validate"
+                                android:padding="15dp"
+                                android:text="Submit"
+                                android:textAllCaps="false"
+                                android:textColor="#ffffff" />
+
                         </LinearLayout>
                     </LinearLayout>
 

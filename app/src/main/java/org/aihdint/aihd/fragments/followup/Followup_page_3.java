@@ -141,6 +141,14 @@ public class Followup_page_3 extends Fragment {
         textWatcher(editTextDateUEC, "");
         textWatcher(editTextDateUrinalysis, "");
 
+        DateCalendar.date(getActivity(), editTextDateFBS);
+        DateCalendar.date(getActivity(), editTextDateRBS);
+        DateCalendar.date(getActivity(), editTextDateHBA);
+        DateCalendar.date(getActivity(), editTextDateHDL);
+        DateCalendar.date(getActivity(), editTextDateLDL);
+        DateCalendar.date(getActivity(), editTextDateTriglycerides);
+        DateCalendar.date(getActivity(), editTextDateUEC);
+        DateCalendar.date(getActivity(), editTextDateUrinalysis);
 
         textViewBMI = view.findViewById(R.id.followup_bmi);
         textViewWaistHipRatio = view.findViewById(R.id.followup_hip_waist_ratio);

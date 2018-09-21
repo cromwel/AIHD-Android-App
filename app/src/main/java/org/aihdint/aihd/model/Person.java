@@ -23,6 +23,7 @@ public class Person extends SugarRecord {
     private String _status;
     private String isDead;
     private String isReport;
+    private String identifier;
 
     // Empty constructor
     public Person() {
@@ -63,6 +64,14 @@ public class Person extends SugarRecord {
 
     public void set_id(String person_id) {
         this.person_id = person_id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
     public String getFamily_name() {

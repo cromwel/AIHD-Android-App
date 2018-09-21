@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 
@@ -33,9 +35,13 @@ public class FootClinic extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.createDrawer(toolbar);
 
+        EditText editTextReturnDate = findViewById(R.id.return_date_foot_clinic);
+        DateCalendar.date(this, editTextReturnDate);
+
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+
         Spinner spinnerDesignation = findViewById(R.id.spinnerDesignation);
         spinnerData(spinnerDesignation, "designation");
         Spinner spinnerVisit = findViewById(R.id.spinnerVisit);

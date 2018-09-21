@@ -1,5 +1,12 @@
 [
   {
+    "MFL Code": 0,
+    "location_id": "1",
+    "Facility Name": "Other Location",
+    "Sub County": "other",
+    "Comments": ""
+  },
+  {
     "MFL Code": 18271,
     "location_id": "9",
     "Facility Name": "Bristol Park",
@@ -50,8 +57,8 @@
   },
   {
     "MFL Code": 21273,
-    "location_id": "92",
-    "Facility Name": "Mother Ippolita",
+    "location_id": "16",
+    "Facility Name": "Baldo Ippolita",
     "Sub County": "",
     "Comments": ""
   },
@@ -78,7 +85,7 @@
   },
   {
     "MFL Code": 22012,
-    "location_id": "71",
+    "location_id": "20",
     "Facility Name": "Mowlem Health Centre",
     "Sub County": "",
     "Comments": ""
@@ -127,7 +134,7 @@
   },
   {
     "MFL Code": 12872,
-    "location_id": "91",
+    "location_id": "27",
     "Facility Name": "Maria Maternity Nursing Home",
     "Sub County": "Embakasi Central",
     "Comments": ""
@@ -177,7 +184,7 @@
   {
     "MFL Code": 13130,
     "location_id": "75",
-    "Facility Name": "National Youth Service HQ Dispensary Ruaraka",
+    "Facility Name": "NYS HQ Dispensary Ruaraka",
     "Sub County": "Ruaraka",
     "Comments": ""
   },
@@ -211,7 +218,7 @@
   },
   {
     "MFL Code": 13208,
-    "location_id": "77",
+    "location_id": "39",
     "Facility Name": "St. Joseph Mukasa Dispensary",
     "Sub County": "Ruaraka",
     "Comments": ""
@@ -225,7 +232,7 @@
   },
   {
     "MFL Code": 13258,
-    "location_id": "52",
+    "location_id": "41",
     "Facility Name": "Westlands Health Centre",
     "Sub County": "Westlands",
     "Comments": ""
@@ -239,7 +246,7 @@
   },
   {
     "MFL Code": 13049,
-    "location_id": "78",
+    "location_id": "43",
     "Facility Name": "Lianas Clinic",
     "Sub County": "Westlands",
     "Comments": ""
@@ -253,21 +260,21 @@
   },
   {
     "MFL Code": 18888,
-    "location_id": "79",
-    "Facility Name": "Consolata Shrine Disp Deep sea Nairobi",
+    "location_id": "45",
+    "Facility Name": "Consolata Shrine Disp",
     "Sub County": "Westlands",
     "Comments": ""
   },
   {
     "MFL Code": 19507,
     "location_id": "46",
-    "Facility Name": "Upendo medical clinic",
+    "Facility Name": "Upendo Medical Clinic",
     "Sub County": "",
     "Comments": ""
   },
   {
     "MFL Code": 12870,
-    "location_id": "80",
+    "location_id": "47",
     "Facility Name": "Amurt Health Centre",
     "Sub County": "Westlands",
     "Comments": ""
@@ -281,35 +288,35 @@
   },
   {
     "MFL Code": 18887,
-    "location_id": "58",
+    "location_id": "49",
     "Facility Name": "St. Getrudes Githogoro",
     "Sub County": "Westlands",
     "Comments": ""
   },
   {
     "MFL Code": 13093,
-    "location_id": "87",
+    "location_id": "50",
     "Facility Name": "Mji Wa Huruma Dispensary",
     "Sub County": "Westlands",
     "Comments": ""
   },
   {
     "MFL Code": 13209,
-    "location_id": "82",
-    "Facility Name": "St. Joseph The Worker Disp.",
+    "location_id": "51",
+    "Facility Name": "St. Joseph The Worker Disp",
     "Sub County": "Westlands",
     "Comments": ""
   },
   {
     "MFL Code": 21146,
-    "location_id": "83",
+    "location_id": "52",
     "Facility Name": "Eagles Health Care Solution",
     "Sub County": "Westlands",
     "Comments": ""
   },
   {
     "MFL Code": 13009,
-    "location_id": "59",
+    "location_id": "53",
     "Facility Name": "Karura Health Centre Kiambu Road",
     "Sub County": "Westlands",
     "Comments": ""

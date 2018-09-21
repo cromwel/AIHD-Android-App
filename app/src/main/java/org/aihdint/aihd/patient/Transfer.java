@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
@@ -35,13 +37,16 @@ public class Transfer extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.createDrawer(toolbar);
 
+        EditText editTextTransferredDate = findViewById(R.id.transferred_out_date);
+        DateCalendar.date(this, editTextTransferredDate);
+
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
-        Spinner spinnerDesignation = findViewById(R.id.spinnerDesignation);
+        Spinner spinnerReason = findViewById(R.id.spinnerReason);
         Spinner spinnerLocation = findViewById(R.id.spinnerLocation);
-        spinnerData(spinnerDesignation, "reason");
+        spinnerData(spinnerReason, "reason");
         spinnerData(spinnerLocation, "location");
     }
 

@@ -39,7 +39,6 @@ import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.Concepts;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Location;
-import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -266,8 +265,6 @@ public class Login extends Activity {
 
                         // Now store the user in SQLite
                         //String uuid = jObj.getString("uid");
-                        Intent grapprIntent = new Intent(getApplicationContext(), LoadPatients.class);
-                        getApplication().startService(grapprIntent);
 
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("display");
@@ -303,8 +300,7 @@ public class Login extends Activity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Unable to Log In. Contact System administrator", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {
@@ -334,7 +330,7 @@ public class Login extends Activity {
 
         };
 
-        // Adding request to request queue
+        //Adding request to request queue
         AppController.getInstance().getRequestQueue().getCache().clear();
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
@@ -370,8 +366,6 @@ public class Login extends Activity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(permissions.toArray(new String[permissions.size()]), 101);
             }
-
-            //return;
         }
     }
 

@@ -26,7 +26,7 @@
         <meta-data android:name="DATABASE" android:value="aihd.db" />
         <meta-data
             android:name="VERSION"
-            android:value="1" />
+            android:value="2" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="org.aihdint.aihd" />
 
@@ -125,9 +125,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Intent service -->
-        <service
-            android:name=".services.LoadPatients"
-            android:exported="false" />
         <service
             android:name=".services.LoadFiles"
             android:exported="false" />

@@ -58,24 +58,28 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
                 Intent graph = new Intent(view.getContext(), DM_Initial.class);
                 graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 graph.putExtra("patient_id", person.get_id());
+                graph.putExtra("identifier", person.getIdentifier());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                 mContext.startActivity(graph);
             } else if (person.getIsReport().matches("2")) {
                 Intent graph = new Intent(view.getContext(), DM_FollowUp.class);
                 graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 graph.putExtra("patient_id", person.get_id());
+                graph.putExtra("identifier", person.getIdentifier());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                 mContext.startActivity(graph);
             } else if (person.getIsReport().matches("3")) {
                 Intent graph = new Intent(view.getContext(), DM_HTN_Forms.class);
                 graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 graph.putExtra("patient_id", person.get_id());
+                graph.putExtra("identifier", person.getIdentifier());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                 mContext.startActivity(graph);
             } else {
                 Intent graph = new Intent(view.getContext(), Profile.class);
                 graph.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 graph.putExtra("patient_id", person.get_id());
+                graph.putExtra("identifier", person.getIdentifier());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                 mContext.startActivity(graph);
             }

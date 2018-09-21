@@ -7,37 +7,29 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Home" />
+            android:title="@string/home" />
 
         <item
             android:id="@+id/nav_add_patients"
             android:icon="@drawable/ic_person_add"
-            android:title="Add Patients" />
+            android:title="@string/add_patients" />
         <item
             android:id="@+id/nav_patients"
             android:icon="@drawable/ic_people"
-            android:title="Patients" />
-        <item
-            android:id="@+id/nav_past_forms"
-            android:icon="@drawable/ic_folder"
-            android:title="Past Forms" />
-        <item
-            android:id="@+id/nav_dm_initial"
-            android:icon="@drawable/ic_note_add"
-            android:title="DM HTN Initial Encounter" />
+            android:title="@string/patients" />
         <item
             android:id="@+id/nav_dm_follow_up"
             android:icon="@drawable/ic_description"
-            android:title="DM HTN Follow Up" />
+            android:title="@string/dm_htn_follow_up" />
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/share" />
             <!--
             <item
                 android:id="@+id/nav_settings"
@@ -47,7 +39,7 @@
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_exit_to_app"
-                android:title="Logout" />
+                android:title="@string/logout" />
         </menu>
     </item>
 

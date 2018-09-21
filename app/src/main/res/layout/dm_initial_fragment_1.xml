@@ -1040,7 +1040,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Do you Exercise?" />
+                                android:text="Do you Exercise?*" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
@@ -1051,21 +1051,18 @@
                                     android:id="@+id/radio_exercise_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_exercise_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1078,7 +1075,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Do you follow a balanced diet?" />
+                                android:text="Do you follow a balanced diet?*" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
@@ -1089,14 +1086,12 @@
                                     android:id="@+id/radio_diet_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_diet_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton

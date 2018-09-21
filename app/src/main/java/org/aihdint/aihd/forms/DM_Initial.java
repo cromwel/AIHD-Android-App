@@ -40,7 +40,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     //private static final String TAG = DM_Initial.class.getSimpleName();
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5, jsonArry6;
-    private String encounter_date, file_name, form_id, patient_id;
+    private String encounter_date, file_name, file_medication, form_id, patient_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         Log.d("PatientID", patient_id);
 
         file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
+        file_medication = "DM_HTN_MEDICATION_" + System.currentTimeMillis() + ".json";
         form_id = System.currentTimeMillis() + "_" + patient_id;
 
         jsonArry1 = new JSONArray();
@@ -122,7 +123,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     @Override
     public void initialFour(JSONArray params) {
         jsonArry4 = params;
-
     }
 
     @Override
@@ -134,23 +134,31 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     public void initialSix(JSONArray params) {
         jsonArry6 = params;
     }
-    public void validateInitial(View view) {
+
+    public void validate(View view) {
 
         ProgressDialog pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
+        File med_dir = new File(Environment.getExternalStorageDirectory() + "/aihd/medication");
 
         if (!dir.mkdirs()) {
             Log.e("Directory Message", "Directory not created");
         }
 
+        if (!med_dir.mkdirs()) {
+            Log.e("Directory Message", "Directory for Medication not created");
+        }
 
         File file = new File(dir, file_name);
+        File file_med = new File(med_dir, file_medication);
 
         try {
 
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5, jsonArry6);
+            JSONArray jsonMedArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry5);
             JSONObject jsonForm = new JSONObject();
+            JSONObject jsonFormMeds = new JSONObject();
 
             String error = Validation.initialValidation(jsonArray);
 
@@ -173,22 +181,36 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
 
+                jsonFormMeds.put("obs", jsonMedArray);
+
                 FileOutputStream f = new FileOutputStream(file);
+                FileOutputStream fm = new FileOutputStream(file_med);
+
                 PrintWriter pw = new PrintWriter(f);
+                PrintWriter pwm = new PrintWriter(fm);
+
                 pw.println(jsonForm.toString());
+                pwm.println(jsonFormMeds.toString());
+
                 pw.flush();
+                pwm.flush();
                 pw.close();
+                pwm.close();
+                fm.close();
                 f.close();
 
                 Forms forms = new Forms(form_id, file_name, creator, patient_id, "initial", encounter_date, "0");
                 long id = forms.save();
+
+                Forms form_med = new Forms(form_id, file_medication, creator, patient_id, "medication", encounter_date, "1");
+                form_med.save();
 
                 Toast.makeText(getBaseContext(), "Initial Encounter file saved", Toast.LENGTH_SHORT).show();
 
                 boolean isConnected = File_Upload.connectivity(getApplicationContext());
 
                 if (isConnected) {
-                    //File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, id, null);
+                    File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, id, null);
                 } else {
                     Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
                 }
@@ -210,92 +232,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             e.printStackTrace();
         }
 
-
         pDialog.dismiss();
         //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
 
-
     }
 
-
-    /*
-     * Method to make json array request where response starts with [
-     *
-
-    private void dmInitialForm() {
-
-        // Tag used to cancel the request
-        String tag_string_req = "req_upload";
-
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                DMINITIAL_URL, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Upload Response: " + response);
-
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-                    if (!error) {
-                        // User successfully stored in MySQL
-                        // Now store the user in sqlite
-                        Toast.makeText(getApplicationContext(), "Form successfully uploaded.!", Toast.LENGTH_LONG).show();
-                    }
-
-                    pDialog.dismiss();
-                } catch (JSONException e) {
-                    pDialog.dismiss();
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Upload Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
-                pDialog.dismiss();
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<>();
-
-                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-
-                JSONObject jsonParams = new JSONObject(params);
-                JSONObject jsonAdd = new JSONObject();
-
-                try {
-                    jsonAdd.put("Encounter", "85562bbn-jjk96");
-                    jsonAdd.put("obs", jsonParams);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                Log.d("Params", jsonAdd.toString());
-
-
-                return params;
-            }
-
-        };
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-
-    }
-
-
-    /*
-    public void validateInitial(View view) {
-        //dmInitialForm();
-        //File_Upload.
-    }
-    */
 }

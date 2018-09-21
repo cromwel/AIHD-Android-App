@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 
@@ -38,9 +39,11 @@ public class Admission extends AppCompatActivity {
         navigate.createDrawer(toolbar);
 
         EditText editTextAdmissionDate = findViewById(R.id.admission_date);
+        editTextAdmissionDate.setText(DateCalendar.date());
+        DateCalendar.date(this, editTextAdmissionDate);
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        editTextAdmissionDate.setText(dateFormat.format(new Date())); // it will show 16/07/2013
+        EditText editTextDischargeDate = findViewById(R.id.discharge_date);
+        DateCalendar.date(this, editTextDischargeDate);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
