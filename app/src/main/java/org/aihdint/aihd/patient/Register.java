@@ -22,6 +22,7 @@ import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
@@ -35,6 +36,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +50,7 @@ import static org.aihdint.aihd.app.Config.PATIENT_REGISTER_URL;
  * Developed by Rodney on 19/03/2018.
  */
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private static final String TAG = Register.class.getSimpleName();
 
@@ -93,8 +95,6 @@ public class Register extends AppCompatActivity {
         editTextDOB = findViewById(R.id.birthdate);
         editTextAge = findViewById(R.id.age);
 
-        DateCalendar.date(this, editTextDOB);
-
         editTextSupporter = findViewById(R.id.supporter_name);
         editTextSupporterAddress = findViewById(R.id.supporter_address);
         editTextSupporterNumber = findViewById(R.id.supporter_telephone);
@@ -104,6 +104,27 @@ public class Register extends AppCompatActivity {
         linearLayoutDOB = findViewById(R.id.layout_dob);
         isEstimated = "0";
 
+    }
+
+    public void dob(View view) {
+
+        Calendar now = Calendar.getInstance();
+        DatePickerDialog dpd = DatePickerDialog.newInstance(
+                Register.this,
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+        );
+
+        dpd.showYearPickerFirst(true);
+        dpd.show(getFragmentManager(), "Datepickerdialog");
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        String date = year + "-" + monthOfYear + "-" + dayOfMonth;
+        editTextDOB.setText(date);
+        birthdate = date;
     }
 
     public void onRadioButtonClicked(View view) {
@@ -178,11 +199,6 @@ public class Register extends AppCompatActivity {
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("-MM-dd HH:mm:ss", Locale.US);
             birthdate = birth_year + dateFormat.format(new Date());
-        }
-
-
-        if (!editTextDOB.getText().toString().matches("") && editTextDOB.getText().toString().length() > 0) {
-            birthdate = editTextDOB.getText().toString().trim();
         }
 
         // Check for empty data in the form

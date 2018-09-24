@@ -40,7 +40,6 @@ public class DateCalendar {
         });
     }
 
-
     private static void updateLabel(EditText editText, Calendar calendar) {
         String myFormat = "yyyy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);

@@ -19,6 +19,7 @@ import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.followup.FragmentModelFollowUp;
+import org.aihdint.aihd.model.PatientProfile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -144,6 +145,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
                 jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -157,6 +159,9 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
             Forms forms = new Forms(form_id, file_name, creator, patient_id, "followup", encounter_date, "0");
             id = forms.save();
+
+            PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
+            patientProfile.save();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

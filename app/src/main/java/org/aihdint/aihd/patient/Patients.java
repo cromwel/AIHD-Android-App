@@ -236,7 +236,6 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             }
 
         };
-
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(req);
 

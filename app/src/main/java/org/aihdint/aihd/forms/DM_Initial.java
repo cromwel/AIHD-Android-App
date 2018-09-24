@@ -23,6 +23,7 @@ import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.fragments.initial.FragmentModelInitial;
 import org.aihdint.aihd.model.Forms;
+import org.aihdint.aihd.model.PatientProfile;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -40,7 +41,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     //private static final String TAG = DM_Initial.class.getSimpleName();
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5, jsonArry6;
-    private String encounter_date, file_name, file_medication, form_id, patient_id;
+    private String encounter_date, file_name, form_id, patient_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         Log.d("PatientID", patient_id);
 
         file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
-        file_medication = "DM_HTN_MEDICATION_" + System.currentTimeMillis() + ".json";
         form_id = System.currentTimeMillis() + "_" + patient_id;
 
         jsonArry1 = new JSONArray();
@@ -140,25 +140,17 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         ProgressDialog pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
-        File med_dir = new File(Environment.getExternalStorageDirectory() + "/aihd/medication");
 
         if (!dir.mkdirs()) {
             Log.e("Directory Message", "Directory not created");
         }
 
-        if (!med_dir.mkdirs()) {
-            Log.e("Directory Message", "Directory for Medication not created");
-        }
-
         File file = new File(dir, file_name);
-        File file_med = new File(med_dir, file_medication);
 
         try {
 
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5, jsonArry6);
-            JSONArray jsonMedArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry5);
             JSONObject jsonForm = new JSONObject();
-            JSONObject jsonFormMeds = new JSONObject();
 
             String error = Validation.initialValidation(jsonArray);
 
@@ -181,29 +173,21 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
 
-                jsonFormMeds.put("obs", jsonMedArray);
-
                 FileOutputStream f = new FileOutputStream(file);
-                FileOutputStream fm = new FileOutputStream(file_med);
 
                 PrintWriter pw = new PrintWriter(f);
-                PrintWriter pwm = new PrintWriter(fm);
 
                 pw.println(jsonForm.toString());
-                pwm.println(jsonFormMeds.toString());
 
                 pw.flush();
-                pwm.flush();
                 pw.close();
-                pwm.close();
-                fm.close();
                 f.close();
 
                 Forms forms = new Forms(form_id, file_name, creator, patient_id, "initial", encounter_date, "0");
                 long id = forms.save();
 
-                Forms form_med = new Forms(form_id, file_medication, creator, patient_id, "medication", encounter_date, "1");
-                form_med.save();
+                PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
+                patientProfile.save();
 
                 Toast.makeText(getBaseContext(), "Initial Encounter file saved", Toast.LENGTH_SHORT).show();
 

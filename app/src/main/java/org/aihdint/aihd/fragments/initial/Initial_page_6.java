@@ -309,7 +309,7 @@ public class Initial_page_6 extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //Log.d("JSON Initial Page 5", jsonArry.toString() + " ");
+        //Log.d("JSON Initial Page 6", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialSix(jsonArry);
     }

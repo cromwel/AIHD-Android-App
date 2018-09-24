@@ -70,4 +70,12 @@
     <string name="patients">Patients</string>
     <string name="add_patients">Add Patients</string>
     <string name="home">Home</string>
+    <string name="icon">Icon</string>
+    <string name="drug_history">Drug History</string>
+    <string name="vitals">Vitals</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="hypertension">Hypertension</string>
+    <string name="lost_to_follow_up">Lost to Follow Up</string>
+    <string name="drug_summary">Drug Summary</string>
+    <string name="vitals_summary">Vitals Summary</string>
 </resources>
