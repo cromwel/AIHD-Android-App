@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.aihdint.aihd.Home;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.model.Forms;
@@ -105,7 +106,6 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         jsonArry2 = params;
     }
 
-
     @Override
     public void followUpThree(JSONArray params) {
         jsonArry3 = params;
@@ -160,8 +160,20 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             Forms forms = new Forms(form_id, file_name, creator, patient_id, "followup", encounter_date, "0");
             id = forms.save();
 
-            PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
-            patientProfile.save();
+            if ((int) PatientProfile.count(PatientProfile.class, "patient_id = ?", new String[]{patient_id}) == 0) {
+                PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
+                patientProfile.save();
+            } else {
+                PatientProfile patientProfile = (PatientProfile.find(PatientProfile.class, "patient_id = ?", patient_id)).get(0);
+                patientProfile.setMedicationFile(jsonForm.toString());
+                patientProfile.save();
+            }
+
+            // Launch login activity
+            Intent intent = new Intent(this, Home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -171,7 +183,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         }
 
 
-        Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), "Follow Up Form saved", Toast.LENGTH_SHORT).show();
         boolean isConnected = File_Upload.connectivity(getApplicationContext());
         if (isConnected) {
             File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);

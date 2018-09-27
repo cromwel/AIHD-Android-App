@@ -24,7 +24,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Chlorthalidone" />
 
         <Spinner
@@ -51,7 +50,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Hydrochlorothia zide" />
 
         <Spinner
@@ -74,18 +72,11 @@
         android:weightSum="3">
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/otherThiazide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="3"
             android:hint="Other Thiazide diuretic"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:hint="dosage &amp; frequency"
             android:padding="15dp"
             android:textSize="13sp" />
 
@@ -111,7 +102,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Indapamide" />
 
         <Spinner
@@ -134,18 +124,11 @@
         android:weightSum="3">
 
         <customfonts.EditText_Roboto_Regular
+            android:id="@+id/otherThaizideLike"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="3"
             android:hint="Other Thaizide Like"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:hint="dosage &amp; frequency"
             android:padding="15dp"
             android:textSize="13sp" />
 

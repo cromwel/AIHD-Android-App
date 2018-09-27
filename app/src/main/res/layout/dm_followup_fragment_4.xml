@@ -48,31 +48,21 @@
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
-                    <!--
-                     <LinearLayout
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:orientation="horizontal"
-                         android:weightSum="2">
+                    <CheckBox
+                        android:id="@+id/followup_continue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Continue Care in facility" />
 
-                         <CheckBox
-                             android:id="@+id/followup_continue"
-                             android:layout_width="0dp"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:onClick="onCheckboxClicked"
-                             android:text="Continue Care in clinic" />
-
-                         <customfonts.EditText_Roboto_Regular
-                             android:layout_width="0dp"
-                             android:layout_weight="1"
-                             android:layout_height="wrap_content"
-                             android:hint="Return date"
-                             android:inputType="date"
-                             android:padding="15dp"
-                             android:textSize="15sp" />
-
-                     </LinearLayout> -->
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/followup_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Return date"
+                        android:inputType="date"
+                        android:padding="10dp"
+                        android:textSize="13sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -169,6 +159,22 @@
                             android:ems="10"
                             android:inputType="textPersonName"
                             android:textSize="15sp" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/rounded_button"
+                            android:gravity="center"
+                            android:onClick="validate"
+                            android:padding="15dp"
+                            android:text="Submit"
+                            android:textAllCaps="false"
+                            android:textColor="#ffffff" />
 
                     </LinearLayout>
 

@@ -78,4 +78,6 @@
     <string name="lost_to_follow_up">Lost to Follow Up</string>
     <string name="drug_summary">Drug Summary</string>
     <string name="vitals_summary">Vitals Summary</string>
+    <string name="drug">Drug</string>
+    <string name="dose_frequency"><![CDATA[Dose(mg) & Frequency]]></string>
 </resources>

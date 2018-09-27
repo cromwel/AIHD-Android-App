@@ -66,7 +66,6 @@
                                     android:id="@+id/checkbox_medication_metformin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Metformin" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -74,7 +73,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -87,7 +86,6 @@
                                     android:id="@+id/checkbox_medication_glibenclamide"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Glibenclamide" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -95,7 +93,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -108,7 +106,6 @@
                                     android:id="@+id/checkbox_medication_insulin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Insulin 70/30" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -116,7 +113,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -129,7 +126,6 @@
                                     android:id="@+id/checkbox_medication_nph"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="NPH" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -137,7 +133,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -150,7 +146,6 @@
                                     android:id="@+id/checkbox_medication_soluble_insulin"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Soluble Insulin" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -158,7 +153,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -171,7 +166,6 @@
                                     android:id="@+id/checkbox_medication_enalapril"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Enalapril" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -179,7 +173,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -192,7 +186,6 @@
                                     android:id="@+id/checkbox_medication_hctz"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="HCTZ" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -200,7 +193,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -213,7 +206,6 @@
                                     android:id="@+id/checkbox_medication_losartan"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Losartan" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -221,7 +213,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -234,7 +226,6 @@
                                     android:id="@+id/checkbox_medication_nifedipine"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Nifedipine" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -242,7 +233,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -255,7 +246,6 @@
                                     android:id="@+id/checkbox_medication_atenolol"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Atenolol" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -263,7 +253,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Dosage"
-                                    android:inputType="numberDecimal"
+                                    android:inputType="text"
                                     android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>

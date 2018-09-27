@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -40,10 +41,13 @@ public class File_Upload {
 
 
     public static boolean connectivity(final Context mContext) {
-        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        assert cm != null;
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        assert connectivityManager != null;
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ConnectivityManager.setProcessDefaultNetwork(null);
+        }
 
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }

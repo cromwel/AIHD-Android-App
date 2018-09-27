@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class DateCalendar {
 
@@ -55,5 +56,21 @@ public class DateCalendar {
     public static String date() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
         return dateFormat.format(new Date());
+    }
+
+    public static long dateRange(String dateStart, String dateEnd) {
+        long diff = 0;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+            Date endDateValue = sdf.parse(dateEnd);
+            Date startDateValue = sdf.parse(dateStart);
+
+            diff = endDateValue.getTime() - startDateValue.getTime();
+            System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 }

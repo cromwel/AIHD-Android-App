@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.common.DateCalendar;
+import org.aihdint.aihd.common.DrugsDose;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.model.KeyValue;
@@ -220,76 +221,40 @@ public class Initial_page_5 extends Fragment {
         Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
 
         //SpinnerDose
-        String[] arraySpinnerCaptopril = new String[]{"Select", "5mg", "25mg", "50mg"};
-        String[] arraySpinnerEnalapril = new String[]{"Select", "5mg", "10mg", "20mg "};
-        String[] arraySpinnerLisinopril = new String[]{"Select", "20mg ", "40mg "};
-        String[] arraySpinnerPerindopril = new String[]{"Select", "2mg ", "4mg", "5mg", "8mg", "10mg"};
-        String[] arraySpinnerRamipril = new String[]{"Select", "1.25mg", "2.5mg ", "10mg "};
+        spinnerDoseData(spinnerDrugCaptopril, DrugsDose.arraySpinnerCaptopril, "Captopril");
+        spinnerDoseData(spinnerDrugEnalapril, DrugsDose.arraySpinnerEnalapril, "Enalapril");
+        spinnerDoseData(spinnerDrugLisinopril, DrugsDose.arraySpinnerLisinopril, "Lisinopril");
+        spinnerDoseData(spinnerDrugPerindopril, DrugsDose.arraySpinnerPerindopril, "Perindopril");
+        spinnerDoseData(spinnerDrugRamipril, DrugsDose.arraySpinnerRamipril, "Ramipril");
 
-        String[] arraySpinnerCandesartan = new String[]{"Select", "4mg", "8mg ", "16mg", "32mg "};
-        String[] arraySpinnerIrbesartan = new String[]{"Select", "75mg", "150mg ", "300mg "};
-        String[] arraySpinnerLosartan = new String[]{"Select", "50mg ", "100mg "};
-        String[] arraySpinnerTelmisartan = new String[]{"Select", "20mg", "40mg ", "80mg "};
-        String[] arraySpinnerValsartan = new String[]{"Select", "40mg", "80mg ", "160mg ", "320mg"};
-        String[] arraySpinnerOlmesartan = new String[]{"Select", "5mg", "20mg ", "40mg "};
+        spinnerDoseData(spinnerDrugCandesartan, DrugsDose.arraySpinnerCandesartan, "Candesartan");
+        spinnerDoseData(spinnerDrugIrbesartan, DrugsDose.arraySpinnerIrbesartan, "Irbesartan");
+        spinnerDoseData(spinnerDrugLosartan, DrugsDose.arraySpinnerLosartan, "Losartan");
+        spinnerDoseData(spinnerDrugTelmisartan, DrugsDose.arraySpinnerTelmisartan, "Telmisartan");
+        spinnerDoseData(spinnerDrugValsartan, DrugsDose.arraySpinnerValsartan, "Valsartan");
+        spinnerDoseData(spinnerDrugOlmesartan, DrugsDose.arraySpinnerOlmesartan, "Olmesartan");
 
-        String[] arraySpinnerAtenolol = new String[]{"Select", "25mg ", "50mg", "100mg "};
-        String[] arraySpinnerLabetolol = new String[]{"Select", "100mg", "200mg ", "300mg "};
-        String[] arraySpinnerPropranolol = new String[]{"Select", "40mg ", "80mg "};
-        String[] arraySpinnerCarvedilol = new String[]{"Select", "3.125mg", "6.25mg ", "12.5mg", "10mg", "20mg", "25mg ", "40mg", "80mg"};
-        String[] arraySpinnerNebivolol = new String[]{"Select", "2.5mg ", "5mg ", "10mg", "20mg"};
-        String[] arraySpinnerMetoprolol = new String[]{"Select", "25mg ", "37.5mg", "50mg", "75mg", "100mg ", "200mg"};
-        String[] arraySpinnerBisoprolol = new String[]{"Select", "5mg ", "10mg "};
+        spinnerDoseData(spinnerDrugAtenolol, DrugsDose.arraySpinnerAtenolol, "Atenolol");
+        spinnerDoseData(spinnerDrugLabetolol, DrugsDose.arraySpinnerLabetolol, "Labetolol");
+        spinnerDoseData(spinnerDrugPropranolol, DrugsDose.arraySpinnerPropranolol, "Propranolol");
+        spinnerDoseData(spinnerDrugCarvedilol, DrugsDose.arraySpinnerCarvedilol, "Carvedilol");
+        spinnerDoseData(spinnerDrugNebivolol, DrugsDose.arraySpinnerNebivolol, "Nebivolol");
+        spinnerDoseData(spinnerDrugMetoprolol, DrugsDose.arraySpinnerMetoprolol, "Metoprolol");
+        spinnerDoseData(spinnerDrugBisoprolol, DrugsDose.arraySpinnerBisoprolol, "Bisoprolol");
 
-        String[] arraySpinnerAmlodipine = new String[]{"Select", "2.5mg", "5mg ", "10mg "};
-        String[] arraySpinnerFelodipine = new String[]{"Select", "2.5mg", "5mg ", "10mg "};
-        String[] arraySpinnerNifedipine = new String[]{"Select", "10mg ", "20mg "};
+        spinnerDoseData(spinnerDrugAmlodipine, DrugsDose.arraySpinnerAmlodipine, "Amlodipine");
+        spinnerDoseData(spinnerDrugFelodipine, DrugsDose.arraySpinnerFelodipine, "Felodipine");
+        spinnerDoseData(spinnerDrugNifedipine, DrugsDose.arraySpinnerNifedipine, "Nifedipine");
 
-        String[] arraySpinnerChlorthalidone = new String[]{"Select", "25mg ", "50mg "};
-        String[] arraySpinnerHydrochlorothia = new String[]{"Select", "12.5mg ", "25mg"};
-        String[] arraySpinnerIndapamide = new String[]{"Select", "1.5mg ", "2.5mg ", "5mg "};
+        spinnerDoseData(spinnerDrugChlorthalidone, DrugsDose.arraySpinnerChlorthalidone, "Chlorthalidone");
+        spinnerDoseData(spinnerDrugHydrochlorothia, DrugsDose.arraySpinnerHydrochlorothia, "Hydrochlorothia");
+        spinnerDoseData(spinnerDrugIndapamide, DrugsDose.arraySpinnerIndapamide, "Indapamide");
 
-        String[] arraySpinnerMethyldopa = new String[]{"Select", "250mg", "500mg"};
-        String[] arraySpinnerHydralazine = new String[]{"Select", "25mg ",};
-        String[] arraySpinnerPrazocin = new String[]{"Select", "0.5mg ", "1mg "};
-
-        String[] arraySpinnerMetformin = new String[]{"Select", "500mg", "850mg", "1000mg"};
-        String[] arraySpinnerGlibenclamide = new String[]{"Select", "5mg",};
-
-        spinnerDoseData(spinnerDrugCaptopril, arraySpinnerCaptopril, "Captopril");
-        spinnerDoseData(spinnerDrugEnalapril, arraySpinnerEnalapril, "Enalapril");
-        spinnerDoseData(spinnerDrugLisinopril, arraySpinnerLisinopril, "Lisinopril");
-        spinnerDoseData(spinnerDrugPerindopril, arraySpinnerPerindopril, "Perindopril");
-        spinnerDoseData(spinnerDrugRamipril, arraySpinnerRamipril, "Ramipril");
-
-        spinnerDoseData(spinnerDrugCandesartan, arraySpinnerCandesartan, "Candesartan");
-        spinnerDoseData(spinnerDrugIrbesartan, arraySpinnerIrbesartan, "Irbesartan");
-        spinnerDoseData(spinnerDrugLosartan, arraySpinnerLosartan, "Losartan");
-        spinnerDoseData(spinnerDrugTelmisartan, arraySpinnerTelmisartan, "Telmisartan");
-        spinnerDoseData(spinnerDrugValsartan, arraySpinnerValsartan, "Valsartan");
-        spinnerDoseData(spinnerDrugOlmesartan, arraySpinnerOlmesartan, "Olmesartan");
-
-        spinnerDoseData(spinnerDrugAtenolol, arraySpinnerAtenolol, "Atenolol");
-        spinnerDoseData(spinnerDrugLabetolol, arraySpinnerLabetolol, "Labetolol");
-        spinnerDoseData(spinnerDrugPropranolol, arraySpinnerPropranolol, "Propranolol");
-        spinnerDoseData(spinnerDrugCarvedilol, arraySpinnerCarvedilol, "Carvedilol");
-        spinnerDoseData(spinnerDrugNebivolol, arraySpinnerNebivolol, "Nebivolol");
-        spinnerDoseData(spinnerDrugMetoprolol, arraySpinnerMetoprolol, "Metoprolol");
-        spinnerDoseData(spinnerDrugBisoprolol, arraySpinnerBisoprolol, "Bisoprolol");
-
-        spinnerDoseData(spinnerDrugAmlodipine, arraySpinnerAmlodipine, "Amlodipine");
-        spinnerDoseData(spinnerDrugFelodipine, arraySpinnerFelodipine, "Felodipine");
-        spinnerDoseData(spinnerDrugNifedipine, arraySpinnerNifedipine, "Nifedipine");
-
-        spinnerDoseData(spinnerDrugChlorthalidone, arraySpinnerChlorthalidone, "Chlorthalidone");
-        spinnerDoseData(spinnerDrugHydrochlorothia, arraySpinnerHydrochlorothia, "Hydrochlorothia");
-        spinnerDoseData(spinnerDrugIndapamide, arraySpinnerIndapamide, "Indapamide");
-
-        spinnerDoseData(spinnerDrugMethyldopa, arraySpinnerMethyldopa, "Methyldopa");
-        spinnerDoseData(spinnerDrugHydralazine, arraySpinnerHydralazine, "Hydralazine");
-        spinnerDoseData(spinnerDrugPrazocin, arraySpinnerPrazocin, "Prazocin");
-        spinnerDoseData(spinnerDrugMetformin, arraySpinnerMetformin, "Metformin");
-        spinnerDoseData(spinnerDrugGlibenclamide, arraySpinnerGlibenclamide, "Glibenclamide");
+        spinnerDoseData(spinnerDrugMethyldopa, DrugsDose.arraySpinnerMethyldopa, "Methyldopa");
+        spinnerDoseData(spinnerDrugHydralazine, DrugsDose.arraySpinnerHydralazine, "Hydralazine");
+        spinnerDoseData(spinnerDrugPrazocin, DrugsDose.arraySpinnerPrazocin, "Prazocin");
+        spinnerDoseData(spinnerDrugMetformin, DrugsDose.arraySpinnerMetformin, "Metformin");
+        spinnerDoseData(spinnerDrugGlibenclamide, DrugsDose.arraySpinnerGlibenclamide, "Glibenclamide");
 
         //SpinnerFrequency
         spinnerDataFrequency(spinnerDrugCaptoprilFrq, "Captopril");

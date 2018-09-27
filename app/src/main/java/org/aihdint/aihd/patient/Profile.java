@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.aihdint.aihd.common.Common;
+import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.forms.DM_FollowUp;
 import org.aihdint.aihd.forms.DM_Initial;
 import org.aihdint.aihd.R;
@@ -37,7 +38,7 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
 
     private String patient_id;
     private String records;
-    private String isDeceased;
+    private String isDeceased = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,17 +82,17 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         @SuppressLint("InflateParams") final View dialogView = inflater.inflate(R.layout.patient_summary, null);
         alertDialogBuilder.setMessage("Patient Summary");
 
-
         TextView textViewAppointment = dialogView.findViewById(R.id.appointment);
         LinearLayout linearLayoutDiabetes = dialogView.findViewById(R.id.diabetes);
         LinearLayout linearLayoutHypertension = dialogView.findViewById(R.id.hypertension);
-        ;
 
         TextView textViewTreatment = dialogView.findViewById(R.id.treatment);
         TextView textViewDrug = dialogView.findViewById(R.id.drug);
         TextView textViewFrequency = dialogView.findViewById(R.id.frequency);
 
         TextView textViewVitals = dialogView.findViewById(R.id.textViewVitals);
+
+        Log.d("Range", String.valueOf(DateCalendar.dateRange(DateCalendar.date(), "2018-10-05")));
 
         final Button showDrugs = dialogView.findViewById(R.id.showDrugs);
         final Button hideDrugs = dialogView.findViewById(R.id.hideDrugs);
@@ -130,6 +131,25 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
                             break;
                         case "160855":
                             textViewFrequency.append(Common.conceptAnswer(concept, "160855") + " \n");
+                            break;
+                        case "5096":
+                            if (DateCalendar.dateRange(DateCalendar.date(), concept.optString("concept_answer")) > 0) {
+                                textViewAppointment.setTextColor(getResources().getColor(R.color.light_green));
+                                textViewAppointment.append("Appointment Date: ");
+                            } else {
+                                textViewAppointment.setTextColor(getResources().getColor(R.color.orange));
+                                textViewAppointment.append("Missed Appointment: ");
+                            }
+                            textViewAppointment.append(concept.optString("concept_answer"));
+                            break;
+                        case "5089":
+                            textViewVitals.append("Weight: " + concept.optString("concept_answer") + " \n");
+                            break;
+                        case "5085":
+                            textViewVitals.append("Blood Pressure: " + concept.optString("concept_answer") + "/");
+                            break;
+                        case "5086":
+                            textViewVitals.append(concept.optString("concept_answer") + " \n");
                             break;
 
                         default:
@@ -179,7 +199,6 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
                 showVitals.setVisibility(View.VISIBLE);
             }
         });
-
 
         //alertDialogBuilder.setView(dialogView);
 
@@ -283,10 +302,9 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         // Set OK Button
         alertDialog.setButton("SUBMIT", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                if (isDeceased.equals("1")) {
+                if (isDeceased.length() > 0) {
                     Toast.makeText(getApplicationContext(), "Status Updated", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 

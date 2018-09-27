@@ -292,7 +292,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             @Override
             public void onErrorResponse(VolleyError error) {
                 hideDialog();
-                //Log.e(TAG, "Registration Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(), "Sorry unable to add patient", Toast.LENGTH_LONG).show();
             }
         }) {

@@ -1,5 +1,6 @@
 package org.aihdint.aihd.common;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -36,15 +37,16 @@ public class Alerts {
         this.mContext = mContext;
     }
 
-    public static void errorMessage(CoordinatorLayout coordinatorLayout, String message) {
-        Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, message, Snackbar.LENGTH_LONG)
-                .setAction("DISMISS", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
+    public static void errorMessage(View layout, String message) {
+        final Snackbar snackbar = Snackbar.make(layout, message, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Dismiss", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
 
+        snackbar.show();
         // Changing message text color
         snackbar.setActionTextColor(Color.RED);
 
@@ -56,33 +58,30 @@ public class Alerts {
     }
 
     public static void alert_msg(Context context, String title, String message) {
-            AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 
-            // Set Dialog Title
-            alertDialog.setTitle(title);
+        // Set Dialog Title
+        alertDialog.setTitle(title);
+        // Set Dialog Message
+        alertDialog.setMessage(message);
+        // Set OK Button
+        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
 
-            // Set Dialog Message
-            alertDialog.setMessage(message);
-
-
-            // Set OK Button
-            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
-            });
-
-            // Show Alert Message
-            alertDialog.show();
+        // Show Alert Message
+        alertDialog.show();
     }
 
     public void share(Context context) {
         //AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getAc(), R.style.AppTheme));
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert inflater != null;
-        View dialogView = inflater.inflate(R.layout.dialog, null);
+        @SuppressLint("InflateParams") View dialogView = inflater.inflate(R.layout.dialog, null);
         alertDialogBuilder.setMessage("Alerts ?");
 
         ImageView facebook = dialogView.findViewById(R.id.imageViewFacebook);
@@ -164,13 +163,15 @@ public class Alerts {
             @Override
             public void onClick(View view) {
 
-                PackageManager pm = mContext.getPackageManager();
                 try {
+                    PackageManager pm = mContext.getPackageManager();
+
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("text/plain");
                     String text = String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
                             "http://aihdint.org/"));
                     PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+                    Log.d("WhatsappInfo", String.valueOf(info));
                     //Check if package exists or not. If not then code
                     //in catch block will be called
                     intent.setPackage("com.whatsapp");
@@ -203,10 +204,10 @@ public class Alerts {
     }
 
 
-    private String urlEncode(){
+    private String urlEncode() {
         try {
             return URLEncoder.encode("", "UTF-8");
-        }catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             Log.wtf("UTF Issue", "UTF-8 should always be supported", e);
         }
         return "";

@@ -227,6 +227,8 @@ public class Followup_page_3 extends Fragment {
                         timer.schedule(task, DELAY);
                     }
                 });
+
+                updateValues();
             }
 
 
@@ -434,7 +436,7 @@ public class Followup_page_3 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("1008", "161487", "valueText", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1009", "161487", "valueText", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("164364", "161487", "valueText", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("", "161487", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+        //jsonArry.put(JSONFormBuilder.observations("", "161487", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

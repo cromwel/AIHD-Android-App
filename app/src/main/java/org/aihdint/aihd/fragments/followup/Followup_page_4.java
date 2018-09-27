@@ -11,17 +11,18 @@ import android.support.v4.app.Fragment;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.common.DateCalendar;
+import org.aihdint.aihd.common.DrugsDose;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.checkBoxes.checkBoxes;
+import org.aihdint.aihd.common.checkBoxes.checkBoxInterface;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -29,12 +30,12 @@ import java.util.ArrayList;
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Followup_page_4 extends Fragment {
+public class Followup_page_4 extends Fragment implements checkBoxInterface {
 
     private CheckBox checkBoxEnalapril, checkBoxCaptopril, checkBoxLisinopril, checkBoxPerindopril, checkBoxRamipril;
     private CheckBox checkBoxCandesartan, checkBoxIrbesartan, checkBoxLosartan, checkBoxTelmisartan, checkBoxValsartan, checkBoxOlmesartan;
 
-    private String Metformin, Glibenclamide, Insulin, SolubleInsulin, NPH, Captopril, Enalapril, Lisinopril, Perindopril, Ramipril, Candesartan, Irbesartan, Losartan,
+    private String Metformin, Glibenclamide, Insulin, SolubleInsulin, NPH, NPH2, Captopril, Enalapril, Lisinopril, Perindopril, Ramipril, Candesartan, Irbesartan, Losartan,
             Telmisartan, Valsartan, Olmesartan, Atenolol, Labetolol, Propranolol, Carvedilol, Nebivolol, Metoprolol, Bisoprolol, Amlodipine, Felodipine, Nifedipine,
             Chlorthalidone, Hydrochlorothia, Indapamide, Methyldopa, Hydralazine, Prazocin, Diet, PhysicalExercise, Herbal, TreatmentOther;
 
@@ -45,9 +46,15 @@ public class Followup_page_4 extends Fragment {
     private String frequencyMetformin, frequencyGlibenclamide, frequencyCaptopril, frequencyEnalapril, frequencyLisinopril, frequencyPerindopril, frequencyRamipril,
             frequencyCandesartan, frequencyIrbesartan, frequencyLosartan, frequencyTelmisartan, frequencyValsartan, frequencyOlmesartan, frequencyAtenolol, frequencyLabetolol,
             frequencyPropranolol, frequencyCarvedilol, frequencyNebivolol, frequencyMetoprolol, frequencyBisoprolol, frequencyAmlodipine, frequencyFelodipine,
-            frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin;
+            frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin,
+            frequencyInsulin, frequencySolubleInsulin, frequencyNPH1, frequencyNPH2;
 
-    private EditText editTextComment, editTextReferralLocation, editTextReferralDate, editTextReferralNote, editTextClinician;
+    private String continueCare;
+    private EditText editTextInsulin, editTextSolubleInsulin, editTextNPH1, editTextNPH2;
+    private EditText editTextDiet, editTextExercise, editTextHerbal, editTextOther;
+    private EditText editTextACE, editTextARB, editTextBeta, editTextCCB, editTextThiazide, editTextThiazideLike, editTextAntiHypertensives, editTextOGLA, editTextInsulinOther;
+
+    private EditText editTextComment, editTextReturnDate, editTextReferralLocation, editTextReferralDate, editTextReferralNote, editTextClinician;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,19 +63,27 @@ public class Followup_page_4 extends Fragment {
         LinearLayout testLinearLayout = view.findViewById(R.id.testLinearLayout);
         testLinearLayout.setVisibility(View.GONE);
 
+        editTextInsulin = view.findViewById(R.id.editTextInsulin);
+        editTextSolubleInsulin = view.findViewById(R.id.editTextSolubleInsulin);
+        editTextNPH1 = view.findViewById(R.id.editTextNPH1);
+        editTextNPH2 = view.findViewById(R.id.editTextNPH2);
+
         editTextComment = view.findViewById(R.id.treatment_comment);
+        editTextReturnDate = view.findViewById(R.id.followup_date);
         editTextReferralLocation = view.findViewById(R.id.referral_place);
         editTextReferralDate = view.findViewById(R.id.referral_date);
         editTextReferralNote = view.findViewById(R.id.referral_note);
         editTextClinician = view.findViewById(R.id.clinician);
 
+        DateCalendar.date(getActivity(), editTextReturnDate);
+        DateCalendar.date(getActivity(), editTextReferralDate);
+
         textWatcher(editTextComment);
+        textWatcher(editTextReturnDate);
         textWatcher(editTextReferralLocation);
         textWatcher(editTextReferralDate);
         textWatcher(editTextReferralNote);
         textWatcher(editTextClinician);
-
-        DateCalendar.date(getActivity(), editTextReferralDate);
 
         CheckBox checkBoxMetformin = view.findViewById(R.id.treatment_metformin);
         CheckBox checkBoxGlibenclamide = view.findViewById(R.id.treatment_glibenclamide);
@@ -106,41 +121,52 @@ public class Followup_page_4 extends Fragment {
         CheckBox checkBoxHydralazine = view.findViewById(R.id.treatment_hydralazine);
         CheckBox checkBoxPrazocin = view.findViewById(R.id.treatment_prazocin);
 
-        checkBoxTreatment(checkBoxMetformin);
-        checkBoxTreatment(checkBoxGlibenclamide);
+        CheckBox checkBoxInsulin = view.findViewById(R.id.treatment_insulin);
+        CheckBox checkBoxSolubleInsulin = view.findViewById(R.id.treatment_soluble_insulin);
+        CheckBox checkBoxNPH = view.findViewById(R.id.treatment_nph);
+        CheckBox checkBoxNPH2 = view.findViewById(R.id.treatment_nph_2);
 
-        checkBoxTreatment(checkBoxCaptopril);
-        checkBoxTreatment(checkBoxEnalapril);
-        checkBoxTreatment(checkBoxLisinopril);
-        checkBoxTreatment(checkBoxPerindopril);
-        checkBoxTreatment(checkBoxRamipril);
+        CheckBox checkBoxDiet = view.findViewById(R.id.treatment_diet);
+        CheckBox checkBoxHerbal = view.findViewById(R.id.treatment_herbal);
+        CheckBox checkBoxExercise = view.findViewById(R.id.treatment_physical_exercise);
+        CheckBox checkBoxOther = view.findViewById(R.id.treatment_other);
 
-        checkBoxTreatment(checkBoxCandesartan);
-        checkBoxTreatment(checkBoxIrbesartan);
-        checkBoxTreatment(checkBoxLosartan);
-        checkBoxTreatment(checkBoxTelmisartan);
-        checkBoxTreatment(checkBoxValsartan);
-        checkBoxTreatment(checkBoxOlmesartan);
+        checkBoxes.checkBoxTreatment(checkBoxMetformin, this);
+        checkBoxes.checkBoxTreatment(checkBoxGlibenclamide, this);
 
-        checkBoxTreatment(checkBoxAtenolol);
-        checkBoxTreatment(checkBoxLabetolol);
-        checkBoxTreatment(checkBoxPropranolol);
-        checkBoxTreatment(checkBoxCarvedilol);
-        checkBoxTreatment(checkBoxNebivolol);
-        checkBoxTreatment(checkBoxMetoprolol);
-        checkBoxTreatment(checkBoxBisoprolol);
+        checkBoxes.checkBoxTreatment(checkBoxCaptopril, this);
+        checkBoxes.checkBoxTreatment(checkBoxEnalapril, this);
+        checkBoxes.checkBoxTreatment(checkBoxLisinopril, this);
+        checkBoxes.checkBoxTreatment(checkBoxPerindopril, this);
+        checkBoxes.checkBoxTreatment(checkBoxRamipril, this);
 
-        checkBoxTreatment(checkBoxAmlodipine);
-        checkBoxTreatment(checkBoxFelodipine);
-        checkBoxTreatment(checkBoxNifedipine);
+        checkBoxes.checkBoxTreatment(checkBoxCandesartan, this);
+        checkBoxes.checkBoxTreatment(checkBoxIrbesartan, this);
+        checkBoxes.checkBoxTreatment(checkBoxLosartan, this);
+        checkBoxes.checkBoxTreatment(checkBoxTelmisartan, this);
+        checkBoxes.checkBoxTreatment(checkBoxValsartan, this);
+        checkBoxes.checkBoxTreatment(checkBoxOlmesartan, this);
 
-        checkBoxTreatment(checkBoxChlorthalidone);
-        checkBoxTreatment(checkBoxHydrochlorothia);
-        checkBoxTreatment(checkBoxIndapamide);
+        checkBoxes.checkBoxTreatment(checkBoxAtenolol, this);
+        checkBoxes.checkBoxTreatment(checkBoxLabetolol, this);
+        checkBoxes.checkBoxTreatment(checkBoxPropranolol, this);
+        checkBoxes.checkBoxTreatment(checkBoxCarvedilol, this);
+        checkBoxes.checkBoxTreatment(checkBoxNebivolol, this);
+        checkBoxes.checkBoxTreatment(checkBoxMetoprolol, this);
+        checkBoxes.checkBoxTreatment(checkBoxBisoprolol, this);
 
-        checkBoxTreatment(checkBoxMethyldopa);
-        checkBoxTreatment(checkBoxHydralazine);
-        checkBoxTreatment(checkBoxPrazocin);
+        checkBoxes.checkBoxTreatment(checkBoxAmlodipine, this);
+        checkBoxes.checkBoxTreatment(checkBoxFelodipine, this);
+        checkBoxes.checkBoxTreatment(checkBoxNifedipine, this);
+
+        checkBoxes.checkBoxTreatment(checkBoxChlorthalidone, this);
+        checkBoxes.checkBoxTreatment(checkBoxHydrochlorothia, this);
+        checkBoxes.checkBoxTreatment(checkBoxIndapamide, this);
+
+        checkBoxes.checkBoxTreatment(checkBoxMethyldopa, this);
+        checkBoxes.checkBoxTreatment(checkBoxHydralazine, this);
+        checkBoxes.checkBoxTreatment(checkBoxPrazocin, this);
+        checkBoxes.checkBoxTreatment(checkBoxDiet, this);
 
         //SpinnerDosage
         Spinner spinnerDrugMetformin = view.findViewById(R.id.spinnerDrugMetformin);
@@ -216,77 +242,40 @@ public class Followup_page_4 extends Fragment {
         Spinner spinnerDrugMetforminFrq = view.findViewById(R.id.spinnerDrugMetforminFrq);
         Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
 
-        //SpinnerDose
-        String[] arraySpinnerCaptopril = new String[]{"Select", "5mg", "25mg", "50mg"};
-        String[] arraySpinnerEnalapril = new String[]{"Select", "5mg", "10mg", "20mg "};
-        String[] arraySpinnerLisinopril = new String[]{"Select", "20mg ", "40mg "};
-        String[] arraySpinnerPerindopril = new String[]{"Select", "2mg ", "4mg", "5mg", "8mg", "10mg"};
-        String[] arraySpinnerRamipril = new String[]{"Select", "1.25", "2.5mg ", "10mg "};
+        spinnerDoseData(spinnerDrugCaptopril, DrugsDose.arraySpinnerCaptopril, "Captopril");
+        spinnerDoseData(spinnerDrugEnalapril, DrugsDose.arraySpinnerEnalapril, "Enalapril");
+        spinnerDoseData(spinnerDrugLisinopril, DrugsDose.arraySpinnerLisinopril, "Lisinopril");
+        spinnerDoseData(spinnerDrugPerindopril, DrugsDose.arraySpinnerPerindopril, "Perindopril");
+        spinnerDoseData(spinnerDrugRamipril, DrugsDose.arraySpinnerRamipril, "Ramipril");
 
-        String[] arraySpinnerCandesartan = new String[]{"Select", "4mg", "8mg ", "16mg", "32mg "};
-        String[] arraySpinnerIrbesartan = new String[]{"Select", "75mg", "150mg ", "300mg "};
-        String[] arraySpinnerLosartan = new String[]{"Select", "50mg ", "100mg "};
-        String[] arraySpinnerTelmisartan = new String[]{"Select", "20mg", "40mg ", "80mg "};
-        String[] arraySpinnerValsartan = new String[]{"Select", "40mg", "80mg ", "160mg ", "320mg"};
-        String[] arraySpinnerOlmesartan = new String[]{"Select", "5mg", "20mg ", "40mg "};
+        spinnerDoseData(spinnerDrugCandesartan, DrugsDose.arraySpinnerCandesartan, "Candesartan");
+        spinnerDoseData(spinnerDrugIrbesartan, DrugsDose.arraySpinnerIrbesartan, "Irbesartan");
+        spinnerDoseData(spinnerDrugLosartan, DrugsDose.arraySpinnerLosartan, "Losartan");
+        spinnerDoseData(spinnerDrugTelmisartan, DrugsDose.arraySpinnerTelmisartan, "Telmisartan");
+        spinnerDoseData(spinnerDrugValsartan, DrugsDose.arraySpinnerValsartan, "Valsartan");
+        spinnerDoseData(spinnerDrugOlmesartan, DrugsDose.arraySpinnerOlmesartan, "Olmesartan");
 
-        String[] arraySpinnerAtenolol = new String[]{"Select", "25mg ", "50mg", "100mg "};
-        String[] arraySpinnerLabetolol = new String[]{"Select", "100mg", "200mg ", "300mg "};
-        String[] arraySpinnerPropranolol = new String[]{"Select", "40mg ", "80mg "};
-        String[] arraySpinnerCarvedilol = new String[]{"Select", "3.125mg", "6.25mg ", "12.5mg", "10mg", "20mg", "25mg ", "40mg", "80mg"};
-        String[] arraySpinnerNebivolol = new String[]{"Select", "2.5mg ", "5mg ", "10mg", "20mg"};
-        String[] arraySpinnerMetoprolol = new String[]{"Select", "25mg ", "37.5mg", "50mg", "75mg", "100mg ", "200mg"};
-        String[] arraySpinnerBisoprolol = new String[]{"Select", "5mg ", "10mg "};
+        spinnerDoseData(spinnerDrugAtenolol, DrugsDose.arraySpinnerAtenolol, "Atenolol");
+        spinnerDoseData(spinnerDrugLabetolol, DrugsDose.arraySpinnerLabetolol, "Labetolol");
+        spinnerDoseData(spinnerDrugPropranolol, DrugsDose.arraySpinnerPropranolol, "Propranolol");
+        spinnerDoseData(spinnerDrugCarvedilol, DrugsDose.arraySpinnerCarvedilol, "Carvedilol");
+        spinnerDoseData(spinnerDrugNebivolol, DrugsDose.arraySpinnerNebivolol, "Nebivolol");
+        spinnerDoseData(spinnerDrugMetoprolol, DrugsDose.arraySpinnerMetoprolol, "Metoprolol");
+        spinnerDoseData(spinnerDrugBisoprolol, DrugsDose.arraySpinnerBisoprolol, "Bisoprolol");
 
-        String[] arraySpinnerAmlodipine = new String[]{"Select", "2.5mg", "5mg ", "10mg "};
-        String[] arraySpinnerFelodipine = new String[]{"Select", "2.5mg", "5mg ", "10mg "};
-        String[] arraySpinnerNifedipine = new String[]{"Select", "10mg ", "20mg "};
+        spinnerDoseData(spinnerDrugAmlodipine, DrugsDose.arraySpinnerAmlodipine, "Amlodipine");
+        spinnerDoseData(spinnerDrugFelodipine, DrugsDose.arraySpinnerFelodipine, "Felodipine");
+        spinnerDoseData(spinnerDrugNifedipine, DrugsDose.arraySpinnerNifedipine, "Nifedipine");
 
-        String[] arraySpinnerChlorthalidone = new String[]{"Select", "25mg ", "50mg "};
-        String[] arraySpinnerHydrochlorothia = new String[]{"Select", "12.5mg ", "25mg"};
-        String[] arraySpinnerIndapamide = new String[]{"Select", "1.5mg ", "2.5mg ", "5mg "};
+        spinnerDoseData(spinnerDrugChlorthalidone, DrugsDose.arraySpinnerChlorthalidone, "Chlorthalidone");
+        spinnerDoseData(spinnerDrugHydrochlorothia, DrugsDose.arraySpinnerHydrochlorothia, "Hydrochlorothia");
+        spinnerDoseData(spinnerDrugIndapamide, DrugsDose.arraySpinnerIndapamide, "Indapamide");
 
-        String[] arraySpinnerMethyldopa = new String[]{"Select", "250mg", "500mg"};
-        String[] arraySpinnerHydralazine = new String[]{"Select", "25mg ",};
-        String[] arraySpinnerPrazocin = new String[]{"Select", "0.5mg ", "1mg "};
-
-        String[] arraySpinnerMetformin = new String[]{"Select", "500mg", "850mg", "1000mg"};
-        String[] arraySpinnerGlibenclamide = new String[]{"Select", "5mg",};
-
-        spinnerDoseData(spinnerDrugCaptopril, arraySpinnerCaptopril, "Captopril");
-        spinnerDoseData(spinnerDrugEnalapril, arraySpinnerEnalapril, "Enalapril");
-        spinnerDoseData(spinnerDrugLisinopril, arraySpinnerLisinopril, "Lisinopril");
-        spinnerDoseData(spinnerDrugPerindopril, arraySpinnerPerindopril, "Perindopril");
-        spinnerDoseData(spinnerDrugRamipril, arraySpinnerRamipril, "Ramipril");
-
-        spinnerDoseData(spinnerDrugCandesartan, arraySpinnerCandesartan, "Candesartan");
-        spinnerDoseData(spinnerDrugIrbesartan, arraySpinnerIrbesartan, "Irbesartan");
-        spinnerDoseData(spinnerDrugLosartan, arraySpinnerLosartan, "Losartan");
-        spinnerDoseData(spinnerDrugTelmisartan, arraySpinnerTelmisartan, "Telmisartan");
-        spinnerDoseData(spinnerDrugValsartan, arraySpinnerValsartan, "Valsartan");
-        spinnerDoseData(spinnerDrugOlmesartan, arraySpinnerOlmesartan, "Olmesartan");
-
-        spinnerDoseData(spinnerDrugAtenolol, arraySpinnerAtenolol, "Atenolol");
-        spinnerDoseData(spinnerDrugLabetolol, arraySpinnerLabetolol, "Labetolol");
-        spinnerDoseData(spinnerDrugPropranolol, arraySpinnerPropranolol, "Propranolol");
-        spinnerDoseData(spinnerDrugCarvedilol, arraySpinnerCarvedilol, "Carvedilol");
-        spinnerDoseData(spinnerDrugNebivolol, arraySpinnerNebivolol, "Nebivolol");
-        spinnerDoseData(spinnerDrugMetoprolol, arraySpinnerMetoprolol, "Metoprolol");
-        spinnerDoseData(spinnerDrugBisoprolol, arraySpinnerBisoprolol, "Bisoprolol");
-
-        spinnerDoseData(spinnerDrugAmlodipine, arraySpinnerAmlodipine, "Amlodipine");
-        spinnerDoseData(spinnerDrugFelodipine, arraySpinnerFelodipine, "Felodipine");
-        spinnerDoseData(spinnerDrugNifedipine, arraySpinnerNifedipine, "Nifedipine");
-
-        spinnerDoseData(spinnerDrugChlorthalidone, arraySpinnerChlorthalidone, "Chlorthalidone");
-        spinnerDoseData(spinnerDrugHydrochlorothia, arraySpinnerHydrochlorothia, "Hydrochlorothia");
-        spinnerDoseData(spinnerDrugIndapamide, arraySpinnerIndapamide, "Indapamide");
-
-        spinnerDoseData(spinnerDrugMethyldopa, arraySpinnerMethyldopa, "Methyldopa");
-        spinnerDoseData(spinnerDrugHydralazine, arraySpinnerHydralazine, "Hydralazine");
-        spinnerDoseData(spinnerDrugPrazocin, arraySpinnerPrazocin, "Prazocin");
-        spinnerDoseData(spinnerDrugMetformin, arraySpinnerMetformin, "Metformin");
-        spinnerDoseData(spinnerDrugGlibenclamide, arraySpinnerGlibenclamide, "Glibenclamide");
+        spinnerDoseData(spinnerDrugMethyldopa, DrugsDose.arraySpinnerMethyldopa, "Methyldopa");
+        spinnerDoseData(spinnerDrugHydralazine, DrugsDose.arraySpinnerHydralazine, "Hydralazine");
+        spinnerDoseData(spinnerDrugPrazocin, DrugsDose.arraySpinnerPrazocin, "Prazocin");
+        spinnerDoseData(spinnerDrugMetformin, DrugsDose.arraySpinnerMetformin, "Metformin");
+        spinnerDoseData(spinnerDrugGlibenclamide, DrugsDose.arraySpinnerGlibenclamide, "Glibenclamide");
 
         //SpinnerFrequency
         spinnerDataFrequency(spinnerDrugCaptoprilFrq, "Captopril");
@@ -324,9 +313,9 @@ public class Followup_page_4 extends Fragment {
         spinnerDataFrequency(spinnerDrugMetforminFrq, "Metformin");
         spinnerDataFrequency(spinnerDrugGlibenclamideFrq, "Glibenclamide");
 
+
         return view;
     }
-
 
     public void textWatcher(EditText editText) {
 
@@ -356,6 +345,7 @@ public class Followup_page_4 extends Fragment {
 
         // adding each child node to HashMap key => value
         keyvalue.add(new KeyValue("", "Select"));
+
         keyvalue.add(new KeyValue("160862", "OD"));
         keyvalue.add(new KeyValue("160858", "BD"));
         keyvalue.add(new KeyValue("160866", "TDS"));
@@ -831,7 +821,6 @@ public class Followup_page_4 extends Fragment {
                     updateValues();
                 }
 
-
             }
 
             @Override
@@ -860,453 +849,319 @@ public class Followup_page_4 extends Fragment {
 
     }
 
-    public void checkBoxTreatment(final CheckBox checkBox) {
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    @Override
+    public void checkBoxClick(String val, CheckBox checkBox) {
+        switch (checkBox.getId()) {
+            case R.id.treatment_metformin:
+                Metformin = val;
+                break;
+            case R.id.treatment_glibenclamide:
+                Glibenclamide = val;
+                break;
+            case R.id.treatment_insulin:
+                Insulin = val;
+                break;
+            case R.id.treatment_soluble_insulin:
+                SolubleInsulin = val;
+                break;
+            case R.id.treatment_nph:
+                NPH = val;
+                break;
+            case R.id.treatment_nph_2:
+                NPH2 = val;
+                break;
+            case R.id.treatment_captopril:
+                hideGroup("ace");
+                Captopril = val;
+                break;
+            case R.id.treatment_enalapril:
+                hideGroup("ace");
+                Enalapril = val;
+                break;
+            case R.id.treatment_lisinopril:
+                hideGroup("ace");
+                Lisinopril = val;
+                break;
+            case R.id.treatment_perindopril:
+                hideGroup("ace");
+                Perindopril = val;
+                break;
+            case R.id.treatment_ramipril:
+                hideGroup("ace");
+                Ramipril = val;
+                break;
+            case R.id.treatment_candesartan:
+                hideGroup("arb");
+                Candesartan = val;
+                break;
+            case R.id.treatment_irbesartan:
+                hideGroup("arb");
+                Irbesartan = val;
+                break;
+            case R.id.treatment_losartan:
+                hideGroup("arb");
+                Losartan = val;
+                break;
+            case R.id.treatment_telmisartan:
+                hideGroup("arb");
+                Telmisartan = val;
+                break;
+            case R.id.treatment_valsartan:
+                hideGroup("arb");
+                Valsartan = val;
+                break;
+            case R.id.treatment_olmesartan:
+                hideGroup("arb");
+                Olmesartan = val;
+                break;
+            case R.id.treatment_atenolol:
+                Atenolol = val;
+                break;
+            case R.id.treatment_labetolol:
+                Labetolol = val;
+                break;
+            case R.id.treatment_propranolol:
+                Propranolol = val;
+                break;
+            case R.id.treatment_carvedilol:
+                Carvedilol = val;
+                break;
+            case R.id.treatment_nebivolol:
+                Nebivolol = val;
+                break;
+            case R.id.treatment_metoprolol:
+                Metoprolol = val;
+                break;
+            case R.id.treatment_bisoprolol:
+                Bisoprolol = val;
+                break;
+            case R.id.treatment_amlodipine:
+                Amlodipine = val;
+                break;
+            case R.id.treatment_felodipine:
+                Felodipine = val;
+                break;
+            case R.id.treatment_nifedipine:
+                Nifedipine = val;
+                break;
+            case R.id.treatment_methyldopa:
+                Methyldopa = val;
+                break;
+            case R.id.treatment_hydralazine:
+                Hydralazine = val;
+                break;
+            case R.id.treatment_prazocin:
+                Prazocin = val;
+                break;
+            case R.id.treatment_chlorthalidone:
+                Chlorthalidone = val;
+                break;
+            case R.id.treatment_hydrochlorothia:
+                Hydrochlorothia = val;
+                break;
+            case R.id.treatment_indapamide:
+                Indapamide = val;
+                break;
+            case R.id.treatment_diet:
+                Diet = val;
+                break;
+            case R.id.treatment_physical_exercise:
+                PhysicalExercise = val;
+                break;
+            case R.id.treatment_herbal:
+                Herbal = val;
+                break;
+            case R.id.treatment_other:
+                TreatmentOther = val;
+                break;
+            case R.id.followup_continue:
+                continueCare = val;
+                break;
+            default:
+                break;
+        }
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                boolean checked = (buttonView).isChecked();
-
-                //Check which checkbox was clicked
-                switch (checkBox.getId()) {
-                    case R.id.treatment_metformin:
-                        if (checked) {
-                            Metformin = "79651";
-                        } else {
-                            Metformin = "";
-                        }
-                        break;
-                    case R.id.treatment_glibenclamide:
-                        if (checked) {
-                            Glibenclamide = "77071";
-                        } else {
-                            Glibenclamide = "";
-                        }
-                        break;
-                    case R.id.treatment_insulin:
-                        if (checked) {
-                            Insulin = "165099";
-                        } else {
-                            Insulin = "";
-                        }
-                        break;
-                    case R.id.treatment_soluble_insulin:
-                        if (checked) {
-                            SolubleInsulin = "165099";
-                        } else {
-                            SolubleInsulin = "";
-                        }
-                        break;
-                    case R.id.treatment_nph:
-                        if (checked) {
-                            NPH = "165099";
-                        } else {
-                            NPH = "";
-                        }
-                        break;
-                    case R.id.treatment_captopril:
-                        if (checked) {
-                            Captopril = "72806";
-                            hideGroup("ace");
-                        } else {
-                            Captopril = "";
-                        }
-                        break;
-                    case R.id.treatment_enalapril:
-                        if (checked) {
-                            Enalapril = "75633";
-                            hideGroup("ace");
-                        } else {
-                            Enalapril = "";
-                        }
-                        break;
-                    case R.id.treatment_lisinopril:
-                        if (checked) {
-                            Lisinopril = "78945";
-                            hideGroup("ace");
-                        } else {
-                            Lisinopril = "";
-                        }
-                        break;
-                    case R.id.treatment_perindopril:
-                        if (checked) {
-                            Perindopril = "81822";
-                            hideGroup("ace");
-                        } else {
-                            Perindopril = "";
-                        }
-                        break;
-                    case R.id.treatment_ramipril:
-                        if (checked) {
-                            Ramipril = "83067";
-                            hideGroup("ace");
-                        } else {
-                            Ramipril = "";
-                        }
-                        break;
-                    case R.id.treatment_candesartan:
-                        if (checked) {
-                            Candesartan = "72758";
-                            hideGroup("arb");
-                        } else {
-                            Candesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_irbesartan:
-                        if (checked) {
-                            Irbesartan = "78210";
-                            hideGroup("arb");
-                        } else {
-                            Irbesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_losartan:
-                        if (checked) {
-                            Losartan = "79074";
-                            hideGroup("arb");
-                        } else {
-                            Losartan = "";
-                        }
-                        break;
-                    case R.id.treatment_telmisartan:
-                        if (checked) {
-                            Telmisartan = "84764";
-                            hideGroup("arb");
-                        } else {
-                            Telmisartan = "";
-                        }
-                        break;
-                    case R.id.treatment_valsartan:
-                        if (checked) {
-                            Valsartan = "86056";
-                            hideGroup("arb");
-                        } else {
-                            Valsartan = "";
-                        }
-                        break;
-                    case R.id.treatment_olmesartan:
-                        if (checked) {
-                            Olmesartan = "165229";
-                            hideGroup("arb");
-                        } else {
-                            Olmesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_atenolol:
-                        if (checked) {
-                            Atenolol = "71652";
-                        } else {
-                            Atenolol = "";
-                        }
-                        break;
-                    case R.id.treatment_labetolol:
-                        if (checked) {
-                            Labetolol = "78599";
-                        } else {
-                            Labetolol = "";
-                        }
-                        break;
-                    case R.id.treatment_propranolol:
-                        if (checked) {
-                            Propranolol = "82732";
-                        } else {
-                            Propranolol = "";
-                        }
-                        break;
-                    case R.id.treatment_carvedilol:
-                        if (checked) {
-                            Carvedilol = "72944";
-                        } else {
-                            Carvedilol = "";
-                        }
-                        break;
-                    case R.id.treatment_nebivolol:
-                        if (checked) {
-                            Nebivolol = "80470";
-                        } else {
-                            Nebivolol = "";
-                        }
-                        break;
-                    case R.id.treatment_metoprolol:
-                        if (checked) {
-                            Metoprolol = "79764";
-                        } else {
-                            Metoprolol = "";
-                        }
-                        break;
-                    case R.id.treatment_bisoprolol:
-                        if (checked) {
-                            Bisoprolol = "72247";
-                        } else {
-                            Bisoprolol = "";
-                        }
-                        break;
-                    case R.id.treatment_amlodipine:
-                        if (checked) {
-                            Amlodipine = "71137";
-                        } else {
-                            Amlodipine = "";
-                        }
-                        break;
-                    case R.id.treatment_felodipine:
-                        if (checked) {
-                            Felodipine = "76211";
-                        } else {
-                            Felodipine = "";
-                        }
-                        break;
-                    case R.id.treatment_nifedipine:
-                        if (checked) {
-                            Nifedipine = "80637";
-                        } else {
-                            Nifedipine = "";
-                        }
-                        break;
-                    case R.id.treatment_methyldopa:
-                        if (checked) {
-                            Methyldopa = "79723";
-                        } else {
-                            Methyldopa = "";
-                        }
-                        break;
-                    case R.id.treatment_hydralazine:
-                        if (checked) {
-                            Hydralazine = "77675";
-                        } else {
-                            Hydralazine = "";
-                        }
-                        break;
-                    case R.id.treatment_prazocin:
-                        if (checked) {
-                            Prazocin = "77985";
-                        } else {
-                            Prazocin = "";
-                        }
-                        break;
-                    case R.id.treatment_chlorthalidone:
-                        if (checked) {
-                            Chlorthalidone = "73338";
-                        } else {
-                            Chlorthalidone = "";
-                        }
-                        break;
-                    case R.id.treatment_hydrochlorothia:
-                        if (checked) {
-                            Hydrochlorothia = "77696";
-                        } else {
-                            Hydrochlorothia = "";
-                        }
-                        break;
-                    case R.id.treatment_indapamide:
-                        if (checked) {
-                            Indapamide = "77985";
-                        } else {
-                            Indapamide = "";
-                        }
-                        break;
-                    case R.id.treatment_diet:
-                        if (checked) {
-                            Diet = "165200";
-                        } else {
-                            Diet = "";
-                        }
-                        break;
-                    case R.id.treatment_physical_exercise:
-                        if (checked) {
-                            PhysicalExercise = "159364";
-                        } else {
-                            PhysicalExercise = "";
-                        }
-                        break;
-                    case R.id.treatment_herbal:
-                        if (checked) {
-                            Herbal = "165203";
-                        } else {
-                            Herbal = "";
-                        }
-                        break;
-                    case R.id.treatment_other:
-                        if (checked) {
-                            TreatmentOther = "5622";
-                        } else {
-                            TreatmentOther = "";
-                        }
-                        break;
-                }
-
-                updateValues();
-            }
-        });
-
+        updateValues();
     }
 
     public void updateValues() {
 
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165280", "valueCoded", Metformin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueNumeric", doseMetformin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165280", "valueCoded", frequencyMetformin, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165281", "valueCoded", Glibenclamide, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueText", "", DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueText", "", DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165284", "valueCoded", NPH, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "valueText", "", DateCalendar.date(), ""));
-
-        //ACE
-        jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueNumeric", doseCaptopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165253", "valueCoded", frequencyCaptopril, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165254", "valueCoded", Enalapril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueNumeric", doseEnalapril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165254", "valueCoded", frequencyEnalapril, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165255", "valueCoded", Lisinopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueNumeric", doseLisinopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165255", "valueCoded", frequencyLisinopril, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165256", "valueCoded", Perindopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueNumeric", dosePerindopril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165256", "valueCoded", frequencyPerindopril, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165257", "valueCoded", Ramipril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueNumeric", doseRamipril, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165257", "valueCoded", frequencyRamipril, DateCalendar.date(), ""));
-
-        //ARB
-        jsonArry.put(JSONFormBuilder.observations("1282", "165258", "valueCoded", Candesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueNumeric", doseCandesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165258", "valueCoded", frequencyCandesartan, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165259", "valueCoded", Irbesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueNumeric", doseIrbesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165259", "valueCoded", frequencyIrbesartan, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165260", "valueCoded", Losartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueNumeric", doseLosartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165260", "valueCoded", frequencyLosartan, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165261", "valueCoded", Telmisartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueNumeric", doseTelmisartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165261", "valueCoded", frequencyTelmisartan, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165262", "valueCoded", Valsartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueNumeric", doseValsartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165262", "valueCoded", frequencyValsartan, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165263", "valueCoded", Olmesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueNumeric", doseOlmesartan, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165263", "valueCoded", frequencyOlmesartan, DateCalendar.date(), ""));
-
-        //Beta Blockers
-        jsonArry.put(JSONFormBuilder.observations("1282", "165264", "valueCoded", Atenolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueNumeric", doseAtenolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165264", "valueCoded", frequencyAtenolol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165265", "valueCoded", Labetolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueNumeric", doseLabetolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165265", "valueCoded", frequencyLabetolol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165266", "valueCoded", Propranolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueNumeric", dosePropranolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165266", "valueCoded", frequencyPropranolol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165267", "valueCoded", Carvedilol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueNumeric", doseCarvedilol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165267", "valueCoded", frequencyCarvedilol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165268", "valueCoded", Nebivolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueNumeric", doseNebivolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165268", "valueCoded", frequencyNebivolol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165269", "valueCoded", Metoprolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueNumeric", doseMetoprolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165269", "valueCoded", frequencyMetoprolol, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165270", "valueCoded", Bisoprolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueNumeric", doseBisoprolol, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165270", "valueCoded", frequencyBisoprolol, DateCalendar.date(), ""));
-
-        //Long Acting CCB
-        jsonArry.put(JSONFormBuilder.observations("1282", "165271", "valueCoded", Amlodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueCoded", doseAmlodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", frequencyAmlodipine, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", Felodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", doseFelodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", frequencyFelodipine, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", Nifedipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", doseNifedipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165273", "valueCoded", frequencyNifedipine, DateCalendar.date(), ""));
-
-        //AntiHypersensitives
-        jsonArry.put(JSONFormBuilder.observations("1282", "165277", "valueCoded", Methyldopa, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueNumeric", doseMethyldopa, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165277", "valueCoded", frequencyMethyldopa, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165278", "valueCoded", Hydralazine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueNumeric", doseHydralazine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165278", "valueCoded", frequencyHydralazine, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165279", "valueCoded", Prazocin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueNumeric", dosePrazocin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165279", "valueCoded", frequencyPrazocin, DateCalendar.date(), ""));
-
-        //Thizide
-        jsonArry.put(JSONFormBuilder.observations("1282", "165274", "valueCoded", Chlorthalidone, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueNumeric", doseChlorthalidone, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165274", "valueCoded", frequencyChlorthalidone, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165275", "valueCoded", Hydrochlorothia, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueNumeric", doseHydrochlorothia, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165275", "valueCoded", frequencyHydrochlorothia, DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165276", "valueCoded", Indapamide, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueNumeric", doseIndapamide, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165276", "valueCoded", frequencyIndapamide, DateCalendar.date(), ""));
-
-        //other
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Diet, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165201", "165142", "valueText", "", DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", PhysicalExercise, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165202", "165142", "valueText", "", DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Herbal, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165203", "165142", "valueText", "", DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", TreatmentOther, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165204", "165142", "valueText", "", DateCalendar.date(), ""));
-
-
-        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
-
-        jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", editTextReferralLocation.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("163181", "", "valueText", editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", editTextReferralNote.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextClinician.getText().toString().trim(), DateCalendar.date(), ""));
-
         try {
+            //OGLA's'
+            jsonArry.put(JSONFormBuilder.observations("1282", "165280", "valueCoded", Metformin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165280", "valueNumeric", doseMetformin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165280", "valueCoded", frequencyMetformin, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165281", "valueCoded", Glibenclamide, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, DateCalendar.date(), ""));
+
+            //Insulin
+            jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueNumeric", editTextInsulin.getText().toString(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165282", "valueCoded", frequencyInsulin, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueNumeric", editTextSolubleInsulin.getText().toString(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165283", "valueCoded", frequencySolubleInsulin, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165285", "valueCoded", NPH, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165285", "valueNumeric", editTextNPH1.getText().toString(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165285", "valueCoded", frequencyNPH1, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165286", "valueCoded", NPH2, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165286", "valueNumeric", editTextNPH2.getText().toString(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165286", "valueCoded", frequencyNPH2, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("160855", "165311", "valueCoded", editTextInsulinOther.getText().toString(), DateCalendar.date(), ""));
+            //ACE
+            jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165253", "valueNumeric", doseCaptopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165253", "valueCoded", frequencyCaptopril, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165254", "valueCoded", Enalapril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165254", "valueNumeric", doseEnalapril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165254", "valueCoded", frequencyEnalapril, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165255", "valueCoded", Lisinopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165255", "valueNumeric", doseLisinopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165255", "valueCoded", frequencyLisinopril, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165256", "valueCoded", Perindopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165256", "valueNumeric", dosePerindopril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165256", "valueCoded", frequencyPerindopril, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165257", "valueCoded", Ramipril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165257", "valueNumeric", doseRamipril, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165257", "valueCoded", frequencyRamipril, DateCalendar.date(), ""));
+
+            //ARB
+            jsonArry.put(JSONFormBuilder.observations("1282", "165258", "valueCoded", Candesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165258", "valueNumeric", doseCandesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165258", "valueCoded", frequencyCandesartan, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165259", "valueCoded", Irbesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165259", "valueNumeric", doseIrbesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165259", "valueCoded", frequencyIrbesartan, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165260", "valueCoded", Losartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165260", "valueNumeric", doseLosartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165260", "valueCoded", frequencyLosartan, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165261", "valueCoded", Telmisartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165261", "valueNumeric", doseTelmisartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165261", "valueCoded", frequencyTelmisartan, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165262", "valueCoded", Valsartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165262", "valueNumeric", doseValsartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165262", "valueCoded", frequencyValsartan, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165263", "valueCoded", Olmesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165263", "valueNumeric", doseOlmesartan, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165263", "valueCoded", frequencyOlmesartan, DateCalendar.date(), ""));
+
+            //Beta Blockers
+            jsonArry.put(JSONFormBuilder.observations("1282", "165264", "valueCoded", Atenolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165264", "valueNumeric", doseAtenolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165264", "valueCoded", frequencyAtenolol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165265", "valueCoded", Labetolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165265", "valueNumeric", doseLabetolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165265", "valueCoded", frequencyLabetolol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165266", "valueCoded", Propranolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165266", "valueNumeric", dosePropranolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165266", "valueCoded", frequencyPropranolol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165267", "valueCoded", Carvedilol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165267", "valueNumeric", doseCarvedilol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165267", "valueCoded", frequencyCarvedilol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165268", "valueCoded", Nebivolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165268", "valueNumeric", doseNebivolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165268", "valueCoded", frequencyNebivolol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165269", "valueCoded", Metoprolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165269", "valueNumeric", doseMetoprolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165269", "valueCoded", frequencyMetoprolol, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165270", "valueCoded", Bisoprolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165270", "valueNumeric", doseBisoprolol, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165270", "valueCoded", frequencyBisoprolol, DateCalendar.date(), ""));
+
+            //Long Acting CCB
+            jsonArry.put(JSONFormBuilder.observations("1282", "165271", "valueCoded", Amlodipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueCoded", doseAmlodipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", frequencyAmlodipine, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", Felodipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", doseFelodipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", frequencyFelodipine, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", Nifedipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", doseNifedipine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165273", "valueCoded", frequencyNifedipine, DateCalendar.date(), ""));
+
+            //AntiHypersensitives
+            jsonArry.put(JSONFormBuilder.observations("1282", "165277", "valueCoded", Methyldopa, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165277", "valueNumeric", doseMethyldopa, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165277", "valueCoded", frequencyMethyldopa, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165278", "valueCoded", Hydralazine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165278", "valueNumeric", doseHydralazine, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165278", "valueCoded", frequencyHydralazine, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165279", "valueCoded", Prazocin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165279", "valueNumeric", dosePrazocin, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165279", "valueCoded", frequencyPrazocin, DateCalendar.date(), ""));
+
+            //Thizide
+            jsonArry.put(JSONFormBuilder.observations("1282", "165274", "valueCoded", Chlorthalidone, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165274", "valueNumeric", doseChlorthalidone, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165274", "valueCoded", frequencyChlorthalidone, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165275", "valueCoded", Hydrochlorothia, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165275", "valueNumeric", doseHydrochlorothia, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165275", "valueCoded", frequencyHydrochlorothia, DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165276", "valueCoded", Indapamide, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1443", "165276", "valueNumeric", doseIndapamide, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("160855", "165276", "valueCoded", frequencyIndapamide, DateCalendar.date(), ""));
+
+            //other
+            jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Diet, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165201", "165142", "valueText", "", DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", PhysicalExercise, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165202", "165142", "valueText", "", DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", Herbal, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165203", "165142", "valueText", "", DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("1282", "165142", "valueCoded", TreatmentOther, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165204", "165142", "valueText", "", DateCalendar.date(), ""));
+
+            jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", continueCare, DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", editTextReferralLocation.getText().toString().trim(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("163181", "", "valueText", editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", editTextReferralNote.getText().toString().trim(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", editTextClinician.getText().toString().trim(), DateCalendar.date(), ""));
+
+
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
-        } catch (JSONException e) {
+
+            Log.d("JSON FollowUp Page 4", jsonArry.toString() + " ");
+
+            FragmentModelFollowUp.getInstance().followUpFour(jsonArry);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.d("JSON FollowUp Page 4", jsonArry.toString() + " ");
-
-        FragmentModelFollowUp.getInstance().followUpFour(jsonArry);
     }
 
 

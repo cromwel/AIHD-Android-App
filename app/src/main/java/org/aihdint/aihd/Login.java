@@ -13,18 +13,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -32,13 +28,12 @@ import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 import com.orm.query.Select;
 
+import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.model.Concepts;
-import org.aihdint.aihd.model.KeyValue;
-import org.aihdint.aihd.model.Location;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,15 +51,14 @@ public class Login extends Activity {
     private EditText inputPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
-    private CoordinatorLayout coordinatorLayout;
-    private String location_id;
+    private LinearLayout linearLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
+        linearLayout = findViewById(R.id.linearLayout);
 
         inputUsername = findViewById(R.id.username);
         inputPassword = findViewById(R.id.password);
@@ -84,45 +78,10 @@ public class Login extends Activity {
             finish();
         } else {
             checkPermissions();
-            loadJSONLocation();
             loadJSONConcepts();
         }
 
     }
-
-
-    public void setLocationData() {
-        Spinner spinnerLocation = findViewById(R.id.spinnerLocationLogin);
-        ArrayList<KeyValue> keyvalue = new ArrayList<>();
-        //Add locations
-        keyvalue.add(new KeyValue("", "Select Location"));
-
-        List<Location> locations = Location.findWithQuery(Location.class, "SELECT * from LOCATION ORDER BY _name ASC ");
-        for (Location ln : locations) {
-            // adding each child node to HashMap key => value
-            keyvalue.add(new KeyValue(ln.getID(), ln.getName()));
-        }
-
-        //fill data in spinner
-        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, keyvalue);
-        spinnerLocation.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
-
-        spinnerLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                KeyValue value = (KeyValue) parent.getSelectedItem();
-                location_id = value.getId();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-    }
-
 
     public void loadJSONConcepts() {
 
@@ -156,61 +115,11 @@ public class Login extends Activity {
 
             }
 
-            setLocationData();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-    public void loadJSONLocation() {
-
-        String json;
-
-
-        try {
-
-            List<Location> location_count = Select.from(Location.class).list();
-            if (location_count.size() > 0) {
-                Location.deleteAll(Location.class);
-            }
-
-            InputStream is = getAssets().open("locations.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            //noinspection ResultOfMethodCallIgnored
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-
-
-            JSONArray jsonArray = new JSONArray(json);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject locationObj = jsonArray.getJSONObject(i);
-
-                //String location_id = locationObj.getString("location_id");
-                String mfl_code = String.valueOf(locationObj.getInt("MFL Code"));
-                String name = locationObj.getString("Facility Name");
-                String location_id = name;
-                location_id = location_id.toLowerCase();
-                location_id = location_id.replace(".", "");
-                location_id = location_id.replace(" ", "_");
-                Log.d("Location Name", location_id);
-
-                Location location = new Location(location_id, name, mfl_code);
-                location.save();
-
-            }
-
-            setLocationData();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
 
     public void login(View view) {
 
@@ -219,21 +128,19 @@ public class Login extends Activity {
 
         // Check for empty data in the form
         //&& !location_id.isEmpty()
-        if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
+        if (!username.isEmpty() && !password.isEmpty()) {
             // login user
             boolean isConnected = File_Upload.connectivity(getApplicationContext());
 
             if (isConnected) {
                 loginServer(username, password);
             } else {
-                Toast.makeText(this, "No Internet Connection,Unable to load locations", Toast.LENGTH_SHORT).show();
+                Alerts.errorMessage(linearLayout, "No Internet Connection,Unable to Log In");
             }
 
         } else {
             // Prompt user to enter credentials
-            Toast.makeText(getApplicationContext(),
-                    "Please enter the credentials!", Toast.LENGTH_LONG)
-                    .show();
+            Alerts.errorMessage(linearLayout, "Please enter your credentials!");
         }
     }
 
@@ -268,30 +175,17 @@ public class Login extends Activity {
 
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("display");
-                        String user_id = user.getString("uuid");
+                        String uuid = user.getString("uuid");
 
-                        //JSONObject person = user.getJSONObject("person");
+                        LoadLocation(uuid, name);
 
-                        List<Location> location = Location.findWithQuery(Location.class, "SELECT * from LOCATION WHERE _id = ? LIMIT 1", location_id);
-
-                        // Create login session
-                        session.setLogin(true);
-                        session.createLogin(user_id, name, password, location_id, location.get(0).get_mfl_code());
-
-                        // Launch main activity
-                        Intent intent = new Intent(Login.this,
-                                Home.class);
-                        startActivity(intent);
-                        finish();
                     } else {
                         // Error in login. Get the error message
-                        Toast.makeText(getApplicationContext(),
-                                "Username/Password Invalid", Toast.LENGTH_LONG).show();
+                        Alerts.errorMessage(linearLayout, "Username/Password Invalid");
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -300,7 +194,7 @@ public class Login extends Activity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), "Unable to Log In. Contact System administrator", Toast.LENGTH_LONG).show();
+                Alerts.errorMessage(linearLayout, "Unable to Log In. Contact System administrator");
                 hideDialog();
             }
         }) {
@@ -333,6 +227,67 @@ public class Login extends Activity {
         //Adding request to request queue
         AppController.getInstance().getRequestQueue().getCache().clear();
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+
+    private void LoadLocation(final String uuid, final String name) {
+
+        StringRequest req = new StringRequest(Request.Method.POST, Config.LOGIN_LOCATION, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.d("Location", response);
+                    JSONObject jsonObj = new JSONObject(response);
+
+                    boolean error = jsonObj.getBoolean("error");
+                    if (!error) {
+
+                        JSONObject locations = jsonObj.getJSONObject("message");
+                        String mfl = locations.getString("mfl");
+                        String location_name = locations.getString("name");
+
+                        // Create login session
+                        session.setLogin(true);
+                        session.createLogin(uuid, name, location_name, mfl);
+
+                        // Launch main activity
+                        Intent intent = new Intent(Login.this, Home.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Alerts.errorMessage(linearLayout, jsonObj.getString("message"));
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<>();
+                params.put("uuid", uuid);
+
+                JSONObject JSONparams = new JSONObject(params);
+                Log.d("Params", JSONparams.toString());
+
+                return params;
+            }
+
+        };
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(req);
+
     }
 
     private void showDialog() {
@@ -379,9 +334,7 @@ public class Login extends Activity {
 
                     } else if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                         Log.d("Permissions", "Permission Denied: " + permissions[i]);
-                        //Toast.makeText(getActivity(), "LoyaltyClub won't work well unless you allow requested permissions to be granted", Toast.LENGTH_LONG).show();
-                        Snackbar snackbar = Snackbar.make(coordinatorLayout, permissions[i] + " : Permission Denied", Snackbar.LENGTH_INDEFINITE);
-                        snackbar.show();
+                        Alerts.errorMessage(linearLayout, permissions[i] + " : Permission Denied");
                     }
                 }
             }

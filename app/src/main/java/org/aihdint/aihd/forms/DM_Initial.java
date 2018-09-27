@@ -186,8 +186,10 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 Forms forms = new Forms(form_id, file_name, creator, patient_id, "initial", encounter_date, "0");
                 long id = forms.save();
 
-                PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
-                patientProfile.save();
+                if ((int) PatientProfile.count(PatientProfile.class, "patient_id = ?", new String[]{patient_id}) == 0) {
+                    PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
+                    patientProfile.save();
+                }
 
                 Toast.makeText(getBaseContext(), "Initial Encounter file saved", Toast.LENGTH_SHORT).show();
 

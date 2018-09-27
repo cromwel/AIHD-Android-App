@@ -62,31 +62,21 @@
                         android:layout_marginRight="5dp"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <CheckBox
+                            android:id="@+id/followup_continue"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:text="Continue Care in facility" />
 
-                            <CheckBox
-                                android:id="@+id/followup_continue"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Continue Care in facility" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/followup_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Return date"
-                                android:focusable="false"
-                                android:inputType="date"
-                                android:padding="10dp"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/followup_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:hint="Return date"
+                            android:inputType="date"
+                            android:padding="10dp"
+                            android:textSize="13sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -111,8 +101,8 @@
                                 android:id="@+id/date_referred"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Date referred"
                                 android:focusable="false"
+                                android:hint="Date referred"
                                 android:inputType="date"
                                 android:padding="10dp"
                                 android:textSize="13sp" />
@@ -142,8 +132,8 @@
                                 android:id="@+id/date_transfer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Date transferred out"
                                 android:focusable="false"
+                                android:hint="Date transferred out"
                                 android:inputType="date"
                                 android:padding="10dp"
                                 android:textSize="13sp" />

@@ -64,7 +64,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="15dp">
@@ -78,8 +78,10 @@
                 android:id="@+id/appointment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:textColor="@color/light_green"
-                android:textSize="13sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -99,9 +101,11 @@
             <customfonts.TextView_Roboto_Regular
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:text="@string/lost_to_follow_up"
                 android:textColor="@color/colorAccent"
-                android:textSize="13sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -140,7 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/drug_summary"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:padding="5dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,7 +159,7 @@
                     android:layout_weight="1.2"
                     android:background="@color/background_inner"
                     android:padding="10dp"
-                    android:text="Drug"
+                    android:text="@string/drug"
                     android:textAllCaps="false" />
 
                 <customfonts.TextView_Roboto_Bold
@@ -163,7 +168,7 @@
                     android:layout_weight="1.8"
                     android:background="@color/background_inner"
                     android:padding="10dp"
-                    android:text="Dose(mg) &amp; Frequency"
+                    android:text="@string/dose_frequency"
                     android:textAllCaps="false" />
 
             </LinearLayout>
@@ -233,7 +238,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/vitals_summary"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:padding="5dp" />
 
             <customfonts.TextView_Roboto_Regular
                 android:id="@+id/textViewVitals"
