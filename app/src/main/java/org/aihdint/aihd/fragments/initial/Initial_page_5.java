@@ -1,6 +1,7 @@
 package org.aihdint.aihd.fragments.initial;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -16,6 +16,8 @@ import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.DrugsDose;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.common.checkBoxes.checkBoxInterface;
+import org.aihdint.aihd.common.checkBoxes.CheckBoxes;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,12 +28,12 @@ import java.util.ArrayList;
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Initial_page_5 extends Fragment {
+public class Initial_page_5 extends Fragment implements checkBoxInterface {
 
     private CheckBox checkBoxEnalapril, checkBoxCaptopril, checkBoxLisinopril, checkBoxPerindopril, checkBoxRamipril;
     private CheckBox checkBoxCandesartan, checkBoxIrbesartan, checkBoxLosartan, checkBoxTelmisartan, checkBoxValsartan, checkBoxOlmesartan;
 
-    private String Metformin, Glibenclamide, Insulin, SolubleInsulin, NPH, Captopril, Enalapril, Lisinopril, Perindopril, Ramipril, Candesartan, Irbesartan, Losartan,
+    private String Metformin, Glibenclamide, Insulin, SolubleInsulin, NPH, NPH2, Captopril, Enalapril, Lisinopril, Perindopril, Ramipril, Candesartan, Irbesartan, Losartan,
             Telmisartan, Valsartan, Olmesartan, Atenolol, Labetolol, Propranolol, Carvedilol, Nebivolol, Metoprolol, Bisoprolol, Amlodipine, Felodipine, Nifedipine,
             Chlorthalidone, Hydrochlorothia, Indapamide, Methyldopa, Hydralazine, Prazocin, Diet, PhysicalExercise, Herbal, TreatmentOther;
 
@@ -42,14 +44,18 @@ public class Initial_page_5 extends Fragment {
     private String frequencyMetformin, frequencyGlibenclamide, frequencyCaptopril, frequencyEnalapril, frequencyLisinopril, frequencyPerindopril, frequencyRamipril,
             frequencyCandesartan, frequencyIrbesartan, frequencyLosartan, frequencyTelmisartan, frequencyValsartan, frequencyOlmesartan, frequencyAtenolol, frequencyLabetolol,
             frequencyPropranolol, frequencyCarvedilol, frequencyNebivolol, frequencyMetoprolol, frequencyBisoprolol, frequencyAmlodipine, frequencyFelodipine,
-            frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin;
+            frequencyNifedipine, frequencyChlorthalidone, frequencyHydrochlorothia, frequencyIndapamide, frequencyMethyldopa, frequencyHydralazine, frequencyPrazocin,
+            frequencyInsulin, frequencySolubleInsulin, frequencyNPH1, frequencyNPH2;
 
     private String urinalysis, hba, microalbumin, creatinine, potassium, ecg, treatmentTest;
 
     private EditText editTextDiet, editTextPhysicalExercise, editTextHerbal, editTextTreatmentOther, editTextComment;
+    private EditText editTextInsulin, editTextSolubleInsulin, editTextNPH1, editTextNPH2;
+    private EditText editTextACE, editTextARB, editTextBeta, editTextCCB, editTextThiazide, editTextThiazideLike, editTextAntiHypertensives, editTextOGLA, editTextInsulinOther;
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_5, container, false);
 
         editTextDiet = view.findViewById(R.id.treatment_diet_specify);
@@ -94,41 +100,53 @@ public class Initial_page_5 extends Fragment {
         CheckBox checkBoxHydralazine = view.findViewById(R.id.treatment_hydralazine);
         CheckBox checkBoxPrazocin = view.findViewById(R.id.treatment_prazocin);
 
-        checkBoxTreatment(checkBoxMetformin);
-        checkBoxTreatment(checkBoxGlibenclamide);
+        CheckBox checkBoxInsulin = view.findViewById(R.id.treatment_insulin);
+        CheckBox checkBoxSolubleInsulin = view.findViewById(R.id.treatment_soluble_insulin);
+        CheckBox checkBoxNPH = view.findViewById(R.id.treatment_nph);
+        CheckBox checkBoxNPH2 = view.findViewById(R.id.treatment_nph_2);
 
-        checkBoxTreatment(checkBoxCaptopril);
-        checkBoxTreatment(checkBoxEnalapril);
-        checkBoxTreatment(checkBoxLisinopril);
-        checkBoxTreatment(checkBoxPerindopril);
-        checkBoxTreatment(checkBoxRamipril);
+        CheckBox checkBoxDiet = view.findViewById(R.id.treatment_diet);
+        CheckBox checkBoxHerbal = view.findViewById(R.id.treatment_herbal);
+        CheckBox checkBoxExercise = view.findViewById(R.id.treatment_physical_exercise);
+        CheckBox checkBoxOther = view.findViewById(R.id.treatment_other);
 
-        checkBoxTreatment(checkBoxCandesartan);
-        checkBoxTreatment(checkBoxIrbesartan);
-        checkBoxTreatment(checkBoxLosartan);
-        checkBoxTreatment(checkBoxTelmisartan);
-        checkBoxTreatment(checkBoxValsartan);
-        checkBoxTreatment(checkBoxOlmesartan);
+        CheckBoxes.checkBoxTreatment(checkBoxMetformin, this);
+        CheckBoxes.checkBoxTreatment(checkBoxGlibenclamide, this);
 
-        checkBoxTreatment(checkBoxAtenolol);
-        checkBoxTreatment(checkBoxLabetolol);
-        checkBoxTreatment(checkBoxPropranolol);
-        checkBoxTreatment(checkBoxCarvedilol);
-        checkBoxTreatment(checkBoxNebivolol);
-        checkBoxTreatment(checkBoxMetoprolol);
-        checkBoxTreatment(checkBoxBisoprolol);
+        CheckBoxes.checkBoxTreatment(checkBoxCaptopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxEnalapril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLisinopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPerindopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxRamipril, this);
 
-        checkBoxTreatment(checkBoxAmlodipine);
-        checkBoxTreatment(checkBoxFelodipine);
-        checkBoxTreatment(checkBoxNifedipine);
+        CheckBoxes.checkBoxTreatment(checkBoxCandesartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxIrbesartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLosartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxTelmisartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxValsartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxOlmesartan, this);
 
-        checkBoxTreatment(checkBoxChlorthalidone);
-        checkBoxTreatment(checkBoxHydrochlorothia);
-        checkBoxTreatment(checkBoxIndapamide);
+        CheckBoxes.checkBoxTreatment(checkBoxAtenolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLabetolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPropranolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxCarvedilol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxNebivolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxMetoprolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxBisoprolol, this);
 
-        checkBoxTreatment(checkBoxMethyldopa);
-        checkBoxTreatment(checkBoxHydralazine);
-        checkBoxTreatment(checkBoxPrazocin);
+        CheckBoxes.checkBoxTreatment(checkBoxAmlodipine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxFelodipine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxNifedipine, this);
+
+        CheckBoxes.checkBoxTreatment(checkBoxChlorthalidone, this);
+        CheckBoxes.checkBoxTreatment(checkBoxHydrochlorothia, this);
+        CheckBoxes.checkBoxTreatment(checkBoxIndapamide, this);
+
+        CheckBoxes.checkBoxTreatment(checkBoxMethyldopa, this);
+        CheckBoxes.checkBoxTreatment(checkBoxHydralazine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPrazocin, this);
+
+        CheckBoxes.checkBoxTreatment(checkBoxDiet, this);
 
         CheckBox checkBoxUrinalysis = view.findViewById(R.id.treatment_urinalysis);
         CheckBox checkBoxHBA = view.findViewById(R.id.treatment_hba);
@@ -138,13 +156,13 @@ public class Initial_page_5 extends Fragment {
         CheckBox checkBoxECG = view.findViewById(R.id.treatment_ecg);
         CheckBox checkBoxTestOther = view.findViewById(R.id.treatment_followup_other);
 
-        checkBoxTreatment(checkBoxUrinalysis);
-        checkBoxTreatment(checkBoxHBA);
-        checkBoxTreatment(checkBoxMicroalbumin);
-        checkBoxTreatment(checkBoxCreatinine);
-        checkBoxTreatment(checkBoxPotassium);
-        checkBoxTreatment(checkBoxECG);
-        checkBoxTreatment(checkBoxTestOther);
+        CheckBoxes.checkBoxTreatment(checkBoxUrinalysis, this);
+        CheckBoxes.checkBoxTreatment(checkBoxHBA, this);
+        CheckBoxes.checkBoxTreatment(checkBoxMicroalbumin, this);
+        CheckBoxes.checkBoxTreatment(checkBoxCreatinine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPotassium, this);
+        CheckBoxes.checkBoxTreatment(checkBoxECG, this);
+        CheckBoxes.checkBoxTreatment(checkBoxTestOther, this);
 
         //SpinnerDosage
         Spinner spinnerDrugMetformin = view.findViewById(R.id.spinnerDrugMetformin);
@@ -803,336 +821,157 @@ public class Initial_page_5 extends Fragment {
 
     }
 
-    public void checkBoxTreatment(final CheckBox checkBox) {
+    @Override
+    public void checkBoxClick(String val, CheckBox checkBox) {
+        switch (checkBox.getId()) {
+            case R.id.treatment_metformin:
+                Metformin = val;
+                break;
+            case R.id.treatment_glibenclamide:
+                Glibenclamide = val;
+                break;
+            case R.id.treatment_insulin:
+                Insulin = val;
+                break;
+            case R.id.treatment_soluble_insulin:
+                SolubleInsulin = val;
+                break;
+            case R.id.treatment_nph:
+                NPH = val;
+                break;
+            case R.id.treatment_nph_2:
+                NPH2 = val;
+                break;
+            case R.id.treatment_captopril:
+                hideGroup("ace");
+                Captopril = val;
+                break;
+            case R.id.treatment_enalapril:
+                hideGroup("ace");
+                Enalapril = val;
+                break;
+            case R.id.treatment_lisinopril:
+                hideGroup("ace");
+                Lisinopril = val;
+                break;
+            case R.id.treatment_perindopril:
+                hideGroup("ace");
+                Perindopril = val;
+                break;
+            case R.id.treatment_ramipril:
+                hideGroup("ace");
+                Ramipril = val;
+                break;
+            case R.id.treatment_candesartan:
+                hideGroup("arb");
+                Candesartan = val;
+                break;
+            case R.id.treatment_irbesartan:
+                hideGroup("arb");
+                Irbesartan = val;
+                break;
+            case R.id.treatment_losartan:
+                hideGroup("arb");
+                Losartan = val;
+                break;
+            case R.id.treatment_telmisartan:
+                hideGroup("arb");
+                Telmisartan = val;
+                break;
+            case R.id.treatment_valsartan:
+                hideGroup("arb");
+                Valsartan = val;
+                break;
+            case R.id.treatment_olmesartan:
+                hideGroup("arb");
+                Olmesartan = val;
+                break;
+            case R.id.treatment_atenolol:
+                Atenolol = val;
+                break;
+            case R.id.treatment_labetolol:
+                Labetolol = val;
+                break;
+            case R.id.treatment_propranolol:
+                Propranolol = val;
+                break;
+            case R.id.treatment_carvedilol:
+                Carvedilol = val;
+                break;
+            case R.id.treatment_nebivolol:
+                Nebivolol = val;
+                break;
+            case R.id.treatment_metoprolol:
+                Metoprolol = val;
+                break;
+            case R.id.treatment_bisoprolol:
+                Bisoprolol = val;
+                break;
+            case R.id.treatment_amlodipine:
+                Amlodipine = val;
+                break;
+            case R.id.treatment_felodipine:
+                Felodipine = val;
+                break;
+            case R.id.treatment_nifedipine:
+                Nifedipine = val;
+                break;
+            case R.id.treatment_methyldopa:
+                Methyldopa = val;
+                break;
+            case R.id.treatment_hydralazine:
+                Hydralazine = val;
+                break;
+            case R.id.treatment_prazocin:
+                Prazocin = val;
+                break;
+            case R.id.treatment_chlorthalidone:
+                Chlorthalidone = val;
+                break;
+            case R.id.treatment_hydrochlorothia:
+                Hydrochlorothia = val;
+                break;
+            case R.id.treatment_indapamide:
+                Indapamide = val;
+                break;
+            case R.id.treatment_diet:
+                Diet = val;
+                break;
+            case R.id.treatment_physical_exercise:
+                PhysicalExercise = val;
+                break;
+            case R.id.treatment_herbal:
+                Herbal = val;
+                break;
+            case R.id.treatment_other:
+                TreatmentOther = val;
+                break;
+            case R.id.treatment_urinalysis:
+                urinalysis = "302";
+                break;
+            case R.id.treatment_hba:
+                hba = "159644";
+                break;
+            case R.id.treatment_microalbumin:
+                microalbumin = "164938";
+                break;
+            case R.id.treatment_creatinine:
+                creatinine = "1011";
+                break;
+            case R.id.treatment_potassium:
+                potassium = "159659";
+                break;
+            case R.id.treatment_ecg:
+                ecg = "161157";
+                break;
+            case R.id.treatment_followup_other:
+                treatmentTest = "5622";
+                break;
+            default:
+                break;
+        }
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                boolean checked = (buttonView).isChecked();
-
-                //Check which checkbox was clicked
-                switch (checkBox.getId()) {
-                    case R.id.treatment_metformin:
-                        if (checked) {
-                            Metformin = "79651";
-                        } else {
-                            Metformin = "";
-                        }
-                        break;
-                    case R.id.treatment_glibenclamide:
-                        if (checked) {
-                            Glibenclamide = "77071";
-                        } else {
-                            Glibenclamide = "";
-                        }
-                        break;
-                    case R.id.treatment_insulin:
-                        if (checked) {
-                            Insulin = "159459";
-                        } else {
-                            Insulin = "";
-                        }
-                        break;
-                    case R.id.treatment_soluble_insulin:
-                        if (checked) {
-                            SolubleInsulin = "282";
-                        } else {
-                            SolubleInsulin = "";
-                        }
-                        break;
-                    case R.id.treatment_nph:
-                        if (checked) {
-                            NPH = "78068";
-                        } else {
-                            NPH = "";
-                        }
-                        break;
-                    case R.id.treatment_captopril:
-                        if (checked) {
-                            Captopril = "72806";
-                            hideGroup("ace");
-                        } else {
-                            Captopril = "";
-                        }
-                        break;
-                    case R.id.treatment_enalapril:
-                        if (checked) {
-                            Enalapril = "75633";
-                            hideGroup("ace");
-                        } else {
-                            Enalapril = "";
-                        }
-                        break;
-                    case R.id.treatment_lisinopril:
-                        if (checked) {
-                            Lisinopril = "78945";
-                            hideGroup("ace");
-                        } else {
-                            Lisinopril = "";
-                        }
-                        break;
-                    case R.id.treatment_perindopril:
-                        if (checked) {
-                            Perindopril = "81822";
-                            hideGroup("ace");
-                        } else {
-                            Perindopril = "";
-                        }
-                        break;
-                    case R.id.treatment_ramipril:
-                        if (checked) {
-                            Ramipril = "83067";
-                            hideGroup("ace");
-                        } else {
-                            Ramipril = "";
-                        }
-                        break;
-                    case R.id.treatment_candesartan:
-                        if (checked) {
-                            Candesartan = "72758";
-                            hideGroup("arb");
-                        } else {
-                            Candesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_irbesartan:
-                        if (checked) {
-                            Irbesartan = "78210";
-                            hideGroup("arb");
-                        } else {
-                            Irbesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_losartan:
-                        if (checked) {
-                            Losartan = "79074";
-                            hideGroup("arb");
-                        } else {
-                            Losartan = "";
-                        }
-                        break;
-                    case R.id.treatment_telmisartan:
-                        if (checked) {
-                            Telmisartan = "84764";
-                            hideGroup("arb");
-                        } else {
-                            Telmisartan = "";
-                        }
-                        break;
-                    case R.id.treatment_valsartan:
-                        if (checked) {
-                            Valsartan = "86056";
-                            hideGroup("arb");
-                        } else {
-                            Valsartan = "";
-                        }
-                        break;
-                    case R.id.treatment_olmesartan:
-                        if (checked) {
-                            Olmesartan = "165229";
-                            hideGroup("arb");
-                        } else {
-                            Olmesartan = "";
-                        }
-                        break;
-                    case R.id.treatment_atenolol:
-                        if (checked) {
-                            Atenolol = "71652";
-                        } else {
-                            Atenolol = "";
-                        }
-                        break;
-                    case R.id.treatment_labetolol:
-                        if (checked) {
-                            Labetolol = "78599";
-                        } else {
-                            Labetolol = "";
-                        }
-                        break;
-                    case R.id.treatment_propranolol:
-                        if (checked) {
-                            Propranolol = "82732";
-                        } else {
-                            Propranolol = "";
-                        }
-                        break;
-                    case R.id.treatment_carvedilol:
-                        if (checked) {
-                            Carvedilol = "72944";
-                        } else {
-                            Carvedilol = "";
-                        }
-                        break;
-                    case R.id.treatment_nebivolol:
-                        if (checked) {
-                            Nebivolol = "80470";
-                        } else {
-                            Nebivolol = "";
-                        }
-                        break;
-                    case R.id.treatment_metoprolol:
-                        if (checked) {
-                            Metoprolol = "79764";
-                        } else {
-                            Metoprolol = "";
-                        }
-                        break;
-                    case R.id.treatment_bisoprolol:
-                        if (checked) {
-                            Bisoprolol = "72247";
-                        } else {
-                            Bisoprolol = "";
-                        }
-                        break;
-                    case R.id.treatment_amlodipine:
-                        if (checked) {
-                            Amlodipine = "71137";
-                        } else {
-                            Amlodipine = "";
-                        }
-                        break;
-                    case R.id.treatment_felodipine:
-                        if (checked) {
-                            Felodipine = "76211";
-                        } else {
-                            Felodipine = "";
-                        }
-                        break;
-                    case R.id.treatment_nifedipine:
-                        if (checked) {
-                            Nifedipine = "80637";
-                        } else {
-                            Nifedipine = "";
-                        }
-                        break;
-                    case R.id.treatment_methyldopa:
-                        if (checked) {
-                            Methyldopa = "79723";
-                        } else {
-                            Methyldopa = "";
-                        }
-                        break;
-                    case R.id.treatment_hydralazine:
-                        if (checked) {
-                            Hydralazine = "77675";
-                        } else {
-                            Hydralazine = "";
-                        }
-                        break;
-                    case R.id.treatment_prazocin:
-                        if (checked) {
-                            Prazocin = "77985";
-                        } else {
-                            Prazocin = "";
-                        }
-                        break;
-                    case R.id.treatment_chlorthalidone:
-                        if (checked) {
-                            Chlorthalidone = "73338";
-                        } else {
-                            Chlorthalidone = "";
-                        }
-                        break;
-                    case R.id.treatment_hydrochlorothia:
-                        if (checked) {
-                            Hydrochlorothia = "77696";
-                        } else {
-                            Hydrochlorothia = "";
-                        }
-                        break;
-                    case R.id.treatment_indapamide:
-                        if (checked) {
-                            Indapamide = "77985";
-                        } else {
-                            Indapamide = "";
-                        }
-                        break;
-                    case R.id.treatment_diet:
-                        if (checked) {
-                            Diet = "165200";
-                        } else {
-                            Diet = "";
-                        }
-                        break;
-                    case R.id.treatment_physical_exercise:
-                        if (checked) {
-                            PhysicalExercise = "159364";
-                        } else {
-                            PhysicalExercise = "";
-                        }
-                        break;
-                    case R.id.treatment_herbal:
-                        if (checked) {
-                            Herbal = "165203";
-                        } else {
-                            Herbal = "";
-                        }
-                        break;
-                    case R.id.treatment_other:
-                        if (checked) {
-                            TreatmentOther = "165205";
-                        } else {
-                            TreatmentOther = "";
-                        }
-                        break;
-                    case R.id.treatment_urinalysis:
-                        if (checked) {
-                            urinalysis = "302";
-                        } else {
-                            urinalysis = "";
-                        }
-                        break;
-                    case R.id.treatment_hba:
-                        if (checked) {
-                            hba = "159644";
-                        } else {
-                            hba = "";
-                        }
-                        break;
-                    case R.id.treatment_microalbumin:
-                        if (checked) {
-                            microalbumin = "164938";
-                        } else {
-                            microalbumin = "";
-                        }
-                        break;
-                    case R.id.treatment_creatinine:
-                        if (checked) {
-                            creatinine = "1011";
-                        } else {
-                            creatinine = "";
-                        }
-                        break;
-                    case R.id.treatment_potassium:
-                        if (checked) {
-                            potassium = "159659";
-                        } else {
-                            potassium = "";
-                        }
-                        break;
-                    case R.id.treatment_ecg:
-                        if (checked) {
-                            ecg = "161157";
-                        } else {
-                            ecg = "";
-                        }
-                        break;
-                    case R.id.treatment_followup_other:
-                        if (checked) {
-                            treatmentTest = "5622";
-                        } else {
-                            treatmentTest = "";
-                        }
-                        break;
-
-                }
-
-                updateValues();
-            }
-        });
-
+        updateValues();
     }
 
     public void updateValues() {
@@ -1147,14 +986,23 @@ public class Initial_page_5 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("1443", "165281", "valueNumeric", doseGlibenclamide, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165281", "valueCoded", frequencyGlibenclamide, DateCalendar.date(), ""));
 
+        //Insulin
         jsonArry.put(JSONFormBuilder.observations("1282", "165282", "valueCoded", Insulin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueText", "", DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165282", "valueNumeric", editTextInsulin.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165282", "valueCoded", frequencyInsulin, DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165283", "valueCoded", SolubleInsulin, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueText", "", DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165283", "valueNumeric", editTextSolubleInsulin.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165283", "valueCoded", frequencySolubleInsulin, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165284", "valueCoded", NPH, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165284", "valueText", "", DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165285", "valueCoded", NPH, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165285", "valueNumeric", editTextNPH1.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165285", "valueCoded", frequencyNPH1, DateCalendar.date(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1282", "165286", "valueCoded", NPH2, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165286", "valueNumeric", editTextNPH2.getText().toString(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165286", "valueCoded", frequencyNPH2, DateCalendar.date(), ""));
+
 
         //ACE
         jsonArry.put(JSONFormBuilder.observations("1282", "165253", "valueCoded", Captopril, DateCalendar.date(), ""));

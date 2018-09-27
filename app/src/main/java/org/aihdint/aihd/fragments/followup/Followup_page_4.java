@@ -1,6 +1,7 @@
 package org.aihdint.aihd.fragments.followup;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -19,7 +20,7 @@ import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.DrugsDose;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.common.checkBoxes.checkBoxes;
+import org.aihdint.aihd.common.checkBoxes.CheckBoxes;
 import org.aihdint.aihd.common.checkBoxes.checkBoxInterface;
 import org.aihdint.aihd.model.KeyValue;
 import org.json.JSONArray;
@@ -57,7 +58,7 @@ public class Followup_page_4 extends Fragment implements checkBoxInterface {
     private EditText editTextComment, editTextReturnDate, editTextReferralLocation, editTextReferralDate, editTextReferralNote, editTextClinician;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_followup_fragment_4, container, false);
 
         LinearLayout testLinearLayout = view.findViewById(R.id.testLinearLayout);
@@ -131,43 +132,42 @@ public class Followup_page_4 extends Fragment implements checkBoxInterface {
         CheckBox checkBoxExercise = view.findViewById(R.id.treatment_physical_exercise);
         CheckBox checkBoxOther = view.findViewById(R.id.treatment_other);
 
-        checkBoxes.checkBoxTreatment(checkBoxMetformin, this);
-        checkBoxes.checkBoxTreatment(checkBoxGlibenclamide, this);
+        CheckBoxes.checkBoxTreatment(checkBoxMetformin, this);
+        CheckBoxes.checkBoxTreatment(checkBoxGlibenclamide, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxCaptopril, this);
-        checkBoxes.checkBoxTreatment(checkBoxEnalapril, this);
-        checkBoxes.checkBoxTreatment(checkBoxLisinopril, this);
-        checkBoxes.checkBoxTreatment(checkBoxPerindopril, this);
-        checkBoxes.checkBoxTreatment(checkBoxRamipril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxCaptopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxEnalapril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLisinopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPerindopril, this);
+        CheckBoxes.checkBoxTreatment(checkBoxRamipril, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxCandesartan, this);
-        checkBoxes.checkBoxTreatment(checkBoxIrbesartan, this);
-        checkBoxes.checkBoxTreatment(checkBoxLosartan, this);
-        checkBoxes.checkBoxTreatment(checkBoxTelmisartan, this);
-        checkBoxes.checkBoxTreatment(checkBoxValsartan, this);
-        checkBoxes.checkBoxTreatment(checkBoxOlmesartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxCandesartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxIrbesartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLosartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxTelmisartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxValsartan, this);
+        CheckBoxes.checkBoxTreatment(checkBoxOlmesartan, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxAtenolol, this);
-        checkBoxes.checkBoxTreatment(checkBoxLabetolol, this);
-        checkBoxes.checkBoxTreatment(checkBoxPropranolol, this);
-        checkBoxes.checkBoxTreatment(checkBoxCarvedilol, this);
-        checkBoxes.checkBoxTreatment(checkBoxNebivolol, this);
-        checkBoxes.checkBoxTreatment(checkBoxMetoprolol, this);
-        checkBoxes.checkBoxTreatment(checkBoxBisoprolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxAtenolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxLabetolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPropranolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxCarvedilol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxNebivolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxMetoprolol, this);
+        CheckBoxes.checkBoxTreatment(checkBoxBisoprolol, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxAmlodipine, this);
-        checkBoxes.checkBoxTreatment(checkBoxFelodipine, this);
-        checkBoxes.checkBoxTreatment(checkBoxNifedipine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxAmlodipine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxFelodipine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxNifedipine, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxChlorthalidone, this);
-        checkBoxes.checkBoxTreatment(checkBoxHydrochlorothia, this);
-        checkBoxes.checkBoxTreatment(checkBoxIndapamide, this);
+        CheckBoxes.checkBoxTreatment(checkBoxChlorthalidone, this);
+        CheckBoxes.checkBoxTreatment(checkBoxHydrochlorothia, this);
+        CheckBoxes.checkBoxTreatment(checkBoxIndapamide, this);
 
-        checkBoxes.checkBoxTreatment(checkBoxMethyldopa, this);
-        checkBoxes.checkBoxTreatment(checkBoxHydralazine, this);
-        checkBoxes.checkBoxTreatment(checkBoxPrazocin, this);
-        checkBoxes.checkBoxTreatment(checkBoxDiet, this);
-
+        CheckBoxes.checkBoxTreatment(checkBoxMethyldopa, this);
+        CheckBoxes.checkBoxTreatment(checkBoxHydralazine, this);
+        CheckBoxes.checkBoxTreatment(checkBoxPrazocin, this);
+        CheckBoxes.checkBoxTreatment(checkBoxDiet, this);
         //SpinnerDosage
         Spinner spinnerDrugMetformin = view.findViewById(R.id.spinnerDrugMetformin);
         Spinner spinnerDrugGlibenclamide = view.findViewById(R.id.spinnerDrugGlibenclamide);

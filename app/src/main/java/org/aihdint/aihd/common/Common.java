@@ -2,8 +2,6 @@ package org.aihdint.aihd.common;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,12 +10,9 @@ import com.orm.query.Condition;
 import com.orm.query.Select;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.fragments.followup.Followup_page_1;
 import org.aihdint.aihd.model.Concepts;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 

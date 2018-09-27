@@ -5,7 +5,7 @@ import android.widget.CompoundButton;
 
 import org.aihdint.aihd.R;
 
-public class checkBoxes {
+public class CheckBoxes {
 
     private static String value = "";
     private static checkBoxInterface checkBoxEvent;
