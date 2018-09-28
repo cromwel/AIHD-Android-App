@@ -3,6 +3,7 @@ package org.aihdint.aihd.common;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,61 +19,41 @@ import java.util.Locale;
 
 public class Common {
 
-    public static void checkBP(final Context mContext, final EditText editTextSystolicOne, final EditText editTextDiastolicOne, final EditText editTextSystolicTwo, final EditText editTextDiastolicTwo) {
+    public static void checkBP(final View view, final EditText editTextSystolicOne, final EditText editTextDiastolicOne) {
 
         int systolic_1 = 0;
         int diastolic_1 = 0;
-        int systolic_2 = 0;
-        int diastolic_2 = 0;
 
         if (editTextSystolicOne.getText().toString().trim().length() > 0) {
             systolic_1 = Integer.parseInt(editTextSystolicOne.getText().toString().trim());
         }
 
-        if (editTextDiastolicOne.getText().toString().trim().length() > 0) {
+        if (editTextDiastolicOne != null && editTextDiastolicOne.getText().toString().trim().length() > 0) {
             diastolic_1 = Integer.parseInt(editTextDiastolicOne.getText().toString().trim());
         }
 
-        if (editTextSystolicTwo != null && editTextSystolicTwo.getText() != null && !editTextSystolicTwo.getText().toString().matches("")) {
-            systolic_2 = Integer.parseInt(editTextSystolicTwo.getText().toString().trim());
-        }
-
-        if (editTextDiastolicTwo != null && editTextDiastolicTwo.getText() != null && !editTextDiastolicTwo.getText().toString().matches("")) {
-            diastolic_2 = Integer.parseInt(editTextDiastolicTwo.getText().toString().trim());
-        }
-
-
         if (diastolic_1 > 0 && systolic_1 > 0) {
 
-            int systolic = systolic_1;
-            int diastolic = diastolic_1;
-
-            if (diastolic_2 > 0 && systolic_2 > 0) {
-                systolic = (systolic_1 + systolic_2) / 2;
-                diastolic = (diastolic_1 + diastolic_2) / 2;
-            }
-
-            Log.d("Values BP", systolic + "/" + diastolic);
-            if ((systolic > 89 && systolic < 129)
-                    && (diastolic > 59 && diastolic < 84)) {
-                Alerts.alert_msg(mContext, "Blood Pressure ", "Normal BP");
-            } else if ((diastolic > 84 && diastolic < 89)
-                    && (systolic > 129 && systolic < 139)) {
-                Alerts.alert_msg(mContext, "Blood Pressure ", "High Normal BP");
-            } else if ((diastolic > 89 && diastolic < 99)
-                    && (systolic > 139 && systolic < 159)) {
-                Alerts.alert_msg(mContext, "Blood Pressure ", "Mild Hypertention");
-            } else if ((diastolic > 99 && diastolic < 109)
-                    && (systolic > 159 && systolic < 179)) {
-                Alerts.alert_msg(mContext, "Blood Pressure ", "Moderate Hypertention");
-            } else if ((diastolic > 109 && diastolic < 1000)
-                    && (systolic > 179 && systolic < 1000)) {
-                Alerts.alert_msg(mContext, "Blood Pressure ", "Severe Hypertention");
+            Log.d("Values BP", systolic_1 + "/" + diastolic_1);
+            if ((systolic_1 > 89 && systolic_1 < 129)
+                    && (diastolic_1 > 59 && diastolic_1 < 84)) {
+                Alerts.errorMessage(view, "Blood Pressure: Normal BP");
+            } else if ((diastolic_1 > 84 && diastolic_1 < 89)
+                    && (systolic_1 > 129 && systolic_1 < 139)) {
+                Alerts.errorMessage(view, "Blood Pressure: High Normal BP");
+            } else if ((diastolic_1 > 89 && diastolic_1 < 99)
+                    && (systolic_1 > 139 && systolic_1 < 159)) {
+                Alerts.errorMessage(view, "Blood Pressure: Mild Hypertention");
+            } else if ((diastolic_1 > 99 && diastolic_1 < 109)
+                    && (systolic_1 > 159 && systolic_1 < 179)) {
+                Alerts.errorMessage(view, "Blood Pressure: Moderate Hypertention");
+            } else if ((diastolic_1 > 109 && diastolic_1 < 1000)
+                    && (systolic_1 > 179 && systolic_1 < 1000)) {
+                Alerts.errorMessage(view, "Blood Pressure: Severe Hypertention");
             }
         }
-
-
     }
+
 
 
     public static void whr(final EditText editTextWaist, final EditText editTextHip, final TextView textViewWaistHipRatio) {
@@ -134,30 +115,30 @@ public class Common {
 
     }
 
-    public static void checkTemp(Context mContext, String temp) {
+    public static void checkTemp(View view, String temp) {
         if (temp.length() != 0) {
             if (Double.parseDouble(temp) < 35 || Double.parseDouble(temp) > 40) {
-                Alerts.alert_msg(mContext, "Temperature", "Kindly confirm if the Temperature entered is correct.");
+                Alerts.errorMessage(view, "Kindly confirm if the Temperature entered is correct.");
             } else if (Double.parseDouble(temp) < 36.1) {
-                Alerts.alert_msg(mContext, "Temperature", "Patient has hypothermia.");
+                Alerts.errorMessage(view, "Patient has hypothermia.");
             } else if (Double.parseDouble(temp) > 37.1) {
-                Alerts.alert_msg(mContext, "Temperature", "Patient has a Fever.");
+                Alerts.errorMessage(view, "Patient has a Fever.");
             }
         }
     }
 
-    public static void checkPR(Context mContext, String pr) {
+    public static void checkPR(View view, String pr) {
         if (pr.length() != 0) {
             if (Double.parseDouble(pr) < 60 || Double.parseDouble(pr) > 100) {
-                Alerts.alert_msg(mContext, "Temperature", "Kindly confirm if the Pulse Rate entered is correct.");
+                Alerts.errorMessage(view, "Kindly confirm if the Pulse Rate entered is correct.");
             }
         }
     }
 
-    public static void monofilament(Context mContext, String value) {
+    public static void monofilament(View view, String value) {
         if (value.length() != 0) {
             if (Double.parseDouble(value) > 5) {
-                Alerts.alert_msg(mContext, "Monofilament", "Abnormal Monofilament");
+                Alerts.errorMessage(view, "Abnormal Monofilament.");
             }
         }
     }

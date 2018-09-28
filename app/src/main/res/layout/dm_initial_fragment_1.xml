@@ -152,6 +152,7 @@
                         android:textSize="13sp" />
 
                     <RadioGroup
+                        android:id="@+id/radioGroupDiabetes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
@@ -169,7 +170,6 @@
                             android:id="@+id/radio_diabetes_type_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Type 2"
                             android:textSize="13sp" />
 
@@ -177,7 +177,6 @@
                             android:id="@+id/radio_diabetes_GDM"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="GDM"
                             android:textSize="13sp" />
 
@@ -185,7 +184,6 @@
                             android:id="@+id/radio_diabetes_secondary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Diabetes Secondary to other causes"
                             android:textSize="13sp" />
                     </RadioGroup>
@@ -221,14 +219,12 @@
                                     android:id="@+id/radio_dm_patient_family_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_dm_patient_family_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                             </RadioGroup>
@@ -302,6 +298,7 @@
                         android:textSize="13sp" />
 
                     <RadioGroup
+                        android:id="@+id/radioGroupHypertension"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -313,7 +310,6 @@
                             android:id="@+id/radio_hypertension_mild"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Mild Hypertension"
                             android:textSize="13sp" />
 
@@ -321,7 +317,6 @@
                             android:id="@+id/radio_hypertension_moderate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Moderate Hypertension"
                             android:textSize="13sp" />
 
@@ -329,7 +324,6 @@
                             android:id="@+id/radio_hypertension_severe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Severe Hypertension"
                             android:textSize="13sp" />
 
@@ -337,7 +331,6 @@
                             android:id="@+id/radio_hypertension_preeclampsia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:text="Preeclampsia"
                             android:textSize="13sp" />
                     </RadioGroup>
@@ -564,6 +557,7 @@
                                 android:text="Status" />
 
                             <RadioGroup
+                                android:id="@+id/radioGroupTB"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
@@ -627,7 +621,8 @@
                         android:hint="yyyy-mm-dd"
                         android:inputType="date"
                         android:padding="15dp"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:visibility="gone" />
 
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
@@ -989,7 +984,7 @@
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="LMP if female" />
+                            android:text="LMP (if female)" />
 
                         <customfonts.EditText_Roboto_Light
                             android:id="@+id/complaint_lmp"
@@ -1098,7 +1093,6 @@
                                     android:id="@+id/radio_diet_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1131,21 +1125,18 @@
                                     android:id="@+id/radio_smoke_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_smoke_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>
@@ -1169,21 +1160,18 @@
                                     android:id="@+id/radio_drink_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Yes" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_no"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="No" />
 
                                 <RadioButton
                                     android:id="@+id/radio_drink_stopped"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:text="Stopped" />
                             </RadioGroup>
                         </LinearLayout>

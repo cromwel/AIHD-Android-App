@@ -12,8 +12,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import org.aihdint.aihd.Home;
+import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.common.JSONFormBuilder;
+import org.aihdint.aihd.common.Validation;
 import org.aihdint.aihd.model.Forms;
 import org.aihdint.aihd.adapters.pages.DM_FollowUp_Adapter;
 import org.aihdint.aihd.R;
@@ -38,7 +40,6 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
     private String encounter_date, file_name, form_id, patient_id;
-    private long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,64 +132,74 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4);
             JSONObject jsonForm = new JSONObject();
 
-            String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
+            String error = Validation.followupValidation(jsonArray);
 
-            try {
-                jsonForm.put("formDescription", "Diabetes Clinical Follow Up Form");
-                jsonForm.put("formEncounterType", "2da542a4-f87d-11e7-8eb4-37dc291c1b12");
-                jsonForm.put("formUuid", "fa3295cb-07d7-4554-972b-ce959d10732c");
-                jsonForm.put("formVersion", "1.0");
-                jsonForm.put("formUILocation", "patientDashboard.visitActions");
-                jsonForm.put("formOrder", "2");
-                jsonForm.put("encounterDate", encounter_date);
-                jsonForm.put("encounterProvider", creator);
-                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-                jsonForm.put("patient_id", patient_id);
-                jsonForm.put("obs", jsonArray);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (jsonArray.length() == 0) {
+                error = "Please fill in required fields(*)";
             }
 
-            FileOutputStream f = new FileOutputStream(file);
-            PrintWriter pw = new PrintWriter(f);
-            pw.println(jsonForm.toString());
-            pw.flush();
-            pw.close();
-            f.close();
+            if (error.length() == 0 && jsonArray.length() > 0) {
+                String creator = AppController.getInstance().getSessionManager().getUserDetails().get("user_id");
 
-            Forms forms = new Forms(form_id, file_name, creator, patient_id, "followup", encounter_date, "0");
-            id = forms.save();
+                try {
+                    jsonForm.put("formDescription", "Diabetes Clinical Follow Up Form");
+                    jsonForm.put("formEncounterType", "2da542a4-f87d-11e7-8eb4-37dc291c1b12");
+                    jsonForm.put("formUuid", "fa3295cb-07d7-4554-972b-ce959d10732c");
+                    jsonForm.put("formVersion", "1.0");
+                    jsonForm.put("formUILocation", "patientDashboard.visitActions");
+                    jsonForm.put("formOrder", "2");
+                    jsonForm.put("encounterDate", encounter_date);
+                    jsonForm.put("encounterProvider", creator);
+                    jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                    jsonForm.put("patient_id", patient_id);
+                    jsonForm.put("obs", jsonArray);
 
-            if ((int) PatientProfile.count(PatientProfile.class, "patient_id = ?", new String[]{patient_id}) == 0) {
-                PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
-                patientProfile.save();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                FileOutputStream f = new FileOutputStream(file);
+                PrintWriter pw = new PrintWriter(f);
+                pw.println(jsonForm.toString());
+                pw.flush();
+                pw.close();
+                f.close();
+
+                Forms forms = new Forms(form_id, file_name, creator, patient_id, "followup", encounter_date, "0");
+                long id = forms.save();
+
+                if ((int) PatientProfile.count(PatientProfile.class, "patient_id = ?", new String[]{patient_id}) == 0) {
+                    PatientProfile patientProfile = new PatientProfile(patient_id, jsonForm.toString());
+                    patientProfile.save();
+                } else {
+                    PatientProfile patientProfile = (PatientProfile.find(PatientProfile.class, "patient_id = ?", patient_id)).get(0);
+                    patientProfile.setMedicationFile(jsonForm.toString());
+                    patientProfile.save();
+                }
+
+                // Launch login activity
+                Intent intent = new Intent(this, Home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+
+                Toast.makeText(getBaseContext(), "Follow Up Form saved", Toast.LENGTH_SHORT).show();
+                boolean isConnected = File_Upload.connectivity(getApplicationContext());
+                if (isConnected) {
+                    File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);
+                } else {
+                    Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
+                }
+
             } else {
-                PatientProfile patientProfile = (PatientProfile.find(PatientProfile.class, "patient_id = ?", patient_id)).get(0);
-                patientProfile.setMedicationFile(jsonForm.toString());
-                patientProfile.save();
+                Alerts.alert_msg(this, "Validation Error", error);
             }
-
-            // Launch login activity
-            Intent intent = new Intent(this, Home.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.i("Error", "*** File not found. Did you add a WRITE_EXTERNAL_STORAGE permission to the manifest?");
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-
-        Toast.makeText(getBaseContext(), "Follow Up Form saved", Toast.LENGTH_SHORT).show();
-        boolean isConnected = File_Upload.connectivity(getApplicationContext());
-        if (isConnected) {
-            File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);
-        } else {
-            Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
         }
 
     }

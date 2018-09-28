@@ -226,13 +226,13 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             @Override
             protected Map<String, String> getParams() {
                 // Posting params to register url
-                String location_id = AppController.getInstance().getSessionManager().getUserDetails().get("location_id");
+                String location_id = AppController.getInstance().getSessionManager().getUserDetails().get("mfl");
                 location_id = location_id.toLowerCase();
                 location_id = location_id.replace(".", "");
                 location_id = location_id.replace(" ", "_");
 
                 Map<String, String> params = new HashMap<>();
-                params.put("location_id", location_id);
+                params.put("mfl", location_id);
                 params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
 
                 JSONObject JSONparams = new JSONObject(params);

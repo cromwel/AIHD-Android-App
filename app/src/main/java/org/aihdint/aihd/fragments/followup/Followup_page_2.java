@@ -1,7 +1,7 @@
 package org.aihdint.aihd.fragments.followup;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +18,6 @@ import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Developed by Rodney on 24/04/2018.
  */
@@ -34,7 +31,7 @@ public class Followup_page_2 extends Fragment {
     private EditText editTextSputum, editTextGene, editTextXray, editTextAntiTB, editTextInviteContact, editTextIPT;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_followup_fragment_2, container, false);
 
         urination = thirst = hunger = weight_loss = fatigue = vision = impotence = numbness =
@@ -343,9 +340,9 @@ public class Followup_page_2 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("165193", "", "valueCoded", indicator_history, DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("307", "", "valueCoded", sputum, DateCalendar.date(), editTextSputum.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("162202", "", "valueCoded", gene, DateCalendar.date(), editTextCough.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("162202", "", "valueCoded", gene, DateCalendar.date(), editTextGene.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", chest_xray, DateCalendar.date(), editTextXray.getText().toString().trim()));
-        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", antiTB, DateCalendar.date(), editTextAntiTB.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165332", "", "valueCoded", antiTB, DateCalendar.date(), editTextAntiTB.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("164072", "", "valueCoded", invitation_contacts, DateCalendar.date(), editTextInviteContact.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("162275", "", "valueCoded", eval_IPT, DateCalendar.date(), editTextIPT.getText().toString().trim()));
 

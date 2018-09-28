@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/background"
@@ -617,10 +618,10 @@
                                     android:text="Positive" />
 
                                 <RadioButton
-                                    android:id="@+id/radio_tb_status_unknown"
+                                    android:id="@+id/radio_tb_status_treatment"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Unknown" />
+                                    android:text="On treatment" />
                             </RadioGroup>
                         </LinearLayout>
 
@@ -639,21 +640,11 @@
                         <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="TB Status" />
-
-                        <CheckBox
-                            android:id="@+id/checkbox_tb_status"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="On treatment" />
-
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="Treatment Start Date" />
 
                         <customfonts.EditText_Roboto_Regular
+                            android:visibility="gone"
                             android:id="@+id/tb_treatment_start"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

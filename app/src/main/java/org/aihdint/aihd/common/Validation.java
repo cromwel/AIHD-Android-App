@@ -69,4 +69,35 @@ public class Validation {
     }
 
 
+    public static String followupValidation(JSONArray jsonArray) {
+
+        StringBuilder error = new StringBuilder(1000);
+
+        try {
+
+            if (jsonArray.length() > 0) {
+
+                if (!jsonArray.toString().contains("165086")) {
+                    error.append("Page(1) Diabetes Status is required \n\n");
+                }
+                if (!jsonArray.toString().contains("165091")) {
+                    error.append("Page(1) Hypertension status is required \n\n");
+                }
+                if (!jsonArray.toString().contains("138405")) {
+                    error.append("Page(1) HIV Status is required \n\n");
+                }
+                if (!jsonArray.toString().contains("1917")) {
+                    error.append("Page(1) NHIF status is required \n\n");
+                }
+            }
+
+        } catch (Exception e) {
+            // hiding the progress bar
+            e.printStackTrace();
+        }
+
+        return error.toString();
+    }
+
+
 }

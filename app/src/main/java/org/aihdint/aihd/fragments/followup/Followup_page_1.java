@@ -1,6 +1,7 @@
 package org.aihdint.aihd.fragments.followup;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -30,15 +30,17 @@ import java.util.Locale;
 
 public class Followup_page_1 extends Fragment {
 
+    private View view;
     private EditText dm_followup_date, supporter_nameEditText, supporter_phoneEditText, supporter_phone_otherEditText;
     private EditText dmDiagnosisDateEditText, dmClinicDateEditText;
     private EditText htnDiagnosisDateEditText, htnClinicDateEditText;
     private EditText editTextTBDate, editTextTBComment;
-    private String dm_diagnosis, hypertension, nhif, diabetes_type, hypertension_type, tb_treatment, tb_screen, tb_status, hiv_status;
+    private String dm_diagnosis, hypertension, nhif, diabetes_type, hypertension_type, tb_screen, tb_status, hiv_status;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dm_followup_fragment_1, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.dm_followup_fragment_1, container, false);
+        tb_status = nhif = "";
 
         dm_followup_date = view.findViewById(R.id.dm_followup_date);
         supporter_nameEditText = view.findViewById(R.id.supporter_name);
@@ -98,7 +100,7 @@ public class Followup_page_1 extends Fragment {
         RadioButton radioButtonTBNa = view.findViewById(R.id.radio_tb_na);
         RadioButton radioButtonTBNegative = view.findViewById(R.id.radio_tb_status_negative);
         RadioButton radioButtonTBPositive = view.findViewById(R.id.radio_tb_status_positive);
-        RadioButton radioButtonTBUknown = view.findViewById(R.id.radio_tb_status_unknown);
+        RadioButton radioButtonTBTreatment = view.findViewById(R.id.radio_tb_status_treatment);
 
         radioButtonClicked(radioButtonDMNew);
         radioButtonClicked(radioButtonDMKnown);
@@ -125,7 +127,7 @@ public class Followup_page_1 extends Fragment {
         radioButtonClicked(radioButtonTBNa);
         radioButtonClicked(radioButtonTBNegative);
         radioButtonClicked(radioButtonTBPositive);
-        radioButtonClicked(radioButtonTBUknown);
+        radioButtonClicked(radioButtonTBTreatment);
 
         return view;
     }
@@ -219,7 +221,6 @@ public class Followup_page_1 extends Fragment {
                     case R.id.radio_nhif_no:
                         if (checked)
                             nhif = "1066";
-                        Alerts.alert_msg(getContext(), "NHIF Registration", "Encourage Client to Register for NHIF");
                         break;
                     case R.id.radio_diabetes_type_1:
                         if (checked)
@@ -267,11 +268,11 @@ public class Followup_page_1 extends Fragment {
                         break;
                     case R.id.radio_tb_status_positive:
                         if (checked)
-                            tb_status = "138571";
+                            tb_status = "703";
                         break;
-                    case R.id.radio_tb_status_unknown:
+                    case R.id.radio_tb_status_treatment:
                         if (checked)
-                            tb_status = "1067";
+                            tb_status = "1662";
                         break;
                     case R.id.radio_hiv_negative:
                         if (checked)
@@ -286,36 +287,21 @@ public class Followup_page_1 extends Fragment {
                             hiv_status = "1067";
                         break;
                 }
-                updateValues();
-            }
-        });
-    }
 
-
-    public void checkBox(final CheckBox checkBox) {
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                boolean checked = (buttonView).isChecked();
-
-                //Check which checkbox was clicked
-                switch (checkBox.getId()) {
-                    case R.id.checkbox_tb_status:
-                        if (checked) {
-                            tb_treatment = "1659";
-                        } else {
-                            tb_treatment = "";
-                        }
-                        break;
+                if (nhif.equals("1066")) {
+                    Alerts.errorMessage(view, "Encourage Client to Register for NHIF");
                 }
 
+                if (tb_status.equals("703")) {
+                    editTextTBDate.setVisibility(View.VISIBLE);
+                } else {
+                    editTextTBDate.setVisibility(View.GONE);
+                }
                 updateValues();
             }
         });
     }
+
 
     public void updateValues() {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.US);
@@ -338,8 +324,7 @@ public class Followup_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("138405", "", "valueCoded", hiv_status, DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("", "", "valueCoded", tb_status, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_treatment, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_status, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165172", "", "valueText", editTextTBDate.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), DateCalendar.date(), ""));
 

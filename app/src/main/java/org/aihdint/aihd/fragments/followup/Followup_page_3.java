@@ -1,7 +1,10 @@
 package org.aihdint.aihd.fragments.followup;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,8 +24,6 @@ import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 import customfonts.TextView_Roboto_Bold;
 
@@ -32,6 +33,7 @@ import customfonts.TextView_Roboto_Bold;
 
 public class Followup_page_3 extends Fragment {
 
+    private View view;
     private EditText editTextSystolic, editTextDiastolic;
     private EditText editTextWaist, editTextHip, editTextHeight, editTextWeight, editTextNutrition;
     private TextView_Roboto_Bold textViewBMI, textViewWaistHipRatio;
@@ -46,8 +48,8 @@ public class Followup_page_3 extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dm_followup_fragment_3, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.dm_followup_fragment_3, container, false);
 
         editTextSystolic = view.findViewById(R.id.followup_systolic);
         editTextDiastolic = view.findViewById(R.id.followup_diastolic);
@@ -190,43 +192,23 @@ public class Followup_page_3 extends Fragment {
 
         editText.addTextChangedListener(new TextWatcher() {
 
-            private Timer timer = new Timer();
-            private final long DELAY = 1500; // milliseconds
-
+            @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void afterTextChanged(final Editable editable) {
 
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        timer.cancel();
-                        timer = new Timer();
-
-                        final Runnable checkRunnable = new Runnable() {
-                            public void run() {
-
-                                if (check.matches("blood_pressure")) {
-                                    if (editTextSystolic != null && editTextDiastolic != null) {
-                                        Common.checkBP(getContext(), editTextSystolic, editTextDiastolic, null, null);
-                                    }
-                                } else if (check.matches("textViewBMI")) {
-                                    Common.bmi(getContext(), editTextHeight, editTextWeight, textViewBMI);
-                                } else if (check.matches("whr")) {
-                                    Common.whr(editTextWaist, editTextHip, textViewWaistHipRatio);
-                                } else {
-                                    updateValues();
-                                }
-                            }
-                        };
-
-                        TimerTask task = new TimerTask() {
-                            public void run() {
-                                getActivity().runOnUiThread(checkRunnable);
-                            }
-                        };
-
-                        timer.schedule(task, DELAY);
-                    }
-                });
+                switch (check) {
+                    case "blood_pressure":
+                        if (editTextSystolic != null && editTextDiastolic != null) {
+                            Common.checkBP(view, editTextSystolic, editTextDiastolic);
+                        }
+                        break;
+                    case "textViewBMI":
+                        Common.bmi(getContext(), editTextHeight, editTextWeight, textViewBMI);
+                        break;
+                    case "whr":
+                        Common.whr(editTextWaist, editTextHip, textViewWaistHipRatio);
+                        break;
+                }
 
                 updateValues();
             }
@@ -431,12 +413,12 @@ public class Followup_page_3 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("160912", "161487", "valueText", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("887", "161487", "valueText", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159644", "161487", "valueText", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueText", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1007", "161487", "valueText", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1008", "161487", "valueText", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1009", "161487", "valueText", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("164364", "161487", "valueText", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-        //jsonArry.put(JSONFormBuilder.observations("", "161487", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueText", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueText", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160987", "", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
