@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+app/release
+app/src/main/java/org/aihdint/aihd/app/Config.java
