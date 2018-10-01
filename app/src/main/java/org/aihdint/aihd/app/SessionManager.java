@@ -18,9 +18,6 @@ public class SessionManager {
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
-    // Shared pref mode
-    private int PRIVATE_MODE = 0;
-
     // Shared preferences file name
     private static final String PREF_NAME = "AIHD";
 
@@ -31,6 +28,7 @@ public class SessionManager {
     private static final String KEY_MFL_CODE = "mfl_code";
 
     public SessionManager(Context context) {
+        int PRIVATE_MODE = 0;
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
         editor.apply();

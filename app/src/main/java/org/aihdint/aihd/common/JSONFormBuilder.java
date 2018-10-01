@@ -40,6 +40,14 @@ public class JSONFormBuilder {
         return jsonObs;
     }
 
+    public static JSONArray checkLength(JSONArray jsonArray, JSONArray jsonObs) {
+        if (jsonArray.length() > 0) {
+            jsonObs = jsonArray;
+        }
+
+        return jsonObs;
+    }
+
     public static JSONArray concatArray(JSONArray... arrs)
             throws JSONException {
         JSONArray result = new JSONArray();

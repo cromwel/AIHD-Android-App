@@ -25,19 +25,17 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
-import com.orm.query.Select;
 
 import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
-import org.aihdint.aihd.model.Concepts;
-import org.json.JSONArray;
+import org.aihdint.aihd.services.LoadConcepts;
+import org.aihdint.aihd.services.LoadLocations;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -77,48 +75,15 @@ public class Login extends Activity {
             finish();
         } else {
             checkPermissions();
-            loadJSONConcepts();
-        }
 
+            Intent serviceConcept = new Intent(this, LoadConcepts.class);
+            startService(serviceConcept);
+
+            Intent serviceLocation = new Intent(this, LoadLocations.class);
+            startService(serviceLocation);
+        }
     }
 
-    public void loadJSONConcepts() {
-
-        String json;
-
-        try {
-
-            List<Concepts> concept_count = Select.from(Concepts.class).list();
-            if (concept_count.size() > 0) {
-                Concepts.deleteAll(Concepts.class);
-            }
-
-            InputStream is = getAssets().open("concepts.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            //noinspection ResultOfMethodCallIgnored
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-
-
-            JSONArray jsonArray = new JSONArray(json);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject conceptObj = jsonArray.getJSONObject(i);
-
-                String concept_id = conceptObj.getString("Concept ID");
-                String concept = conceptObj.getString("Concept");
-
-                Concepts concepts = new Concepts(concept_id, concept);
-                concepts.save();
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void login(View view) {
 

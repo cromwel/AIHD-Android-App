@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -108,8 +109,8 @@ public class Followup_page_3 extends Fragment {
         textWatcher(editTextSystolic, "blood_pressure");
         textWatcher(editTextDiastolic, "blood_pressure");
 
-        textWatcher(editTextHeight, "textViewBMI");
-        textWatcher(editTextWeight, "textViewBMI");
+        textWatcher(editTextHeight, "bmi");
+        textWatcher(editTextWeight, "bmi");
         textWatcher(editTextWaist, "whr");
         textWatcher(editTextHip, "whr");
 
@@ -196,19 +197,28 @@ public class Followup_page_3 extends Fragment {
             @Override
             public void afterTextChanged(final Editable editable) {
 
-                switch (check) {
-                    case "blood_pressure":
-                        if (editTextSystolic != null && editTextDiastolic != null) {
-                            Common.checkBP(view, editTextSystolic, editTextDiastolic);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        switch (check) {
+                            case "blood_pressure":
+                                if (editTextSystolic != null && editTextDiastolic != null) {
+                                    Common.checkBP(view, editTextSystolic, editTextDiastolic);
+                                }
+                                break;
+                            case "bmi":
+                                Common.bmi(getContext(), editTextHeight, editTextWeight, textViewBMI);
+                                break;
+                            case "whr":
+                                Common.whr(editTextWaist, editTextHip, textViewWaistHipRatio);
+                                break;
+                            default:
+                                break;
                         }
-                        break;
-                    case "textViewBMI":
-                        Common.bmi(getContext(), editTextHeight, editTextWeight, textViewBMI);
-                        break;
-                    case "whr":
-                        Common.whr(editTextWaist, editTextHip, textViewWaistHipRatio);
-                        break;
-                }
+
+                    }
+                }, 3000);
 
                 updateValues();
             }
@@ -217,12 +227,13 @@ public class Followup_page_3 extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
+                /* Do nothing*/
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-
+                /* Do nothing*/
             }
         });
     }

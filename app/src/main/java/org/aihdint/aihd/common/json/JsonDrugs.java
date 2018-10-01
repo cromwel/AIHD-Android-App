@@ -1,4 +1,4 @@
-package org.aihdint.aihd.common.JSON;
+package org.aihdint.aihd.common.json;
 
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.variables.DrugsDose;

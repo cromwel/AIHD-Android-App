@@ -2,6 +2,7 @@ package org.aihdint.aihd.fragments.initial_view;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ public class Initial_page_view_4 extends Fragment {
     private TextView textViewComplications;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_view_4, container, false);
 
         textViewComplications = view.findViewById(R.id.complication);

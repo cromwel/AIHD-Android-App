@@ -2,6 +2,7 @@ package org.aihdint.aihd.fragments.initial_view;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ public class Initial_page_view_5 extends Fragment {
     private TextView textViewTreatment, textViewDrug, textViewFrequency;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_view_5, container, false);
 
         textViewTreatment = view.findViewById(R.id.treatment);

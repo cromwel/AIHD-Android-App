@@ -1,6 +1,5 @@
 package org.aihdint.aihd;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -27,11 +26,9 @@ public class View_Reports extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
 
-    private EditText inputSearch;
     private List<Report> reportList;
     private PatientReportAdapter adapter;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +39,7 @@ public class View_Reports extends AppCompatActivity {
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.createDrawer(toolbar);
 
-        inputSearch = findViewById(R.id.input_search);
+        EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
 
         reportList = new ArrayList<>();
@@ -109,6 +106,7 @@ public class View_Reports extends AppCompatActivity {
 
     }
 
+    @SuppressWarnings("unchecked")
     void filter(String text){
         List<Report> temp = new ArrayList();
         for(Report d: reportList){

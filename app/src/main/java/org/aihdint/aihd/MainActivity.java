@@ -1,13 +1,6 @@
 package org.aihdint.aihd;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -15,9 +8,7 @@ import android.view.MenuItem;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import android.content.Intent;
@@ -37,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     // LogCat tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private CoordinatorLayout coordinatorLayout;
-
     // Camera activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
     //private static final int CAMERA_CAPTURE_VIDEO_REQUEST_CODE = 200;
@@ -56,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
+        //CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
         Button btnCapturePicture = findViewById(R.id.btnCapturePicture);
 
         Intent intent = getIntent();

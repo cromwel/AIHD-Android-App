@@ -16,14 +16,14 @@ import android.widget.Spinner;
 
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.variables.DrugsDose;
-import org.aihdint.aihd.common.JSON.JsonDrugs;
+import org.aihdint.aihd.common.json.JsonDrugs;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.common.checkBoxes.checkBoxInterface;
-import org.aihdint.aihd.common.spinners.spinnerInterface;
+import org.aihdint.aihd.common.checkboxes.CheckBoxInterface;
+import org.aihdint.aihd.common.spinners.SpinnerInterface;
 import org.json.JSONArray;
 
-import static org.aihdint.aihd.common.checkBoxes.CheckBoxDrugs.checkBoxTreatment;
+import static org.aihdint.aihd.common.checkboxes.CheckBoxDrugs.checkBoxTreatment;
 import static org.aihdint.aihd.common.spinners.SpinnerDose.spinnerDoseData;
 import static org.aihdint.aihd.common.spinners.SpinnerFrequency.spinnerDataFrequency;
 
@@ -31,7 +31,7 @@ import static org.aihdint.aihd.common.spinners.SpinnerFrequency.spinnerDataFrequ
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Followup_page_4 extends Fragment implements checkBoxInterface, spinnerInterface {
+public class Followup_page_4 extends Fragment implements CheckBoxInterface, SpinnerInterface {
 
     private DrugsDose drugsDose;
 

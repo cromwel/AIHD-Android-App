@@ -1,4 +1,4 @@
-package org.aihdint.aihd.common.checkBoxes;
+package org.aihdint.aihd.common.checkboxes;
 
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -8,9 +8,9 @@ import org.aihdint.aihd.common.variables.DrugsDose;
 
 public class CheckBoxDrugs {
 
-    private static checkBoxInterface checkBoxEvent;
+    private static CheckBoxInterface checkBoxEvent;
 
-    public static void checkBoxTreatment(final DrugsDose drugsDose, final CheckBox checkBox, checkBoxInterface event) {
+    public static void checkBoxTreatment(final DrugsDose drugsDose, final CheckBox checkBox, CheckBoxInterface event) {
         checkBoxEvent = event;
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -333,6 +333,8 @@ public class CheckBoxDrugs {
                         } else {
                             drugsDose.continueCare = "";
                         }
+                        break;
+                    default:
                         break;
                 }
 

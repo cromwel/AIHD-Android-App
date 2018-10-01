@@ -183,7 +183,8 @@ public class Followup_page_1 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 boolean checked = (buttonView).isChecked();
-                switch (radioButton.getId()) {
+                int value = radioButton.getId();
+                switch (value) {
                     case R.id.radio_diabetes_new:
                         if (checked)
                             dm_diagnosis = "165087";
@@ -288,11 +289,11 @@ public class Followup_page_1 extends Fragment {
                         break;
                 }
 
-                if (nhif.equals("1066")) {
+                if ("1066".equals(nhif)) {
                     Alerts.errorMessage(view, "Encourage Client to Register for NHIF");
                 }
 
-                if (tb_status.equals("703")) {
+                if ("703".equals(tb_status)) {
                     editTextTBDate.setVisibility(View.VISIBLE);
                 } else {
                     editTextTBDate.setVisibility(View.GONE);

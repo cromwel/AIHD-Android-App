@@ -6,12 +6,6 @@ import android.widget.EditText;
 
 public class DrugsDose {
 
-    private Context mContext;
-
-    public DrugsDose(Context mContext) {
-        this.mContext = mContext;
-    }
-
     public CheckBox checkBoxEnalapril, checkBoxCaptopril, checkBoxLisinopril, checkBoxPerindopril, checkBoxRamipril;
     public CheckBox checkBoxCandesartan, checkBoxIrbesartan, checkBoxLosartan, checkBoxTelmisartan, checkBoxValsartan, checkBoxOlmesartan;
 
@@ -72,5 +66,8 @@ public class DrugsDose {
 
     public static final String[] arraySpinnerMetformin = new String[]{"Select", "500mg", "850mg", "1000mg"};
     public static final String[] arraySpinnerGlibenclamide = new String[]{"Select", "5mg"};
+
+    public DrugsDose(Context mContext) {
+    }
 
 }

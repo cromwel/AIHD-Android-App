@@ -12,9 +12,9 @@ import org.aihdint.aihd.common.variables.DrugsDose;
 public class SpinnerDose {
 
 
-    private static spinnerInterface spinnerEvent;
+    private static SpinnerInterface spinnerEvent;
 
-    public static void spinnerDoseData(Context context, final DrugsDose drugsDose, final Spinner spinner, String[] arraySpinner, final String drug, spinnerInterface event) {
+    public static void spinnerDoseData(Context context, final DrugsDose drugsDose, final Spinner spinner, String[] arraySpinner, final String drug, SpinnerInterface event) {
 
         spinnerEvent = event;
         //fill data in spinner
@@ -253,6 +253,7 @@ public class SpinnerDose {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                /* Do nothing */
             }
         });
 

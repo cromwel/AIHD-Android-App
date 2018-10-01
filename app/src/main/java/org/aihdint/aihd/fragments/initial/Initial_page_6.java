@@ -1,6 +1,8 @@
 package org.aihdint.aihd.fragments.initial;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,7 +40,7 @@ public class Initial_page_6 extends Fragment {
     private String supportGroup, designation;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_6, container, false);
 
         //Follow Up Plan
@@ -95,13 +97,13 @@ public class Initial_page_6 extends Fragment {
         Spinner spinnerSupportGroup = view.findViewById(R.id.spinnerSupportGroup);
         Spinner spinnerDesignation = view.findViewById(R.id.spinnerDesignation);
 
-        spinnerData(spinnerSupportGroup, "support_group");
-        spinnerData(spinnerDesignation, "designation");
+        spinnerData(getContext(), spinnerSupportGroup, "support_group");
+        spinnerData(getContext(), spinnerDesignation, "designation");
 
         return view;
     }
 
-    public void spinnerData(final Spinner spinner, final String data) {
+    public void spinnerData(Context context, final Spinner spinner, final String data) {
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
 
         if (data.matches("support_group")) {
@@ -119,7 +121,7 @@ public class Initial_page_6 extends Fragment {
         }
 
         //fill data in spinner
-        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalue);
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, keyvalue);
         spinner.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         //occupationSpinner.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
@@ -184,9 +186,10 @@ public class Initial_page_6 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 boolean checked = (buttonView).isChecked();
+                int value = checkBox.getId();
 
                 //Check which checkbox was clicked
-                switch (checkBox.getId()) {
+                switch (value) {
                     case R.id.followup_continue:
                         if (checked) {
                             continueCare = "165132";

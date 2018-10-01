@@ -136,7 +136,9 @@ public class Followup_page_2 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 boolean checked = (buttonView).isChecked();
-                switch (radioButton.getId()) {
+                int value = radioButton.getId();
+
+                switch (value) {
                     case R.id.radio_history_contact_yes:
                         if (checked) {
                             indicator_history = "1065";

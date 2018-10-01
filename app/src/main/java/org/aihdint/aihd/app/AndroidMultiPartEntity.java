@@ -1,8 +1,10 @@
 package org.aihdint.aihd.app;
 
-/**
+/*
  * Developed by Rodney on 19/01/2018.
  */
+
+import android.support.annotation.NonNull;
 
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -57,7 +59,7 @@ public class AndroidMultiPartEntity extends MultipartEntity
             this.transferred = 0;
         }
 
-        public void write(byte[] b, int off, int len) throws IOException {
+        public void write(@NonNull byte[] b, int off, int len) throws IOException {
             out.write(b, off, len);
             this.transferred += len;
             this.listener.transferred(this.transferred);

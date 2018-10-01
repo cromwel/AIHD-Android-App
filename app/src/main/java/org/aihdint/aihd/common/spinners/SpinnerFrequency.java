@@ -14,9 +14,9 @@ import java.util.ArrayList;
 
 public class SpinnerFrequency {
 
-    private static spinnerInterface spinnerEvent;
+    private static SpinnerInterface spinnerEvent;
 
-    public static void spinnerDataFrequency(Context context, final DrugsDose drugsDose, final Spinner spinner, final String drug, spinnerInterface event) {
+    public static void spinnerDataFrequency(Context context, final DrugsDose drugsDose, final Spinner spinner, final String drug, SpinnerInterface event) {
 
         spinnerEvent = event;
         ArrayList<KeyValue> keyvalue = new ArrayList<>();
@@ -291,6 +291,7 @@ public class SpinnerFrequency {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                /* Do nothing */
             }
         });
     }

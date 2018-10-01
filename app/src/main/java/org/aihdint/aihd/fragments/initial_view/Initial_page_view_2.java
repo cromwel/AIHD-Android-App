@@ -4,6 +4,7 @@ package org.aihdint.aihd.fragments.initial_view;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -21,13 +22,13 @@ import org.json.JSONObject;
 public class Initial_page_view_2 extends Fragment {
 
     private TextView textViewMedication, textViewMedicationDose, textViewMedicationOther, textViewMedicationAdhere, textViewAdhereSpecify, textViewAllergies,
-            textViewAllergySpecify, textViewTemp, textViewPulseRate, textViewPressure, textViewHip, textViewWaist, textViewHeight, textViewWeight, textViewBMI, textViewHipWaist,
+            textViewAllergySpecify, textViewTemp, textViewPulseRate, textViewPressure, textViewHip, textViewWaist, textViewHeight, textViewWeight,
             textViewRespiratoryRate, textViewGeneralExam, textViewExamOther, textViewVisualmpairment, textViewCVS, textViewRS, textViewPA, textViewCNS,
             textViewExtremities, textViewMonofilament;
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_view_2, container, false);
 
         textViewMedication = view.findViewById(R.id.medication);
@@ -44,8 +45,8 @@ public class Initial_page_view_2 extends Fragment {
         textViewWaist = view.findViewById(R.id.waist_circ);
         textViewHeight = view.findViewById(R.id.height);
         textViewWeight = view.findViewById(R.id.weight);
-        textViewBMI = view.findViewById(R.id.bmi);
-        textViewHipWaist = view.findViewById(R.id.waist_hip_ratio);
+        //TextView textViewBMI = view.findViewById(R.id.bmi);
+        //TextView textViewHipWaist = view.findViewById(R.id.waist_hip_ratio);
         textViewRespiratoryRate = view.findViewById(R.id.respiratory_rate);
         textViewGeneralExam = view.findViewById(R.id.general_exam);
         textViewExamOther = view.findViewById(R.id.exams);

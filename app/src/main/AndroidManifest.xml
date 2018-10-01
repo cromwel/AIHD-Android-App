@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.aihdint.aihd">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,20 +16,27 @@
     <application
         android:name="org.aihdint.aihd.app.AppController"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <meta-data android:name="DATABASE" android:value="aihd.db" />
+        <meta-data
+            android:name="DATABASE"
+            android:value="aihd.db" />
         <meta-data
             android:name="VERSION"
             android:value="3" />
-        <meta-data android:name="QUERY_LOG" android:value="true" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="org.aihdint.aihd" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="org.aihdint.aihd" />
 
         <activity
             android:name=".Login"
@@ -43,91 +51,104 @@
         <activity
             android:name=".patient.Register"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".UploadRecord"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".patient.Patients"
-            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Home"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".forms.DM_Initial"
-            android:windowSoftInputMode="stateHidden"
             android:label="DM HTN Initial"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".forms.DM_FollowUp"
-            android:windowSoftInputMode="stateHidden"
             android:label="DM HTN Follow Up "
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".patient.Patient_Reports"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".patient.Profile"
-            android:windowSoftInputMode="stateHidden"
             android:label="Profile"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".View_Reports"
-            android:windowSoftInputMode="stateHidden"
             android:label="Profile"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".patient.Admission"
-            android:windowSoftInputMode="stateHidden"
             android:label="Admission"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".patient.Transfer"
-            android:windowSoftInputMode="stateHidden"
             android:label="Transfer"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".patient.FootClinic"
-            android:windowSoftInputMode="stateHidden"
             android:label="Foot Clinic"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".forms.DM_Initial_View"
-            android:windowSoftInputMode="stateHidden"
             android:label="DM Initial Form"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".forms.DM_HTN_Forms"
-            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <!-- Intent service -->
         <service
             android:name=".services.LoadFiles"
-            android:exported="false" />
+            android:exported="false"
+            android:process=":loadFiles" />
+        <service
+            android:name=".services.LoadLocations"
+            android:exported="false"
+            android:process=":loadLocations" />
+        <service
+            android:name=".services.LoadConcepts"
+            android:exported="false"
+            android:process=":loadConcepts" />
+        <service
+            android:name=".services.LoadPatients"
+            android:exported="false"
+            android:process=":loadPatients" />
 
     </application>
 

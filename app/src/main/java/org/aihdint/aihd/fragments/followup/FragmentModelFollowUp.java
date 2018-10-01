@@ -6,6 +6,10 @@ import org.json.JSONArray;
  * Developed by Rodney on 26/04/2018.
  */
 public class FragmentModelFollowUp {
+
+    private static FragmentModelFollowUp mInstance;
+    private FragStateChangeListener mListener;
+
     public interface FragStateChangeListener {
 
         void followUpOne(String supporter_name, JSONArray params);
@@ -17,9 +21,6 @@ public class FragmentModelFollowUp {
         void followUpFour(JSONArray params);
 
     }
-
-    private static FragmentModelFollowUp mInstance;
-    private FragStateChangeListener mListener;
 
     private FragmentModelFollowUp() {
     }

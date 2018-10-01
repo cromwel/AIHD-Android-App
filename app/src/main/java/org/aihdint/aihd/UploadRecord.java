@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import org.aihdint.aihd.app.AndroidMultiPartEntity;
 import org.aihdint.aihd.app.Config;
-import org.aihdint.aihd.model.Report;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -31,10 +30,8 @@ import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -47,8 +44,7 @@ public class UploadRecord extends AppCompatActivity {
     private TextView txtPercentage;
     private ImageView imgPreview;
     long totalSize = 0;
-    private String id,name;
-    private byte[] image_data;
+    private String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +54,8 @@ public class UploadRecord extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        txtPercentage =  findViewById(R.id.txtPercentage);
-        Button btnUpload =  findViewById(R.id.btnUpload);
+        txtPercentage = findViewById(R.id.txtPercentage);
+        Button btnUpload = findViewById(R.id.btnUpload);
         progressBar = findViewById(R.id.progressBar);
         imgPreview = findViewById(R.id.imgPreview);
 
@@ -67,8 +63,8 @@ public class UploadRecord extends AppCompatActivity {
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
 
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        final String formattedDate = df.format(c);
+        //SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
+        //final String formattedDate = df.format(c);
 
         // Receiving the data from previous activity
         Intent i = getIntent();
@@ -103,7 +99,7 @@ public class UploadRecord extends AppCompatActivity {
 
     /**
      * Displaying captured image/video on the screen
-     * */
+     */
     private void previewMedia(boolean isImage) {
         // Checking whether captured media is image or video
         if (isImage) {
@@ -118,7 +114,7 @@ public class UploadRecord extends AppCompatActivity {
             final Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
 
             imgPreview.setImageBitmap(bitmap);
-            image_data = getBitmapAsByteArray(bitmap);
+            //byte[] image_data = getBitmapAsByteArray(bitmap);
         } else {
             imgPreview.setVisibility(View.GONE);
         }
@@ -126,7 +122,7 @@ public class UploadRecord extends AppCompatActivity {
 
     /**
      * Uploading the file to server
-     * */
+     */
     @SuppressLint("StaticFieldLeak")
     private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
         @Override
@@ -213,7 +209,7 @@ public class UploadRecord extends AppCompatActivity {
             try {
                 // showing the server response in an alert dialog
                 showAlert(result);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -227,7 +223,7 @@ public class UploadRecord extends AppCompatActivity {
 
     /**
      * Method to show alert dialog
-     * */
+     */
     private void showAlert(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setTitle("Response from Servers")
@@ -242,11 +238,13 @@ public class UploadRecord extends AppCompatActivity {
     }
 
 
+/*
     public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
         return outputStream.toByteArray();
     }
+    */
 
 
 }

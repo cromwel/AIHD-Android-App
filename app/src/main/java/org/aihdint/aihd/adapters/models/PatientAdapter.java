@@ -2,6 +2,7 @@ package org.aihdint.aihd.adapters.models;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
     }
 
+    @NonNull
     @Override
-    public PatientAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PatientAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_patient, parent, false);
 
@@ -88,7 +90,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(final PatientAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PatientAdapter.MyViewHolder holder, int position) {
         final Person person = patientList.get(position);
 
         holder.name.setText(String.format("%s %s", person.getFamily_name(), person.getGiven_name()));

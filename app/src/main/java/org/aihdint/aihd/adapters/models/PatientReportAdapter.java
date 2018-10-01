@@ -3,6 +3,7 @@ package org.aihdint.aihd.adapters.models;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,6 @@ import java.util.List;
  * Developed by Rodney on 10/10/2017.
  */
 
-@SuppressWarnings("ALL")
 public class PatientReportAdapter extends RecyclerView.Adapter<PatientReportAdapter.MyViewHolder> {
 
     private Context mContext;
@@ -31,8 +31,9 @@ public class PatientReportAdapter extends RecyclerView.Adapter<PatientReportAdap
 
     }
 
+    @NonNull
     @Override
-    public PatientReportAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PatientReportAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_report, parent, false);
 
@@ -54,7 +55,7 @@ public class PatientReportAdapter extends RecyclerView.Adapter<PatientReportAdap
         @Override
         public void onClick(final View view) {
 
-            final Report report = reportList.get(getPosition());
+            //final Report report = reportList.get(getPosition());
 
             /*
             Intent graph = new Intent(view.getContext(), Patient_Reports.class);
@@ -69,7 +70,7 @@ public class PatientReportAdapter extends RecyclerView.Adapter<PatientReportAdap
     }
 
     @Override
-    public void onBindViewHolder(final PatientReportAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PatientReportAdapter.MyViewHolder holder, int position) {
        final Report report = reportList.get(position);
 
         holder.name.setText(report.getName());
@@ -93,11 +94,13 @@ public class PatientReportAdapter extends RecyclerView.Adapter<PatientReportAdap
         notifyDataSetChanged();
     }
 
+    /*
     public void clear() {
         int size = this.reportList.size();
         this.reportList.clear();
         notifyItemRangeRemoved(0, size);
     }
+    */
 }
 
 

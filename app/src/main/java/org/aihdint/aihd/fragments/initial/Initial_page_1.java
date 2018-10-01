@@ -1,6 +1,6 @@
 package org.aihdint.aihd.fragments.initial;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -30,6 +30,7 @@ import org.json.JSONException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Developed by Rodney on 24/04/2018.
@@ -58,10 +59,11 @@ public class Initial_page_1 extends Fragment {
     private String diabetes_status, diabetes_family, diabetes_type, htn_status, htn_family, htn_type, hiv_status, enrolled_to_hiv_care, tb_status, tb_screen, nhif_status, referral_status,
             referral_inter, referral_intra, exercise, diet, smoking, drinking;
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_1, container, false);
+
+        diabetes_status = htn_status = hiv_status = nhif_status = referral_status = referral_inter = tb_status = tb_screen = complaint_other = "";
 
         //RadioGroup
         hiv_enrolled = view.findViewById(R.id.hiv_enrolled);
@@ -250,42 +252,55 @@ public class Initial_page_1 extends Fragment {
         Spinner educationLevelSpinner = view.findViewById(R.id.spinnerEducation);
         Spinner occupationSpinner = view.findViewById(R.id.spinnerOccupation);
 
+        spinnerValue(getContext(), educationLevelSpinner, "education");
+        spinnerValue(getContext(), occupationSpinner, "occupations");
 
-
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         dm_initial_dateEditText.setText(dateFormat.format(new Date())); // it will show 16/07/2013
 
-        ArrayList<KeyValue> keyvalueOccupation = new ArrayList<>();
-        ArrayList<KeyValue> keyvalueEducation = new ArrayList<>();
-        //Add locations
-        // adding each child node to HashMap key => value
-        keyvalueOccupation.add(new KeyValue("", "Select Occupation"));
-        keyvalueOccupation.add(new KeyValue("1540", "Employed"));
-        keyvalueOccupation.add(new KeyValue("165170", "Unemployed"));
-        keyvalueOccupation.add(new KeyValue("161382", "Self Employed"));
-        keyvalueOccupation.add(new KeyValue("159465", "Student"));
-        keyvalueOccupation.add(new KeyValue("5622", "Other"));
+        return view;
+    }
+
+    public void spinnerValue(Context context, Spinner spinner, final String choice) {
+
+        ArrayList<KeyValue> keyvalue = new ArrayList<>();
 
         // adding each child node to HashMap key => value
-        keyvalueEducation.add(new KeyValue("", "Select Education Level"));
-        keyvalueEducation.add(new KeyValue("1107", "None"));
-        keyvalueEducation.add(new KeyValue("160290", "Incomplete Primary"));
-        keyvalueEducation.add(new KeyValue("1713", "Primary"));
-        keyvalueEducation.add(new KeyValue("1714", "Secondary"));
-        keyvalueEducation.add(new KeyValue("160292", "Tertiary education"));
+        if ("occupations".equals(choice)) {
+            keyvalue.add(new KeyValue("", "Select Occupation"));
+            keyvalue.add(new KeyValue("1540", "Employed"));
+            keyvalue.add(new KeyValue("165170", "Unemployed"));
+            keyvalue.add(new KeyValue("161382", "Self Employed"));
+            keyvalue.add(new KeyValue("159465", "Student"));
+            keyvalue.add(new KeyValue("5622", "Other"));
+
+        } else if ("education".equals(choice)) {
+            // adding each child node to HashMap key => value
+            keyvalue.add(new KeyValue("", "Select Education Level"));
+            keyvalue.add(new KeyValue("1107", "None"));
+            keyvalue.add(new KeyValue("160290", "Incomplete Primary"));
+            keyvalue.add(new KeyValue("1713", "Primary"));
+            keyvalue.add(new KeyValue("1714", "Secondary"));
+            keyvalue.add(new KeyValue("160292", "Tertiary education"));
+        }
 
         //fill data in spinner
-        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalueOccupation);
-        occupationSpinner.setAdapter(adapter);
+        ArrayAdapter<KeyValue> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, keyvalue);
+        spinner.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         //occupationSpinner.setSelection(adapter.getPosition(keyvalueOccupation.get(2)));//Optional to set the selected item.
 
-        occupationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 KeyValue value = (KeyValue) parent.getSelectedItem();
-                occupation = value.getId();
+                if ("occupations".equals(choice)) {
+                    occupation = value.getId();
+                } else if ("education".equals(choice)) {
+                    education_level = value.getId();
+                }
+
                 updateValues();
             }
 
@@ -294,31 +309,10 @@ public class Initial_page_1 extends Fragment {
             }
         });
 
-        //fill data in spinner
-        ArrayAdapter<KeyValue> adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, keyvalueEducation);
-        educationLevelSpinner.setAdapter(adapter1);
-        adapter1.notifyDataSetChanged();
-        //spinnerLocation.setSelection(adapter.getPosition(keyvalue.get(2)));//Optional to set the selected item.
-
-        educationLevelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                KeyValue value = (KeyValue) parent.getSelectedItem();
-                education_level = value.getId();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        updateValues();
-
-        return view;
     }
 
     public void selectionCheck() {
+
         if (diabetes_status.matches("165088")) {
             editTextDiagnosisDiabetes.setVisibility(View.VISIBLE);
             radioGroupDiabetes.setVisibility(View.VISIBLE);
@@ -326,6 +320,7 @@ public class Initial_page_1 extends Fragment {
             editTextDiagnosisDiabetes.setVisibility(View.GONE);
             radioGroupDiabetes.setVisibility(View.GONE);
         }
+
         if (htn_status.matches("165093")) {
             editTextDiagnosisHypertension.setVisibility(View.VISIBLE);
             radioGroupHypertention.setVisibility(View.VISIBLE);

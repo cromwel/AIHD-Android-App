@@ -2,6 +2,7 @@ package org.aihdint.aihd.fragments.followup_view;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +17,43 @@ import org.json.JSONObject;
 
 public class Followup_page_view_1 extends Fragment {
 
-    private TextView textViewEncounterDate, textViewEducation, textViewOccupation, textViewPatientStatus, textViewDiabetes, textViewDiabetesFamily, textViewDiabetesYear,
-            textViewDiabetesType, textViewHypertension, textViewHypertensionFamily, textViewHypertensionYear, textViewHypertensionType, textViewHIV, textViewHIVCare, textViewHIVOther,
-            textViewTBScreened, textViewTBStatus, textViewTBTreatment, textViewTBDate, textViewTBComment, textViewNHIF, textViewInterReferral, textViewIntraReferral,
-            textViewStatusComment, textViewReferralDetails, textViewComplaints, textViewLMP, textViewExercise, textViewDiet, textViewSmoking, textViewAlcohol, textViewRiskOther;
+    private TextView textViewEncounterDate;
+    private TextView textViewEducation;
+    private TextView textViewOccupation;
+    private TextView textViewPatientStatus;
+    private TextView textViewDiabetes;
+    private TextView textViewDiabetesFamily;
+    private TextView textViewDiabetesYear;
+    private TextView textViewDiabetesType;
+    private TextView textViewHypertension;
+    private TextView textViewHypertensionFamily;
+    private TextView textViewHypertensionYear;
+    private TextView textViewHypertensionType;
+    private TextView textViewHIV;
+    private TextView textViewHIVCare;
+    private TextView textViewHIVOther;
+    private TextView textViewTBScreened;
+    private TextView textViewTBTreatment;
+    private TextView textViewTBDate;
+    private TextView textViewTBComment;
+    private TextView textViewNHIF;
+    private TextView textViewInterReferral;
+    private TextView textViewIntraReferral;
+    private TextView textViewStatusComment;
+    private TextView textViewReferralDetails;
+    private TextView textViewComplaints;
+    private TextView textViewLMP;
+    private TextView textViewExercise;
+    private TextView textViewDiet;
+    private TextView textViewSmoking;
+    private TextView textViewAlcohol;
+    private TextView textViewRiskOther;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_view_1, container, false);
 
-        /*textViewEncounterDate = view.findViewById(R.id.dm_initial_date);
+        textViewEncounterDate = view.findViewById(R.id.dm_initial_date);
         textViewEducation = view.findViewById(R.id.level_education);
         textViewOccupation = view.findViewById(R.id.occupation);
         textViewPatientStatus = view.findViewById(R.id.patient_status);
@@ -41,7 +69,7 @@ public class Followup_page_view_1 extends Fragment {
         textViewHIVCare = view.findViewById(R.id.hiv_enrolled);
         textViewHIVOther = view.findViewById(R.id.hiv_other_status);
         textViewTBScreened = view.findViewById(R.id.tb_screened);
-        textViewTBStatus = view.findViewById(R.id.tb_status);
+        //TextView textViewTBStatus = view.findViewById(R.id.tb_status);
         textViewTBTreatment = view.findViewById(R.id.tb_treatment);
         textViewTBDate = view.findViewById(R.id.tb_treatment_start);
         textViewTBComment = view.findViewById(R.id.tb_comment);
@@ -59,7 +87,6 @@ public class Followup_page_view_1 extends Fragment {
         textViewRiskOther = view.findViewById(R.id.risk_other);
 
         viewForm(DM_FollowUp_View.json);
-        */
 
         return view;
     }

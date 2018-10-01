@@ -5,6 +5,11 @@ import com.orm.SugarRecord;
 public class FormConcept extends SugarRecord {
 
     private String conceptId;
+    private String groupId;
+    private String type;
+    private String conceptAnswer;
+    private String dateTime;
+    private String comment;
 
     public String getGroupId() {
         return groupId;
@@ -45,12 +50,6 @@ public class FormConcept extends SugarRecord {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-    private String groupId;
-    private String type;
-    private String conceptAnswer;
-    private String dateTime;
-    private String comment;
 
     public FormConcept() {
     }

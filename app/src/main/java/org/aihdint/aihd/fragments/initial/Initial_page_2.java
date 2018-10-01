@@ -1,6 +1,7 @@
 package org.aihdint.aihd.fragments.initial;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -278,37 +279,43 @@ public class Initial_page_2 extends Fragment {
 
             @Override
             public void afterTextChanged(final Editable editable) {
-                switch (check) {
-                    case "temp":
-                        Common.checkTemp(linearLayoutPastCurrentMedication, editable.toString());
-                        break;
-                    case "pulseRate":
-                        Common.checkPR(linearLayoutPastCurrentMedication, editable.toString());
-                        break;
-                    case "blood_pressure":
-                        if (editTextSystolicTwo != null && editTextDiastolicTwo != null) {
-                            Common.checkBP(view, editTextSystolicTwo, editTextDiastolicTwo);
-                        }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
 
-                        if (editTextSystolicOne != null && editTextDiastolicOne != null) {
-                            Common.checkBP(view, editTextSystolicOne, editTextDiastolicOne);
+                        switch (check) {
+                            case "temp":
+                                Common.checkTemp(linearLayoutPastCurrentMedication, editable.toString());
+                                break;
+                            case "pulseRate":
+                                Common.checkPR(linearLayoutPastCurrentMedication, editable.toString());
+                                break;
+                            case "blood_pressure":
+                                if (editTextSystolicTwo != null && editTextDiastolicTwo != null) {
+                                    Common.checkBP(view, editTextSystolicTwo, editTextDiastolicTwo);
+                                }
+
+                                if (editTextSystolicOne != null && editTextDiastolicOne != null) {
+                                    Common.checkBP(view, editTextSystolicOne, editTextDiastolicOne);
+                                }
+                                break;
+                            case "bmi":
+                                Common.bmi(getContext(), editTextHeight, editTextWeight, bmi);
+                                break;
+                            case "whr":
+                                Common.whr(editTextWaist, editTextHip, waist_hip_ratio);
+                                break;
+                            case "monofilament":
+                                Common.monofilament(view, editable.toString());
+                                break;
+                            case "Monofilament":
+                                Common.monofilament(view, editable.toString());
+                                break;
+                            default:
+                                break;
                         }
-                        break;
-                    case "bmi":
-                        Common.bmi(getContext(), editTextHeight, editTextWeight, bmi);
-                        break;
-                    case "whr":
-                        Common.whr(editTextWaist, editTextHip, waist_hip_ratio);
-                        break;
-                    case "monofilament":
-                        Common.monofilament(view, editable.toString());
-                        break;
-                    case "Monofilament":
-                        Common.monofilament(view, editable.toString());
-                        break;
-                    default:
-                        break;
-                }
+                    }
+                }, 4000);
 
                 updateValues();
             }
@@ -318,12 +325,14 @@ public class Initial_page_2 extends Fragment {
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
                 /*Check text Change before typing*/
+                // TODO: No current action
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
                 /*Check text Change while typing*/
+                // TODO: No current action
             }
         });
     }
@@ -336,9 +345,10 @@ public class Initial_page_2 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 boolean checked = (buttonView).isChecked();
+                int value = checkBox.getId();
 
                 //Check which checkbox was clicked
-                switch (checkBox.getId()) {
+                switch (value) {
                     case R.id.checkbox_medication_none:
                         if (checked) {
                             medication_none = "1107";
@@ -542,9 +552,10 @@ public class Initial_page_2 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // Is the button now checked?
                 boolean checked = (buttonView).isChecked();
+                int value = radioButton.getId();
 
                 // Check which radio button was clicked
-                switch (radioButton.getId()) {
+                switch (value) {
                     case R.id.radio_adhere_yes:
                         if (checked)
                             adhere_medication = "1065";
@@ -735,12 +746,8 @@ public class Initial_page_2 extends Fragment {
 
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
 
-            if (jsonArry1.length() > 0) {
-                jsonGroup.put(jsonArry1);
-            }
-            if (jsonArry2.length() > 0) {
-                jsonGroup.put(jsonArry2);
-            }
+            jsonGroup = JSONFormBuilder.checkLength(jsonArry1, jsonGroup);
+            jsonGroup = JSONFormBuilder.checkLength(jsonArry2, jsonGroup);
 
             if (jsonGroup.length() > 0) {
                 JSONObject jsonObject = new JSONObject();

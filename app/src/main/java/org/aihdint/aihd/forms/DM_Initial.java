@@ -219,7 +219,6 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         }
 
         pDialog.dismiss();
-        //Log.d("JSON FollowUp", jsonObs1.toString() + " " + dir.toString());
 
     }
 

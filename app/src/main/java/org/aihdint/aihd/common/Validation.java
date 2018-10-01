@@ -4,60 +4,33 @@ import org.json.JSONArray;
 
 public class Validation {
 
-    public static String initialValidation(JSONArray jsonArray) {
+    private static StringBuilder error = new StringBuilder(1000);
 
-        StringBuilder error = new StringBuilder(1000);
+    public static String initialValidation(JSONArray jsonArray) {
 
         try {
 
             if (jsonArray.length() > 0) {
 
-                if (!jsonArray.toString().contains("1712")) {
-                    error.append("Page(1) Education Level is required \n\n");
-                }
-                if (!jsonArray.toString().contains("1542")) {
-                    error.append("Page(1) Occupation is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165086")) {
-                    error.append("Page(1) Diabetes Status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("140228")) {
-                    error.append("Page(1) Diabetes runs in the family is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165091")) {
-                    error.append("Page(1) Hypertension status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165191")) {
-                    error.append("Page(1) Hypertension runs in the family question is required \n\n");
-                }
-                if (!jsonArray.toString().contains("138405")) {
-                    error.append("Page(1) HIV Status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("1917")) {
-                    error.append("Page(1) NHIF status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("1648")) {
-                    error.append("Page(1) Patient referral status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165208")) {
-                    error.append("Page(1) Do you exercise question is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165207")) {
-                    error.append("Page(1) Do you follow a balanced diet question is required \n\n");
-                }
-                if (!jsonArray.toString().contains("152722")) {
-                    error.append("Page(1) Do you smoke cigarettes question is required \n\n");
-                }
-                if (!jsonArray.toString().contains("159449")) {
-                    error.append("Page(1) Do you drink alcohol question is required \n\n");
-                }
-                if (!jsonArray.toString().contains("1380")) {
-                    error.append("Page(4) Nutrition counselling/education is required \n\n");
-                }
-                if (!jsonArray.toString().contains("159364")) {
-                    error.append("Page(4) Physical activity counselling/education is required \n\n");
+                String obs = jsonArray.toString();
 
-                }
+                validate(obs, "Page(1) Education Level", "1712");
+                validate(obs, "Page(1) Occupation", "1542");
+                validate(obs, "Page(1) Diabetes Status", "165086");
+                validate(obs, "Page(1) Diabetes runs in the family", "140228");
+                validate(obs, "Page(1) Hypertension status", "165091");
+                validate(obs, "Page(1) Hypertension runs in the family", "165191");
+                validate(obs, "Page(1) HIV Status", "138405");
+                validate(obs, "Page(1) NHIF status", "1917");
+                validate(obs, "Page(1) Patient referral status", "1648");
+                validate(obs, "Page(1) Do you exercise question", "165208");
+                validate(obs, "Page(1) Do you follow a balanced diet question", "165207");
+                validate(obs, "Page(1) Do you smoke cigarettes question", "152722");
+                validate(obs, "Page(1) Do you drink alcohol question", "159449");
+
+                validate(obs, "Page(4) Nutrition counselling/education", "1380");
+                validate(obs, "Page(4) Physical activity counselling/education", "159364");
+
             }
 
         } catch (Exception e) {
@@ -71,24 +44,17 @@ public class Validation {
 
     public static String followupValidation(JSONArray jsonArray) {
 
-        StringBuilder error = new StringBuilder(1000);
-
         try {
 
             if (jsonArray.length() > 0) {
+                String obs = jsonArray.toString();
 
-                if (!jsonArray.toString().contains("165086")) {
-                    error.append("Page(1) Diabetes Status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("165091")) {
-                    error.append("Page(1) Hypertension status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("138405")) {
-                    error.append("Page(1) HIV Status is required \n\n");
-                }
-                if (!jsonArray.toString().contains("1917")) {
-                    error.append("Page(1) NHIF status is required \n\n");
-                }
+                validate(obs, "Page(1) Diabetes Status", "165086");
+                validate(obs, "Page(1) Diabetes runs in the family", "140228");
+                validate(obs, "Page(1) Hypertension status", "165091");
+                validate(obs, "Page(1) Hypertension runs in the family", "165191");
+                validate(obs, "Page(1) HIV Status", "138405");
+                validate(obs, "Page(1) NHIF status", "1917");
             }
 
         } catch (Exception e) {
@@ -99,5 +65,11 @@ public class Validation {
         return error.toString();
     }
 
+
+    private static void validate(String obs, String response, String concept_id) {
+        if (!obs.contains(concept_id)) {
+            error.append(response).append("is required. \n\n");
+        }
+    }
 
 }

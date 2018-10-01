@@ -4,10 +4,7 @@ import android.content.Context;
 
 public class PatientStatus {
 
-    private Context mContext;
-
     public PatientStatus(Context mContext) {
-        this.mContext = mContext;
     }
 
 }

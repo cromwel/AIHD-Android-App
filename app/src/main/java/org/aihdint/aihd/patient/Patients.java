@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -17,30 +18,18 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.error.VolleyError;
-import com.android.volley.request.StringRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.adapters.models.PatientAdapter;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.aihdint.aihd.services.LoadPatients;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Patients extends AppCompatActivity implements SwipyRefreshLayout.OnRefreshListener {
 
@@ -51,7 +40,6 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
     private PatientAdapter adapter;
     private String IsForm;
     private SwipyRefreshLayout swipeRefreshLayout;
-    private Gson patientsGson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +64,8 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
         swipeRefreshLayout.setOnRefreshListener(this);
         adapter = new PatientAdapter(this, contactList);
 
-        DownloadPatients();
+        Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
+        startService(servicePatients);
 
         assert recyclerView != null;
         recyclerView.setHasFixedSize(true);
@@ -175,75 +164,18 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
                 activeNetwork.isConnectedOrConnecting();
 
         if (isConnected) {
-            DownloadPatients();
-        }
-    }
+            Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
+            startService(servicePatients);
 
-
-    private void DownloadPatients() {
-
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setDateFormat("yyyy-M-d");
-        patientsGson = gsonBuilder.create();
-
-        StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObj = new JSONObject(response);
-
-                    // Getting JSON Array node
-                    JSONArray patients = jsonObj.getJSONArray("data");
-
-                    //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
-                    Log.d("Response", response);
-                    if (patients.length() > 0) {
-                        Person.deleteAll(Person.class);
-
-                        List<Person> persons = Arrays.asList(patientsGson.fromJson(patients.toString(), Person[].class));
-
-                        for (Person person : persons) {
-                            // GOT THE OBJECT of PEOPLE
-                            person.save();
-                        }
-
-                        getPatients();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    swipeRefreshLayout.setRefreshing(false);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getPatients();
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                String location_id = AppController.getInstance().getSessionManager().getUserDetails().get("mfl");
-                location_id = location_id.toLowerCase();
-                location_id = location_id.replace(".", "");
-                location_id = location_id.replace(" ", "_");
-
-                Map<String, String> params = new HashMap<>();
-                params.put("mfl", location_id);
-                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-
-                JSONObject JSONparams = new JSONObject(params);
-                Log.d("Params", JSONparams.toString());
-
-                return params;
-            }
-
-        };
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(req);
+            }, 2000);
+        } else {
+            swipeRefreshLayout.setRefreshing(false);
+        }
 
     }
 

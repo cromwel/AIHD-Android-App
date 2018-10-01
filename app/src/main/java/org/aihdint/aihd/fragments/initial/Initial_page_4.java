@@ -1,6 +1,7 @@
 package org.aihdint.aihd.fragments.initial;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,7 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import org.aihdint.aihd.common.Common;
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
@@ -37,7 +37,7 @@ public class Initial_page_4 extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dm_initial_fragment_4, container, false);
 
         CheckBox checkBoxStroke = view.findViewById(R.id.checkbox_complication_stroke);
@@ -181,9 +181,10 @@ public class Initial_page_4 extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 boolean checked = (buttonView).isChecked();
+                int value = checkBox.getId();
 
                 //Check which checkbox was clicked
-                switch (checkBox.getId()) {
+                switch (value) {
                     case R.id.checkbox_complication_stroke:
                         if (checked) {
                             stroke = "111103";
@@ -416,35 +417,14 @@ public class Initial_page_4 extends Fragment {
 
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
 
-            if (jsonArry1.length() > 0) {
-                jsonObs.put(jsonArry1);
-            }
-            if (jsonArry2.length() > 0) {
-                jsonObs.put(jsonArry2);
-            }
-
-            if (jsonArry3.length() > 0) {
-                jsonObs.put(jsonArry3);
-            }
-
-            if (jsonArry4.length() > 0) {
-                jsonObs.put(jsonArry4);
-            }
-
-            if (jsonArry5.length() > 0) {
-                jsonObs.put(jsonArry5);
-            }
-            if (jsonArry6.length() > 0) {
-                jsonObs.put(jsonArry6);
-            }
-
-            if (jsonArry7.length() > 0) {
-                jsonObs.put(jsonArry7);
-            }
-
-            if (jsonArry8.length() > 0) {
-                jsonObs.put(jsonArry8);
-            }
+            jsonObs = JSONFormBuilder.checkLength(jsonArry1, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry2, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry3, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry4, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry5, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry6, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry7, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry8, jsonObs);
 
             if (jsonObs.length() > 0) {
                 JSONObject jsonObject = new JSONObject();

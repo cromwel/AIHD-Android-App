@@ -20,26 +20,20 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.Config;
-import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
-import org.json.JSONArray;
+import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -61,7 +55,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     private LinearLayout linearLayoutDOB, linearLayoutAge;
 
     private ProgressDialog pDialog;
-    private Gson patientsGson;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -263,7 +256,9 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
                         Toast.makeText(getApplicationContext(), "Patient successfully registered!", Toast.LENGTH_LONG).show();
 
-                        DownloadPatients();
+                        Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
+                        startService(servicePatients);
+
                         // Launch login activity
                         Intent intent = new Intent(getApplicationContext(), Profile.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -273,11 +268,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                         startActivity(intent);
                         finish();
                     }
-                    /*else {
-                        //Error occurred in registration. Get the error message
-                        Toast.makeText(getApplicationContext(), jObj.getString("message"), Toast.LENGTH_LONG).show();
-                    }
-                    */
 
                     hideDialog();
                 } catch (JSONException e) {
@@ -331,66 +321,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-
-    }
-
-    private void DownloadPatients() {
-
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setDateFormat("yyyy-M-d");
-        patientsGson = gsonBuilder.create();
-
-        StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObj = new JSONObject(response);
-
-                    // Getting JSON Array node
-                    JSONArray patients = jsonObj.getJSONArray("data");
-
-                    //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
-                    Log.d("Response", response);
-                    if (patients.length() > 0) {
-                        Person.deleteAll(Person.class);
-
-                        List<Person> persons = Arrays.asList(patientsGson.fromJson(patients.toString(), Person[].class));
-
-                        for (Person person : persons) {
-                            // GOT THE OBJECT of PEOPLE
-                            person.save();
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<>();
-                params.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
-                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
-
-                JSONObject JSONparams = new JSONObject(params);
-                Log.d("Params", JSONparams.toString());
-
-                return params;
-            }
-
-        };
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(req);
 
     }
 

@@ -55,7 +55,6 @@ public class Common {
     }
 
 
-
     public static void whr(final EditText editTextWaist, final EditText editTextHip, final TextView textViewWaistHipRatio) {
 
         double wst = 0;
@@ -128,18 +127,14 @@ public class Common {
     }
 
     public static void checkPR(View view, String pr) {
-        if (pr.length() != 0) {
-            if (Double.parseDouble(pr) < 60 || Double.parseDouble(pr) > 100) {
-                Alerts.errorMessage(view, "Kindly confirm if the Pulse Rate entered is correct.");
-            }
+        if (pr.length() != 0 && (Double.parseDouble(pr) < 60 || Double.parseDouble(pr) > 100)) {
+            Alerts.errorMessage(view, "Kindly confirm if the Pulse Rate entered is correct.");
         }
     }
 
     public static void monofilament(View view, String value) {
-        if (value.length() != 0) {
-            if (Double.parseDouble(value) > 5) {
-                Alerts.errorMessage(view, "Abnormal Monofilament.");
-            }
+        if ((value.length() != 0) && (Double.parseDouble(value) > 5)) {
+            Alerts.errorMessage(view, "Abnormal Monofilament.");
         }
     }
 

@@ -38,11 +38,5 @@ public class Location extends SugarRecord {
         this._name = name;
     }
 
-    public String get_mfl_code() {
-        return _mfl_code;
-    }
-
-
-    //ALTER TABLE LOCATION ADD _MFLCODE TEXT;
 
 }

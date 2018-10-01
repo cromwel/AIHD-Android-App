@@ -3,6 +3,7 @@ package org.aihdint.aihd.adapters.models;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.MyViewHolder>
         implements Filterable {
-    private Context context;
+
     private List<Report> reportList;
     private List<Report> reportListFiltered;
     private ReportsAdapterListener listener;
@@ -33,7 +34,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.MyViewHold
         public TextView name, date;
         private ImageView thumbnail;
 
-        public MyViewHolder(View view) {
+        private MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.name);
             date = view.findViewById(R.id.date);
@@ -51,14 +52,14 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.MyViewHold
 
 
     public ReportAdapter(Context context, List<Report> reportList, ReportsAdapterListener listener) {
-        this.context = context;
         this.listener = listener;
         this.reportList = reportList;
         this.reportListFiltered = reportList;
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_report, parent, false);
 
@@ -66,7 +67,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final Report report = reportListFiltered.get(position);
         holder.name.setText(report.getName());
         holder.date.setText(report.getDate());
@@ -108,6 +109,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.MyViewHold
                 return filterResults;
             }
 
+            @SuppressWarnings("unchecked")
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
                 reportListFiltered = (ArrayList<Report>) filterResults.values;

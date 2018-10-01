@@ -2,6 +2,7 @@ package org.aihdint.aihd.adapters.models;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +32,9 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.MyViewHolder> 
 
     }
 
+    @NonNull
     @Override
-    public FormAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FormAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_form, parent, false);
 
@@ -80,7 +82,7 @@ public class FormAdapter extends RecyclerView.Adapter<FormAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final FormAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final FormAdapter.MyViewHolder holder, int position) {
         final Forms forms = formList.get(position);
 
         holder.file_name.setText(forms.getForm_name());
