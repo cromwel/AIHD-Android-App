@@ -21,7 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.aihdint.aihd.app.Config;
+import org.aihdint.aihd.app.Variables;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -185,13 +185,13 @@ public class MainActivity extends AppCompatActivity {
         File mediaStorageDir = new File(
                 Environment
                         .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                Config.IMAGE_DIRECTORY_NAME);
+                Variables.IMAGE_DIRECTORY_NAME);
 
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
                 Log.d(TAG, "Oops! Failed create "
-                        + Config.IMAGE_DIRECTORY_NAME + " directory");
+                        + Variables.IMAGE_DIRECTORY_NAME + " directory");
                 return null;
             }
         }

@@ -38,7 +38,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import static java.lang.Integer.parseInt;
-import static org.aihdint.aihd.app.Config.PATIENT_REGISTER_URL;
+import static org.aihdint.aihd.app.Variables.PATIENT_REGISTER_URL;
 
 /**
  * Developed by Rodney on 19/03/2018.

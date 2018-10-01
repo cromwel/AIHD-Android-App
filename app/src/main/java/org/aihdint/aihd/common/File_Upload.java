@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static org.aihdint.aihd.app.Config.FILE_UPLOAD_URL;
+import static org.aihdint.aihd.app.Variables.FILE_UPLOAD_URL;
 
 public class File_Upload {
 

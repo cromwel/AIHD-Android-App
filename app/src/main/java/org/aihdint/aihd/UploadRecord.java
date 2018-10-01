@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.aihdint.aihd.app.AndroidMultiPartEntity;
-import org.aihdint.aihd.app.Config;
+import org.aihdint.aihd.app.Variables;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -155,7 +155,7 @@ public class UploadRecord extends AppCompatActivity {
             String responseString;
 
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(Config.FILE_UPLOAD_URL);
+            HttpPost httppost = new HttpPost(Variables.FILE_UPLOAD_URL);
 
             try {
                 AndroidMultiPartEntity entity = new AndroidMultiPartEntity(

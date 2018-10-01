@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.Config;
+import org.aihdint.aihd.app.Variables;
 import org.aihdint.aihd.model.Person;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,7 +41,7 @@ public class LoadPatients extends IntentService {
         gsonBuilder.setDateFormat("yyyy-M-d");
         patientsGson = gsonBuilder.create();
 
-        StringRequest req = new StringRequest(Request.Method.POST, Config.PATIENT_URL, new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.POST, Variables.PATIENT_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

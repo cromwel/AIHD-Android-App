@@ -29,7 +29,7 @@ import com.android.volley.request.StringRequest;
 import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.Config;
+import org.aihdint.aihd.app.Variables;
 import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.services.LoadConcepts;
 import org.aihdint.aihd.services.LoadLocations;
@@ -119,7 +119,7 @@ public class Login extends Activity {
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
-                Config.LOGIN_URL, new Response.Listener<String>() {
+                Variables.LOGIN_URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -196,7 +196,7 @@ public class Login extends Activity {
 
     private void LoadLocation(final String uuid, final String name) {
 
-        StringRequest req = new StringRequest(Request.Method.POST, Config.LOGIN_LOCATION, new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.POST, Variables.LOGIN_LOCATION, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

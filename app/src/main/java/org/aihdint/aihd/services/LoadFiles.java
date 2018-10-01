@@ -14,7 +14,7 @@ import com.android.volley.toolbox.Volley;
 import org.aihdint.aihd.model.Forms;
 import org.json.JSONObject;
 
-import static org.aihdint.aihd.app.Config.FILE_UPLOAD_URL;
+import static org.aihdint.aihd.app.Variables.FILE_UPLOAD_URL;
 
 public class LoadFiles extends IntentService {
 
