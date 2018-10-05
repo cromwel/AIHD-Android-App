@@ -115,6 +115,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        monthOfYear = monthOfYear + 1;
         String date = year + "-" + monthOfYear + "-" + dayOfMonth;
         editTextDOB.setText(date);
         birthdate = date;
@@ -206,7 +207,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             showDialog();
 
             // Inserting row in users table
-            new Person(family_name, given_name, gender, birthdate, isEstimated, telephone, location_id, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, "0");
+            new Person(family_name, given_name, gender, birthdate, telephone, location_id, "0");
 
             ConnectivityManager cm =
                     (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);

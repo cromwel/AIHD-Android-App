@@ -27,7 +27,8 @@ public class SessionManager {
     private static final String KEY_LOCATION = "location_id";
     private static final String KEY_MFL_CODE = "mfl_code";
 
-    public SessionManager(Context context) {
+    SessionManager(Context context) {
+
         int PRIVATE_MODE = 0;
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
@@ -37,9 +38,8 @@ public class SessionManager {
     public void setLogin(boolean isLoggedIn) {
 
         editor.putBoolean(KEY_IS_LOGGEDIN, isLoggedIn);
-
         // commit changes
-        editor.commit();
+        editor.apply();
 
         Log.d(TAG, "User login session modified!");
     }
@@ -54,7 +54,7 @@ public class SessionManager {
         editor.putString(KEY_LOCATION, location_id);
         editor.putString(KEY_MFL_CODE, mfl_code);
         editor.putBoolean(KEY_IS_LOGGEDIN, true);
-        editor.commit();
+        editor.apply();
     }
 
     public HashMap<String, String> getUserDetails() {
@@ -64,5 +64,10 @@ public class SessionManager {
         profile.put("location_id", pref.getString(KEY_LOCATION, null));
         profile.put("mfl_code", pref.getString(KEY_MFL_CODE, null));
         return profile;
+    }
+
+    public void clear() {
+        pref.edit().clear().apply();
+
     }
 }

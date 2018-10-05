@@ -1,1 +1,0 @@
-alter table PERSON add IDENTIFIER TEXT;

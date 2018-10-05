@@ -4,11 +4,12 @@ import org.json.JSONArray;
 
 public class Validation {
 
-    private static StringBuilder error = new StringBuilder(1000);
+    private static StringBuilder error;
 
     public static String initialValidation(JSONArray jsonArray) {
 
         try {
+            error = new StringBuilder(1000);
 
             if (jsonArray.length() > 0) {
 
@@ -45,6 +46,7 @@ public class Validation {
     public static String followupValidation(JSONArray jsonArray) {
 
         try {
+            error = new StringBuilder(1000);
 
             if (jsonArray.length() > 0) {
                 String obs = jsonArray.toString();
@@ -67,6 +69,7 @@ public class Validation {
 
 
     private static void validate(String obs, String response, String concept_id) {
+
         if (!obs.contains(concept_id)) {
             error.append(response).append("is required. \n\n");
         }

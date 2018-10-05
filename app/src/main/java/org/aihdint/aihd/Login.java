@@ -30,9 +30,9 @@ import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Variables;
-import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.services.LoadConcepts;
 import org.aihdint.aihd.services.LoadLocations;
+import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,7 +47,7 @@ public class Login extends Activity {
     private EditText inputUsername;
     private EditText inputPassword;
     private ProgressDialog pDialog;
-    private SessionManager session;
+    //private SessionManager session;
     private LinearLayout linearLayout;
 
     @Override
@@ -65,10 +65,10 @@ public class Login extends Activity {
         pDialog.setCancelable(false);
 
         // Session manager
-        session = new SessionManager(getApplicationContext());
+        //session = new SessionManager(this);
 
         // Check if user is already logged in or not
-        if (session.isLoggedIn()) {
+        if (AppController.getInstance().getSessionManager().isLoggedIn()) {
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(Login.this, Home.class);
             startActivity(intent);
@@ -211,9 +211,16 @@ public class Login extends Activity {
                         String mfl = locations.getString("mfl");
                         String location_name = locations.getString("name");
 
+                        Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
+                        servicePatients.putExtra("uuid", uuid);
+                        servicePatients.putExtra("mfl", mfl);
+                        startService(servicePatients);
+
                         // Create login session
-                        session.setLogin(true);
-                        session.createLogin(uuid, name, location_name, mfl);
+                        AppController.getInstance().getSessionManager().setLogin(true);
+                        AppController.getInstance().getSessionManager().createLogin(uuid, name, location_name, mfl);
+                        //session.setLogin(true);
+                        //session.createLogin(uuid, name, location_name, mfl);
 
                         // Launch main activity
                         Intent intent = new Intent(Login.this, Home.class);

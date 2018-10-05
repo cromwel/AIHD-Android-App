@@ -55,7 +55,7 @@ public class AppController extends com.orm.SugarApp {
 
     public SessionManager getSessionManager() {
         if (session == null) {
-            session = new SessionManager(this);
+            session = new SessionManager(getApplicationContext());
         }
 
         return session;

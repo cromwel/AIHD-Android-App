@@ -22,6 +22,7 @@ import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
@@ -63,9 +64,6 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
 
         swipeRefreshLayout.setOnRefreshListener(this);
         adapter = new PatientAdapter(this, contactList);
-
-        Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
-        startService(servicePatients);
 
         assert recyclerView != null;
         recyclerView.setHasFixedSize(true);
@@ -165,6 +163,8 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
 
         if (isConnected) {
             Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
+            servicePatients.putExtra("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+            servicePatients.putExtra("mfl", AppController.getInstance().getSessionManager().getUserDetails().get("mfl_code"));
             startService(servicePatients);
 
             new Handler().postDelayed(new Runnable() {

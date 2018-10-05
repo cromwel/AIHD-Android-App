@@ -81,16 +81,19 @@ public class Alerts {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert inflater != null;
         @SuppressLint("InflateParams") View dialogView = inflater.inflate(R.layout.dialog, null);
-        alertDialogBuilder.setMessage("Alerts ?");
+        alertDialogBuilder.setMessage("Share ?");
 
         ImageView facebook = dialogView.findViewById(R.id.imageViewFacebook);
         final ImageView twitter = dialogView.findViewById(R.id.imageViewTwitter);
         final ImageView whatsapp = dialogView.findViewById(R.id.imageViewWhatsapp);
 
+        final String msgToShare = String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
+                "http://aihdint.org"));
+
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                facebook();
+                facebook(msgToShare);
             }
 
         });
@@ -98,7 +101,7 @@ public class Alerts {
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                twitter();
+                twitter(msgToShare);
             }
 
         });
@@ -106,7 +109,7 @@ public class Alerts {
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                whatsapp();
+                whatsapp(msgToShare);
             }
         });
 
@@ -128,9 +131,8 @@ public class Alerts {
         alertDialog.show();
     }
 
-    private void facebook() {
-        String msgToShare = String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
-                "http://aihdint.org"));
+    private void facebook(String msgToShare) {
+
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         // intent.putExtra(Intent.EXTRA_SUBJECT, "Foo bar"); // NB: has no effect!
@@ -157,11 +159,10 @@ public class Alerts {
         mContext.startActivity(intent);
     }
 
-    private void twitter() {
+    private void twitter(String msgToShare) {
         //share("twitter","your comment");
         Intent tweetIntent = new Intent(Intent.ACTION_SEND);
-        tweetIntent.putExtra(Intent.EXTRA_TEXT, String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
-                "http://aihdint.org/")));
+        tweetIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
         tweetIntent.setType("text/plain");
 
         PackageManager packManager = mContext.getPackageManager();
@@ -181,30 +182,27 @@ public class Alerts {
             mContext.startActivity(tweetIntent);
         } else {
             Intent i = new Intent();
-            i.putExtra(Intent.EXTRA_TEXT, String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
-                    "<a href='http://aihdint.org/'>here</a>")));
+            i.putExtra(Intent.EXTRA_TEXT, msgToShare);
             i.setAction(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://twitter.com/intent/tweet?text=" + urlEncode()));
+            i.setData(Uri.parse("https://twitter.com/intent/tweet?text=" + urlEncode(msgToShare)));
             mContext.startActivity(i);
             Toast.makeText(mContext.getApplicationContext(), "Twitter app isn't found", Toast.LENGTH_LONG).show();
         }
 
     }
 
-    private void whatsapp() {
+    private void whatsapp(String msgToShare) {
         try {
             PackageManager pm = mContext.getPackageManager();
 
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            String text = String.valueOf(Html.fromHtml("Want more insights on AIHD Data, Visit AIHD on <br />" +
-                    "http://aihdint.org/"));
             PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
             Log.d("WhatsappInfo", String.valueOf(info));
             //Check if package exists or not. If not then code
             //in catch block will be called
             intent.setPackage("com.whatsapp");
-            intent.putExtra(Intent.EXTRA_TEXT, text);
+            intent.putExtra(Intent.EXTRA_TEXT, msgToShare);
             //startActivity(Intent.createChooser(intent, "Alerts with"));
             mContext.startActivity(intent);
         } catch (PackageManager.NameNotFoundException e) {
@@ -213,9 +211,9 @@ public class Alerts {
         }
     }
 
-    private String urlEncode() {
+    private String urlEncode(String msgToShare) {
         try {
-            return URLEncoder.encode("", "UTF-8");
+            return URLEncoder.encode(msgToShare, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             Log.wtf("UTF Issue", "UTF-8 should always be supported", e);
         }

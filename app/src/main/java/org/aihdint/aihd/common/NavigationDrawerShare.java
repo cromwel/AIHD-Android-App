@@ -18,7 +18,6 @@ import android.widget.TextView;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.SessionManager;
 import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.patient.Register;
@@ -30,13 +29,14 @@ import org.aihdint.aihd.patient.Register;
 public class NavigationDrawerShare implements NavigationView.OnNavigationItemSelectedListener {
 
     private Context mContext;
+
     public NavigationDrawerShare(Context mContext) {
         this.mContext = mContext;
     }
 
     public void createDrawer(Toolbar toolbar) {
 
-    // Displaying user information from shared preferences
+        // Displaying user information from shared preferences
 
         PackageInfo packageinfo = null;
         try {
@@ -63,8 +63,11 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         TextView nav_name = hView.findViewById(R.id.nav_name);
         String location = AppController.getInstance().getSessionManager().getUserDetails().get("location_id");
         String name = AppController.getInstance().getSessionManager().getUserDetails().get("name");
-        location = location.replace("_", " ");
-        location = location.substring(0, 1).toUpperCase() + location.substring(1);
+        if (location.length() > 0) {
+            location = location.replace("_", " ");
+            location = location.substring(0, 1).toUpperCase() + location.substring(1);
+        }
+
         try {
             nav_version.setText(String.format("Version %s", Version));
             nav_name.setText(String.format("%s - %s", name, location));
@@ -79,7 +82,7 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            ((Activity)mContext).onBackPressed();
+            ((Activity) mContext).onBackPressed();
         }
     }
 
@@ -112,20 +115,20 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
         }*/ else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
-            ((Activity)mContext).finish();
-        }else if (id == R.id.nav_patients) {
+            ((Activity) mContext).finish();
+        } else if (id == R.id.nav_patients) {
             Intent patient = new Intent(mContext.getApplicationContext(), Patients.class);
             patient.putExtra("isForm", "0");
             mContext.startActivity(patient);
-            ((Activity)mContext).finish();
-        }else if (id == R.id.nav_share) {
+            ((Activity) mContext).finish();
+        } else if (id == R.id.nav_share) {
             Alerts launch = new Alerts(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
-        }else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_logout) {
             // Session manager
-            SessionManager session = new SessionManager(mContext.getApplicationContext());
-            session.setLogin(false);
+            AppController.getInstance().getSessionManager().clear();
+
             Intent login = new Intent(mContext.getApplicationContext(), Login.class);
             mContext.startActivity(login);
             ((Activity) mContext).finish();

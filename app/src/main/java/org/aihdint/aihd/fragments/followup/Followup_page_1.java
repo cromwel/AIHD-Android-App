@@ -47,8 +47,9 @@ public class Followup_page_1 extends Fragment {
         supporter_phoneEditText = view.findViewById(R.id.supporter_telephone);
         supporter_phone_otherEditText = view.findViewById(R.id.supporter_telephone_other);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         dm_followup_date.setText(dateFormat.format(new Date())); // current date
+        DateCalendar.date(getActivity(), dm_followup_date);
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
         dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);

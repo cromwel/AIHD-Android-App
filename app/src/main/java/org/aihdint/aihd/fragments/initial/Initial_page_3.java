@@ -452,27 +452,27 @@ public class Initial_page_3 extends Fragment {
 
         JSONArray jsonArry = new JSONArray();
 
-        jsonArry.put(JSONFormBuilder.observations("887", "", "valueText", editTextRBS.getText().toString().trim(), editTextRBSDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160912", "", "valueText", editTextFBC.getText().toString().trim(), editTextFBCDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueText", editTextHBA.getText().toString().trim(), editTextHBADate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("887", "", "valueNumeric", editTextRBS.getText().toString().trim(), editTextRBSDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160912", "", "valueNumeric", editTextFBC.getText().toString().trim(), editTextFBCDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueNumeric", editTextHBA.getText().toString().trim(), editTextHBADate.getText().toString().trim(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165297", "", "valueText", editTextUrea.getText().toString().trim(), editTextUreaDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165297", "", "valueNumeric", editTextUrea.getText().toString().trim(), editTextUreaDate.getText().toString().trim(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("165298", "", "valueText", editTextSodium.getText().toString().trim(), editTextSodiumDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165299", "", "valueText", editTextChloride.getText().toString().trim(), editTextChlorideDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165300", "", "valueText", editTextPotassium.getText().toString().trim(), editTextPotassiumDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueText", editTextCreatinine.getText().toString().trim(), editTextCreatinineDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165298", "", "valueNumeric", editTextSodium.getText().toString().trim(), editTextSodiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165299", "", "valueNumeric", editTextChloride.getText().toString().trim(), editTextChlorideDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165300", "", "valueNumeric", editTextPotassium.getText().toString().trim(), editTextPotassiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueNumeric", editTextCreatinine.getText().toString().trim(), editTextCreatinineDate.getText().toString().trim(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1007", "", "valueText", editTextHDL.getText().toString().trim(), editTextHDLDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1008", "", "valueText", editTextLDL.getText().toString().trim(), editTextLDLDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1006", "", "valueText", editTextCholesterol.getText().toString().trim(), editTextCholesterolDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1007", "", "valueNumeric", editTextHDL.getText().toString().trim(), editTextHDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", "", "valueNumeric", editTextLDL.getText().toString().trim(), editTextLDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1006", "", "valueNumeric", editTextCholesterol.getText().toString().trim(), editTextCholesterolDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1009", "", "valueText", editTextTriglcerides.getText().toString().trim(), editTextTriglceridesDate.getText().toString().trim(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("653", "", "valueText", editTextAST.getText().toString().trim(), editTextASTDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("654", "", "valueText", editTextALT.getText().toString().trim(), editTextALTDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("655", "", "valueText", editTextTotalBilirubin.getText().toString().trim(), editTextTotalBilirubinDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1297", "", "valueText", editTextDirectBilirubin.getText().toString().trim(), editTextDirectBilirubinDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159829", "", "valueText", editTextGamma.getText().toString().trim(), editTextGammaDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("653", "", "valueNumeric", editTextAST.getText().toString().trim(), editTextASTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("654", "", "valueNumeric", editTextALT.getText().toString().trim(), editTextALTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("655", "", "valueNumeric", editTextTotalBilirubin.getText().toString().trim(), editTextTotalBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1297", "", "valueNumeric", editTextDirectBilirubin.getText().toString().trim(), editTextDirectBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159829", "", "valueNumeric", editTextGamma.getText().toString().trim(), editTextGammaDate.getText().toString().trim(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose, editTextGlucoseDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose_plus, editTextGlucoseDate.getText().toString().trim(), ""));

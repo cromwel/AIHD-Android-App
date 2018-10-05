@@ -6,7 +6,6 @@ package org.aihdint.aihd.app;
 public class Variables {
     // File upload url (replace the url with your server address)
     private static final String BASE_URL = "http://104.248.38.22";
-
     public static final String LOGIN_URL = BASE_URL + ":8080/openmrs/ws/rest/v1/session";
     //private static final String BASE_URL = "http://45.79.145.240";
     //public static final String LOGIN_URL = BASE_URL + ":8080/ems/ws/rest/v1/session";

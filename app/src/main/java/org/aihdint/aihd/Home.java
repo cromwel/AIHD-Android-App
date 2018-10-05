@@ -17,7 +17,6 @@ import org.aihdint.aihd.model.Forms;
 import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.services.LoadFiles;
-
 import java.util.List;
 
 public class Home extends AppCompatActivity{

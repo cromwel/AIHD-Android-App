@@ -281,7 +281,7 @@ public class Initial_page_6 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", referFacility, DateCalendar.date(), ""));
-        editTextDateReffered.getText();
+        //editTextDateReffered.getText();
         jsonArry.put(JSONFormBuilder.observations("165167", "", "valueText", editTextFacility.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", transferFacility, DateCalendar.date(), ""));

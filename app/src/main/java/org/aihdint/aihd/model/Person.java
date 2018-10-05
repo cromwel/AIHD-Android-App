@@ -36,24 +36,15 @@ public class Person extends SugarRecord {
     }
 
     // constructor
-    public Person(String family_name, String given_name, String gender, String birthdate, String birthdate_estimated,
-                  String telephone, String location_id,
-                  String address1, String address2, String address3, String county_district, String city_village, String supporter, String supporter_address, String supporter_number, String status) {
+    // constructor
+    public Person(String family_name, String given_name, String gender, String birthdate,
+                  String telephone, String location_id, String status) {
         this.family_name = family_name;
         this.given_name = given_name;
         this.gender = gender;
         this.birthdate = birthdate;
-        this.birthdate_estimated = birthdate_estimated;
         this.telephone = telephone;
         this.location_id = location_id;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.address3 = address3;
-        this.county_district = county_district;
-        this.city_village = city_village;
-        this.supporter = supporter;
-        this.supporter_address = supporter_address;
-        this.supporter_number = supporter_number;
         this._status = status;
     }
 

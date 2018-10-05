@@ -32,10 +32,15 @@ public class LoadPatients extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        DownloadPatients();
+        if (intent != null) {
+            String uuid = intent.getStringExtra("uuid");
+            String mfl = intent.getStringExtra("mfl");
+
+            DownloadPatients(uuid, mfl);
+        }
     }
 
-    private void DownloadPatients() {
+    private void DownloadPatients(final String uuid, final String mfl) {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy-M-d");
@@ -78,14 +83,9 @@ public class LoadPatients extends IntentService {
             @Override
             protected Map<String, String> getParams() {
                 // Posting params to register url
-                String location_id = AppController.getInstance().getSessionManager().getUserDetails().get("mfl_code");
-                location_id = location_id.toLowerCase();
-                location_id = location_id.replace(".", "");
-                location_id = location_id.replace(" ", "_");
-
                 Map<String, String> params = new HashMap<>();
-                params.put("mfl", location_id);
-                params.put("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
+                params.put("mfl", mfl);
+                params.put("uuid", uuid);
 
                 JSONObject JSONparams = new JSONObject(params);
                 Log.d("Params", JSONparams.toString());

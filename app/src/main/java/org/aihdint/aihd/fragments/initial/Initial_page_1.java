@@ -91,6 +91,10 @@ public class Initial_page_1 extends Fragment {
         editTextLMP = view.findViewById(R.id.complaint_lmp);
         editTextRiskOther = view.findViewById(R.id.abuse_other);
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        dm_initial_dateEditText.setText(dateFormat.format(new Date())); // it will show 16/07/2013
+
+        DateCalendar.date(getActivity(), dm_initial_dateEditText);
         DateCalendar.date(getActivity(), editTextTBDate);
         DateCalendar.date(getActivity(), editTextLMP);
 
@@ -254,9 +258,6 @@ public class Initial_page_1 extends Fragment {
 
         spinnerValue(getContext(), educationLevelSpinner, "education");
         spinnerValue(getContext(), occupationSpinner, "occupations");
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-        dm_initial_dateEditText.setText(dateFormat.format(new Date())); // it will show 16/07/2013
 
         return view;
     }
