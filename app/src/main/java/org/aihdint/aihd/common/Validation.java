@@ -68,6 +68,26 @@ public class Validation {
     }
 
 
+    public static String admissionValidation(JSONArray jsonArray) {
+
+        try {
+            error = new StringBuilder(1000);
+
+            if (jsonArray.length() > 0) {
+                String obs = jsonArray.toString();
+
+                validate(obs, "Reason for Admission", "1655");
+            }
+
+        } catch (Exception e) {
+            // hiding the progress bar
+            e.printStackTrace();
+        }
+
+        return error.toString();
+    }
+
+
     private static void validate(String obs, String response, String concept_id) {
 
         if (!obs.contains(concept_id)) {

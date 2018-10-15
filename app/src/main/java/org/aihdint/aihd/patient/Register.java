@@ -264,6 +264,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                         Intent intent = new Intent(getApplicationContext(), Profile.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.putExtra("patient_id", patient_id);
+                        intent.putExtra("gender", gender);
                         intent.putExtra("identifier", "identifier pending");
                         intent.putExtra("name", given_name + " " + family_name);
                         startActivity(intent);

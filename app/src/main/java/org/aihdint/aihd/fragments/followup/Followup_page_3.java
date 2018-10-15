@@ -422,14 +422,14 @@ public class Followup_page_3 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("165104", "", "valueCoded", foot_amputation, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("160912", "161487", "valueText", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("887", "161487", "valueText", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueText", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1007", "161487", "valueText", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1008", "161487", "valueText", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueText", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueText", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160987", "", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160912", "161487", "valueNumeric", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("887", "161487", "valueNumeric", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueNumeric", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1007", "161487", "valueNumeric", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", "161487", "valueNumeric", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueNumeric", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueNumeric", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160987", "", "valueNumeric", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

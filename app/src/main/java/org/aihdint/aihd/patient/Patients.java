@@ -120,6 +120,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             person.set_id(pn.get_id());
             person.setFamily_name(pn.getFamily_name());
             person.setGiven_name(pn.getGiven_name());
+            person.setGender(pn.getGender());
             person.set_status("0");
             person.setIsReport(IsForm);
             person.setIdentifier(pn.getIdentifier());

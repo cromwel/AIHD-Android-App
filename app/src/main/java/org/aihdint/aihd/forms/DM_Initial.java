@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.common.Alerts;
+import org.aihdint.aihd.common.Common;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.common.Validation;
@@ -32,6 +33,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
+import static org.aihdint.aihd.common.Alerts.hideDialog;
+
 /**
  * Developed by Rodney on 26/03/2018.
  */
@@ -42,6 +45,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5, jsonArry6;
     private String encounter_date, file_name, form_id, patient_id;
+    public static String gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +61,8 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
         Intent intent = getIntent();
         patient_id = intent.getStringExtra("patient_id");
-        Log.d("PatientID", patient_id);
+        gender = intent.getStringExtra("gender");
+        Log.d("Gender", gender + "");
 
         file_name = "DM_HTN_INITIAL_" + System.currentTimeMillis() + ".json";
         form_id = System.currentTimeMillis() + "_" + patient_id;
@@ -137,7 +142,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     public void validate(View view) {
 
-        ProgressDialog pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
+        Alerts.progressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
 
@@ -169,7 +174,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 jsonForm.put("formOrder", "1");
                 jsonForm.put("encounterDate", encounter_date);
                 jsonForm.put("encounterProvider", creator);
-                jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                jsonForm.put("location_id", Common.locationId());
                 jsonForm.put("patient_id", patient_id);
                 jsonForm.put("obs", jsonArray);
 
@@ -218,7 +223,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             e.printStackTrace();
         }
 
-        pDialog.dismiss();
+        hideDialog();
 
     }
 

@@ -11,6 +11,7 @@ import com.orm.query.Condition;
 import com.orm.query.Select;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.model.Concepts;
 import org.json.JSONObject;
 
@@ -170,6 +171,16 @@ public class Common {
         }
         return value;
 
+    }
+
+
+    public static String locationId() {
+        String location_id = AppController.getInstance().getSessionManager().getUserDetails().get("location_id");
+        location_id = location_id.toLowerCase();
+        location_id = location_id.replace(".", "");
+        location_id = location_id.replace(" ", "_");
+
+        return location_id;
     }
 
 }

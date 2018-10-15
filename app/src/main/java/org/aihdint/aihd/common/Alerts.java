@@ -2,6 +2,7 @@ package org.aihdint.aihd.common;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,9 +32,21 @@ import java.util.List;
 
 public class Alerts {
     private Context mContext;
+    private static ProgressDialog pDialog;
 
     Alerts(Context mContext) {
         this.mContext = mContext;
+    }
+
+    public static void progressDialog(Context context, String message) {
+
+        // Progress dialog
+        pDialog = new ProgressDialog(context);
+        pDialog.setCancelable(false);
+
+        pDialog = File_Upload.showProgressDialog(context, message);
+        showDialog();
+
     }
 
     public static void errorMessage(View layout, String message) {
@@ -218,6 +231,16 @@ public class Alerts {
             Log.wtf("UTF Issue", "UTF-8 should always be supported", e);
         }
         return "";
+    }
+
+    private static void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    public static void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 

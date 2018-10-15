@@ -48,6 +48,40 @@ public class DateCalendar {
         editText.setText(sdf.format(calendar.getTime()));
     }
 
+    public static void fulldate(final Context context, final EditText editText) {
+        final Calendar calendar = Calendar.getInstance();
+
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateFullDate(editText, calendar);
+            }
+        };
+
+
+        editText.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(context, date,
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+
+    private static void updateFullDate(EditText editText, Calendar calendar) {
+        String myFormat = "yyyy-MM-dd HH:mm:ss"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        editText.setText(sdf.format(calendar.getTime()));
+    }
+
     public static String time() {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.US);
         return timeFormat.format(new Date());

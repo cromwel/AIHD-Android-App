@@ -49,7 +49,7 @@ public class Followup_page_1 extends Fragment {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         dm_followup_date.setText(dateFormat.format(new Date())); // current date
-        DateCalendar.date(getActivity(), dm_followup_date);
+        DateCalendar.fulldate(getActivity(), dm_followup_date);
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
         dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);
@@ -327,14 +327,14 @@ public class Followup_page_1 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("164800", "", "valueCoded", tb_screen, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("1659", "", "valueCoded", tb_status, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165172", "", "valueText", editTextTBDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165172", "", "valueDate", editTextTBDate.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), DateCalendar.date(), ""));
 
 
-        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueText", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165150", "", "valueText", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueText", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165151", "", "valueText", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueDate", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165150", "", "valueDate", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueDate", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165151", "", "valueDate", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

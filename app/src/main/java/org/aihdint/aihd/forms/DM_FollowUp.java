@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.common.Alerts;
+import org.aihdint.aihd.common.Common;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.common.Validation;
@@ -150,7 +151,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                     jsonForm.put("formOrder", "2");
                     jsonForm.put("encounterDate", encounter_date);
                     jsonForm.put("encounterProvider", creator);
-                    jsonForm.put("location_id", AppController.getInstance().getSessionManager().getUserDetails().get("location_id"));
+                    jsonForm.put("location_id", Common.locationId());
                     jsonForm.put("patient_id", patient_id);
                     jsonForm.put("obs", jsonArray);
 

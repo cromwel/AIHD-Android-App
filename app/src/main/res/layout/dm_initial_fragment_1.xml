@@ -51,6 +51,7 @@
                             android:id="@+id/dm_initial_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:hint="Date"
                             android:inputType="date"
                             android:padding="15dp"
@@ -147,7 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:text="Type of Diabetes:"
+                        android:text="Types of Diabetes:"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -157,7 +158,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <RadioButton
                             android:id="@+id/radio_diabetes_type_1"
@@ -293,7 +295,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:text="Types of Hypetension"
+                        android:text="Types of Hypertension"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -304,7 +306,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <RadioButton
                             android:id="@+id/radio_hypertension_mild"
@@ -451,7 +454,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -560,7 +564,8 @@
                                 android:id="@+id/radioGroupTB"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <RadioButton
                                     android:id="@+id/radio_tb_status_negative"
@@ -600,7 +605,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:text="On treatment" />
+                        android:text="On treatment"
+                        android:visibility="gone" />
 
 
                     <customfonts.TextView_Roboto_Bold
@@ -981,19 +987,27 @@
                             android:textSize="13sp"
                             android:visibility="gone" />
 
-                        <customfonts.TextView_Roboto_Bold
+                        <LinearLayout
+                            android:id="@+id/linearLayoutLMP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="LMP (if female)" />
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
-                        <customfonts.EditText_Roboto_Light
-                            android:id="@+id/complaint_lmp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:hint="yyyy-mm-dd"
-                            android:inputType="date"
-                            android:textSize="13sp" />
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="LMP" />
+
+                            <customfonts.EditText_Roboto_Light
+                                android:id="@+id/complaint_lmp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
+                                android:inputType="date"
+                                android:textSize="13sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>

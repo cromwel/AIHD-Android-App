@@ -37,6 +37,7 @@ import java.util.List;
 public class Profile extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private String patient_id;
+    private String gender;
     private String records;
     private String isDeceased = null;
 
@@ -55,6 +56,7 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         String name = intent.getStringExtra("name");
         String identifier = intent.getStringExtra("identifier");
         patient_id = intent.getStringExtra("patient_id");
+        gender = intent.getStringExtra("gender");
 
         List<PatientProfile> patient = PatientProfile.findWithQuery(PatientProfile.class, "SELECT * FROM PATIENT_PROFILE WHERE patient_id = ? ", patient_id);
 
@@ -228,6 +230,7 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
     public void dmInitial(View view) {
         Intent dm_initial = new Intent(getApplicationContext(), DM_Initial.class);
         dm_initial.putExtra("patient_id", patient_id);
+        dm_initial.putExtra("gender", gender);
         startActivity(dm_initial);
         finish();
     }

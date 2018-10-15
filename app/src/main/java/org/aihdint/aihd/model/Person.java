@@ -36,7 +36,6 @@ public class Person extends SugarRecord {
     }
 
     // constructor
-    // constructor
     public Person(String family_name, String given_name, String gender, String birthdate,
                   String telephone, String location_id, String status) {
         this.family_name = family_name;
@@ -47,7 +46,6 @@ public class Person extends SugarRecord {
         this.location_id = location_id;
         this._status = status;
     }
-
 
     public String get_id() {
         return person_id;

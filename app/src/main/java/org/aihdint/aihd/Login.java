@@ -7,7 +7,6 @@ package org.aihdint.aihd;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -41,12 +40,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.aihdint.aihd.common.Alerts.hideDialog;
+
 
 public class Login extends Activity {
     private static final String TAG = Login.class.getSimpleName();
     private EditText inputUsername;
     private EditText inputPassword;
-    private ProgressDialog pDialog;
     //private SessionManager session;
     private LinearLayout linearLayout;
 
@@ -59,13 +59,6 @@ public class Login extends Activity {
 
         inputUsername = findViewById(R.id.username);
         inputPassword = findViewById(R.id.password);
-
-        // Progress dialog
-        pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(false);
-
-        // Session manager
-        //session = new SessionManager(this);
 
         // Check if user is already logged in or not
         if (AppController.getInstance().getSessionManager().isLoggedIn()) {
@@ -115,8 +108,7 @@ public class Login extends Activity {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
-        pDialog.setMessage("Logging in ...");
-        showDialog();
+        Alerts.progressDialog(this, "Logging in ...");
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
                 Variables.LOGIN_URL, new Response.Listener<String>() {
@@ -259,16 +251,6 @@ public class Login extends Activity {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(req);
 
-    }
-
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
     }
 
 

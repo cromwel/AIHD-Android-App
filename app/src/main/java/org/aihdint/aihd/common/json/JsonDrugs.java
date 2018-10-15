@@ -111,12 +111,12 @@ public class JsonDrugs {
 
         //Long Acting CCB
         jsonArry.put(JSONFormBuilder.observations("1282", "165271", "valueCoded", drugsDose.Amlodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueCoded", drugsDose.doseAmlodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1443", "165271", "valueNumeric", drugsDose.doseAmlodipine, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("160855", "165271", "valueCoded", drugsDose.frequencyAmlodipine, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1282", "165272", "", drugsDose.Felodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1282", "165272", "valueCoded", drugsDose.Felodipine, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("1443", "165272", "valueNumeric", drugsDose.doseFelodipine, DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160855", "165272", "", drugsDose.frequencyFelodipine, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160855", "165272", "valueCoded", drugsDose.frequencyFelodipine, DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("1282", "165273", "valueCoded", drugsDose.Nifedipine, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("1443", "165273", "valueNumeric", drugsDose.doseNifedipine, DateCalendar.date(), ""));

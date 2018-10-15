@@ -337,6 +337,98 @@ public class Initial_page_2 extends Fragment {
         });
     }
 
+
+    public void metformin(String status) {
+        if (!status.matches("79651")) {
+            editTextMetformin.setVisibility(View.GONE);
+        } else {
+            editTextMetformin.setVisibility(View.VISIBLE);
+            editTextMetformin.setText("");
+        }
+    }
+
+    public void glibenclamide(String status) {
+        if (!status.matches("77071")) {
+            editTextGlibenclamide.setVisibility(View.GONE);
+        } else {
+            editTextGlibenclamide.setVisibility(View.VISIBLE);
+            editTextGlibenclamide.setText("");
+        }
+    }
+
+    public void insulin(String status) {
+        if (!status.matches("159459")) {
+            editTextInsulin.setVisibility(View.GONE);
+        } else {
+            editTextInsulin.setVisibility(View.VISIBLE);
+            editTextInsulin.setText("");
+        }
+    }
+
+    public void nph(String status) {
+        if (!status.matches("78068")) {
+            editTextNPH.setVisibility(View.GONE);
+        } else {
+            editTextNPH.setVisibility(View.VISIBLE);
+            editTextNPH.setText("");
+        }
+    }
+
+    public void solubleInsulin(String status) {
+        if (!status.matches("282")) {
+            editTextSolubleInsulin.setVisibility(View.GONE);
+        } else {
+            editTextSolubleInsulin.setVisibility(View.VISIBLE);
+            editTextSolubleInsulin.setText("");
+        }
+    }
+
+    public void enalapril(String status) {
+        if (!status.matches("75633")) {
+            editTextEnalapril.setVisibility(View.GONE);
+        } else {
+            editTextEnalapril.setVisibility(View.VISIBLE);
+            editTextEnalapril.setText("");
+        }
+    }
+
+    public void hctz(String status) {
+        if (!status.matches("77696")) {
+            editTextHCTZ.setVisibility(View.GONE);
+        } else {
+            editTextHCTZ.setVisibility(View.VISIBLE);
+            editTextHCTZ.setText("");
+        }
+    }
+
+    public void losartan(String status) {
+        if (!status.matches("79074")) {
+            editTextLosartan.setVisibility(View.GONE);
+        } else {
+            editTextLosartan.setVisibility(View.VISIBLE);
+            editTextLosartan.setText("");
+        }
+    }
+
+    public void nifedipine(String status) {
+        if (!status.matches("80637")) {
+            editTextNifedipine.setVisibility(View.GONE);
+        } else {
+            editTextNifedipine.setVisibility(View.VISIBLE);
+            editTextNifedipine.setText("");
+        }
+    }
+
+    public void atenolol(String status) {
+        if (!status.matches("71652")) {
+            editTextAtenolol.setVisibility(View.GONE);
+        } else {
+            editTextAtenolol.setVisibility(View.VISIBLE);
+            editTextAtenolol.setText("");
+        }
+    }
+
+
     public void checkBox(final CheckBox checkBox) {
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -364,6 +456,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_metformin = "";
                         }
+                        metformin(medication_metformin);
                         break;
                     case R.id.checkbox_medication_glibenclamide:
                         if (checked) {
@@ -371,6 +464,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_glibenclamide = "";
                         }
+                        glibenclamide(medication_glibenclamide);
                         break;
                     case R.id.checkbox_medication_insulin:
                         if (checked) {
@@ -378,6 +472,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_insulin = "";
                         }
+                        insulin(medication_insulin);
                         break;
                     case R.id.checkbox_medication_nph:
                         if (checked) {
@@ -385,6 +480,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_nph = "";
                         }
+                        nph(medication_nph);
                         break;
                     case R.id.checkbox_medication_soluble_insulin:
                         if (checked) {
@@ -392,6 +488,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_soluble_insulin = "";
                         }
+                        solubleInsulin(medication_soluble_insulin);
                         break;
                     case R.id.checkbox_medication_enalapril:
                         if (checked) {
@@ -399,6 +496,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_enalapril = "";
                         }
+                        enalapril(medication_enalapril);
                         break;
                     case R.id.checkbox_medication_hctz:
                         if (checked) {
@@ -406,6 +504,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_hctz = "";
                         }
+                        hctz(medication_hctz);
                         break;
                     case R.id.checkbox_medication_losartan:
                         if (checked) {
@@ -413,6 +512,7 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_losartan = "";
                         }
+                        losartan(medication_losartan);
                         break;
                     case R.id.checkbox_medication_nifedipine:
                         if (checked) {
@@ -420,21 +520,22 @@ public class Initial_page_2 extends Fragment {
                         } else {
                             medication_nifedipine = "";
                         }
+                        nifedipine(medication_nifedipine);
                     case R.id.checkbox_medication_atenolol:
                         if (checked) {
                             medication_atenolol = "71652";
                         } else {
                             medication_atenolol = "";
                         }
+                        atenolol(medication_atenolol);
                         break;
                     case R.id.checkbox_medication_other:
                         if (checked) {
                             medication_other = "5622";
-                            medicationOther(medication_other);
                         } else {
                             medication_other = "";
-                            medicationOther(medication_other);
                         }
+                        medicationOther(medication_other);
                         break;
                     case R.id.checkbox_exam_pallor:
                         if (checked) {
@@ -647,6 +748,7 @@ public class Initial_page_2 extends Fragment {
 
     }
 
+
     public void updateValues() {
 
         JSONArray jsonArry = new JSONArray();
@@ -669,16 +771,16 @@ public class Initial_page_2 extends Fragment {
         jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_atenolol, DateCalendar.date(), ""));
         jsonArry1.put(JSONFormBuilder.observations("1282", "1442", "valueCoded", medication_other, DateCalendar.date(), ""));
 
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextMetformin.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextGlibenclamide.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextInsulin.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNPH.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextSolubleInsulin.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextEnalapril.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextHCTZ.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextLosartan.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextNifedipine.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry2.put(JSONFormBuilder.observations("1443", "1442", "valueNumeric", editTextAtenolol.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextMetformin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextGlibenclamide.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextInsulin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextNPH.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextSolubleInsulin.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextEnalapril.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextHCTZ.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextLosartan.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextNifedipine.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("165313", "1442", "valueText", editTextAtenolol.getText().toString().trim(), DateCalendar.date(), ""));
 
         jsonArry2.put(JSONFormBuilder.observations("165157", "1442", "valueText", editTextMedicationOther.getText().toString().trim(), DateCalendar.date(), ""));
 
