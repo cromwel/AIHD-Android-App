@@ -24,7 +24,7 @@
             android:id="@+id/treatment_metformin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Metaformin" />
 
         <Spinner
@@ -37,7 +37,7 @@
             android:id="@+id/spinnerDrugMetforminFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:id="@+id/treatment_glibenclamide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Glibenclamide" />
 
         <Spinner
@@ -64,7 +64,7 @@
             android:id="@+id/spinnerDrugGlibenclamideFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 

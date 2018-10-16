@@ -63,7 +63,7 @@ public class Initial_page_1 extends Fragment {
     private String diabetes_status, diabetes_family, diabetes_type, htn_status, htn_family, htn_type, hiv_status, enrolled_to_hiv_care, tb_status, tb_screen, nhif_status, referral_status,
             referral_inter, referral_intra, exercise, diet, smoking, drinking;
 
-    CheckBox checkBoxTBStatus;
+    private CheckBox checkBoxTBStatus;
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
@@ -324,9 +324,10 @@ public class Initial_page_1 extends Fragment {
 
     }
 
-    private void selectionCheck() {
 
-        if (diabetes_status.matches("165088")) {
+    public void diabetes(String status) {
+
+        if (status.matches("165088")) {
             editTextDiagnosisDiabetes.setVisibility(View.VISIBLE);
             radioGroupDiabetes.setVisibility(View.VISIBLE);
         } else {
@@ -334,45 +335,61 @@ public class Initial_page_1 extends Fragment {
             radioGroupDiabetes.setVisibility(View.GONE);
         }
 
-        if (htn_status.matches("165093")) {
+    }
+
+    public void hypertension(String status) {
+        if (status.matches("165093")) {
             editTextDiagnosisHypertension.setVisibility(View.VISIBLE);
             radioGroupHypertention.setVisibility(View.VISIBLE);
         } else {
             editTextDiagnosisHypertension.setVisibility(View.GONE);
             radioGroupHypertention.setVisibility(View.GONE);
         }
+    }
 
-        if (hiv_status.matches("138571")) {
+    public void hivStatus(String status) {
+        if (status.matches("138571")) {
             hiv_enrolled.setVisibility(View.VISIBLE);
         } else {
             hiv_enrolled.setVisibility(View.GONE);
         }
+    }
 
-        if (nhif_status.matches("5622")) {
+    public void nhifStatus(String status) {
+        if (status.matches("5622")) {
             nhif_other_details.setVisibility(View.VISIBLE);
         } else {
             nhif_other_details.setVisibility(View.GONE);
         }
+    }
 
-        if (referral_status.matches("1065")) {
+    public void referralStatus(String status) {
+
+        if (status.matches("1065")) {
             referral_patient.setVisibility(View.VISIBLE);
         } else {
             referral_patient.setVisibility(View.GONE);
         }
+    }
 
-        if (complaint_other.matches("5622")) {
+    public void complaint(String status) {
+        if (status.matches("5622")) {
             editTextComplaintOther.setVisibility(View.VISIBLE);
         } else {
             editTextComplaintOther.setVisibility(View.GONE);
         }
+    }
 
-        if (tb_screen.matches("1065")) {
+    public void tbScreen(String status) {
+        if (status.matches("1065")) {
             radioGroupTB.setVisibility(View.VISIBLE);
         } else {
             radioGroupTB.setVisibility(View.GONE);
         }
+    }
 
-        if (tb_status.matches("138571")) {
+    public void tbStatus(String status) {
+        if (status.matches("138571")) {
             checkBoxTBStatus.setVisibility(View.VISIBLE);
             editTextTBDate.setVisibility(View.VISIBLE);
         } else {
@@ -380,6 +397,7 @@ public class Initial_page_1 extends Fragment {
             editTextTBDate.setVisibility(View.GONE);
         }
     }
+
 
     public void textWatcher(EditText editText) {
 
@@ -634,7 +652,13 @@ public class Initial_page_1 extends Fragment {
                     default:
                         break;
                 }
-                selectionCheck();
+                diabetes(diabetes_status);
+                hypertension(htn_status);
+                hivStatus(hiv_status);
+                tbScreen(tb_screen);
+                tbStatus(tb_status);
+                nhifStatus(nhif_status);
+                referralStatus(referral_status);
                 updateValues();
             }
         });
@@ -747,7 +771,7 @@ public class Initial_page_1 extends Fragment {
                         break;
                 }
 
-                selectionCheck();
+                complaint(complaint_other);
                 updateValues();
             }
         });

@@ -24,7 +24,7 @@
             android:id="@+id/treatment_atenolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Atenolol" />
 
         <Spinner
@@ -37,7 +37,7 @@
             android:id="@+id/spinnerDrugAtenololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +50,7 @@
             android:id="@+id/treatment_labetolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Labetolol " />
 
         <Spinner
@@ -63,7 +63,7 @@
             android:id="@+id/spinnerDrugLabetololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -77,7 +77,7 @@
             android:id="@+id/treatment_propranolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Propranolol " />
 
         <Spinner
@@ -90,7 +90,7 @@
             android:id="@+id/spinnerDrugPropranololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -104,7 +104,7 @@
             android:id="@+id/treatment_carvedilol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Carvedilol " />
 
         <Spinner
@@ -117,7 +117,7 @@
             android:id="@+id/spinnerDrugCarvedilolFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -132,7 +132,7 @@
             android:id="@+id/treatment_nebivolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Nebivolol " />
 
         <Spinner
@@ -145,7 +145,7 @@
             android:id="@+id/spinnerDrugNebivololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -159,7 +159,7 @@
             android:id="@+id/treatment_metoprolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Metoprolol " />
 
         <Spinner
@@ -172,7 +172,7 @@
             android:id="@+id/spinnerDrugMetoprololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
 
@@ -186,7 +186,7 @@
             android:id="@+id/treatment_bisoprolol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Bisoprolol " />
 
         <Spinner
@@ -199,7 +199,7 @@
             android:id="@+id/spinnerDrugBisoprololFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <customfonts.EditText_Roboto_Regular

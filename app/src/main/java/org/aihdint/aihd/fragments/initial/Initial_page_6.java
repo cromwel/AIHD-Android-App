@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
+import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.model.KeyValue;
@@ -79,6 +80,7 @@ public class Initial_page_6 extends Fragment {
         editTextRefferalReason = view.findViewById(R.id.followup_other_reason);
         editTextSupportGroup = view.findViewById(R.id.support_group);
         editTextProvider = view.findViewById(R.id.provider_name);
+        editTextProvider.setText(AppController.getInstance().getSessionManager().getUserDetails().get("name"));
 
         DateCalendar.date(getActivity(), editTextReturnDate);
         DateCalendar.date(getActivity(), editTextDateReffered);
@@ -281,7 +283,7 @@ public class Initial_page_6 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", referFacility, DateCalendar.date(), ""));
-        //editTextDateReffered.getText();
+        jsonArry.put(JSONFormBuilder.observations("", "", "valueText", editTextDateReffered.getText().toString(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165167", "", "valueText", editTextFacility.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", transferFacility, DateCalendar.date(), ""));

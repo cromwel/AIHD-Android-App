@@ -52,9 +52,9 @@ public class Validation {
                 String obs = jsonArray.toString();
 
                 validate(obs, "Page(1) Diabetes Status", "165086");
-                validate(obs, "Page(1) Diabetes runs in the family", "140228");
+                //validate(obs, "Page(1) Diabetes runs in the family", "140228");
                 validate(obs, "Page(1) Hypertension status", "165091");
-                validate(obs, "Page(1) Hypertension runs in the family", "165191");
+                //validate(obs, "Page(1) Hypertension runs in the family", "165191");
                 validate(obs, "Page(1) HIV Status", "138405");
                 validate(obs, "Page(1) NHIF status", "1917");
             }

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
     <customfonts.TextView_Roboto_Bold
         android:layout_width="match_parent"
@@ -23,7 +25,7 @@
             android:id="@+id/treatment_chlorthalidone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Chlorthalidone" />
 
         <Spinner
@@ -36,7 +38,7 @@
             android:id="@+id/spinnerDrugChlorthalidoneFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,8 +51,8 @@
             android:id="@+id/treatment_hydrochlorothia"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
-            android:text="Hydrochlorothia zide" />
+            android:layout_weight="1"
+            android:text="Hydro-chlorothiazide" />
 
         <Spinner
             android:id="@+id/spinnerDrugHydrochlorothia"
@@ -62,7 +64,7 @@
             android:id="@+id/spinnerDrugHydrochlorothiaFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -101,7 +103,7 @@
             android:id="@+id/treatment_indapamide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Indapamide" />
 
         <Spinner
@@ -114,7 +116,7 @@
             android:id="@+id/spinnerDrugIndapamideFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout

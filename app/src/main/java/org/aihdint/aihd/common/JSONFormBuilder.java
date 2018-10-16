@@ -24,7 +24,7 @@ public class JSONFormBuilder {
 
         try {
             //Values
-            if (!TextUtils.isEmpty(conceptAnswer)) {
+            if (!TextUtils.isEmpty(conceptAnswer) && !TextUtils.isEmpty(conceptID)) {
                 jsonObs.put("concept_id", conceptID);
                 jsonObs.put("group_id", groupID);
                 jsonObs.put("type", type);
@@ -42,7 +42,7 @@ public class JSONFormBuilder {
 
     public static JSONArray checkLength(JSONArray jsonArray, JSONArray jsonObs) {
         if (jsonArray.length() > 0) {
-            jsonObs = jsonArray;
+            jsonObs.put(jsonArray);
         }
 
         return jsonObs;

@@ -1,8 +1,11 @@
 package org.aihdint.aihd.common.variables;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import org.aihdint.aihd.R;
 
 public class DrugsDose {
 
@@ -68,6 +71,36 @@ public class DrugsDose {
     public static final String[] arraySpinnerGlibenclamide = new String[]{"Select", "5mg"};
 
     public DrugsDose(Context mContext) {
+    }
+
+    public void initializeDrugs(View view) {
+
+        editTextInsulin = view.findViewById(R.id.editTextInsulin);
+        editTextSolubleInsulin = view.findViewById(R.id.editTextSolubleInsulin);
+        editTextNPH1 = view.findViewById(R.id.editTextNPH1);
+        editTextNPH2 = view.findViewById(R.id.editTextNPH2);
+
+        editTextDiet = view.findViewById(R.id.treatment_diet_specify);
+        editTextPhysicalExercise = view.findViewById(R.id.treatment_physical_exercise_specify);
+        editTextHerbal = view.findViewById(R.id.treatment_herbal_specify);
+        editTextTreatmentOther = view.findViewById(R.id.treatment_other_specify);
+        editTextComment = view.findViewById(R.id.treatment_comment);
+
+        editTextComment = view.findViewById(R.id.treatment_comment);
+
+        checkBoxEnalapril = view.findViewById(R.id.treatment_enalapril);
+        checkBoxCaptopril = view.findViewById(R.id.treatment_captopril);
+        checkBoxLisinopril = view.findViewById(R.id.treatment_lisinopril);
+        checkBoxPerindopril = view.findViewById(R.id.treatment_perindopril);
+        checkBoxRamipril = view.findViewById(R.id.treatment_ramipril);
+
+        checkBoxCandesartan = view.findViewById(R.id.treatment_candesartan);
+        checkBoxIrbesartan = view.findViewById(R.id.treatment_irbesartan);
+        checkBoxLosartan = view.findViewById(R.id.treatment_losartan);
+        checkBoxTelmisartan = view.findViewById(R.id.treatment_telmisartan);
+        checkBoxValsartan = view.findViewById(R.id.treatment_valsartan);
+        checkBoxOlmesartan = view.findViewById(R.id.treatment_olmesartan);
+
     }
 
 }

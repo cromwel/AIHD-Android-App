@@ -24,7 +24,7 @@
             android:id="@+id/treatment_enalapril"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Enalapril" />
 
         <Spinner
@@ -37,7 +37,7 @@
             android:id="@+id/spinnerDrugEnalaprilFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
 
     </LinearLayout>
@@ -52,7 +52,7 @@
             android:id="@+id/treatment_captopril"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Captopril" />
 
         <Spinner
@@ -65,7 +65,7 @@
             android:id="@+id/spinnerDrugCaptoprilFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -79,7 +79,7 @@
             android:id="@+id/treatment_lisinopril"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Lisinopril" />
 
         <Spinner
@@ -92,7 +92,7 @@
             android:id="@+id/spinnerDrugLisinoprilFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -105,7 +105,7 @@
             android:id="@+id/treatment_perindopril"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Perindopril " />
 
         <Spinner
@@ -118,7 +118,7 @@
             android:id="@+id/spinnerDrugPerindoprilFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -131,7 +131,7 @@
             android:id="@+id/treatment_ramipril"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Ramipril" />
 
         <Spinner
@@ -144,7 +144,7 @@
             android:id="@+id/spinnerDrugRamiprilFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <customfonts.EditText_Roboto_Regular

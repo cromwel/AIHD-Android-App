@@ -24,7 +24,7 @@
             android:id="@+id/treatment_amlodipine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Amlodipine " />
 
         <Spinner
@@ -37,7 +37,7 @@
             android:id="@+id/spinnerDrugAmlodipineFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
 
@@ -51,7 +51,7 @@
             android:id="@+id/treatment_felodipine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Felodipine " />
 
         <Spinner
@@ -64,7 +64,7 @@
             android:id="@+id/spinnerDrugFelodipineFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
 
@@ -78,7 +78,7 @@
             android:id="@+id/treatment_nifedipine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Nifedipine " />
 
         <Spinner
@@ -91,7 +91,7 @@
             android:id="@+id/spinnerDrugNifedipineFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <customfonts.EditText_Roboto_Regular

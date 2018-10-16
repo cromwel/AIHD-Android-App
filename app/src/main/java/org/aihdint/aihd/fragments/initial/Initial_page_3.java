@@ -11,17 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.common.Alerts;
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import static java.lang.Double.parseDouble;
+import static org.aihdint.aihd.common.Common.checkAlert;
+import static org.aihdint.aihd.forms.DM_Initial.gender;
 
 /**
  * Developed by Rodney on 24/04/2018.
@@ -49,6 +51,12 @@ public class Initial_page_3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.dm_initial_fragment_3, container, false);
+
+        LinearLayout pdt = view.findViewById(R.id.linearLayoutPDT);
+
+        if (gender != null && gender.equals("F")) {
+            pdt.setVisibility(View.VISIBLE);
+        }
 
         editTextRBS = view.findViewById(R.id.blood_work_rbs);
         editTextFBC = view.findViewById(R.id.blood_work_fbc);
@@ -114,7 +122,6 @@ public class Initial_page_3 extends Fragment {
         editTextTotalBilirubinDate.setText(DateCalendar.date());
         editTextDirectBilirubinDate.setText(DateCalendar.date());
         editTextGammaDate.setText(DateCalendar.date());
-        editTextPDTDate.setText(DateCalendar.date());
         editTextGlucoseDate.setText(DateCalendar.date());
         editTextProteinDate.setText(DateCalendar.date());
         editTextKetoneDate.setText(DateCalendar.date());
@@ -253,7 +260,7 @@ public class Initial_page_3 extends Fragment {
                         if (editText.length() > 0 && !field.matches("")) {
 
                             double value = parseDouble(editable.toString().trim());
-                            checkAlert(value, field);
+                            checkAlert(view, value, field);
                         }
                     }
                 }, 3000);
@@ -275,77 +282,7 @@ public class Initial_page_3 extends Fragment {
         });
     }
 
-    public void checkAlert(double value, String field) {
-        switch (field) {
-            case "rbs":
-                if (value > 11.1)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal RBS");
-                break;
-            case "fbc":
-                if (value < 7.8)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal FBS");
-                break;
-            case "hba":
-                if (value > 6.5)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal HBA 1c(%)");
-                break;
-            case "urea":
-                if (value < 2.7 || value > 8)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Urea");
-                break;
-            case "sodium":
-                if (value < 135 || value > 155)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Sodium");
-                break;
-            case "chloride":
-                if (value < 98 || value > 108)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Chloride");
-                break;
-            case "potassium":
-                if (value < 3.5 || value > 5.5)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Potassium");
-                break;
-            case "hdl":
-                if (value < 0.7 || value > 1.9)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal HDL");
-                break;
-            case "ldl":
-                if (value > 3.4)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal LDL");
-                break;
-            case "cholesterol":
-                if (value < 0 || value > 5.7)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Cholesterol");
-                break;
-            case "triglcerides":
-                if (value < 0 || value > 5.7)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Triglcerides");
-                break;
-            case "ast":
-                if (value < 0 || value > 42)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal AST");
-                break;
-            case "alt":
-                if (value < 0 || value > 37)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal ALT");
-                break;
-            case "tbilirubin":
-                if (value < 1.17 || value > 20.5)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Total Bilirubin");
-                break;
-            case "dbilirubin":
-                if (value > 5.1)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Direct Bilirubin");
-                break;
-            case "gamma":
-                if (value < 9 || value > 48)
-                    Alerts.errorMessage(view, "Investigation Alert: Abnormal Gamma");
-                break;
-            default:
-                break;
-        }
 
-    }
 
     public void urinalysisGlucose(String status) {
         if (status.matches("1066")) {

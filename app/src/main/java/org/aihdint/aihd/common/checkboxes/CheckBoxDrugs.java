@@ -359,7 +359,6 @@ public class CheckBoxDrugs {
             drugsDose.checkBoxPerindopril.setChecked(false);
             drugsDose.checkBoxRamipril.setChecked(false);
         }
-
     }
 
 }

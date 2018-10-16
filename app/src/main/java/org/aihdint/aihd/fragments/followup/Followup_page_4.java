@@ -43,34 +43,7 @@ public class Followup_page_4 extends Fragment implements CheckBoxInterface, Spin
         testLinearLayout.setVisibility(View.GONE);
 
         drugsDose = new DrugsDose(getContext());
-
-        drugsDose.editTextInsulin = view.findViewById(R.id.editTextInsulin);
-        drugsDose.editTextSolubleInsulin = view.findViewById(R.id.editTextSolubleInsulin);
-        drugsDose.editTextNPH1 = view.findViewById(R.id.editTextNPH1);
-        drugsDose.editTextNPH2 = view.findViewById(R.id.editTextNPH2);
-
-        drugsDose.editTextDiet = view.findViewById(R.id.treatment_diet_specify);
-        drugsDose.editTextPhysicalExercise = view.findViewById(R.id.treatment_physical_exercise_specify);
-        drugsDose.editTextHerbal = view.findViewById(R.id.treatment_herbal_specify);
-        drugsDose.editTextTreatmentOther = view.findViewById(R.id.treatment_other_specify);
-        drugsDose.editTextComment = view.findViewById(R.id.treatment_comment);
-
-        drugsDose.editTextComment = view.findViewById(R.id.treatment_comment);
-        CheckBox checkBoxMetformin = view.findViewById(R.id.treatment_metformin);
-        CheckBox checkBoxGlibenclamide = view.findViewById(R.id.treatment_glibenclamide);
-
-        drugsDose.checkBoxEnalapril = view.findViewById(R.id.treatment_enalapril);
-        drugsDose.checkBoxCaptopril = view.findViewById(R.id.treatment_captopril);
-        drugsDose.checkBoxLisinopril = view.findViewById(R.id.treatment_lisinopril);
-        drugsDose.checkBoxPerindopril = view.findViewById(R.id.treatment_perindopril);
-        drugsDose.checkBoxRamipril = view.findViewById(R.id.treatment_ramipril);
-
-        drugsDose.checkBoxCandesartan = view.findViewById(R.id.treatment_candesartan);
-        drugsDose.checkBoxIrbesartan = view.findViewById(R.id.treatment_irbesartan);
-        drugsDose.checkBoxLosartan = view.findViewById(R.id.treatment_losartan);
-        drugsDose.checkBoxTelmisartan = view.findViewById(R.id.treatment_telmisartan);
-        drugsDose.checkBoxValsartan = view.findViewById(R.id.treatment_valsartan);
-        drugsDose.checkBoxOlmesartan = view.findViewById(R.id.treatment_olmesartan);
+        drugsDose.initializeDrugs(view);
 
         drugsDose.editTextReturnDate = view.findViewById(R.id.followup_date);
         drugsDose.editTextReferralLocation = view.findViewById(R.id.referral_place);
@@ -87,6 +60,9 @@ public class Followup_page_4 extends Fragment implements CheckBoxInterface, Spin
         textWatcher(drugsDose.editTextReferralDate);
         textWatcher(drugsDose.editTextReferralNote);
         textWatcher(drugsDose.editTextClinician);
+
+        CheckBox checkBoxMetformin = view.findViewById(R.id.treatment_metformin);
+        CheckBox checkBoxGlibenclamide = view.findViewById(R.id.treatment_glibenclamide);
 
         CheckBox checkBoxAtenolol = view.findViewById(R.id.treatment_atenolol);
         CheckBox checkBoxLabetolol = view.findViewById(R.id.treatment_labetolol);

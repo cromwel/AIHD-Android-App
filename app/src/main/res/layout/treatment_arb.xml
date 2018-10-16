@@ -24,7 +24,7 @@
             android:id="@+id/treatment_candesartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Candesartan" />
 
         <Spinner
@@ -37,7 +37,7 @@
             android:id="@+id/spinnerDrugCandesartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +50,7 @@
             android:id="@+id/treatment_irbesartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Irbesartan " />
 
         <Spinner
@@ -63,7 +63,7 @@
             android:id="@+id/spinnerDrugIrbesartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -76,7 +76,7 @@
             android:id="@+id/treatment_losartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Losartan" />
 
         <Spinner
@@ -89,7 +89,7 @@
             android:id="@+id/spinnerDrugLosartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -103,7 +103,7 @@
             android:id="@+id/treatment_telmisartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Telmisartan" />
 
         <Spinner
@@ -116,7 +116,7 @@
             android:id="@+id/spinnerDrugTelmisartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -131,7 +131,7 @@
             android:id="@+id/treatment_valsartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Valsartan " />
 
         <Spinner
@@ -144,7 +144,7 @@
             android:id="@+id/spinnerDrugValsartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -159,7 +159,7 @@
             android:id="@+id/treatment_olmesartan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.25"
+            android:layout_weight="1"
             android:text="Olmesartan" />
 
         <Spinner
@@ -172,7 +172,7 @@
             android:id="@+id/spinnerDrugOlmesartanFrq"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight=".75" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <customfonts.EditText_Roboto_Regular
