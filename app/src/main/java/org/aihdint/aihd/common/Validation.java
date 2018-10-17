@@ -91,7 +91,7 @@ public class Validation {
     private static void validate(String obs, String response, String concept_id) {
 
         if (!obs.contains(concept_id)) {
-            error.append(response).append("is required. \n\n");
+            error.append(response).append(" is required. \n\n");
         }
     }
 

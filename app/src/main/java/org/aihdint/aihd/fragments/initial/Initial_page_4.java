@@ -27,13 +27,13 @@ import org.json.JSONObject;
 public class Initial_page_4 extends Fragment {
 
     //Checkboxes
-    private String stroke, heart, kidney, neuropahty, visual, ulcers, erectile, other, nutrition, activity, psychosocial, diagnosis_stroke, diagnosis_heart, diagnosis_kidney,
-            diagnosis_neuropahty, diagnosis_visual, diagnosis_ulcers, diagnosis_erectile, diagnosis_other;
+    private String stroke, heart, kidney, neuropahty, visual, ulcers, erectile, other, gastrology, cataracts, dental, other_counselling, nutrition, activity, psychosocial, diagnosis_stroke, diagnosis_heart, diagnosis_kidney,
+            diagnosis_neuropahty, diagnosis_visual, diagnosis_ulcers, diagnosis_erectile, diagnosis_gastrology, diagnosis_cataracts, diagnosis_dental, diagnosis_other;
 
     //RadioButtons
-    private EditText editTextStroke, editTextHeart, editTextKidney, editTextNeuropahty, editTextVisual, editTextUlcers, editTextErectile, editTextOtherComplication,
+    private EditText editTextStroke, editTextHeart, editTextKidney, editTextNeuropahty, editTextVisual, editTextUlcers, editTextErectile, editTextGatrology, editTextCataracts, editTextDental, editTextOtherComplication,
             editTextStrokeDate, editTextHeartDate, editTextKidneyDate, editTextNeuropahtyDate, editTextVisualDate, editTextUlcersDate, editTextErectileDate,
-            editTextOtherComplicationDate, editTextOtherProvision;
+            editTextGatrologyDate, editTextCataractsDate, editTextDentalDate, editTextOtherComplicationDate, editTextOtherProvision;
 
 
     @Override
@@ -47,10 +47,14 @@ public class Initial_page_4 extends Fragment {
         CheckBox checkBoxVisual = view.findViewById(R.id.checkbox_complication_visual);
         CheckBox checkBoxUlcers = view.findViewById(R.id.checkbox_complication_foot_ulcer);
         CheckBox checkBoxErectile = view.findViewById(R.id.checkbox_complication_erectile);
+        CheckBox checkBoxGastrology = view.findViewById(R.id.checkbox_complication_gastropathy);
+        CheckBox checkBoxCataracts = view.findViewById(R.id.checkbox_complication_cataracts);
+        CheckBox checkBoxDental = view.findViewById(R.id.checkbox_complication_dental);
         CheckBox checkBoxOther = view.findViewById(R.id.checkbox_complication_other);
         CheckBox checkBoxNutrition = view.findViewById(R.id.checkbox_nutrition);
         CheckBox checkBoxActivity = view.findViewById(R.id.checkbox_physical_activity);
         CheckBox checkBoxPsychosocial = view.findViewById(R.id.checkbox_psychosocial);
+        CheckBox checkBoxCounsellingOther = view.findViewById(R.id.checkbox_other);
 
         checkBox(checkBoxStroke);
         checkBox(checkBoxHeart);
@@ -59,10 +63,14 @@ public class Initial_page_4 extends Fragment {
         checkBox(checkBoxVisual);
         checkBox(checkBoxUlcers);
         checkBox(checkBoxErectile);
+        checkBox(checkBoxGastrology);
+        checkBox(checkBoxCataracts);
+        checkBox(checkBoxDental);
         checkBox(checkBoxOther);
         checkBox(checkBoxNutrition);
         checkBox(checkBoxActivity);
         checkBox(checkBoxPsychosocial);
+        checkBox(checkBoxCounsellingOther);
 
         RadioButton radioButtonStrokeResolved = view.findViewById(R.id.radio_diagnosis_stroke_resolved);
         RadioButton radioButtonHeartResolved = view.findViewById(R.id.radio_diagnosis_heart_failure_resolved);
@@ -71,6 +79,9 @@ public class Initial_page_4 extends Fragment {
         RadioButton radioButtonVisualResolved = view.findViewById(R.id.radio_diagnosis_visual_resolved);
         RadioButton radioButtonUlcersResolved = view.findViewById(R.id.radio_diagnosis_foot_ulcer_resolved);
         RadioButton radioButtonErectileResolved = view.findViewById(R.id.radio_diagnosis_erectile_resolved);
+        RadioButton radioButtonGastrologyResolved = view.findViewById(R.id.radio_diagnosis_gastropathy_resolved);
+        RadioButton radioButtonCataractResolved = view.findViewById(R.id.radio_diagnosis_cataracts_resolved);
+        RadioButton radioButtonDentalResolved = view.findViewById(R.id.radio_diagnosis_dental_resolved);
         RadioButton radioButtonOtherResolved = view.findViewById(R.id.radio_diagnosis_other_resolved);
 
         RadioButton radioButtonStrokeReferral = view.findViewById(R.id.radio_diagnosis_stroke_referral);
@@ -80,6 +91,9 @@ public class Initial_page_4 extends Fragment {
         RadioButton radioButtonVisualReferral = view.findViewById(R.id.radio_diagnosis_visual_referral);
         RadioButton radioButtonUlcersReferral = view.findViewById(R.id.radio_diagnosis_foot_ulcer_referral);
         RadioButton radioButtonErectileReferral = view.findViewById(R.id.radio_diagnosis_erectile_referral);
+        RadioButton radioButtonGastrologyReferral = view.findViewById(R.id.radio_diagnosis_gastropathy_referral);
+        RadioButton radioButtonCataractReferral = view.findViewById(R.id.radio_diagnosis_cataracts_referral);
+        RadioButton radioButtonDentalReferral = view.findViewById(R.id.radio_diagnosis_dental_referral);
         RadioButton radioButtonOtherReferral = view.findViewById(R.id.radio_diagnosis_other_referral);
 
         radioButton(radioButtonStrokeResolved);
@@ -89,6 +103,9 @@ public class Initial_page_4 extends Fragment {
         radioButton(radioButtonVisualResolved);
         radioButton(radioButtonUlcersResolved);
         radioButton(radioButtonErectileResolved);
+        radioButton(radioButtonGastrologyResolved);
+        radioButton(radioButtonCataractResolved);
+        radioButton(radioButtonDentalResolved);
         radioButton(radioButtonOtherResolved);
 
         radioButton(radioButtonStrokeReferral);
@@ -98,6 +115,9 @@ public class Initial_page_4 extends Fragment {
         radioButton(radioButtonVisualReferral);
         radioButton(radioButtonUlcersReferral);
         radioButton(radioButtonErectileReferral);
+        radioButton(radioButtonGastrologyReferral);
+        radioButton(radioButtonCataractReferral);
+        radioButton(radioButtonDentalReferral);
         radioButton(radioButtonOtherReferral);
 
         editTextStroke = view.findViewById(R.id.diagnosis_comment_stroke);
@@ -107,6 +127,9 @@ public class Initial_page_4 extends Fragment {
         editTextVisual = view.findViewById(R.id.diagnosis_comment_visual);
         editTextUlcers = view.findViewById(R.id.diagnosis_comment_foot_ulcer);
         editTextErectile = view.findViewById(R.id.diagnosis_comment_erectile);
+        editTextGatrology = view.findViewById(R.id.diagnosis_comment_gastropathy);
+        editTextCataracts = view.findViewById(R.id.diagnosis_comment_cataracts);
+        editTextDental = view.findViewById(R.id.diagnosis_comment_dental);
         editTextOtherComplication = view.findViewById(R.id.diagnosis_comment_other);
         editTextOtherProvision = view.findViewById(R.id.provision_other);
 
@@ -117,6 +140,9 @@ public class Initial_page_4 extends Fragment {
         editTextVisualDate = view.findViewById(R.id.diagnosis_date_visual);
         editTextUlcersDate = view.findViewById(R.id.diagnosis_date_foot_ulcer);
         editTextErectileDate = view.findViewById(R.id.diagnosis_date_erectile);
+        editTextGatrologyDate = view.findViewById(R.id.diagnosis_date_gastropathy);
+        editTextCataractsDate = view.findViewById(R.id.diagnosis_date_cataracts);
+        editTextDentalDate = view.findViewById(R.id.diagnosis_date_dental);
         editTextOtherComplicationDate = view.findViewById(R.id.diagnosis_date_other);
 
         DateCalendar.date(getActivity(), editTextStrokeDate);
@@ -126,6 +152,9 @@ public class Initial_page_4 extends Fragment {
         DateCalendar.date(getActivity(), editTextVisualDate);
         DateCalendar.date(getActivity(), editTextUlcersDate);
         DateCalendar.date(getActivity(), editTextErectileDate);
+        DateCalendar.date(getActivity(), editTextGatrologyDate);
+        DateCalendar.date(getActivity(), editTextCataractsDate);
+        DateCalendar.date(getActivity(), editTextDentalDate);
         DateCalendar.date(getActivity(), editTextOtherComplicationDate);
 
         textWatcher(editTextStroke);
@@ -135,6 +164,9 @@ public class Initial_page_4 extends Fragment {
         textWatcher(editTextVisual);
         textWatcher(editTextUlcers);
         textWatcher(editTextErectile);
+        textWatcher(editTextGatrology);
+        textWatcher(editTextCataracts);
+        textWatcher(editTextDental);
         textWatcher(editTextOtherComplication);
 
         textWatcher(editTextStrokeDate);
@@ -144,6 +176,9 @@ public class Initial_page_4 extends Fragment {
         textWatcher(editTextVisualDate);
         textWatcher(editTextUlcersDate);
         textWatcher(editTextErectileDate);
+        textWatcher(editTextGatrologyDate);
+        textWatcher(editTextCataractsDate);
+        textWatcher(editTextDentalDate);
         textWatcher(editTextOtherProvision);
 
         return view;
@@ -234,6 +269,27 @@ public class Initial_page_4 extends Fragment {
                             erectile = "";
                         }
                         break;
+                    case R.id.checkbox_complication_gastropathy:
+                        if (checked) {
+                            gastrology = "145339";
+                        } else {
+                            gastrology = "";
+                        }
+                        break;
+                    case R.id.checkbox_complication_cataracts:
+                        if (checked) {
+                            cataracts = "120860";
+                        } else {
+                            cataracts = "";
+                        }
+                        break;
+                    case R.id.checkbox_complication_dental:
+                        if (checked) {
+                            dental = "165331";
+                        } else {
+                            dental = "";
+                        }
+                        break;
                     case R.id.checkbox_complication_other:
                         if (checked) {
                             other = "5622";
@@ -260,6 +316,13 @@ public class Initial_page_4 extends Fragment {
                             psychosocial = "5490";
                         } else {
                             psychosocial = "";
+                        }
+                        break;
+                    case R.id.checkbox_other:
+                        if (checked) {
+                            other_counselling = "5622";
+                        } else {
+                            other_counselling = "";
                         }
                         break;
 
@@ -337,6 +400,30 @@ public class Initial_page_4 extends Fragment {
                         if (checked)
                             diagnosis_erectile = "165192";
                         break;
+                    case R.id.radio_diagnosis_gastropathy_resolved:
+                        if (checked)
+                            diagnosis_gastrology = "6097";
+                        break;
+                    case R.id.radio_diagnosis_gastropathy_referral:
+                        if (checked)
+                            diagnosis_gastrology = "165192";
+                        break;
+                    case R.id.radio_diagnosis_cataracts_resolved:
+                        if (checked)
+                            diagnosis_cataracts = "6097";
+                        break;
+                    case R.id.radio_diagnosis_cataracts_referral:
+                        if (checked)
+                            diagnosis_cataracts = "165192";
+                        break;
+                    case R.id.radio_diagnosis_dental_resolved:
+                        if (checked)
+                            diagnosis_dental = "6097";
+                        break;
+                    case R.id.radio_diagnosis_dental_referral:
+                        if (checked)
+                            diagnosis_dental = "165192";
+                        break;
                     case R.id.radio_diagnosis_other_resolved:
                         if (checked)
                             diagnosis_other = "6097";
@@ -365,6 +452,9 @@ public class Initial_page_4 extends Fragment {
         JSONArray jsonArry6 = new JSONArray();
         JSONArray jsonArry7 = new JSONArray();
         JSONArray jsonArry8 = new JSONArray();
+        JSONArray jsonArry9 = new JSONArray();
+        JSONArray jsonArry10 = new JSONArray();
+        JSONArray jsonArry11 = new JSONArray();
 
         jsonArry1.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", stroke, DateCalendar.date(), ""));
         jsonArry1.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextStrokeDate.getText().toString().trim(), DateCalendar.date(), ""));
@@ -394,15 +484,28 @@ public class Initial_page_4 extends Fragment {
         jsonArry7.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextErectileDate.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry7.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_erectile, DateCalendar.date(), editTextErectile.getText().toString().trim()));
 
-        jsonArry8.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", other, DateCalendar.date(), ""));
-        jsonArry8.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextOtherComplicationDate.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry8.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_other, DateCalendar.date(), editTextOtherComplication.getText().toString().trim()));
+        jsonArry8.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", gastrology, DateCalendar.date(), ""));
+        jsonArry8.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextGatrologyDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry8.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_gastrology, DateCalendar.date(), editTextGatrology.getText().toString().trim()));
+
+        jsonArry9.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", cataracts, DateCalendar.date(), ""));
+        jsonArry9.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextCataractsDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry9.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_cataracts, DateCalendar.date(), editTextCataracts.getText().toString().trim()));
+
+        jsonArry10.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", dental, DateCalendar.date(), ""));
+        jsonArry10.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextDentalDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry10.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_dental, DateCalendar.date(), editTextDental.getText().toString().trim()));
+
+        jsonArry11.put(JSONFormBuilder.observations("6042", "165124", "valueCoded", other, DateCalendar.date(), ""));
+        jsonArry11.put(JSONFormBuilder.observations("159948", "165124", "valueDate", editTextOtherComplicationDate.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry11.put(JSONFormBuilder.observations("165127", "165124", "valueCoded", diagnosis_other, DateCalendar.date(), editTextOtherComplication.getText().toString().trim()));
 
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", nutrition, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", activity, DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", psychosocial, DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1379", "", "valueCoded", other_counselling, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("1379", "", "valueText", editTextOtherProvision.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165176", "", "valueText", editTextOtherProvision.getText().toString().trim(), DateCalendar.date(), ""));
 
 
         try {
@@ -414,6 +517,9 @@ public class Initial_page_4 extends Fragment {
             jsonArry6 = JSONFormBuilder.concatArray(jsonArry6);
             jsonArry7 = JSONFormBuilder.concatArray(jsonArry7);
             jsonArry8 = JSONFormBuilder.concatArray(jsonArry8);
+            jsonArry9 = JSONFormBuilder.concatArray(jsonArry9);
+            jsonArry10 = JSONFormBuilder.concatArray(jsonArry10);
+            jsonArry11 = JSONFormBuilder.concatArray(jsonArry11);
 
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
 
@@ -425,6 +531,9 @@ public class Initial_page_4 extends Fragment {
             jsonObs = JSONFormBuilder.checkLength(jsonArry6, jsonObs);
             jsonObs = JSONFormBuilder.checkLength(jsonArry7, jsonObs);
             jsonObs = JSONFormBuilder.checkLength(jsonArry8, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry9, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry10, jsonObs);
+            jsonObs = JSONFormBuilder.checkLength(jsonArry11, jsonObs);
 
             if (jsonObs.length() > 0) {
                 JSONObject jsonObject = new JSONObject();

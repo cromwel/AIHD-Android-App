@@ -428,7 +428,7 @@ public class Initial_page_3 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("1007", "", "valueNumeric", editTextHDL.getText().toString().trim(), editTextHDLDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1008", "", "valueNumeric", editTextLDL.getText().toString().trim(), editTextLDLDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1006", "", "valueNumeric", editTextCholesterol.getText().toString().trim(), editTextCholesterolDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueText", editTextTriglcerides.getText().toString().trim(), editTextTriglceridesDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueNumeric", editTextTriglcerides.getText().toString().trim(), editTextTriglceridesDate.getText().toString().trim(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("653", "", "valueNumeric", editTextAST.getText().toString().trim(), editTextASTDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("654", "", "valueNumeric", editTextALT.getText().toString().trim(), editTextALTDate.getText().toString().trim(), ""));
@@ -449,7 +449,7 @@ public class Initial_page_3 extends Fragment {
 
         jsonArry.put(JSONFormBuilder.observations("159565", "", "valueCoded", ecg, editTextECGDate.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", cxr, editTextCXRDate.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueDate", editTextUltraSound.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueText", editTextUltraSound.getText().toString().trim(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("165312", "", "valueText", editTextPDT.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165144", "", "valueDate", editTextPDTDate.getText().toString().trim(), DateCalendar.date(), ""));

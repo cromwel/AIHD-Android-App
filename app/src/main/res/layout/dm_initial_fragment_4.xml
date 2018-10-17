@@ -458,8 +458,9 @@
 
                         <CheckBox
                             android:id="@+id/checkbox_complication_erectile"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="Erectile Dysfunction" />
 
                         <RadioGroup
@@ -513,6 +514,210 @@
                         android:layout_height="wrap_content"
                         android:background="@color/background"
                         android:padding="10dp"
+                        android:text="Gastropathy"
+                        android:textAllCaps="false" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkbox_complication_gastropathy"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gastropathy" />
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_gastropathy_resolved"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Resolved" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_gastropathy_referral"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Referral" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_date_gastropathy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:focusable="false"
+                        android:hint="Date diagnosed"
+                        android:inputType="date"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_comment_gastropathy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:hint="Comments"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background"
+                        android:padding="10dp"
+                        android:text="Cataracts"
+                        android:textAllCaps="false" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkbox_complication_cataracts"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cataracts" />
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_cataracts_resolved"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Resolved" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_cataracts_referral"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Referral" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_date_cataracts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:focusable="false"
+                        android:hint="Date diagnosed"
+                        android:inputType="date"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_comment_cataracts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:hint="Comments"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background"
+                        android:padding="10dp"
+                        android:text="Dental complications"
+                        android:textAllCaps="false" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/checkbox_complication_dental"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Dental complications" />
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_dental_resolved"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Resolved" />
+
+                            <RadioButton
+                                android:id="@+id/radio_diagnosis_dental_referral"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Referral" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_date_dental"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:focusable="false"
+                        android:hint="Date diagnosed"
+                        android:inputType="date"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/diagnosis_comment_dental"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:hint="Comments"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textSize="13sp" />
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background"
+                        android:padding="10dp"
                         android:text="Other"
                         android:textAllCaps="false" />
 
@@ -524,8 +729,9 @@
 
                         <CheckBox
                             android:id="@+id/checkbox_complication_other"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:layout_margin="20dp"
                             android:text="Other" />
 
@@ -625,10 +831,11 @@
                             android:layout_height="wrap_content"
                             android:text="Psychosocial" />
 
-                        <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
+                        <CheckBox
+                            android:id="@+id/checkbox_other"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Other (Specify)" />
+                            android:text="Other" />
 
                         <customfonts.EditText_Roboto_Light
                             android:id="@+id/provision_other"
@@ -644,7 +851,5 @@
 
 
         </LinearLayout>
-
     </ScrollView>
-
 </android.support.design.widget.CoordinatorLayout>

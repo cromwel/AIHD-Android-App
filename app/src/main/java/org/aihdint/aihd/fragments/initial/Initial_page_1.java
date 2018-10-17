@@ -330,6 +330,8 @@ public class Initial_page_1 extends Fragment {
         if (status.matches("165088")) {
             editTextDiagnosisDiabetes.setVisibility(View.VISIBLE);
             radioGroupDiabetes.setVisibility(View.VISIBLE);
+        } else if (status.matches("165087")) {
+            radioGroupDiabetes.setVisibility(View.VISIBLE);
         } else {
             editTextDiagnosisDiabetes.setVisibility(View.GONE);
             radioGroupDiabetes.setVisibility(View.GONE);
@@ -340,6 +342,8 @@ public class Initial_page_1 extends Fragment {
     public void hypertension(String status) {
         if (status.matches("165093")) {
             editTextDiagnosisHypertension.setVisibility(View.VISIBLE);
+            radioGroupHypertention.setVisibility(View.VISIBLE);
+        } else if (status.matches("165092")) {
             radioGroupHypertention.setVisibility(View.VISIBLE);
         } else {
             editTextDiagnosisHypertension.setVisibility(View.GONE);
@@ -389,7 +393,7 @@ public class Initial_page_1 extends Fragment {
     }
 
     public void tbStatus(String status) {
-        if (status.matches("138571")) {
+        if (status.matches("1065")) {
             checkBoxTBStatus.setVisibility(View.VISIBLE);
             editTextTBDate.setVisibility(View.VISIBLE);
         } else {
@@ -547,15 +551,15 @@ public class Initial_page_1 extends Fragment {
                         break;
                     case R.id.radio_tb_status_negative:
                         if (checked)
-                            tb_status = "664";
+                            tb_status = "1066";
                         break;
                     case R.id.radio_tb_status_positive:
                         if (checked)
-                            tb_status = "138571";
+                            tb_status = "1065";
                         break;
                     case R.id.radio_tb_status_unknown:
                         if (checked)
-                            tb_status = "1067";
+                            tb_status = "1175";
                         break;
                     case R.id.radio_nhif_other:
                         if (checked)
@@ -639,15 +643,15 @@ public class Initial_page_1 extends Fragment {
                         break;
                     case R.id.radio_drink_yes:
                         if (checked)
-                            drinking = "1065";
+                            drinking = "159450";
                         break;
                     case R.id.radio_drink_no:
                         if (checked)
-                            drinking = "1066";
+                            drinking = "1090";
                         break;
                     case R.id.radio_drink_stopped:
                         if (checked)
-                            drinking = "158939";
+                            drinking = "159452";
                         break;
                     default:
                         break;
@@ -678,7 +682,7 @@ public class Initial_page_1 extends Fragment {
                 switch (checkBox.getId()) {
                     case R.id.checkbox_tb_status:
                         if (checked) {
-                            tb_treatment = "1659";
+                            tb_treatment = "1662";
                         } else {
                             tb_treatment = "";
                         }

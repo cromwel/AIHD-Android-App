@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,7 +34,7 @@ public class Home extends AppCompatActivity{
 
         List<Forms> forms = Select.from(Forms.class).where(Condition.prop("status").eq("0")).list();
         for (Forms cn : forms) {
-            //Log.d("Form ID",cn.getId()+"");
+            Log.d("Form ID", cn.getId() + "");
             Intent intentPatient = new Intent(getApplicationContext(), LoadFiles.class);
             intentPatient.putExtra("file_path", Environment.getExternalStorageDirectory() + "/aihd/" + cn.getForm_type() + "/" + cn.getForm_name());
             intentPatient.putExtra("form_id", cn.getId());
