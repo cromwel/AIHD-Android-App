@@ -38,23 +38,30 @@ public class CheckBoxDrugs {
                         break;
                     case R.id.treatment_insulin:
                         if (checked) {
-                            drugsDose.Insulin = "165099";
+                            drugsDose.Insulin = "159459";
                         } else {
                             drugsDose.Insulin = "";
                         }
                         break;
                     case R.id.treatment_soluble_insulin:
                         if (checked) {
-                            drugsDose.SolubleInsulin = "165099";
+                            drugsDose.SolubleInsulin = "282";
                         } else {
                             drugsDose.SolubleInsulin = "";
                         }
                         break;
                     case R.id.treatment_nph:
                         if (checked) {
-                            drugsDose.NPH = "165099";
+                            drugsDose.NPH = "165284";
                         } else {
                             drugsDose.NPH = "";
+                        }
+                        break;
+                    case R.id.treatment_nph_2:
+                        if (checked) {
+                            drugsDose.NPH2 = "165287";
+                        } else {
+                            drugsDose.NPH2 = "";
                         }
                         break;
                     case R.id.treatment_captopril:

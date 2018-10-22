@@ -825,6 +825,29 @@
                                 android:weightSum="1">
 
                                 <CheckBox
+                                    android:id="@+id/checkbox_foot"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="Foot amputation" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/details_foot"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:ems="10"
+                                    android:inputType="text"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <CheckBox
                                     android:id="@+id/checkbox_assesment_other"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -1012,7 +1035,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1046,7 +1069,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1080,7 +1103,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1114,7 +1137,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1148,7 +1171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1182,7 +1205,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="text"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
@@ -1216,7 +1239,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".75"
                                 android:ems="10"
-                                android:inputType="text"
+                                android:inputType="numberDecimal"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular

@@ -198,10 +198,10 @@ public class JsonDrugs {
         jsonArry35.put(JSONFormBuilder.observations("165202", "165308", "valueText", drugsDose.editTextPhysicalExercise.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry36.put(JSONFormBuilder.observations("1282", "165309", "valueCoded", drugsDose.Herbal, DateCalendar.date(), ""));
-        jsonArry36.put(JSONFormBuilder.observations("165203", "165309", "valueText", drugsDose.editTextHerbal.getText().toString(), DateCalendar.date(), ""));
+        jsonArry36.put(JSONFormBuilder.observations("165204", "165309", "valueText", drugsDose.editTextHerbal.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry37.put(JSONFormBuilder.observations("1282", "165310", "valueCoded", drugsDose.TreatmentOther, DateCalendar.date(), ""));
-        jsonArry37.put(JSONFormBuilder.observations("165204", "165310", "valueText", drugsDose.editTextTreatmentOther.getText().toString(), DateCalendar.date(), ""));
+        jsonArry37.put(JSONFormBuilder.observations("165205", "165310", "valueText", drugsDose.editTextTreatmentOther.getText().toString(), DateCalendar.date(), ""));
 
         jsonArry.put(JSONFormBuilder.observations("161011", "", "valueText", drugsDose.editTextComment.getText().toString().trim(), DateCalendar.date(), ""));
 

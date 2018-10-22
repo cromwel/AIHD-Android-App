@@ -236,6 +236,10 @@ public class Followup_page_1 extends Fragment {
                         if (checked)
                             diabetes_type = "142473";
                         break;
+                    case R.id.radio_diabetes_secondary:
+                        if (checked)
+                            diabetes_type = "165199";
+                        break;
                     case R.id.radio_hypertension_mild:
                         if (checked)
                             hypertension_type = "165194";

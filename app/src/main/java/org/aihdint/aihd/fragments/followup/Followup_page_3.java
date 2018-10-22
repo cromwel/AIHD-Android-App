@@ -24,6 +24,7 @@ import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 
 import customfonts.TextView_Roboto_Bold;
@@ -41,9 +42,9 @@ public class Followup_page_3 extends Fragment {
     private String foot_exam, eye_exam, dental_exam, eye_checkup;
     private String cardiovascular_disease, high_blood_pressure, high_cholestrol, peripheral_vascular_disease,
             peripheral_neuropathy, autonomic_neuropathy, retinopathy, kidney_disease, asthma_COPD,
-            arthritis, assesment_other, foot_amputation;
+            arthritis, foot, assesment_other, foot_amputation;
     private EditText editTextCardiovascularDisease, editTextHBP, editTextHighCholestrol, editTextVascularDisease, editTextPNeuropathy, editTextANeuropathy,
-            editTextRetinopathy, editTextKidneyDisease, editTextAsthma, editTextArthritis, editTextOther;
+            editTextRetinopathy, editTextKidneyDisease, editTextAsthma, editTextArthritis, editTextFoot, editTextOther;
     private EditText editTextFBS, editTextRBS, editTextHBA, editTextHDL, editTextLDL, editTextTriglycerides, editTextUEC, editTextUrinalysis;
     private EditText editTextDateFBS, editTextDateRBS, editTextDateHBA, editTextDateHDL, editTextDateLDL, editTextDateTriglycerides, editTextDateUEC, editTextDateUrinalysis;
 
@@ -71,6 +72,7 @@ public class Followup_page_3 extends Fragment {
         editTextKidneyDisease = view.findViewById(R.id.details_kidney_disease);
         editTextAsthma = view.findViewById(R.id.details_asthma_COPD);
         editTextArthritis = view.findViewById(R.id.details_arthritis);
+        editTextFoot = view.findViewById(R.id.details_foot);
         editTextOther = view.findViewById(R.id.details_assesment_other);
 
         editTextFBS = view.findViewById(R.id.followup_fbs);
@@ -124,6 +126,7 @@ public class Followup_page_3 extends Fragment {
         textWatcher(editTextKidneyDisease, "");
         textWatcher(editTextAsthma, "");
         textWatcher(editTextArthritis, "");
+        textWatcher(editTextFoot, "");
         textWatcher(editTextOther, "");
 
         textWatcher(editTextFBS, "");
@@ -175,6 +178,7 @@ public class Followup_page_3 extends Fragment {
         CheckBox checkBoxKidneyDisease = view.findViewById(R.id.checkbox_kidney_disease);
         CheckBox checkBoxAsthma = view.findViewById(R.id.checkbox_asthma_COPD);
         CheckBox checkBoxArthritis = view.findViewById(R.id.checkbox_arthritis);
+        CheckBox checkBoxFoot = view.findViewById(R.id.checkbox_foot);
         CheckBox checkBoxOther = view.findViewById(R.id.checkbox_assesment_other);
 
         checkBox(checkBoxCardiovascularDisease);
@@ -187,6 +191,7 @@ public class Followup_page_3 extends Fragment {
         checkBox(checkBoxKidneyDisease);
         checkBox(checkBoxAsthma);
         checkBox(checkBoxArthritis);
+        checkBox(checkBoxFoot);
         checkBox(checkBoxOther);
 
         RadioButton radioButtonFootAmputationYes = view.findViewById(R.id.radio_foot_amputations_yes);
@@ -317,7 +322,7 @@ public class Followup_page_3 extends Fragment {
                         break;
                     case R.id.checkbox_cardiovascular_disease:
                         if (checked) {
-                            cardiovascular_disease = "137593";
+                            cardiovascular_disease = "119270";
                         } else {
                             cardiovascular_disease = "";
                         }
@@ -385,6 +390,13 @@ public class Followup_page_3 extends Fragment {
                             arthritis = "";
                         }
                         break;
+                    case R.id.checkbox_foot:
+                        if (checked) {
+                            foot = "165104";
+                        } else {
+                            foot = "";
+                        }
+                        break;
                     case R.id.checkbox_assesment_other:
                         if (checked) {
                             assesment_other = "5622";
@@ -403,6 +415,10 @@ public class Followup_page_3 extends Fragment {
     public void updateValues() {
 
         JSONArray jsonArry = new JSONArray();
+        JSONArray jsonGroup = new JSONArray();
+
+        JSONArray jsonArry1 = new JSONArray();
+        JSONArray jsonArry2 = new JSONArray();
 
         jsonArry.put(JSONFormBuilder.observations("5090", "", "valueNumeric", editTextHeight.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("5089", "", "valueNumeric", editTextWeight.getText().toString().trim(), DateCalendar.date(), ""));
@@ -427,21 +443,34 @@ public class Followup_page_3 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", kidney_disease, DateCalendar.date(), editTextKidneyDisease.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", asthma_COPD, DateCalendar.date(), editTextAsthma.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", arthritis, DateCalendar.date(), editTextArthritis.getText().toString().trim()));
+        jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", foot, DateCalendar.date(), editTextFoot.getText().toString().trim()));
         jsonArry.put(JSONFormBuilder.observations("165106", "", "valueCoded", assesment_other, DateCalendar.date(), editTextOther.getText().toString().trim()));
 
         jsonArry.put(JSONFormBuilder.observations("165104", "", "valueCoded", foot_amputation, DateCalendar.date(), ""));
 
-        jsonArry.put(JSONFormBuilder.observations("160912", "161487", "valueNumeric", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("887", "161487", "valueNumeric", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("160912", "161487", "valueNumeric", editTextFBS.getText().toString().trim(), editTextDateFBS.getText().toString().trim(), ""));
+        jsonArry1.put(JSONFormBuilder.observations("887", "161487", "valueNumeric", editTextRBS.getText().toString().trim(), editTextDateRBS.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("159644", "", "valueNumeric", editTextHBA.getText().toString().trim(), editTextDateHBA.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1007", "161487", "valueNumeric", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("1008", "161487", "valueNumeric", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1007", "161487", "valueNumeric", editTextHDL.getText().toString().trim(), editTextDateHDL.getText().toString().trim(), ""));
+        jsonArry2.put(JSONFormBuilder.observations("1008", "161487", "valueNumeric", editTextLDL.getText().toString().trim(), editTextDateLDL.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("1009", "", "valueNumeric", editTextTriglycerides.getText().toString().trim(), editTextDateTriglycerides.getText().toString().trim(), ""));
         jsonArry.put(JSONFormBuilder.observations("164364", "", "valueNumeric", editTextUEC.getText().toString().trim(), editTextDateUEC.getText().toString().trim(), ""));
-        jsonArry.put(JSONFormBuilder.observations("160987", "", "valueNumeric", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160987", "", "valueText", editTextUrinalysis.getText().toString().trim(), editTextDateUrinalysis.getText().toString().trim(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
+            jsonArry1 = JSONFormBuilder.concatArray(jsonArry1);
+            jsonArry2 = JSONFormBuilder.concatArray(jsonArry2);
+
+            jsonGroup = JSONFormBuilder.checkLength(jsonArry1, jsonGroup);
+            jsonGroup = JSONFormBuilder.checkLength(jsonArry2, jsonGroup);
+
+            if (jsonGroup.length() > 0) {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("groups", jsonGroup);
+
+                jsonArry.put(jsonObject);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

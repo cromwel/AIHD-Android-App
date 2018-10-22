@@ -346,7 +346,7 @@ public class Followup_page_4 extends Fragment implements CheckBoxInterface, Spin
             jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", drugsDose.continueCare, DateCalendar.date(), ""));
             jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", drugsDose.editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
             jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", drugsDose.editTextReferralLocation.getText().toString().trim(), DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("163181", "", "valueText", drugsDose.editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
+            jsonArry.put(JSONFormBuilder.observations("163181", "", "valueDate", drugsDose.editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
             jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", drugsDose.editTextReferralNote.getText().toString().trim(), DateCalendar.date(), ""));
             jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", drugsDose.editTextClinician.getText().toString().trim(), DateCalendar.date(), ""));
 
