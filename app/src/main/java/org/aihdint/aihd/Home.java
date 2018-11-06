@@ -32,13 +32,17 @@ public class Home extends AppCompatActivity{
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
         navigate.createDrawer(toolbar);
 
-        List<Forms> forms = Select.from(Forms.class).where(Condition.prop("status").eq("0")).list();
-        for (Forms cn : forms) {
-            Log.d("Form ID", cn.getId() + "");
-            Intent intentPatient = new Intent(getApplicationContext(), LoadFiles.class);
-            intentPatient.putExtra("file_path", Environment.getExternalStorageDirectory() + "/aihd/" + cn.getForm_type() + "/" + cn.getForm_name());
-            intentPatient.putExtra("form_id", cn.getId());
-            getApplication().startService(intentPatient);
+        try {
+            List<Forms> forms = Select.from(Forms.class).where(Condition.prop("status").eq("0")).list();
+            for (Forms cn : forms) {
+                Log.d("Form ID", cn.getId() + "");
+                Intent intentPatient = new Intent(getApplicationContext(), LoadFiles.class);
+                intentPatient.putExtra("file_path", Environment.getExternalStorageDirectory() + "/aihd/" + cn.getForm_type() + "/" + cn.getForm_name());
+                intentPatient.putExtra("form_id", cn.getId());
+                getApplication().startService(intentPatient);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
