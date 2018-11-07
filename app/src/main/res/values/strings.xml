@@ -80,4 +80,17 @@
     <string name="vitals_summary">Vitals Summary</string>
     <string name="drug">Drug</string>
     <string name="dose_frequency"><![CDATA[Dose(mg) & Frequency]]></string>
+
+    <string name="check_to_pass">I accept the terms &amp; conditions.</string>
+    <string name="error_message">Please accept the terms &amp; conditions to proceed.</string>
+
+    <string name="agreement">
+        \n \n \n \n<b>AGREEMENT</b>\nPlease review the privacy policy found on the <a href="https://ncdqm.tk">ncdqm.tk</a> site.
+
+        \n\nI has read and understand the above policy and agree to keep strictly confidential
+        all confidential information received from the records of the Department of Health.
+        I understand fully the consequences if confidential information is disclosed without proper authorization.
+        I discussed, and will continue to discuss, with County Health Management Team personnel any questions
+        about what is confidential or to whom confidential information may be revealed.
+</string>
 </resources>

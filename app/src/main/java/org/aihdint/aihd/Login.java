@@ -4,15 +4,9 @@ package org.aihdint.aihd;
  * Developed by Rodney on 02/03/2018.
  */
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -29,15 +23,11 @@ import org.aihdint.aihd.common.Alerts;
 import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Variables;
-import org.aihdint.aihd.services.LoadConcepts;
-import org.aihdint.aihd.services.LoadLocations;
 import org.aihdint.aihd.services.LoadPatients;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.aihdint.aihd.common.Alerts.hideDialog;
@@ -60,21 +50,6 @@ public class Login extends Activity {
         inputUsername = findViewById(R.id.username);
         inputPassword = findViewById(R.id.password);
 
-        // Check if user is already logged in or not
-        if (AppController.getInstance().getSessionManager().isLoggedIn()) {
-            // User is already logged in. Take him to main activity
-            Intent intent = new Intent(Login.this, Home.class);
-            startActivity(intent);
-            finish();
-        } else {
-            checkPermissions();
-
-            Intent serviceConcept = new Intent(this, LoadConcepts.class);
-            startService(serviceConcept);
-
-            Intent serviceLocation = new Intent(this, LoadLocations.class);
-            startService(serviceLocation);
-        }
     }
 
 
@@ -252,51 +227,4 @@ public class Login extends Activity {
         AppController.getInstance().addToRequestQueue(req);
 
     }
-
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public void checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            List<String> permissions = new ArrayList<>();
-            permissions.add(Manifest.permission.ACCESS_NETWORK_STATE);
-            permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-            permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(permissions.toArray(new String[permissions.size()]), 101);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case 101: {
-                for (int i = 0; i < permissions.length; i++) {
-                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        Log.d("Permissions", "Permission Granted: " + permissions[i]);
-
-                    } else if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
-                        Log.d("Permissions", "Permission Denied: " + permissions[i]);
-                        Alerts.errorMessage(linearLayout, permissions[i] + " : Permission Denied");
-                    }
-                }
-            }
-            break;
-            default: {
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            }
-        }
-    }
-
-
 }

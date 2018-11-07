@@ -21,6 +21,7 @@ public class SessionManager {
     // Shared preferences file name
     private static final String PREF_NAME = "AIHD";
 
+    private static final String KEY_SPLASH = "isNew";
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
     private static final String KEY_USER_ID = "user_id";
     private static final String KEY_USER = "user";
@@ -33,6 +34,19 @@ public class SessionManager {
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
         editor.apply();
+    }
+
+    public void setSplash(boolean isNew) {
+
+        editor.putBoolean(KEY_SPLASH, isNew);
+        // commit changes
+        editor.apply();
+
+        Log.d(TAG, "Splash Screen displayed!");
+    }
+
+    public boolean isSplash() {
+        return pref.getBoolean(KEY_SPLASH, false);
     }
 
     public void setLogin(boolean isLoggedIn) {
