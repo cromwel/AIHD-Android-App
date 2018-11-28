@@ -43,7 +43,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -160,6 +159,16 @@
             android:name=".services.LoadPatients"
             android:exported="false"
             android:process=":loadPatients" />
+        <service
+            android:name=".services.LoadAlarm"
+            android:exported="false"
+            android:process=":loadAlarm" />
+
+        <!-- Receiver -->
+
+        <receiver
+            android:name=".app.ScheduledReceiver"
+            android:process=":alarmReceiver" />
 
     </application>
 

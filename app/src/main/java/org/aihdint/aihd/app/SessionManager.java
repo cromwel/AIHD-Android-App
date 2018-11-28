@@ -36,7 +36,7 @@ public class SessionManager {
         editor.apply();
     }
 
-    public void setSplash(boolean isNew) {
+    public void setIntro(boolean isNew) {
 
         editor.putBoolean(KEY_SPLASH, isNew);
         // commit changes
@@ -45,7 +45,7 @@ public class SessionManager {
         Log.d(TAG, "Splash Screen displayed!");
     }
 
-    public boolean isSplash() {
+    public boolean isIntro() {
         return pref.getBoolean(KEY_SPLASH, false);
     }
 

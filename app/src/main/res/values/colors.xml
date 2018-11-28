@@ -8,10 +8,10 @@
     <color name="light_green">#228B22</color>
     <color name="orange">#e59400</color>
 
-    <color name="custom_slide_background">#3F51B5</color>
-    <color name="custom_slide_buttons">#1A237E</color>
+    <color name="custom_slide_background">#006600</color>
+    <color name="custom_slide_buttons">#00421B</color>
 
-    <color name="permission_slide">#009688</color>
+    <color name="permission_slide">#006600</color>
     <color name="permission_buttons">#004D40</color>
 
     <color name="background">#f5f7fa</color>

@@ -14,12 +14,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onStart();
 
         // Check if user is already logged in or not
-        if (AppController.getInstance().getSessionManager().isLoggedIn()) {
+        if (AppController.getInstance().getSessionManager().isIntro()) {
             // User is already logged in. Take him to main activity
-            Intent intent = new Intent(SplashActivity.this, Home.class);
+            Intent intent = new Intent(SplashActivity.this, Login.class);
             startActivity(intent);
             finish();
-
         } else {
             Intent serviceConcept = new Intent(this, LoadConcepts.class);
             startService(serviceConcept);

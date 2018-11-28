@@ -127,7 +127,7 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             launch.share(mContext);
         } else if (id == R.id.nav_logout) {
             // Session manager
-            AppController.getInstance().getSessionManager().clear();
+            AppController.getInstance().getSessionManager().setLogin(false);
 
             Intent login = new Intent(mContext.getApplicationContext(), Login.class);
             mContext.startActivity(login);
