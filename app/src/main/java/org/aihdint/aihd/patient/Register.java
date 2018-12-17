@@ -195,6 +195,9 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             birthdate = birth_year + dateFormat.format(new Date());
         }
 
+        telephone = telephone.replaceFirst("^0+(?!$)", "");
+        telephone_other = telephone_other.replaceFirst("^0+(?!$)", "");
+
         // Check for empty data in the form
         if (!family_name.isEmpty()
                 && !given_name.isEmpty()

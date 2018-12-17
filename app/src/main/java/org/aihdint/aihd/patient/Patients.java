@@ -16,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
@@ -41,7 +43,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
     private PatientAdapter adapter;
     private String IsForm;
     private SwipyRefreshLayout swipeRefreshLayout;
-
+    private Button buttonRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
         swipeRefreshLayout = findViewById(R.id.swipyrefreshlayout);
         EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+        buttonRegister = findViewById(R.id.btnRegister);
 
         contactList = new ArrayList<>();
         personList = new ArrayList<>();
@@ -146,6 +149,13 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
                 temp.add(d);
             }
         }
+
+        Log.d("TempSize", String.valueOf(temp.size()));
+        if (temp.size() > 0) {
+            buttonRegister.setVisibility(View.GONE);
+        } else {
+            buttonRegister.setVisibility(View.VISIBLE);
+        }
         //update recyclerview
         adapter.searchList(temp);
     }
@@ -180,4 +190,9 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
 
     }
 
+    public void register(View view) {
+        Intent add_patient = new Intent(getApplicationContext(), Register.class);
+        startActivity(add_patient);
+        finish();
+    }
 }

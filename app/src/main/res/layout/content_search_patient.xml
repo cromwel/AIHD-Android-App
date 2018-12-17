@@ -73,6 +73,20 @@
         android:layout_height="wrap_content" />
         -->
 
+    <Button
+        android:id="@+id/btnRegister"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:onClick="register"
+        android:textColor="#ffffff" />
+
     <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
         android:id="@+id/swipyrefreshlayout"
         android:layout_width="wrap_content"
@@ -85,7 +99,6 @@
             android:layout_height="match_parent" />
 
     </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
-
 
 </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

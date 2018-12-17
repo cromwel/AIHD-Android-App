@@ -8,11 +8,10 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="@string/home" />
-
-        <item
+        <!--<item
             android:id="@+id/nav_add_patients"
             android:icon="@drawable/ic_person_add"
-            android:title="@string/add_patients" />
+            android:title="@string/add_patients" />-->
         <item
             android:id="@+id/nav_patients"
             android:icon="@drawable/ic_people"

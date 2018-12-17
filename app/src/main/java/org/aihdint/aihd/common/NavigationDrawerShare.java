@@ -20,7 +20,6 @@ import org.aihdint.aihd.Login;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.patient.Register;
 
 /**
  * Developed by Rodney on 20/03/2018.
@@ -112,11 +111,11 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             forms.putExtra("isForm", "3");
             mContext.startActivity(forms);
             ((Activity)mContext).finish();
-        }*/ else if (id == R.id.nav_add_patients) {
+        } else if (id == R.id.nav_add_patients) {
             Intent add_patient = new Intent(mContext.getApplicationContext(), Register.class);
             mContext.startActivity(add_patient);
             ((Activity) mContext).finish();
-        } else if (id == R.id.nav_patients) {
+        } */ else if (id == R.id.nav_patients) {
             Intent patient = new Intent(mContext.getApplicationContext(), Patients.class);
             patient.putExtra("isForm", "0");
             mContext.startActivity(patient);
