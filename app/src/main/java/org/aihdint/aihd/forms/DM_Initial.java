@@ -150,7 +150,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             Log.e("Directory Message", "Directory not created");
         }
 
-        File file = new File(dir, file_name);
+      //  if ((int) PatientProfile.count(PatientProfile.class, "patient_id = ?", new String[]{patient_id}) == 0 && (int)PatientProfile.count()){}
+
+            File file = new File(dir, file_name);
 
         try {
 

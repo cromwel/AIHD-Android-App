@@ -4,6 +4,7 @@
     <string name="btnTakePicture">Capture Image</string>
     <string name="btnUploadToServer">Upload to Server</string>
     <string name="title_activity_home">Home</string>
+
     <string name="logo">Company Logo</string>
     <string name="search">Search …</string>
 
@@ -65,6 +66,7 @@
     <string name="malteser_international">Malteser International</string>
     <string name="logout">Logout</string>
     <string name="share">Share</string>
+    <string name="resources">Resources</string>
     <string name="communicate">Communicate</string>
     <string name="dm_htn_follow_up">DM HTN Follow Up</string>
     <string name="patients">Patients</string>
@@ -87,11 +89,15 @@
     <string name="agreement">
         \n \n \n \n<b>AGREEMENT</b>\nPlease review the privacy policy found on the <a href="https://ncdqm.tk">ncdqm.tk</a> site.
 
-        \n\nI has read and understand the above policy and agree to keep strictly confidential
+        \n\nI have read and understood the above policy and agree to keep strictly confidential
         all confidential information received from the records of the Department of Health.
         I understand fully the consequences if confidential information is disclosed without proper authorization.
         I discussed, and will continue to discuss, with County Health Management Team personnel any questions
         about what is confidential or to whom confidential information may be revealed.
 </string>
     <string name="register">Register</string>
+    <string name="title_activity_attachment">AttachmentActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 </resources>

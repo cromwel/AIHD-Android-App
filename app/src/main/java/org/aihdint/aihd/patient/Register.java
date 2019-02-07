@@ -49,7 +49,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     private static final String TAG = Register.class.getSimpleName();
 
     private String gender, birthdate, isEstimated, location_id, patient_type, language;
-    private EditText editTextDOB, editTextAge, editTextFamilyName, editTextGivenName, editTextMiddleName, editTextTelephone, editTextTelephoneOther;
+    private EditText editTextDOB, editTextAge, editTextFamilyName, editTextGivenName, editTextMiddleName, editTextTelephone, editTextTelephoneOther, editTextNationalID;
     private EditText editTextAddress1, editTextAddress2, editTextAddress3, editTextCounty, editTextVillage;
     private EditText editTextSupporter, editTextSupporterNumber, editTextSupporterNumberOther, editTextSupporterAddress;
     private LinearLayout linearLayoutDOB, linearLayoutAge;
@@ -76,8 +76,10 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         editTextFamilyName = findViewById(R.id.family_name);
         editTextGivenName = findViewById(R.id.given_name);
         editTextMiddleName = findViewById(R.id.middle_name);
+        editTextNationalID = findViewById(R.id.national_id);
         editTextTelephone = findViewById(R.id.telephone);
         editTextTelephoneOther = findViewById(R.id.telephone_other);
+        editTextNationalID = findViewById(R.id.national_id);
 
         editTextAddress1 = findViewById(R.id.address1);
         editTextAddress2 = findViewById(R.id.address2);
@@ -174,6 +176,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String family_name = editTextFamilyName.getText().toString().trim();
         String given_name = editTextGivenName.getText().toString().trim();
         String middle_name = editTextMiddleName.getText().toString().trim();
+        String national_id = editTextNationalID.getText().toString().trim();
         String telephone = editTextTelephone.getText().toString().trim();
         String telephone_other = editTextTelephoneOther.getText().toString().trim();
         String address1 = editTextAddress1.getText().toString().trim();
@@ -210,7 +213,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             showDialog();
 
             // Inserting row in users table
-            new Person(family_name, given_name, gender, birthdate, telephone, location_id, "0");
+            new Person(family_name, given_name, gender, birthdate, national_id, telephone, location_id, "0");
 
             ConnectivityManager cm =
                     (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -221,7 +224,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                     activeNetwork.isConnectedOrConnecting();
 
             if (isConnected) {
-                registerPatient(family_name, given_name, middle_name, telephone, telephone_other, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, supporter_number_other);
+                registerPatient(family_name, given_name, middle_name, national_id, telephone, telephone_other, address1, address2, address3, county_district, city_village, supporter, supporter_address, supporter_number, supporter_number_other);
             } else {
                 Toast.makeText(this, "Internet connection required to complete registration.", Toast.LENGTH_LONG).show();
             }
@@ -236,7 +239,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
      */
 
     private void registerPatient(final String family_name, final String given_name, final String middleName,
-                                 final String telephone, final String telephone_other,
+                                 final String national_id, final String telephone, final String telephone_other,
                                  final String address1, final String address2, final String address3, final String county_district, final String city_village,
                                  final String supporter, final String supporter_address, final String supporter_number, final String supporter_number_other) {
 
@@ -298,6 +301,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("family_name", family_name);
                 params.put("given_name", given_name);
                 params.put("middle_name", middleName);
+                params.put("national_id", national_id);
                 params.put("telephone", telephone);
                 params.put("telephone_other", telephone_other);
                 params.put("patient_type", patient_type);

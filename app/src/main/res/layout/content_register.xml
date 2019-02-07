@@ -306,6 +306,16 @@
                         android:weightSum="5">
 
                         <customfonts.TextView_Roboto_Regular
+                            android:id="@+id/national_id"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:hint="National ID number* eg 123456789"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
+
+                        <customfonts.TextView_Roboto_Regular
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
@@ -317,7 +327,7 @@
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/telephone_other"
                             android:layout_width="0dp"
-                            android:layout_weight="4"
+                            android:layout_weight="3"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
                             android:hint="Number Other* eg 0720000111"

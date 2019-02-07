@@ -7,6 +7,9 @@
     <color name="green">#006600</color>
     <color name="light_green">#228B22</color>
     <color name="orange">#e59400</color>
+    <color name="yellow">#cdcd00</color>
+    <color name="red">#b40000</color>
+    <color name="dark_blue">#2d00b3</color>
 
     <color name="custom_slide_background">#006600</color>
     <color name="custom_slide_buttons">#00421B</color>
@@ -41,4 +44,5 @@
     <color name="btn_login_bg">#eceef1</color>
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
+
 </resources>

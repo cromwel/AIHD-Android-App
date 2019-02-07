@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.aihdint.aihd.Resources.AttachmentActivity;
 import org.aihdint.aihd.common.Common;
 import org.aihdint.aihd.common.DateCalendar;
 import org.aihdint.aihd.forms.DM_FollowUp;
@@ -314,6 +315,13 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         // Show Alert Message
         alertDialog.show();
 
+    }
+
+    public void attachment(View view) {
+        Intent attachment = new Intent(getApplicationContext(), AttachmentActivity.class);
+        attachment.putExtra("patient_id", patient_id);
+        startActivity(attachment);
+        finish();
     }
 
     @Override

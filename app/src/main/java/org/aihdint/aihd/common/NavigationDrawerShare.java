@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
+import org.aihdint.aihd.Resources.ResourcesActivity;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.patient.Patients;
 import org.aihdint.aihd.R;
@@ -120,7 +121,11 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             patient.putExtra("isForm", "0");
             mContext.startActivity(patient);
             ((Activity) mContext).finish();
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_resources) {
+            Intent resources = new Intent(mContext.getApplicationContext(), ResourcesActivity.class);
+            mContext.startActivity(resources);
+           ((Activity) mContext).finish();
+        }else if (id == R.id.nav_share) {
             Alerts launch = new Alerts(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
             launch.share(mContext);
