@@ -43,7 +43,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
                 .neededPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_NETWORK_STATE})
                 .image(R.drawable.logo)
                 .title("Permissions required")
-                .description("1. File Access: Photos, media and files on device\n2. Storage Access: Read and modify contents of the SD\n3. Network Access: full network access, view network \nconnections\n4. System Function: Control vibration")
+                .description("1. File Access: Photos, media and \nfiles on device \n2. Storage Access: Read and modify \ncontents of the SD \n3. Network Access: full network access,\nview network connections \n4. System Function: Control vibration")
                 .build());
     }
 

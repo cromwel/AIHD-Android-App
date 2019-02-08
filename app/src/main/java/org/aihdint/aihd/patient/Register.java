@@ -79,7 +79,6 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         editTextNationalID = findViewById(R.id.national_id);
         editTextTelephone = findViewById(R.id.telephone);
         editTextTelephoneOther = findViewById(R.id.telephone_other);
-        editTextNationalID = findViewById(R.id.national_id);
 
         editTextAddress1 = findViewById(R.id.address1);
         editTextAddress2 = findViewById(R.id.address2);

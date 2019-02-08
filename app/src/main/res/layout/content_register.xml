@@ -272,14 +272,38 @@
                         android:background="@drawable/round_border"
                         android:weightSum="5">
 
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/national_id"
+                            android:layout_width="0dp"
+                            android:layout_weight="5"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:hint="National ID Number eg* 123456789"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/round_border"
+                        android:weightSum="5">
+
                         <customfonts.TextView_Roboto_Regular
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
                             android:hint="+254"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="10sp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/telephone"
@@ -287,10 +311,10 @@
                             android:layout_weight="4"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
-                            android:hint="Number* eg 0720000111"
+                            android:hint="TelNo eg* 0720000111"
                             android:inputType="phone"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
@@ -306,34 +330,24 @@
                         android:weightSum="5">
 
                         <customfonts.TextView_Roboto_Regular
-                            android:id="@+id/national_id"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:background="#00000000"
-                            android:hint="National ID number* eg 123456789"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
-
-                        <customfonts.TextView_Roboto_Regular
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
                             android:hint="+254"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="10sp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/telephone_other"
                             android:layout_width="0dp"
-                            android:layout_weight="3"
+                            android:layout_weight="4"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
-                            android:hint="Number Other* eg 0720000111"
+                            android:hint="TelNo Other eg* 0720000111"
                             android:inputType="phone"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
