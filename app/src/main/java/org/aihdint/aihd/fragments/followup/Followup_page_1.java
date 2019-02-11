@@ -335,9 +335,9 @@ public class Followup_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), DateCalendar.date(), ""));
 
 
-        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueDate", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueText", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165150", "", "valueDate", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueDate", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueText", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165151", "", "valueDate", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {

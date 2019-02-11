@@ -229,7 +229,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Date of DM Diagnosis"
+                            android:text="Year of DM Diagnosis"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -255,7 +255,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:focusable="false"
-                            android:hint="(yyyy-mm-dd)"
+                            android:hint="(yyyy)"
                             android:inputType="date"
                             android:textSize="13sp" />
 
@@ -368,7 +368,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Date of HTN Diagnosis"
+                            android:text="Year of HTN Diagnosis"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -394,7 +394,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:focusable="false"
-                            android:hint="(yyyy-mm-dd)"
+                            android:hint="(yyyy)"
                             android:inputType="date"
                             android:textSize="13sp" />
 
