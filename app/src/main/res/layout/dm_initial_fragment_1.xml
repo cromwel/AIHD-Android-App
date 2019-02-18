@@ -107,6 +107,7 @@
                         android:text="Status of Patient"
                         android:textAllCaps="false" />
 
+                    <!--DM-->
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,7 +115,6 @@
                         android:layout_marginRight="18dp"
                         android:layout_marginTop="20dp"
                         android:text="Diabetes *" />
-
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -255,6 +255,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                   <!-- HTN-->
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -404,6 +405,7 @@
 
                     </LinearLayout>
 
+                    <!--HIV-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -501,6 +503,7 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
+                   <!-- TB-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -590,7 +593,6 @@
 
                     </LinearLayout>
 
-
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -607,7 +609,6 @@
                         android:layout_marginRight="18dp"
                         android:text="On treatment"
                         android:visibility="gone" />
-
 
                     <customfonts.TextView_Roboto_Bold
                         android:layout_width="match_parent"
@@ -650,6 +651,7 @@
                         android:padding="15dp"
                         android:textSize="13sp" />
 
+                    <!--NHIF-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -717,6 +719,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!--Referral-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

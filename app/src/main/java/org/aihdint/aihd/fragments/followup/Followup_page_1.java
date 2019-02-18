@@ -52,18 +52,18 @@ public class Followup_page_1 extends Fragment {
         DateCalendar.fulldate(getActivity(), dm_followup_date);
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
-        dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);
+       // dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);
 
         htnDiagnosisDateEditText = view.findViewById(R.id.htn_diagnosis_date);
-        htnClinicDateEditText = view.findViewById(R.id.htn_clinic_date);
+       // htnClinicDateEditText = view.findViewById(R.id.htn_clinic_date);
 
         editTextTBDate = view.findViewById(R.id.tb_treatment_start);
         editTextTBComment = view.findViewById(R.id.tb_comment);
 
         DateCalendar.date(getActivity(), dmDiagnosisDateEditText);
-        DateCalendar.date(getActivity(), dmClinicDateEditText);
+       // DateCalendar.date(getActivity(), dmClinicDateEditText);
         DateCalendar.date(getActivity(), htnDiagnosisDateEditText);
-        DateCalendar.date(getActivity(), htnClinicDateEditText);
+       // DateCalendar.date(getActivity(), htnClinicDateEditText);
         DateCalendar.date(getActivity(), editTextTBDate);
 
         textWatcher(dm_followup_date);
@@ -71,9 +71,9 @@ public class Followup_page_1 extends Fragment {
         textWatcher(supporter_phoneEditText);
         textWatcher(supporter_phone_otherEditText);
         textWatcher(dmDiagnosisDateEditText);
-        textWatcher(dmClinicDateEditText);
+        //textWatcher(dmClinicDateEditText);
         textWatcher(htnDiagnosisDateEditText);
-        textWatcher(htnClinicDateEditText);
+        //textWatcher(htnClinicDateEditText);
         textWatcher(editTextTBDate);
         textWatcher(editTextTBComment);
 
@@ -136,10 +136,10 @@ public class Followup_page_1 extends Fragment {
     public void dmDiagnosis(String diagnosis) {
         if (diagnosis.matches("165087")) {
             dmDiagnosisDateEditText.setVisibility(View.GONE);
-            dmClinicDateEditText.setVisibility(View.GONE);
+           // dmClinicDateEditText.setVisibility(View.GONE);
         } else {
             dmDiagnosisDateEditText.setVisibility(View.VISIBLE);
-            dmClinicDateEditText.setVisibility(View.VISIBLE);
+           // dmClinicDateEditText.setVisibility(View.VISIBLE);
         }
     }
 
@@ -147,10 +147,10 @@ public class Followup_page_1 extends Fragment {
         Log.d("HTN Diagnosis", status);
         if (status.matches("165092")) {
             htnDiagnosisDateEditText.setVisibility(View.GONE);
-            htnClinicDateEditText.setVisibility(View.GONE);
+           // htnClinicDateEditText.setVisibility(View.GONE);
         } else {
             htnDiagnosisDateEditText.setVisibility(View.VISIBLE);
-            htnClinicDateEditText.setVisibility(View.VISIBLE);
+           // htnClinicDateEditText.setVisibility(View.VISIBLE);
         }
     }
 
@@ -336,9 +336,9 @@ public class Followup_page_1 extends Fragment {
 
 
         jsonArry.put(JSONFormBuilder.observations("165089", "", "valueText", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165150", "", "valueDate", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        //jsonArry.put(JSONFormBuilder.observations("165150", "", "valueDate", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
         jsonArry.put(JSONFormBuilder.observations("165090", "", "valueText", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165151", "", "valueDate", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        //jsonArry.put(JSONFormBuilder.observations("165151", "", "valueDate", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
