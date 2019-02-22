@@ -181,19 +181,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:orientation="vertical">
 
                         <!--diabetes diagnosis-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Diabetes Diagnosis"
+                                android:text="Diabetes Diagnosis*"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
@@ -225,10 +225,12 @@
 
                         <!--type of diabetes-->
                         <LinearLayout
+                            android:id="@+id/followup_type_of_diabetes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
-                            android:orientation="vertical">
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -240,8 +242,6 @@
                                 android:id="@+id/radioGroupDiabetes"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="18dp"
-                                android:layout_marginRight="18dp"
                                 android:orientation="vertical">
 
                                 <RadioButton
@@ -278,9 +278,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="18dp"
+                            android:layout_margin="10dp"
                             android:baselineAligned="false"
                             android:orientation="horizontal"
                             android:weightSum="2">
@@ -320,15 +318,16 @@
 
                             <!--year of diagnosis-->
                             <LinearLayout
+                                android:id="@+id/followup_year_of_diagnosis_dm"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
                                     android:text="Year of Diagnosis" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -337,7 +336,6 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Year of Diagnosis"
                                     android:inputType="number"
-                                    android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
 
@@ -349,20 +347,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:orientation="vertical">
 
                         <!--hypertension diagnosis-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="13sp"
-                                android:text="Hypertension"
+                                android:text="Hypertension Diagnosis*"
                                 android:textColor="@color/black" />
 
                             <RadioGroup
@@ -393,10 +391,12 @@
 
                         <!--types of hypertension-->
                         <LinearLayout
+                            android:id="@+id/followup_type_of_hypertension"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
-                            android:orientation="vertical">
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
@@ -449,9 +449,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="18dp"
+                            android:layout_margin="10dp"
                             android:baselineAligned="false"
                             android:orientation="horizontal"
                             android:weightSum="2">
@@ -491,15 +489,16 @@
 
                             <!--year of diagnosis-->
                             <LinearLayout
+                                android:id="@+id/followup_year_of_diagnosis_htn"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
                                     android:text="Year of Diagnosis" />
 
                                 <customfonts.EditText_Roboto_Regular
@@ -508,7 +507,6 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Year of Diagnosis"
                                     android:inputType="number"
-                                    android:padding="15dp"
                                     android:textSize="13sp" />
                             </LinearLayout>
 
@@ -520,20 +518,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:orientation="vertical">
 
                         <!--HIV status-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="HIV Status"
                                 android:layout_marginTop="13sp"
+                                android:text="HIV Status*"
                                 android:textColor="@color/black" />
 
                             <RadioGroup
@@ -557,9 +555,44 @@
                                     android:id="@+id/radio_hiv_unknown"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Uknown" />
+                                    android:text="Unknown" />
                             </RadioGroup>
 
+                        </LinearLayout>
+
+                        <!--HIV ETC-->
+                        <LinearLayout
+                            android:id="@+id/followup_etc_hiv_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="10dp"
+                            android:visibility="gone">
+
+                            <RadioGroup
+                                android:id="@+id/hiv_enrolled"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Enrolled to Care" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_enrolled_yes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_enrolled_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="No" />
+                            </RadioGroup>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -568,20 +601,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:orientation="vertical">
 
                         <!--TB diagnosis-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Screened for TB"
                                 android:layout_marginTop="13sp"
+                                android:text="Screened for TB*"
                                 android:textColor="@color/black" />
 
                             <RadioGroup
@@ -613,16 +646,17 @@
 
                         <!--TB status-->
                         <LinearLayout
+                            android:id="@+id/followup_status_of_tb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
-                            android:orientation="vertical">
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Status"
-                                android:layout_marginTop="13sp"
                                 android:textColor="@color/black" />
 
                             <RadioGroup
@@ -655,10 +689,12 @@
 
                         <!--TB treatment-->
                         <LinearLayout
+                            android:id="@+id/followup_treatment_of_tb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
-                            android:orientation="vertical">
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <CheckBox
                                 android:id="@+id/checkbox_tb_status"
@@ -669,9 +705,8 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="13sp"
-                                android:textColor="@color/black"
-                                android:text="Treatment Start Date" />
+                                android:text="Treatment Start Date"
+                                android:textColor="@color/black" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/tb_treatment_start"
@@ -680,7 +715,7 @@
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp"/>
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
@@ -689,15 +724,14 @@
                             android:id="@+id/tb_details"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
+                            android:layout_margin="10dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="13sp"
-                                android:textColor="@color/black"
-                                android:text="Comments (details)" />
+                                android:text="Comments (details)"
+                                android:textColor="@color/black" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/tb_comment"
@@ -714,13 +748,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:orientation="vertical">
 
                         <!--active NHIF?-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
