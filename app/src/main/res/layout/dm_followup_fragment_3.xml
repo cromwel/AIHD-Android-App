@@ -36,8 +36,8 @@
                         android:layout_height="wrap_content"
                         android:background="@color/background_header"
                         android:gravity="center"
-                        android:paddingBottom="5dp"
                         android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:text="Physical Examination"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -66,7 +66,7 @@
                                 android:gravity="center"
                                 android:text="Current"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
@@ -75,7 +75,7 @@
                                 android:gravity="center"
                                 android:text="Recent"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -90,7 +90,7 @@
                                 android:layout_weight="1"
                                 android:text="Height(cm)"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_height"
@@ -99,7 +99,7 @@
                                 android:layout_weight="1"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:id="@+id/followup_height_recent"
@@ -122,7 +122,7 @@
                                 android:layout_weight="1"
                                 android:text="Weight(KG)"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_weight"
@@ -131,7 +131,7 @@
                                 android:layout_weight="1"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
@@ -154,7 +154,7 @@
                                 android:layout_weight="1"
                                 android:text="BMI"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.TextView_Roboto_Bold
                                 android:id="@+id/followup_bmi"
@@ -177,7 +177,7 @@
                                 android:layout_weight="1"
                                 android:text="Hip Waist Ratio"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -190,7 +190,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Hip circ (cm)"
                                     android:textColor="@color/black"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/followup_hip_circ"
@@ -198,14 +198,14 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="numberDecimal"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Waist circ (cm)"
                                     android:textColor="@color/black"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <customfonts.EditText_Roboto_Regular
                                     android:id="@+id/followup_waist_circ"
@@ -213,7 +213,7 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="numberDecimal"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -252,7 +252,7 @@
                                 android:layout_weight="1"
                                 android:text="Blood Pressure (mmHG)"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -294,7 +294,7 @@
                                             android:hint="Systolic (mmHg)"
                                             android:inputType="number"
                                             android:padding="15dp"
-                                            android:textSize="13sp" />
+                                            android:textSize="12sp" />
 
                                     </LinearLayout>
 
@@ -317,7 +317,7 @@
                                             android:hint="Diastolic (mmHg)"
                                             android:inputType="number"
                                             android:padding="15dp"
-                                            android:textSize="13sp" />
+                                            android:textSize="12sp" />
 
                                     </LinearLayout>
                                 </LinearLayout>
@@ -343,7 +343,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="text"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
 
@@ -351,7 +351,6 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -377,8 +376,8 @@
                             android:layout_height="wrap_content"
                             android:background="@color/background_header"
                             android:gravity="center"
-                            android:paddingBottom="5dp"
                             android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
                             android:text="Exams:"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
@@ -395,8 +394,8 @@
                                 android:layout_weight=".5"
                                 android:background="@color/background_inner"
                                 android:gravity="center"
-                                android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
                                 android:text="Exam"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
@@ -407,8 +406,8 @@
                                 android:layout_weight=".5"
                                 android:background="@color/background_inner"
                                 android:gravity="center"
-                                android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
                                 android:text="Comment"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
@@ -436,7 +435,7 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="text"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -460,7 +459,7 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="text"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -484,7 +483,7 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="text"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -508,14 +507,13 @@
                                 android:layout_weight=".5"
                                 android:ems="10"
                                 android:inputType="text"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
 
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -542,8 +540,8 @@
                             android:layout_height="wrap_content"
                             android:background="@color/background_header"
                             android:gravity="center"
-                            android:paddingBottom="5dp"
                             android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
                             android:text="Assessments:"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
@@ -560,8 +558,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:gravity="center"
-                                android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
                                 android:text="Assessment"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
@@ -571,8 +569,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
                                 android:gravity="center"
-                                android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
                                 android:text="Details"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
@@ -605,7 +603,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -628,7 +626,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -651,7 +649,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -675,7 +673,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -699,7 +697,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -723,7 +721,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -746,7 +744,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -769,7 +767,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -792,7 +790,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -815,7 +813,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -838,7 +836,7 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -861,12 +859,10 @@
                                     android:layout_weight=".5"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -889,8 +885,8 @@
                         android:layout_height="wrap_content"
                         android:background="@color/background_header"
                         android:gravity="center"
-                        android:paddingBottom="5dp"
                         android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:text="Complications: Foot Amputations (please indicate)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -906,7 +902,7 @@
                             android:layout_height="wrap_content"
                             android:text="Foot Amputations:"
                             android:textColor="@color/black"
-                            android:textSize="13sp" />
+                            android:textSize="12sp" />
 
 
                         <RadioGroup
@@ -935,7 +931,6 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -956,8 +951,8 @@
                         android:layout_height="wrap_content"
                         android:background="@color/background_header"
                         android:gravity="center"
-                        android:paddingBottom="5dp"
                         android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:text="Laboratory Investigations:"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -972,7 +967,7 @@
                         android:paddingRight="75dp"
                         android:text="Date"
                         android:textColor="@color/black"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -989,29 +984,29 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="Fasting Blood Sugar (FBS)"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_fbs"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_fbs"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1024,29 +1019,29 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="Random Blood Sugar (RBS)"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_rbs"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_rbs"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1058,29 +1053,29 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="HbA1c"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_hba"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_hba"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1092,29 +1087,29 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="HDL"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_hdl"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_hdl"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1126,29 +1121,29 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="LDL"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_ldl"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_ldl"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1160,29 +1155,29 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="Triglycerides"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_triglycerides"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_triglycerides"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1194,63 +1189,257 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
-                                android:text="UECs/ Creatinine"
-                                android:textColor="@color/black"
-                                android:textSize="13sp" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/followup_uec"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".75"
-                                android:ems="10"
-                                android:inputType="numberDecimal"
-                                android:textSize="13sp" />
-
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/date_uec"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".75"
-                                android:focusable="false"
-                                android:hint="yyyy-mm-dd"
-                                android:inputType="date"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1.4"
                                 android:text="Urinalysis"
                                 android:textColor="@color/black"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/followup_urinalysis"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:ems="10"
                                 android:inputType="numberDecimal"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
 
                             <customfonts.EditText_Roboto_Regular
                                 android:id="@+id/date_urinalysis"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".75"
+                                android:layout_weight=".8"
                                 android:focusable="false"
                                 android:hint="yyyy-mm-dd"
                                 android:inputType="date"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:orientation="horizontal">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="UECs/ Creatinine"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <!--urea-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:orientation="horizontal"
+                                android:weightSum="3"
+                                android:paddingLeft="10dp">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.2"
+                                    android:text="Urea"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/followup_uec_urea"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".9"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="12sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_uec_urea"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".9"
+                                    android:focusable="false"
+                                    android:hint="yyyy-mm-dd"
+                                    android:inputType="date"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <!--electrolytes-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <customfonts.TextView_Roboto_Bold
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Electrolytes"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <!--sodium-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingTop="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:weightSum="3">
+
+                                    <customfonts.TextView_Roboto_Bold
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.2"
+                                        android:text="Sodium"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/followup_uec_electrolytes"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:ems="10"
+                                        android:inputType="numberDecimal"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/date_uec_electrolytes"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:focusable="false"
+                                        android:hint="yyyy-mm-dd"
+                                        android:inputType="date"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <!--chloride-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingTop="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:weightSum="3">
+
+                                    <customfonts.TextView_Roboto_Bold
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.2"
+                                        android:text="Chloride"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/followup_uec_chloride"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:ems="10"
+                                        android:inputType="numberDecimal"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/date_uec_chloride"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:focusable="false"
+                                        android:hint="yyyy-mm-dd"
+                                        android:inputType="date"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <!--potassium-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingTop="10dp"
+                                    android:paddingLeft="10dp"
+                                    android:weightSum="3">
+
+                                    <customfonts.TextView_Roboto_Bold
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.2"
+                                        android:text="Potassium"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/followup_uec_potassium"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:ems="10"
+                                        android:inputType="numberDecimal"
+                                        android:textSize="12sp" />
+
+                                    <customfonts.EditText_Roboto_Regular
+                                        android:id="@+id/date_uec_potassium"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".9"
+                                        android:focusable="false"
+                                        android:hint="yyyy-mm-dd"
+                                        android:inputType="date"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!--creatinine-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingLeft="10dp"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Creatinine"
+                                    android:layout_weight="1.2"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/followup_uec_creatinine"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".9"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:textSize="12sp" />
+
+                                <customfonts.EditText_Roboto_Regular
+                                    android:id="@+id/date_uec_creatinine"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".9"
+                                    android:focusable="false"
+                                    android:hint="yyyy-mm-dd"
+                                    android:inputType="date"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                     </LinearLayout>
