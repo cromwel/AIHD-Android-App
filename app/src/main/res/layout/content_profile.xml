@@ -296,6 +296,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
                                 android:text="File Attachment"
+                                android:drawableLeft="@drawable/attachment_clip"
+                                android:drawablePadding="10dp"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
