@@ -47,11 +47,13 @@ public class Followup_page_3 extends Fragment {
             editTextRetinopathy, editTextKidneyDisease, editTextAsthma, editTextArthritis, editTextFoot, editTextOther;
     private EditText editTextFBS, editTextRBS, editTextHBA, editTextHDL, editTextLDL, editTextTriglycerides, editTextUECUrea, editTextUECElectrolytes, editTextUECChloride, editTextUECPotassium, editTextUECCreatinine, editTextUrinalysis;
     private EditText editTextDateFBS, editTextDateRBS, editTextDateHBA, editTextDateHDL, editTextDateLDL, editTextDateTriglycerides, editTextDateUECUrea, editTextDateUECElectrolytes, editTextDateUECChloride, editTextDateUECPotassium, editTextDateUECCreatinine, editTextDateUrinalysis;
-
+   // private TextView_Roboto_Bold textViewUreaFlag;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.dm_followup_fragment_3, container, false);
+
+       // textViewUreaFlag = view.findViewById(R.id.urea_flag);
 
         editTextSystolic = view.findViewById(R.id.followup_systolic);
         editTextDiastolic = view.findViewById(R.id.followup_diastolic);
@@ -280,7 +282,6 @@ public class Followup_page_3 extends Fragment {
         });
     }
 
-
     public void radioButtonClicked(final RadioButton radioButton) {
 
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -307,7 +308,6 @@ public class Followup_page_3 extends Fragment {
             }
         });
     }
-
 
     public void checkBox(final CheckBox checkBox) {
 
@@ -510,6 +510,17 @@ public class Followup_page_3 extends Fragment {
         Log.d("JSON FollowUp Page 3", jsonArry.toString() + " ");
 
         FragmentModelFollowUp.getInstance().followUpThree(jsonArry);
+
+        /*flags();*/
     }
+
+   /* public void flags(){
+        int UECUrea = Integer.parseInt(editTextUECUrea.getText().toString().trim());
+        if( UECUrea >= 2.7 && UECUrea <= 8.0 ){
+            textViewUreaFlag.setVisibility(View.VISIBLE);
+        }else{
+            textViewUreaFlag.setVisibility(View.GONE);
+        }
+    }*/
 
 }

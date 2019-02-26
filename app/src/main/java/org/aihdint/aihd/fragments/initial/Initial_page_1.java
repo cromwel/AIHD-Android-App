@@ -535,7 +535,7 @@ public class Initial_page_1 extends Fragment {
                     case R.id.radio_nhif_no:
                         if (checked)
                             nhif_status = "1066";
-                        Alerts.alert_msg(getContext(), "NHIF Registration", "Encourage Client to Register for NHIF");
+                        //Alerts.alert_msg(getContext(), "NHIF Registration", "Encourage Client to Register for NHIF");
                         break;
                     case R.id.radio_tb_yes:
                         if (checked)
@@ -656,6 +656,12 @@ public class Initial_page_1 extends Fragment {
                     default:
                         break;
                 }
+
+
+                if ("1066".equals(nhif_status)) {
+                    Alerts.alert_msg(getContext(), "NHIF Registration", "Encourage Client to Register for NHIF");
+                }
+
                 diabetes(diabetes_status);
                 hypertension(htn_status);
                 hivStatus(hiv_status);

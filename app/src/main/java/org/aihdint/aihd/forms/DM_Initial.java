@@ -75,12 +75,12 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         jsonArry6 = new JSONArray();
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 3"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 4"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 5"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page 6"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 1"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 2"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 3"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 4"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 5"));
+        tabLayout.addTab(tabLayout.newTab().setText("Pg 6"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);

@@ -353,7 +353,6 @@ public class Followup_page_1 extends Fragment {
         });
     }
 
-
     public void updateValues() {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.US);
         String current_time = timeFormat.format(new Date());
