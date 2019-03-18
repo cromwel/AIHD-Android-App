@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import org.aihdint.aihd.R;
@@ -53,14 +52,18 @@ public class Followup_page_1 extends Fragment {
         DateCalendar.fulldate(getActivity(), dm_followup_date);
 
         dmDiagnosisDateEditText = view.findViewById(R.id.dm_diagnosis_date);
+        dmClinicDateEditText = view.findViewById(R.id.dm_clinic_date);
 
         htnDiagnosisDateEditText = view.findViewById(R.id.htn_diagnosis_date);
+        htnClinicDateEditText = view.findViewById(R.id.htn_clinic_date);
 
         editTextTBDate = view.findViewById(R.id.tb_treatment_start);
         editTextTBComment = view.findViewById(R.id.tb_comment);
 
         DateCalendar.date(getActivity(), dmDiagnosisDateEditText);
+        DateCalendar.date(getActivity(), dmClinicDateEditText);
         DateCalendar.date(getActivity(), htnDiagnosisDateEditText);
+        DateCalendar.date(getActivity(), htnClinicDateEditText);
         DateCalendar.date(getActivity(), editTextTBDate);
 
         textWatcher(dm_followup_date);
@@ -68,7 +71,9 @@ public class Followup_page_1 extends Fragment {
         textWatcher(supporter_phoneEditText);
         textWatcher(supporter_phone_otherEditText);
         textWatcher(dmDiagnosisDateEditText);
+        textWatcher(dmClinicDateEditText);
         textWatcher(htnDiagnosisDateEditText);
+        textWatcher(htnClinicDateEditText);
         textWatcher(editTextTBDate);
         textWatcher(editTextTBComment);
 
@@ -129,72 +134,24 @@ public class Followup_page_1 extends Fragment {
     }
 
     public void dmDiagnosis(String diagnosis) {
-        LinearLayout followup_type_of_diabetes=view.findViewById(R.id.followup_type_of_diabetes);
-        LinearLayout followup_year_of_diagnosis_dm=view.findViewById(R.id.followup_year_of_diagnosis_dm);
-
-        if (diagnosis.matches("165087") | diagnosis.matches("165088")) {
-           // dmDiagnosisDateEditText.setVisibility(View.GONE);
-            followup_type_of_diabetes.setVisibility(View.VISIBLE);
-            followup_year_of_diagnosis_dm.setVisibility(View.VISIBLE);
-
+        if (diagnosis.matches("165087")) {
+            dmDiagnosisDateEditText.setVisibility(View.GONE);
+            dmClinicDateEditText.setVisibility(View.GONE);
         } else {
-            //dmDiagnosisDateEditText.setVisibility(View.VISIBLE);
-            followup_type_of_diabetes.setVisibility(View.GONE);
-            followup_year_of_diagnosis_dm.setVisibility(View.GONE);
+            dmDiagnosisDateEditText.setVisibility(View.VISIBLE);
+            dmClinicDateEditText.setVisibility(View.VISIBLE);
         }
     }
 
     public void htnDiagnosis(String status) {
         Log.d("HTN Diagnosis", status);
-        LinearLayout followup_type_of_hypertension=view.findViewById(R.id.followup_type_of_hypertension);
-        LinearLayout followup_year_of_diagnosis_htn=view.findViewById(R.id.followup_year_of_diagnosis_htn);
-
-        if (status.matches("165092") | status.matches("165093")) {
-            //htnDiagnosisDateEditText.setVisibility(View.GONE);
-           // htnClinicDateEditText.setVisibility(View.GONE);
-            followup_type_of_hypertension.setVisibility(View.VISIBLE);
-            followup_year_of_diagnosis_htn.setVisibility(View.VISIBLE);
+        if (status.matches("165092")) {
+            htnDiagnosisDateEditText.setVisibility(View.GONE);
+            htnClinicDateEditText.setVisibility(View.GONE);
         } else {
-           // htnDiagnosisDateEditText.setVisibility(View.VISIBLE);
-           // htnClinicDateEditText.setVisibility(View.VISIBLE);
-            followup_type_of_hypertension.setVisibility(View.GONE);
-            followup_year_of_diagnosis_htn.setVisibility(View.GONE);
+            htnDiagnosisDateEditText.setVisibility(View.VISIBLE);
+            htnClinicDateEditText.setVisibility(View.VISIBLE);
         }
-    }
-
-    public void hivDiagnosis(String statuses) {
-        LinearLayout followup_hiv_etc_treatment=view.findViewById(R.id.followup_etc_hiv_status);
-
-        if (statuses.matches("138571")) {
-            followup_hiv_etc_treatment.setVisibility(View.VISIBLE);
-        } else {
-            followup_hiv_etc_treatment.setVisibility(View.GONE);
-        }
-    }
-
-    public void tbDiagnosis(String state) {
-        LinearLayout followup_tb_status=view.findViewById(R.id.followup_status_of_tb);
-        LinearLayout followup_tb_treatment=view.findViewById(R.id.followup_treatment_of_tb);
-
-        if (state.matches("1065")) {
-            followup_tb_status.setVisibility(View.VISIBLE);
-
-        } else {
-            followup_tb_status.setVisibility(View.GONE);
-            followup_tb_treatment.setVisibility(View.GONE);
-        }
-
-
-    }
-
-    public void tbTeatment(String treat){
-        LinearLayout followup_tb_treatment=view.findViewById(R.id.followup_treatment_of_tb);
-        if(treat.matches("703") | treat.matches("1662")){
-            followup_tb_treatment.setVisibility(View.VISIBLE);
-        }else{
-            followup_tb_treatment.setVisibility(View.GONE);
-        }
-
     }
 
     public void textWatcher(EditText editText) {
@@ -207,11 +164,13 @@ public class Followup_page_1 extends Fragment {
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
 
             }
         });
@@ -300,47 +259,38 @@ public class Followup_page_1 extends Fragment {
                     case R.id.radio_tb_yes:
                         if (checked)
                             tb_screen = "1065";
-                        tbDiagnosis(tb_screen);
                         break;
                     case R.id.radio_tb_no:
                         if (checked)
                             tb_screen = "1066";
-                        tbDiagnosis(tb_screen);
                         break;
                     case R.id.radio_tb_na:
                         if (checked)
                             tb_screen = "1175";
-                        tbDiagnosis(tb_screen);
                         break;
                     case R.id.radio_tb_status_negative:
                         if (checked)
                             tb_status = "664";
-                        tbTeatment(tb_status);
                         break;
                     case R.id.radio_tb_status_positive:
                         if (checked)
                             tb_status = "703";
-                        tbTeatment(tb_status);
                         break;
                     case R.id.radio_tb_status_treatment:
                         if (checked)
                             tb_status = "1662";
-                        tbTeatment(tb_status);
                         break;
                     case R.id.radio_hiv_negative:
                         if (checked)
                             hiv_status = "664";
-                        hivDiagnosis(hiv_status);
                         break;
                     case R.id.radio_hiv_positive:
                         if (checked)
                             hiv_status = "138571";
-                        hivDiagnosis(hiv_status);
                         break;
                     case R.id.radio_hiv_unknown:
                         if (checked)
                             hiv_status = "1067";
-                        hivDiagnosis(hiv_status);
                         break;
                 }
 
@@ -348,10 +298,16 @@ public class Followup_page_1 extends Fragment {
                     Alerts.errorMessage(view, "Encourage Client to Register for NHIF");
                 }
 
+                if ("703".equals(tb_status)) {
+                    editTextTBDate.setVisibility(View.VISIBLE);
+                } else {
+                    editTextTBDate.setVisibility(View.GONE);
+                }
                 updateValues();
             }
         });
     }
+
 
     public void updateValues() {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.US);
@@ -379,8 +335,10 @@ public class Followup_page_1 extends Fragment {
         jsonArry.put(JSONFormBuilder.observations("165173", "", "valueText", editTextTBComment.getText().toString().trim(), DateCalendar.date(), ""));
 
 
-        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueText", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
-        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueText", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165089", "", "valueDate", dmDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165150", "", "valueDate", dmClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165090", "", "valueDate", htnDiagnosisDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165151", "", "valueDate", htnClinicDateEditText.getText().toString().trim(), DateCalendar.date(), ""));
 
         try {
             jsonArry = JSONFormBuilder.concatArray(jsonArry);

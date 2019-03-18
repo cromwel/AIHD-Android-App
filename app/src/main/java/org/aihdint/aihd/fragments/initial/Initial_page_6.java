@@ -35,9 +35,6 @@ public class Initial_page_6 extends Fragment {
     private EditText editTextReturnDate, editTextFacility, editTextDateReffered, editTextHealthFacility, editTextDateOut, editTextReffered, editTextRefferalReason, editTextSupportGroup,
             editTextProvider;
 
-    private CheckBox checkBoxContinueCare, checkBoxReferFacility, checkBoxTransferFacility, checkBoxManagementDM, checkBoxManagementHTN, checkBoxEyeReview, checkBoxSurgicalReview, checkBoxRenalReview,
-            checkBoxCVDReview, checkBoxNutrition, checkBoxPhysiotherapy, checkBoxFollowUpOther;
-
     private String continueCare, referFacility, transferFacility, managementDM, managementHTN, eyeReview, surgicalReview, renalReview,
             cvdReview, nutrition, physiotherapy, followUpOther;
 
@@ -48,18 +45,18 @@ public class Initial_page_6 extends Fragment {
         View view = inflater.inflate(R.layout.dm_initial_fragment_6, container, false);
 
         //Follow Up Plan
-        checkBoxContinueCare = view.findViewById(R.id.followup_continue);
-        checkBoxReferFacility = view.findViewById(R.id.followup_refer);
-        checkBoxTransferFacility = view.findViewById(R.id.followup_transfer);
-        checkBoxManagementDM = view.findViewById(R.id.followup_further_management_dm);
-        checkBoxManagementHTN = view.findViewById(R.id.followup_further_management_htn);
-        checkBoxEyeReview = view.findViewById(R.id.followup_eye_review);
-        checkBoxSurgicalReview = view.findViewById(R.id.followup_surgical_review);
-        checkBoxRenalReview = view.findViewById(R.id.followup_renal_review);
-        checkBoxCVDReview = view.findViewById(R.id.followup_cvd_review);
-        checkBoxNutrition = view.findViewById(R.id.followup_nutrition);
-        checkBoxPhysiotherapy = view.findViewById(R.id.followup_physiotherapy);
-        checkBoxFollowUpOther = view.findViewById(R.id.followup_other);
+        CheckBox checkBoxContinueCare = view.findViewById(R.id.followup_continue);
+        CheckBox checkBoxReferFacility = view.findViewById(R.id.followup_refer);
+        CheckBox checkBoxTransferFacility = view.findViewById(R.id.followup_transfer);
+        CheckBox checkBoxManagementDM = view.findViewById(R.id.followup_further_management_dm);
+        CheckBox checkBoxManagementHTN = view.findViewById(R.id.followup_further_management_htn);
+        CheckBox checkBoxEyeReview = view.findViewById(R.id.followup_eye_review);
+        CheckBox checkBoxSurgicalReview = view.findViewById(R.id.followup_surgical_review);
+        CheckBox checkBoxRenalReview = view.findViewById(R.id.followup_renal_review);
+        CheckBox checkBoxCVDReview = view.findViewById(R.id.followup_cvd_review);
+        CheckBox checkBoxNutrition = view.findViewById(R.id.followup_nutrition);
+        CheckBox checkBoxPhysiotherapy = view.findViewById(R.id.followup_physiotherapy);
+        CheckBox checkBoxFollowUpOther = view.findViewById(R.id.followup_other);
 
         checkBoxTreatment(checkBoxContinueCare);
         checkBoxTreatment(checkBoxReferFacility);
@@ -170,15 +167,18 @@ public class Initial_page_6 extends Fragment {
 
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
 
             }
         });
     }
+
 
     public void checkBoxTreatment(final CheckBox checkBox) {
 
@@ -317,35 +317,6 @@ public class Initial_page_6 extends Fragment {
         //Log.d("JSON Initial Page 6", jsonArry.toString() + " ");
 
         FragmentModelInitial.getInstance().initialSix(jsonArry);
-      //  greyOutEntry();
-
     }
 
-    public void greyOutEntry(){
-        //edit texts
-        editTextReturnDate.setEnabled(false);
-        editTextFacility.setEnabled(false);
-        editTextDateReffered.setEnabled(false);
-        editTextHealthFacility.setEnabled(false);
-        editTextDateOut.setEnabled(false);
-        editTextReffered.setEnabled(false);
-        editTextRefferalReason.setEnabled(false);
-        editTextSupportGroup.setEnabled(false);
-        editTextProvider.setEnabled(false);
-
-        //checkboxes
-        checkBoxContinueCare.setEnabled(false);
-        checkBoxReferFacility.setEnabled(false);
-        checkBoxTransferFacility.setEnabled(false);
-        checkBoxManagementDM.setEnabled(false);
-        checkBoxManagementHTN.setEnabled(false);
-        checkBoxEyeReview.setEnabled(false);
-        checkBoxSurgicalReview.setEnabled(false);
-        checkBoxRenalReview.setEnabled(false);
-        checkBoxCVDReview.setEnabled(false);
-        checkBoxNutrition.setEnabled(false);
-        checkBoxPhysiotherapy.setEnabled(false);
-        checkBoxFollowUpOther.setEnabled(false);
-
-    }
 }

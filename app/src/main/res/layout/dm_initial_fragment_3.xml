@@ -109,6 +109,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="RBS (mmols/L)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -119,7 +120,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:inputType="numberDecimal"
-                            android:padding="10dp"
+                            android:padding="15dp"
                             android:textSize="13sp" />
 
                         <customfonts.EditText_Roboto_Regular
@@ -130,6 +131,7 @@
                             android:focusable="false"
                             android:hint="yyyy-mm-dd"
                             android:inputType="date"
+                            android:padding="15dp"
                             android:textSize="13sp" />
                     </LinearLayout>
 
@@ -150,6 +152,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="FBS (mmols/L)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -164,7 +167,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -178,9 +181,10 @@
                                 android:id="@+id/datetime_fbc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -202,6 +206,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="HBA 1C(%)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -216,7 +221,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -230,9 +235,10 @@
                                 android:id="@+id/datetime_hba"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -262,6 +268,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Urea"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -276,7 +283,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -290,9 +297,10 @@
                                 android:id="@+id/datetime_urea"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -321,6 +329,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Sodium"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -335,7 +344,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -349,9 +358,10 @@
                                 android:id="@+id/datetime_sodium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -372,6 +382,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Chloride"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -386,7 +397,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -400,9 +411,10 @@
                                 android:id="@+id/datetime_chloride"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -423,6 +435,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Potassium"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -437,7 +450,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -452,9 +465,10 @@
                                 android:id="@+id/datetime_potassium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -463,9 +477,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -475,6 +489,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Creatinine"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -488,9 +503,9 @@
                                 android:id="@+id/blood_work_creatinine"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="numberDecimal"
-                                android:padding="10dp"
-                                android:textSize="13sp" />
+                                android:padding="15dp"
+                                android:textSize="13sp"
+                                android:inputType="numberDecimal" />
 
                         </LinearLayout>
 
@@ -503,9 +518,10 @@
                                 android:id="@+id/datetime_creatinine"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -523,9 +539,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -535,6 +551,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="HDL"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -549,7 +566,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -563,9 +580,10 @@
                                 android:id="@+id/datetime_hdl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -575,9 +593,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -587,6 +605,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="LDL"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -601,7 +620,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -615,9 +634,10 @@
                                 android:id="@+id/datetime_ldl"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -627,9 +647,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -639,6 +659,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Total Cholesterol"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -653,7 +674,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -667,9 +688,10 @@
                                 android:id="@+id/datetime_cholesterol"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -679,9 +701,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -691,6 +713,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Triglycerides"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -705,7 +728,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -719,9 +742,10 @@
                                 android:id="@+id/datetime_triglycerides"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -739,9 +763,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -751,6 +775,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="AST (SGOT)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -765,7 +790,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -779,9 +804,10 @@
                                 android:id="@+id/datetime_ast"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -791,9 +817,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -803,6 +829,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="ALT (SGPT)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -831,8 +858,8 @@
                                 android:id="@+id/datetime_alt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -856,6 +883,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Total Bilirubin"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -870,7 +898,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -884,9 +912,10 @@
                                 android:id="@+id/datetime_bilirubin"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -907,6 +936,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Direct Bilirubin"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -921,7 +951,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -935,9 +965,10 @@
                                 android:id="@+id/datetime_direct_bilirubin"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -959,6 +990,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Gamma GT(GGT)"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -973,7 +1005,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:padding="10dp"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -987,9 +1019,10 @@
                                 android:id="@+id/datetime_gamma"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -1007,9 +1040,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1019,6 +1052,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Glucose"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -1085,9 +1119,10 @@
                                 android:id="@+id/datetime_urinalysis_glucose"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -1098,9 +1133,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1110,6 +1145,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Protein"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -1176,9 +1212,10 @@
                                 android:id="@+id/datetime_urinalysis_protein"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -1188,9 +1225,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1200,6 +1237,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Ketone"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -1267,9 +1305,10 @@
                                 android:id="@+id/datetime_urinalysis_ketone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -1279,9 +1318,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="3">
+                        android:weightSum="3"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -1291,6 +1330,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Deposits"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -1318,8 +1358,8 @@
                                 android:id="@+id/datetime_urinalysis_deposit"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1350,20 +1390,16 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="ECG"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
                             <RadioGroup
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <RadioButton
@@ -1378,7 +1414,6 @@
                                     android:layout_height="wrap_content"
                                     android:text="Abnormal" />
                             </RadioGroup>
-                        </LinearLayout>
 
 
                         <LinearLayout
@@ -1390,13 +1425,15 @@
                                 android:id="@+id/datetime_ecg"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1413,37 +1450,32 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="CXR"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
 
-                        <LinearLayout
+                        <RadioGroup
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <RadioGroup
+                            <RadioButton
+                                android:id="@+id/radio_cxr_normal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
 
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+                                android:text="Normal" />
 
-                                    android:text="Normal" />
+                            <RadioButton
+                                android:id="@+id/radio_cxr_abnormal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Abnormal" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_cxr_abnormal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Abnormal" />
-
-                            </RadioGroup>
-                        </LinearLayout>
+                        </RadioGroup>
 
 
                         <LinearLayout
@@ -1455,9 +1487,10 @@
                                 android:id="@+id/datetime_cxr"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
+                                android:padding="15dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -1478,6 +1511,7 @@
                             <customfonts.TextView_Roboto_Bold
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:padding="10dp"
                                 android:text="Ultrasound"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -1491,8 +1525,8 @@
                                 android:id="@+id/datetime_ultrasound"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
                                 android:hint="yyyy-mm-dd"
+                                android:focusable="false"
                                 android:inputType="date"
                                 android:padding="15dp"
                                 android:textSize="13sp" />
@@ -1500,6 +1534,7 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:id="@+id/linearLayoutPDT"
@@ -1510,51 +1545,37 @@
                         android:orientation="horizontal"
                         android:weightSum="3">
 
-                        <LinearLayout
+                        <customfonts.TextView_Roboto_Bold
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:padding="10dp"
+                            android:text="PDT"
+                            android:textAllCaps="false" />
 
-                            <customfonts.TextView_Roboto_Bold
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="PDT"
-                                android:textAllCaps="false" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/comment_pdt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:hint="Comment"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/comment_pdt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Comment"
-                                android:padding="15dp"
-                                android:textSize="13sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/datetime_pdt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:hint="yyyy-mm-dd"
+                            android:focusable="false"
+                            android:inputType="date"
+                            android:padding="15dp"
+                            android:textSize="13sp" />
 
-                            <customfonts.EditText_Roboto_Regular
-                                android:id="@+id/datetime_pdt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:focusable="false"
-                                android:hint="yyyy-mm-dd"
-                                android:inputType="date"
-                                android:textSize="13sp" />
-                        </LinearLayout>
 
                     </LinearLayout>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

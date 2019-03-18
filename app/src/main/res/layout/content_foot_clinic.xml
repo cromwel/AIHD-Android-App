@@ -90,11 +90,11 @@
                                 android:layout_height="wrap_content"
                                 android:text="Amputation" />
 
-                           <!-- <CheckBox
+                            <CheckBox
                                 android:id="@+id/checkbox_acute_joint"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Acute joint" />-->
+                                android:text="Acute joint" />
 
 
                             <customfonts.TextView_Roboto_Bold
@@ -320,11 +320,11 @@
                                 android:layout_height="wrap_content"
                                 android:text="Under Treatment" />
 
-                           <!-- <RadioButton
+                            <RadioButton
                                 android:id="@+id/radio_foot_exam_resolved_amputation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Resolved" />-->
+                                android:text="Resolved" />
 
                             <RadioButton
                                 android:id="@+id/radio_foot_exam_referral_amputation"
@@ -336,12 +336,12 @@
                                 android:id="@+id/radio_foot_exam_saved_amputation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Healed" />
+                                android:text="Foot Saved" />
 
                         </RadioGroup>
 
 
-                      <!--  <customfonts.TextView_Roboto_Bold
+                        <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/background"
@@ -377,10 +377,10 @@
                                 android:layout_height="wrap_content"
                                 android:text="Foot Saved" />
 
-                        </RadioGroup>-->
+                        </RadioGroup>
 
 
-                        <!--<customfonts.TextView_Roboto_Bold
+                        <customfonts.TextView_Roboto_Bold
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/background"
@@ -416,7 +416,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Foot Saved" />
 
-                        </RadioGroup>-->
+                        </RadioGroup>
 
 
                         <customfonts.TextView_Roboto_Bold
