@@ -101,6 +101,12 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".Resources.HelpdeskActivity"
+            android:label="@string/helpdesk"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".patient.Patient_Reports"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"

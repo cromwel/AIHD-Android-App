@@ -30,10 +30,10 @@
                 android:icon="@drawable/ic_menu_resources"
                 android:title="@string/resources" />
 
-            <!--<item
+            <item
                 android:id="@+id/nav_helpdesk"
                 android:icon="@drawable/ic_live_help"
-                android:title="@string/helpdesk" />-->
+                android:title="@string/helpdesk" />
 
             <item
                 android:id="@+id/nav_share"

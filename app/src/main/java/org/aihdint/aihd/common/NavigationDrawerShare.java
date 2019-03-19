@@ -126,10 +126,10 @@ public class NavigationDrawerShare implements NavigationView.OnNavigationItemSel
             Intent resources = new Intent(mContext.getApplicationContext(), ResourcesActivity.class);
             mContext.startActivity(resources);
             ((Activity) mContext).finish();
-       /* }else if (id == R.id.nav_helpdesk) {
+        }else if (id == R.id.nav_helpdesk) {
             Intent resources = new Intent(mContext.getApplicationContext(), HelpdeskActivity.class);
             mContext.startActivity(resources);
-            ((Activity) mContext).finish();*/
+            ((Activity) mContext).finish();
         }else if (id == R.id.nav_share) {
             Alerts launch = new Alerts(mContext);
             //launch.alert_msg(this,"The Long Road","Maybe its a hard, loong road");
