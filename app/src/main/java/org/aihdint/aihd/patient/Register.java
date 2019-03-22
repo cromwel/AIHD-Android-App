@@ -76,18 +76,16 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         editTextFamilyName = findViewById(R.id.family_name);
         editTextGivenName = findViewById(R.id.given_name);
         editTextMiddleName = findViewById(R.id.middle_name);
+       // editTextNationalID = findViewById(R.id.national_id);
         editTextTelephone = findViewById(R.id.telephone);
         editTextTelephoneOther = findViewById(R.id.telephone_other);
-
         editTextAddress1 = findViewById(R.id.address1);
         editTextAddress2 = findViewById(R.id.address2);
         editTextAddress3 = findViewById(R.id.address3);
         editTextCounty = findViewById(R.id.county_district);
         editTextVillage = findViewById(R.id.city_village);
-
         editTextDOB = findViewById(R.id.birthdate);
         editTextAge = findViewById(R.id.age);
-
         editTextSupporter = findViewById(R.id.supporter_name);
         editTextSupporterAddress = findViewById(R.id.supporter_address);
         editTextSupporterNumber = findViewById(R.id.supporter_telephone);
@@ -174,6 +172,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         String family_name = editTextFamilyName.getText().toString().trim();
         String given_name = editTextGivenName.getText().toString().trim();
         String middle_name = editTextMiddleName.getText().toString().trim();
+       // String national_id = editTextNationalID.getText().toString().trim();
         String telephone = editTextTelephone.getText().toString().trim();
         String telephone_other = editTextTelephoneOther.getText().toString().trim();
         String address1 = editTextAddress1.getText().toString().trim();
@@ -257,6 +256,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                         // User successfully stored in MySQL
                         // Now store the user in sqlite
                         String patient_id = jObj.getString("person_id");
+                      // String national_id = jObj.getString("national_id");
+                       // String telephone = jObj.getString("telephone");
 
                         Toast.makeText(getApplicationContext(), "Patient successfully registered!", Toast.LENGTH_LONG).show();
 
@@ -270,6 +271,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                         intent.putExtra("gender", gender);
                         intent.putExtra("identifier", "identifier pending");
                         intent.putExtra("name", given_name + " " + family_name);
+                        //intent.putExtra("national_id", national_id);
+                        intent.putExtra("telephone", telephone);
                         startActivity(intent);
                         finish();
                     }
@@ -298,6 +301,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("family_name", family_name);
                 params.put("given_name", given_name);
                 params.put("middle_name", middleName);
+               // params.put("national_id", national_id);
                 params.put("telephone", telephone);
                 params.put("telephone_other", telephone_other);
                 params.put("patient_type", patient_type);

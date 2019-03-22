@@ -14,6 +14,7 @@ public class Person extends SugarRecord {
     private String gender;
     private String birthdate;
     private String birthdate_estimated;
+   // private String national_id;
     private String telephone;
     private String location_id;
     private String address1,address2,address3,county_district,city_village;
@@ -35,9 +36,14 @@ public class Person extends SugarRecord {
         this.family_name = name;
     }
 
+    /*public Person(String person_id, String national_id, String telephone){
+        this.person_id = person_id;
+        this.national_id = national_id;
+        this.telephone = telephone;
+
+    }*/
     // constructor
-    public Person(String family_name, String given_name, String gender, String birthdate,
-                  String telephone, String location_id, String status) {
+    public Person(String family_name, String given_name, String gender, String birthdate, String telephone, String location_id, String status) {
         this.family_name = family_name;
         this.given_name = given_name;
         this.gender = gender;
@@ -102,6 +108,14 @@ public class Person extends SugarRecord {
     public void setBirthdate_estimated(String birthdate_estimated) {
         this.birthdate_estimated = birthdate_estimated;
     }
+
+   /* public String getNational_id() {
+        return national_id;
+    }
+
+    public void setNational_id(String national_id) {
+        this.national_id = national_id;
+    }*/
 
     public String getTelephone() {
         return telephone;

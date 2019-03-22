@@ -58,18 +58,36 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/round_border">
+                        android:layout_marginRight="18dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/family_name"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".9"
                             android:background="#00000000"
-                            android:hint="Family Name *"
+                            android:hint="Family Name"
                             android:inputType="text"
-                            android:padding="15dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="0dp"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="0dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:textSize="13sp" />
+
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".1"
+                            android:background="#00000000"
+                            android:hint="*"
+                            android:textColorHint="@color/red"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -78,8 +96,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -98,18 +116,36 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/round_border">
+                        android:layout_marginRight="18dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/given_name"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".9"
                             android:background="#00000000"
-                            android:hint="First Name *"
+                            android:hint="First Name"
                             android:inputType="text"
-                            android:padding="15dp"
+                            android:paddingLeft="15dp"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="0dp"
+                            android:paddingRight="0dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:textSize="13sp" />
+
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".1"
+                            android:background="#00000000"
+                            android:hint="*"
+                            android:textColorHint="@color/red"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -117,15 +153,22 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_margin="18dp"
+                        android:orientation="horizontal"
                         android:weightSum="1">
 
                         <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Sex *" />
+                            android:layout_weight=".9"
+                            android:text="Sex" />
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".1"
+                            android:text="*"
+                            android:textColor="@color/red" />
                     </LinearLayout>
 
                     <RadioGroup
@@ -133,11 +176,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
                         android:layout_marginRight="18dp"
-                        android:layout_marginTop="18dp"
                         android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/radio_male"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="0dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onRadioButtonClicked"
@@ -155,35 +199,49 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="18dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <customfonts.TextView_Roboto_Bold
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Birth Date Estimated? *" />
+                            android:layout_weight=".9"
+                            android:text="Birth Date Estimated?" />
 
-                        <RadioGroup
-                            android:layout_width="match_parent"
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/birthdate_estimated_yes"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
-                                android:text="Yes" />
-
-                            <RadioButton
-                                android:id="@+id/birthdate_estimated_no"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:onClick="onRadioButtonClicked"
-                                android:text="No" />
-                        </RadioGroup>
+                            android:layout_weight=".1"
+                            android:text="*"
+                            android:textColor="@color/red" />
 
                     </LinearLayout>
 
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/birthdate_estimated_yes"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:id="@+id/birthdate_estimated_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onRadioButtonClicked"
+                            android:text="No" />
+                    </RadioGroup>
+
+                    <!--DOB-->
                     <LinearLayout
                         android:id="@+id/layout_dob"
                         android:layout_width="match_parent"
@@ -191,10 +249,26 @@
                         android:layout_margin="18dp"
                         android:orientation="vertical">
 
-                        <customfonts.TextView_Roboto_Bold
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Birth Date *" />
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".9"
+                                android:text="Birth Date" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:text="*"
+                                android:textColor="@color/red" />
+
+                        </LinearLayout>
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/birthdate"
@@ -203,13 +277,14 @@
                             android:layout_marginTop="10dp"
                             android:background="@drawable/round_border"
                             android:focusable="false"
-                            android:onClick="dob"
                             android:inputType="date"
+                            android:onClick="dob"
                             android:padding="15dp"
                             android:textSize="13sp" />
 
                     </LinearLayout>
 
+                    <!--estimated age-->
                     <LinearLayout
                         android:id="@+id/layout_age"
                         android:layout_width="match_parent"
@@ -220,10 +295,26 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
-                        <customfonts.TextView_Roboto_Bold
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Age in years *" />
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".9"
+                                android:text="Age in years" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:text="*"
+                                android:textColor="@color/red" />
+
+                        </LinearLayout>
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/age"
@@ -266,30 +357,38 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border"
-                        android:weightSum="5">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <customfonts.TextView_Roboto_Regular
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".25"
                             android:background="#00000000"
                             android:hint="+254"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="12sp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/telephone"
                             android:layout_width="0dp"
-                            android:layout_weight="4"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".65"
                             android:background="#00000000"
-                            android:hint="Number* eg 0720000111"
+                            android:hint="Telephone"
                             android:inputType="phone"
-                            android:padding="15dp"
+                            android:textSize="12sp" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".1"
+                            android:background="#00000000"
+                            android:hint="*"
+                            android:textColorHint="@color/red"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -298,34 +397,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="18dp"
                         android:layout_marginBottom="10dp"
-                        android:orientation="horizontal"
                         android:background="@drawable/round_border"
-                        android:weightSum="5">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
                         <customfonts.TextView_Roboto_Regular
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".25"
                             android:background="#00000000"
                             android:hint="+254"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:padding="14dp"
+                            android:textSize="12sp" />
 
                         <customfonts.EditText_Roboto_Regular
                             android:id="@+id/telephone_other"
                             android:layout_width="0dp"
-                            android:layout_weight="4"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".75"
+                            android:padding="14dp"
                             android:background="#00000000"
-                            android:hint="Number Other* eg 0720000111"
+                            android:hint="Other Telephone"
                             android:inputType="phone"
-                            android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
+
+                   <!-- <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_border">
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/national_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:hint="National ID Number"
+                            android:inputType="number"
+                            android:padding="14dp"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>-->
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -359,8 +479,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="18dp"
+                            android:layout_marginRight="18dp"
                             android:orientation="vertical">
 
                             <RadioButton
@@ -382,8 +502,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="18dp"
+                            android:layout_marginRight="18dp"
                             android:orientation="vertical">
 
                             <customfonts.TextView_Roboto_Bold
@@ -411,8 +531,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="18dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -431,8 +551,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="18dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -451,8 +571,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="18dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -471,8 +591,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="18dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -533,8 +653,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="18dp"
-                        android:layout_marginRight="18dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -552,10 +672,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="18dp"
                         android:layout_marginLeft="18dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="18dp"
-                        android:layout_marginTop="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -573,10 +692,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="18dp"
                         android:layout_marginLeft="18dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="18dp"
-                        android:layout_marginTop="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -587,17 +705,17 @@
                             android:hint="Treatment Supporter Telephone"
                             android:inputType="phone"
                             android:padding="15dp"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            tools:ignore="TooManyViews" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="18dp"
                         android:layout_marginLeft="18dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="18dp"
-                        android:layout_marginTop="18dp"
                         android:background="@drawable/round_border">
 
                         <customfonts.EditText_Roboto_Regular
@@ -616,10 +734,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
                         android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
                         android:background="@drawable/rounded_button"
                         android:gravity="center"
                         android:onClick="Submit"
