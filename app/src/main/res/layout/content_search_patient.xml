@@ -19,40 +19,40 @@
 
     </android.support.design.widget.AppBarLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/linearLayout">
-
-    <!-- Search patient -->
-
-    <FrameLayout
-        android:id="@+id/cover"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginTop="65dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/linear"
+        <!-- Search patient -->
+
+        <FrameLayout
+            android:id="@+id/cover"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:elevation="8dp"
-            android:layout_marginBottom="10dp"
-            tools:targetApi="lollipop">
+            android:layout_height="75dp"
+            android:layout_marginTop="65dp">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1">
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:elevation="8dp"
+                android:layout_marginBottom="10dp"
+                tools:targetApi="lollipop">
+
+                <!--    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="1">-->
 
                 <customfonts.EditText_Roboto
                     android:id="@+id/input_search"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rect"
                     android:hint="@string/search"
@@ -66,42 +66,55 @@
                     android:maxLines="1"
                     android:drawableRight="@drawable/search"
                     android:drawableEnd="@drawable/search"
-                    android:elevation="8dp"
-                    android:layout_weight=".7"/>
+                    android:elevation="8dp"/>
 
-                <Button
-                    android:id="@+id/btnRegister"
-                    android:visibility="gone"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".3"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_button"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/register"
-                    android:textAllCaps="false"
-                    android:onClick="register"
-                    android:textColor="#ffffff" />
+                <!-- <Button
+                     android:id="@+id/btnRegister"
+                     android:visibility="gone"
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight=".3"
+                     android:layout_margin="10dp"
+                     android:layout_gravity="center"
+                     android:background="@drawable/rounded_button"
+                     android:gravity="center"
+                     android:padding="5dp"
+                     android:text="@string/register"
+                     android:textAllCaps="false"
+                     android:onClick="register"
+                     android:textColor="#ffffff" />
 
-            </LinearLayout>
+             </LinearLayout>-->
 
-        </android.support.v7.widget.CardView>
-    </FrameLayout>
+            </android.support.v7.widget.CardView>
+        </FrameLayout>
 
-    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
-        android:id="@+id/swipyrefreshlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srl_direction="both">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/my_recycler_view"
+        <Button
+            android:id="@+id/btnRegister"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:onClick="register"
+            android:textColor="#ffffff" />
 
-    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+        <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+            android:id="@+id/swipyrefreshlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srl_direction="both">
 
-</LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
