@@ -102,7 +102,7 @@ public class Login extends Activity {
                         // user successfully logged in
 
                         // Now store the user in SQLite
-                        //String uuid = jObj.getString("uid");
+                       // String uuid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("display");
@@ -181,6 +181,10 @@ public class Login extends Activity {
                         Intent servicePatients = new Intent(getApplicationContext(), LoadPatients.class);
                         servicePatients.putExtra("uuid", uuid);
                         servicePatients.putExtra("mfl", mfl);
+
+                        Log.d("uuid tested",String.valueOf(uuid));
+                        Log.d("mfl tested", String.valueOf(mfl));
+
                         startService(servicePatients);
 
                         // Create login session

@@ -112,10 +112,13 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
 
 
     public void getPatients() {
+        Log.d("get patients", String.valueOf(contactList));
         contactList.clear();
         personList.clear();
 
         List<Person> allpersons = Person.findWithQuery(Person.class, "SELECT * FROM PERSON ORDER BY FAMILYNAME ASC");
+
+        Log.d("all", String.valueOf(allpersons));
 
         for (Person pn : allpersons) {
             // adding each child node to HashMap key => value
@@ -125,7 +128,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             person.setGiven_name(pn.getGiven_name());
             person.setGender(pn.getGender());
            // person.setNational_id(pn.getNational_id());
-            person.setTelephone(pn.getTelephone());
+           // person.setTelephone(pn.getTelephone());
             person.set_status("0");
             person.setIsReport(IsForm);
             person.setIdentifier(pn.getIdentifier());
@@ -179,7 +182,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             servicePatients.putExtra("uuid", AppController.getInstance().getSessionManager().getUserDetails().get("user_id"));
             servicePatients.putExtra("mfl", AppController.getInstance().getSessionManager().getUserDetails().get("mfl_code"));
             //servicePatients.putExtra("nationalid", AppController.getInstance().getSessionManager().getUserDetails().get("national_id"));
-            servicePatients.putExtra("telephone", AppController.getInstance().getSessionManager().getUserDetails().get("telephone"));
+            //servicePatients.putExtra("telephone", AppController.getInstance().getSessionManager().getUserDetails().get("telephone"));
             startService(servicePatients);
 
             new Handler().postDelayed(new Runnable() {

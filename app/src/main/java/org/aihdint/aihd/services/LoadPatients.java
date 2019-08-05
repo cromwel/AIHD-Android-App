@@ -35,14 +35,16 @@ public class LoadPatients extends IntentService {
         if (intent != null) {
             String uuid = intent.getStringExtra("uuid");
             String mfl = intent.getStringExtra("mfl");
-            String national_id = intent.getStringExtra("national_id");
-            String telephone = intent.getStringExtra("telephone");
+            /*String national_id = intent.getStringExtra("national_id");
+            String telephone = intent.getStringExtra("telephone");*/
+            Log.d("uuid",String.valueOf(uuid));
+            Log.d("mfl", String.valueOf(mfl));
 
-            DownloadPatients(uuid, mfl, national_id, telephone);
+            DownloadPatients(uuid, mfl);
         }
     }
 
-    private void DownloadPatients(final String uuid, final String mfl, final String national_id, final String telephone) {
+    private void DownloadPatients(final String uuid, final String mfl) {
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy-M-d");
@@ -57,6 +59,7 @@ public class LoadPatients extends IntentService {
 
                     // Getting JSON Array node
                     JSONArray patients = jsonObj.getJSONArray("data");
+                    Log.d("json array", String.valueOf(patients));
 
                     //List<Person> persons = Arrays.asList(patientsGson.fromJson(response, Person[].class));
                     Log.d("Response", response);
@@ -73,12 +76,14 @@ public class LoadPatients extends IntentService {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.d("error", String.valueOf(e));
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                Log.d("erro1", String.valueOf(error));
             }
         }) {
 
@@ -88,8 +93,8 @@ public class LoadPatients extends IntentService {
                 Map<String, String> params = new HashMap<>();
                 params.put("mfl", mfl);
                 params.put("uuid", uuid);
-                params.put("nationalid", national_id);
-                params.put("telephone", telephone);
+               /* params.put("nationalid", national_id);
+                params.put("telephone", telephone);*/
 
                 JSONObject JSONparams = new JSONObject(params);
                 Log.d("Params", JSONparams.toString());
@@ -98,6 +103,7 @@ public class LoadPatients extends IntentService {
             }
 
         };
+        Log.d("req1", String.valueOf(req));
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(req);
 
